@@ -1,0 +1,1192 @@
+# 🇬🇧 Universal .gitattributes base
+# 🇵🇹 Base universal de .gitattributes
+# 🇪🇸 Base universal de .gitattributes
+#
+# 🇬🇧 Defaulting every path to normalised text, then enumerating the binaries as LFS
+# 🇵🇹 Assumindo por omissão texto normalizado, enumerando depois os binários como LFS
+# 🇪🇸 Asumiendo por defecto texto normalizado, enumerando luego los binarios como LFS
+#
+# 🇬🇧 Later lines win, so a project overlay is appended below this base
+# 🇵🇹 As linhas posteriores prevalecem, pelo que uma sobreposição de projecto é acrescentada abaixo desta base
+# 🇪🇸 Las líneas posteriores prevalecen, por lo que una superposición de proyecto se añade debajo de esta base
+
+# 🇬🇧 Normalising line endings to LF for every detected text file
+# 🇵🇹 Normalizando as terminações de linha para LF em cada ficheiro de texto detectado
+# 🇪🇸 Normalizando los finales de línea a LF en cada archivo de texto detectado
+* text=auto eol=lf
+
+# ============================================================================
+# 🇬🇧 Text formats kept diffable and mergeable, never LFS
+# 🇵🇹 Formatos de texto mantidos comparáveis e fundíveis, nunca LFS
+# 🇪🇸 Formatos de texto mantenidos comparables y fusionables, nunca LFS
+# ============================================================================
+
+## 🇬🇧 Markup and programming language formats
+## 🇵🇹 Formatos de linguagem de marcação e de programação
+## 🇪🇸 Formatos de lenguaje de marcado y de programación
+# Ada source code
+*.[aA][dD][bB]         text eol=lf
+# Ada source code
+*.[aA][dD][sS]         text eol=lf
+# AsciiDoc
+*.[aA][dD][oO][cC]        text eol=lf
+# AsciiDoc
+*.[aA][sS][cC][iI][iI][dD][oO][cC]    text eol=lf
+# Assembly source code
+*.[aA][sS][mM]         text eol=lf
+# ASP.NET
+*.[aA][sS][pP][xX]        text eol=lf
+# BibTeX
+*.[bB][iI][bB]         text eol=lf
+# BibTeX
+*.[bB][iI][bB][tT][eE][xX]      text eol=lf
+# C source code
+*.[cC]           text eol=lf
+# COBOL source code
+*.[cC][bB][lL]         text eol=lf
+# C++ source code
+*.[cC][cC]          text eol=lf
+# CoffeeScript source code
+*.[cC][oO][fF][fF][eE][eE]      text eol=lf
+# COBOL source code
+*.[cC][oO][bB]         text eol=lf
+# C++ source code
+*.[cC][pP][pP]         text eol=lf
+# C# source code
+*.[cC][sS]          text eol=lf
+# ASP.NET Razor
+*.[cC][sS][hH][tT][mM][lL]      text eol=lf
+# CSS code file
+*.[cC][sS][sS]         text eol=lf
+# Dart source code
+*.[dD][aA][rR][tT]        text eol=lf
+# Eiffel source code
+*.[eE]           text eol=lf
+# Emacs Lisp source code
+*.[eE][lL]          text eol=lf
+# Elm source code
+*.[eE][lL][mM]         text eol=lf
+# Erlang source code
+*.[eE][rR][lL]         text eol=lf
+# Fortran source code
+*.[fF]           text eol=lf
+# Fortran source code
+*.[fF]90         text eol=lf
+# Fortran source code
+*.[fF][oO][rR]         text eol=lf
+# GEDCOM genealogical data
+*.[gG][eE][dD]         text eol=lf
+# GeoJSON data
+*.[gG][eE][oO][jJ][sS][oO][nN]     text eol=lf
+# Go source code
+*.[gG][oO]          text eol=lf
+# Groovy source code
+*.[gG][rR][oO][oO][vV][yY]      text eol=lf
+# C header file
+*.[hH]           text eol=lf
+# HAML source code
+*.[hH][aA][mM][lL]        text eol=lf
+# C++ header file
+*.[hH][hH]          text eol=lf
+# C++ header file
+*.[hH][pP][pP]         text eol=lf
+# HTML document file
+*.[hH][tT][mM][lL]        text eol=lf
+# Haskell source code
+*.[hH][sS]          text eol=lf
+# Arduino source code
+*.[iI][nN][oO]         text eol=lf
+# Java source code
+*.[jJ][aA][vV][aA]        text eol=lf
+# Julia source code
+*.[jJ][lL]          text eol=lf
+# JavaScript code file
+*.[jJ][sS]          text eol=lf
+# JSX code file
+*.[jJ][sS][xX]         text eol=lf
+# Kotlin source code
+*.[kK][tT]          text eol=lf
+# LaTeX source code
+*.[lL][aA][tT][eE][xX]       text eol=lf
+# LESS code file
+*.[lL][eE][sS][sS]        text eol=lf
+# Literate Haskell source code
+*.[lL][hH][sS]         text eol=lf
+# Lisp source code
+*.[lL][iI][sS][pP]        text eol=lf
+# Lisp source code
+*.[lL][sS][pP]         text eol=lf
+# Lua source code
+*.[lL][uU][aA]         text eol=lf
+# MATLAB, Objective-C or Mercury source code
+*.[mM]           text eol=lf
+# Markdown
+*.[mM][dD]          text eol=lf
+# MHTML document
+*.[mM][hH][tT]         text eol=lf
+# MHTML document
+*.[mM][hH][tT][mM][lL]       text eol=lf
+# MJML code file
+*.[mM][jJ][mM][lL]        text eol=lf
+# OCaml source code
+*.[mM][lL]          text eol=lf
+# OCaml source code
+*.[mM][lL][iI]         text eol=lf
+# MathML code file
+*.[mM][mM][lL]         text eol=lf
+# Mathematica notebook source
+*.[nN][bB]          text eol=lf
+# Nim source code
+*.[nN][iI][mM]         text eol=lf
+# Pascal source code
+*.[pP][aA][sS]         text eol=lf
+# Perl source code
+*.[pP][eE][rR][lL]        text eol=lf
+# PHP code file
+*.[pP][hH][pP]         text eol=lf
+# Perl or Prolog source code
+*.[pP][lL]          text eol=lf
+# gettext catalogue
+*.[pP][oO]          text eol=lf
+# Perl documentation
+*.[pP][oO][dD]         text eol=lf
+# gettext catalogue template
+*.[pP][oO][tT]         text eol=lf
+# Pascal source code
+*.[pP][pP]          text eol=lf
+# Python code file
+*.[pP][yY]          text eol=lf
+# QT Meta Language code file
+*.[qQ][mM][lL]         text eol=lf
+# R source code
+*.[rR]           text eol=lf
+# Ruby code file
+*.[rR][bB]          text eol=lf
+# R Markdown
+*.[rR][mM][dD]         text eol=lf
+# Rich Text Format
+*.[rR][tT][fF]         text eol=lf
+# Rust source code
+*.[rR][sS]          text eol=lf
+# SASS code file
+*.[sS][aA][sS][sS]        text eol=lf
+# Scala source code
+*.[sS][cC][aA][lL][aA]       text eol=lf
+# SCSS code file
+*.[sS][cC][sS][sS]        text eol=lf
+# SVG vector image
+*.[sS][vV][gG]         text eol=lf
+# Swift source code
+*.[sS][wW][iI][fF][tT]       text eol=lf
+# TeX document file
+*.[tT][eE][xX]         text eol=lf
+# TextMate language grammar
+*.[tT][mM][lL][aA][nN][gG][uU][aA][gG][eE]  text eol=lf
+# TypeScript code file, or an MPEG transport stream, hence the content detection
+*.[tT][sS]          text=auto eol=lf
+# TypeScript JSX code file
+*.[tT][sS][xX]         text eol=lf
+# PlantUML code file
+*.[uU][mM][lL]         text eol=lf
+# Vala source code
+*.[vV][aA][lL][aA]        text eol=lf
+# Visual Basic source code
+*.[vV][bB]          text eol=lf
+# Visual Basic for Applications source code
+*.[vV][bB][aA]         text eol=lf
+# Wolfram Language source code
+*.[wW][lL]          text eol=lf
+# XML document file
+*.[xX][mM][lL]         text eol=lf
+# XSLT document file
+*.[xX][sS][lL]         text eol=lf
+
+## 🇬🇧 Script formats
+## 🇵🇹 Formatos de guião
+## 🇪🇸 Formatos de guion
+# AppleScript source code
+*.[aA][pP][pP][lL][eE][sS][cC][rR][iI][pP][tT] text eol=lf
+# Bash shell script
+*.[bB][aA][sS][hH]        text eol=lf
+# Fish shell script
+*.[fF][iI][sS][hH]        text eol=lf
+# Gradle build script
+*.[gG][rR][aA][dD][lL][eE]      text eol=lf
+# Korn shell script
+*.[kK][sS][hH]         text eol=lf
+# Windows PowerShell script
+*.[pP][sS]1         text eol=lf
+# Windows PowerShell module
+*.[pP][sS][mM]1        text eol=lf
+# Windows Registry script
+*.[rR][gG][sS]         text eol=lf
+# Shell script
+*.[sS][hH]          text eol=lf
+# Visual Basic Script source code
+*.[vV][bB][sS]         text eol=lf
+# VBScript source code
+*.[vV][bB][sS][cC][rR][iI][pP][tT]    text eol=lf
+# X shell script
+*.[xX][sS][hH]         text eol=lf
+# Z shell script
+*.[zZ][sS][hH]         text eol=lf
+
+# 🇬🇧 Forcing CRLF for Windows batch files, which require it for reliable execution
+# 🇵🇹 Forçando CRLF nos ficheiros batch do Windows, que o exigem para execução fiável
+# 🇪🇸 Forzando CRLF en los archivos batch de Windows, que lo requieren para una ejecución fiable
+# Windows batch file
+*.[bB][aA][tT]         text eol=crlf
+# Windows command file
+*.[cC][mM][dD]         text eol=crlf
+
+## 🇬🇧 Data interchange formats
+## 🇵🇹 Formatos de intercâmbio de dados
+## 🇪🇸 Formatos de intercambio de datos
+# Comma-separated values
+*.[cC][sS][vV]         text eol=lf
+# JavaScript Object Notation
+*.[jJ][sS][oO][nN]        text eol=lf
+# JSON with comments
+*.[jJ][sS][oO][nN][cC]       text eol=lf
+# JSON5
+*.[jJ][sS][oO][nN]5       text eol=lf
+# Newline-delimited JSON
+*.[nN][dD][jJ][sS][oO][nN]      text eol=lf
+# Tom's Obvious, Minimal Language
+*.[tT][oO][mM][lL]        text eol=lf
+# Tab-separated values
+*.[tT][sS][vV]         text eol=lf
+# YAML Ain't Markup Language
+*.[yY][aA][mM][lL]        text eol=lf
+# YAML Ain't Markup Language
+*.[yY][mM][lL]         text eol=lf
+
+## 🇬🇧 Configuration and project formats
+## 🇵🇹 Formatos de configuração e de projecto
+## 🇪🇸 Formatos de configuración y de proyecto
+# BBEdit project file
+*.[bB][bB][pP][rR][oO][jJ][eE][cC][tT]   text eol=lf
+# BlueJ project file
+*.[bB][lL][uU][eE][jJ]       text eol=lf
+# Eclipse Java classpath file
+*.[cC][lL][aA][sS][sS][pP][aA][tT][hH]   text eol=lf
+# MySQL Editor configuration file
+*.[cC][nN][fF]         text eol=lf
+# Linux configuration
+*.[cC][oO][nN][fF]        text eol=lf
+# Linux configuration
+*.[cC][oO][nN][fF][iI][gG]      text eol=lf
+# Eclipse C and C++ project file
+*.[cC][pP][rR][oO][jJ][eE][cC][tT]    text eol=lf
+# Microsoft Visual Studio C# project file
+*.[cC][sS][pP][rR][oO][jJ]      text eol=lf
+# Desktop entry
+*.[dD][eE][sS][kK][tT][oO][pP]     text eol=lf
+# KDE directory configuration
+*.[dD][iI][rR][eE][cC][tT][oO][rR][yY]   text eol=lf
+# Apache configuration file
+*.[hH][tT][aA][cC][cC][eE][sS][sS]    text eol=lf
+# IntelliJ IDEA project file
+*.[iI][mM][lL]         text eol=lf
+# Windows configuration
+*.[iI][nN][iI]         text eol=lf
+# Komodo Edit project file
+*.[kK][pP][fF]         text eol=lf
+# Unity metadata file
+*.[mM][eE][tT][aA]        text eol=lf
+# Eclipse project file
+*.[pP][rR][oO][jJ][eE][cC][tT]     text eol=lf
+# PyDev project file
+*.[pP][yY][dD][eE][vV][pP][rR][oO][jJ]   text eol=lf
+# Python project file
+*.[pP][yY][pP][rR][oO][jJ]      text eol=lf
+# RStudio project file
+*.[rR][pP][rR][oO][jJ]       text eol=lf
+# Visual Studio solution file, which Visual Studio rewrites with CRLF
+*.[sS][lL][nN]         text eol=crlf
+# GNOME and KDE theme definition
+*.[tT][hH][eE][mM][eE]       text eol=lf
+# Unity scene file
+*.[uU][nN][iI][tT][yY]       text eol=lf
+# Microsoft Visual Studio Visual Basic project file
+*.[vV][bB][pP][rR][oO][jJ]      text eol=lf
+# Microsoft Visual Studio C++ project file
+*.[vV][cC][pP][rR][oO][jJ]      text eol=lf
+# Microsoft Visual Studio C++ project file
+*.[vV][cC][xX][pP][rR][oO][jJ]     text eol=lf
+# Vim configuration
+*.[vV][iI][mM]         text eol=lf
+# Vim configuration
+*.[vV][iI][mM][rR][cC]       text eol=lf
+# Xcode configuration file
+*.[xX][cC][oO][nN][fF][iI][gG]     text eol=lf
+# Xamarin Studio project file
+*.[xX][pP][rR][oO][jJ]       text eol=lf
+
+## 🇬🇧 Sublime Text textual formats
+## 🇵🇹 Formatos textuais de Sublime Text
+## 🇪🇸 Formatos textuales de Sublime Text
+# Sublime Text build file
+*.[sS][uU][bB][lL][iI][mM][eE]-[bB][uU][iI][lL][dD]       text eol=lf
+# Sublime Text commands file
+*.[sS][uU][bB][lL][iI][mM][eE]-[cC][oO][mM][mM][aA][nN][dD][sS]    text eol=lf
+# Sublime Text completions file
+*.[sS][uU][bB][lL][iI][mM][eE]-[cC][oO][mM][pP][lL][eE][tT][iI][oO][nN][sS] text eol=lf
+# Sublime Text keymap file
+*.[sS][uU][bB][lL][iI][mM][eE]-[kK][eE][yY][mM][aA][pP]      text eol=lf
+# Sublime Text menu file
+*.[sS][uU][bB][lL][iI][mM][eE]-[mM][eE][nN][uU]        text eol=lf
+# Sublime Text options file
+*.[sS][uU][bB][lL][iI][mM][eE]-[oO][pP][tT][iI][oO][nN][sS]     text eol=lf
+# Sublime Text project file
+*.[sS][uU][bB][lL][iI][mM][eE]-[pP][rR][oO][jJ][eE][cC][tT]     text eol=lf
+# Sublime Text settings file
+*.[sS][uU][bB][lL][iI][mM][eE]-[sS][eE][tT][tT][iI][nN][gG][sS]    text eol=lf
+# Sublime Text snippet file
+*.[sS][uU][bB][lL][iI][mM][eE]-[sS][nN][iI][pP][pP][eE][tT]     text eol=lf
+# Sublime Text theme file
+*.[sS][uU][bB][lL][iI][mM][eE]-[tT][hH][eE][mM][eE]       text eol=lf
+# Sublime Text workspace file
+*.[sS][uU][bB][lL][iI][mM][eE]-[wW][oO][rR][kK][sS][pP][aA][cC][eE]   text eol=lf
+
+## 🇬🇧 Patch and diff formats
+## 🇵🇹 Formatos de patch e de diferença
+## 🇪🇸 Formatos de patch y de diferencia
+# Diff file
+*.[dD][iI][fF][fF]        text eol=lf
+# Patch file
+*.[pP][aA][tT][cC][hH]       text eol=lf
+
+## 🇬🇧 Subtitle formats
+## 🇵🇹 Formatos de subtítulo
+## 🇪🇸 Formatos de subtítulo
+# Advanced SubStation Alpha subtitle file
+*.[aA][sS][sS]         text eol=lf
+# YouTube subtitle file
+*.[sS][bB][vV]         text eol=lf
+# SubRip subtitle file
+*.[sS][rR][tT]         text eol=lf
+# SubStation Alpha subtitle file
+*.[sS][sS][aA]         text eol=lf
+# SubViewer subtitle file, or a VobSub image, hence the content detection
+*.[sS][uU][bB]         text=auto eol=lf
+# WebVTT subtitle file
+*.[vV][tT][tT]         text eol=lf
+
+## 🇬🇧 Textual font sources
+## 🇵🇹 Fontes textuais de tipo de letra
+## 🇪🇸 Fuentes textuales de tipo de letra
+# Bitmap Distribution Format font source
+*.[bB][dD][fF]         text eol=lf
+# Glyphs font source
+*.[gG][lL][yY][pP][hH][sS]      text eol=lf
+# FontForge Spline Font Database source
+*.[sS][fF][dD]         text eol=lf
+
+## 🇬🇧 Textual data, mail, calendar and key material
+## 🇵🇹 Dados textuais, correio, calendário e material de chave
+## 🇪🇸 Datos textuales, correo, calendario y material de clave
+# ASCII text
+*.[aA][sS][cC]         text eol=lf
+# ASCII text
+*.[aA][sS][cC][iI][iI]       text eol=lf
+# E-mail message
+*.[eE][mM][lL]         text eol=lf
+# E-mail message (Apple Mail)
+*.[eE][mM][lL][xX]        text eol=lf
+# Google Docs offline pointer
+*.[gG][dD][oO][cC]        text eol=lf
+# GIMP palette
+*.[gG][pP][lL]         text eol=lf
+# iCalendar file
+*.[iI][cC][sS]         text eol=lf
+# License notice
+*.[lL][iI][cC][eE][nN][sS][eE]     text eol=lf
+# Log file
+*.[lL][oO][gG]         text eol=lf
+# Privacy-Enhanced Mail certificate
+*.[pP][eE][mM]         text eol=lf
+# SSH public key or Microsoft Publisher document, hence the content detection
+*.[pP][uU][bB]         text=auto eol=lf
+# R history file
+*.[rR][hH][iI][sS][tT][oO][rR][yY]    text eol=lf
+# Plain text
+*.[tT][xX][tT]         text eol=lf
+# URL shortcut file
+*.[uU][rR][lL]         text eol=lf
+# vCard contact file
+*.[vV][cC][fF]         text eol=lf
+# Web location file (Safari)
+*.[wW][eE][bB][lL][oO][cC]      text eol=lf
+
+# ============================================================================
+# 🇬🇧 Binary formats stored in Git LFS
+# 🇵🇹 Formatos binários armazenados em Git LFS
+# 🇪🇸 Formatos binarios almacenados en Git LFS
+# ============================================================================
+
+## 🇬🇧 Compression formats
+## 🇵🇹 Formatos de compressão
+## 🇪🇸 Formatos de compresión
+*.7[zZ]          filter=lfs diff=lfs merge=lfs -text
+*.[bB][zZ]2         filter=lfs diff=lfs merge=lfs -text
+*.[bB][zZ][iI][pP]        filter=lfs diff=lfs merge=lfs -text
+*.[bB][zZ][iI][pP]2       filter=lfs diff=lfs merge=lfs -text
+# Windows cabinet format
+*.[cC][aA][bB]         filter=lfs diff=lfs merge=lfs -text
+*.[gG][zZ]          filter=lfs diff=lfs merge=lfs -text
+*.[gG][zZ][iI][pP]        filter=lfs diff=lfs merge=lfs -text
+*.[lL][zZ][mM][aA]        filter=lfs diff=lfs merge=lfs -text
+*.[rR][aA][rR]         filter=lfs diff=lfs merge=lfs -text
+*.[tT][aA][rR]         filter=lfs diff=lfs merge=lfs -text
+# tar with gzip
+*.[tT][gG][zZ]         filter=lfs diff=lfs merge=lfs -text
+# tar with xz
+*.[tT][xX][zZ]         filter=lfs diff=lfs merge=lfs -text
+# Extensible archive format
+*.[xX][aA][rR]         filter=lfs diff=lfs merge=lfs -text
+# macOS signed archive
+*.[xX][iI][pP]         filter=lfs diff=lfs merge=lfs -text
+*.[xX][zZ]          filter=lfs diff=lfs merge=lfs -text
+*.[zZ][iI][pP]         filter=lfs diff=lfs merge=lfs -text
+*.[zZ][sS][tT]         filter=lfs diff=lfs merge=lfs -text
+
+## 🇬🇧 Design binary formats
+## 🇵🇹 Formatos binários de desenho
+## 🇪🇸 Formatos binarios de diseño
+# Acorn (macOS)
+*.[aA][cC][oO][rR][nN]       filter=lfs diff=lfs merge=lfs -text
+# Affinity Designer
+*.[aA][fF][dD][eE][sS][iI][gG][nN]    filter=lfs diff=lfs merge=lfs -text
+# Affinity Photo
+*.[aA][fF][pP][hH][oO][tT][oO]     filter=lfs diff=lfs merge=lfs -text
+# Affinity Publisher
+*.[aA][fF][pP][uU][bB]       filter=lfs diff=lfs merge=lfs -text
+# Adobe Illustrator
+*.[aA][iI]          filter=lfs diff=lfs merge=lfs -text
+# Artboard (macOS)
+*.[aA][rR][tT][bB]        filter=lfs diff=lfs merge=lfs -text
+# CorelDRAW
+*.[cC][dD][rR]         filter=lfs diff=lfs merge=lfs -text
+# Encapsulated PostScript
+*.[eE][pP][sS]         filter=lfs diff=lfs merge=lfs -text
+# Figma
+*.[fF][iI][gG]         filter=lfs diff=lfs merge=lfs -text
+# Gravit Designer
+*.[gG][vV][dD][eE][sS][iI][gG][nN]    filter=lfs diff=lfs merge=lfs -text
+# Adobe InDesign
+*.[iI][nN][dD][dD]        filter=lfs diff=lfs merge=lfs -text
+# Krita
+*.[kK][rR][aA]         filter=lfs diff=lfs merge=lfs -text
+# GIMP
+*.[pP][iI][xX]         filter=lfs diff=lfs merge=lfs -text
+# Adobe Photoshop
+*.[pP][sS][dD]         filter=lfs diff=lfs merge=lfs -text
+# Pixelmator (macOS)
+*.[pP][xX][dD]         filter=lfs diff=lfs merge=lfs -text
+# Pixelmator (macOS)
+*.[pP][xX][mM]         filter=lfs diff=lfs merge=lfs -text
+# Sketch (macOS)
+*.[sS][kK][eE][tT][cC][hH]      filter=lfs diff=lfs merge=lfs -text
+# GIMP
+*.[xX][cC][fF]         filter=lfs diff=lfs merge=lfs -text
+# Adobe XD
+*.[xX][dD]          filter=lfs diff=lfs merge=lfs -text
+
+## 🇬🇧 Raster image formats
+## 🇵🇹 Formatos de imagem rasterizada
+## 🇪🇸 Formatos de imagen rasterizada
+# Windows bitmap
+*.[bB][mM][pP]         filter=lfs diff=lfs merge=lfs -text
+# JPEG File Interchange Format
+*.[jJ][fF][iI][fF]        filter=lfs diff=lfs merge=lfs -text
+# JPEG image
+*.[jJ][pP][eE][gG]        filter=lfs diff=lfs merge=lfs -text
+# JPEG image
+*.[jJ][pP][gG]         filter=lfs diff=lfs merge=lfs -text
+# Portable Network Graphics
+*.[pP][nN][gG]         filter=lfs diff=lfs merge=lfs -text
+# Tagged Image File Format
+*.[tT][iI][fF]         filter=lfs diff=lfs merge=lfs -text
+# Tagged Image File Format
+*.[tT][iI][fF][fF]        filter=lfs diff=lfs merge=lfs -text
+# WebP image
+*.[wW][eE][bB][pP]        filter=lfs diff=lfs merge=lfs -text
+
+## 🇬🇧 Animated image formats
+## 🇵🇹 Formatos de imagem animada
+## 🇪🇸 Formatos de imagen animada
+# Animated Portable Network Graphics
+*.[aA][pP][nN][gG]        filter=lfs diff=lfs merge=lfs -text
+# AV1 Image File Format
+*.[aA][vV][iI][fF]        filter=lfs diff=lfs merge=lfs -text
+# Free Lossless Image Format
+*.[fF][lL][iI][fF]        filter=lfs diff=lfs merge=lfs -text
+# Graphics Interchange Format
+*.[gG][iI][fF]         filter=lfs diff=lfs merge=lfs -text
+# Multiple-image Network Graphics
+*.[mM][nN][gG]         filter=lfs diff=lfs merge=lfs -text
+
+## 🇬🇧 3D image formats
+## 🇵🇹 Formatos de imagem 3D
+## 🇪🇸 Formatos de imagen 3D
+# 3D Studio Max
+*.3[dD][sS]         filter=lfs diff=lfs merge=lfs -text
+# Blender
+*.[bB][lL][eE][nN][dD]       filter=lfs diff=lfs merge=lfs -text
+# Cinema 4D
+*.[cC]4[dD]         filter=lfs diff=lfs merge=lfs -text
+# COLLADA
+*.[dD][aA][eE]         filter=lfs diff=lfs merge=lfs -text
+# Autodesk FBX
+*.[fF][bB][xX]         filter=lfs diff=lfs merge=lfs -text
+# Wavefront Object
+*.[oO][bB][jJ]         filter=lfs diff=lfs merge=lfs -text
+
+## 🇬🇧 Video formats
+## 🇵🇹 Formatos de vídeo
+## 🇪🇸 Formatos de vídeo
+# Audio Video Interleave
+*.[aA][vV][iI]         filter=lfs diff=lfs merge=lfs -text
+# Flash video
+*.[fF][lL][vV]         filter=lfs diff=lfs merge=lfs -text
+# MPEG-4 Video for iTunes
+*.[mM]4[vV]         filter=lfs diff=lfs merge=lfs -text
+# Matroska
+*.[mM][kK][vV]         filter=lfs diff=lfs merge=lfs -text
+# Apple QuickTime Movie
+*.[mM][oO][vV]         filter=lfs diff=lfs merge=lfs -text
+# MPEG-4 Part 14
+*.[mM][pP]4         filter=lfs diff=lfs merge=lfs -text
+# MPEG-1 or MPEG-2
+*.[mM][pP][eE][gG]        filter=lfs diff=lfs merge=lfs -text
+# MPEG-1 or MPEG-2
+*.[mM][pP][gG]         filter=lfs diff=lfs merge=lfs -text
+# Ogg media
+*.[oO][gG][mM]         filter=lfs diff=lfs merge=lfs -text
+# Ogg video
+*.[oO][gG][vV]         filter=lfs diff=lfs merge=lfs -text
+# WebM
+*.[wW][eE][bB][mM]        filter=lfs diff=lfs merge=lfs -text
+# Windows Media Video
+*.[wW][mM][vV]         filter=lfs diff=lfs merge=lfs -text
+
+## 🇬🇧 Audio formats
+## 🇵🇹 Formatos de áudio
+## 🇪🇸 Formatos de audio
+# Advanced Audio Coding
+*.[aA][aA][cC]         filter=lfs diff=lfs merge=lfs -text
+# Audio Interchange File Format
+*.[aA][iI][fF]         filter=lfs diff=lfs merge=lfs -text
+# Audio Interchange File Format
+*.[aA][iI][fF][fF]        filter=lfs diff=lfs merge=lfs -text
+# Monkey's Audio
+*.[aA][pP][eE]         filter=lfs diff=lfs merge=lfs -text
+# Free Lossless Audio Codec
+*.[fF][lL][aA][cC]        filter=lfs diff=lfs merge=lfs -text
+# MPEG-4 audio
+*.[mM]4[aA]         filter=lfs diff=lfs merge=lfs -text
+# MIDI sequence
+*.[mM][iI][dD]         filter=lfs diff=lfs merge=lfs -text
+# MIDI sequence
+*.[mM][iI][dD][iI]        filter=lfs diff=lfs merge=lfs -text
+# MPEG-1 Audio Layer III
+*.[mM][pP]3         filter=lfs diff=lfs merge=lfs -text
+# Ogg audio
+*.[oO][gG][aA]         filter=lfs diff=lfs merge=lfs -text
+# Ogg Vorbis
+*.[oO][gG][gG]         filter=lfs diff=lfs merge=lfs -text
+# Opus audio
+*.[oO][pP][uU][sS]        filter=lfs diff=lfs merge=lfs -text
+# Waveform audio
+*.[wW][aA][vV]         filter=lfs diff=lfs merge=lfs -text
+# Windows Media Audio
+*.[wW][mM][aA]         filter=lfs diff=lfs merge=lfs -text
+# WavPack audio
+*.[wW][vV]          filter=lfs diff=lfs merge=lfs -text
+
+## 🇬🇧 Application formats
+## 🇵🇹 Formatos de aplicação
+## 🇪🇸 Formatos de aplicación
+# macOS application
+*.[aA][pP][pP]         filter=lfs diff=lfs merge=lfs -text
+# Linux application
+*.[aA][pP][pP][iI][mM][aA][gG][eE]    filter=lfs diff=lfs merge=lfs -text
+# Windows application
+*.[eE][xX][eE]         filter=lfs diff=lfs merge=lfs -text
+# iOS application
+*.[iI][pP][aA]         filter=lfs diff=lfs merge=lfs -text
+# Java application
+*.[jJ][aA][rR]         filter=lfs diff=lfs merge=lfs -text
+# Linux application
+*.[rR][uU][nN]         filter=lfs diff=lfs merge=lfs -text
+
+## 🇬🇧 Installer and package formats
+## 🇵🇹 Formatos de instalação e pacote
+## 🇪🇸 Formatos de instalación y paquete
+# Alpine Linux or Android package
+*.[aA][pP][kK]         filter=lfs diff=lfs merge=lfs -text
+# Windows Store application
+*.[aA][pP][pP][xX]        filter=lfs diff=lfs merge=lfs -text
+# Arch Linux User Repository package
+*.[aA][uU][rR]         filter=lfs diff=lfs merge=lfs -text
+# Debian package
+*.[dD][eE][bB]         filter=lfs diff=lfs merge=lfs -text
+# Flatpak package
+*.[fF][lL][aA][tT][pP][aA][kK]     filter=lfs diff=lfs merge=lfs -text
+# Windows installer
+*.[mM][sS][iI]         filter=lfs diff=lfs merge=lfs -text
+# Windows Store application package
+*.[mM][sS][iI][xX]        filter=lfs diff=lfs merge=lfs -text
+# Windows Store application bundle
+*.[mM][sS][iI][xX][bB][uU][nN][dD][lL][eE]  filter=lfs diff=lfs merge=lfs -text
+# Arch Linux package
+*.[pP][aA][cC][mM][aA][nN]      filter=lfs diff=lfs merge=lfs -text
+# macOS installer
+*.[pP][kK][gG]         filter=lfs diff=lfs merge=lfs -text
+# Red Hat Package Manager
+*.[rR][pP][mM]         filter=lfs diff=lfs merge=lfs -text
+# Snapcraft package
+*.[sS][nN][aA][pP]        filter=lfs diff=lfs merge=lfs -text
+# Void Linux package
+*.[xX][bB][pP][sS]        filter=lfs diff=lfs merge=lfs -text
+
+## 🇬🇧 Disk image formats
+## 🇵🇹 Formatos de imagem de disco
+## 🇪🇸 Formatos de imagen de disco
+# macOS disk image
+*.[dD][mM][gG]         filter=lfs diff=lfs merge=lfs -text
+# Generic disk image
+*.[iI][mM][gG]         filter=lfs diff=lfs merge=lfs -text
+# ISO disk image
+*.[iI][sS][oO]         filter=lfs diff=lfs merge=lfs -text
+# QEMU disk image
+*.[qQ][cC][oO][wW]        filter=lfs diff=lfs merge=lfs -text
+# QEMU disk image
+*.[qQ][cC][oO][wW]2       filter=lfs diff=lfs merge=lfs -text
+# VirtualBox disk image
+*.[vV][dD][iI]         filter=lfs diff=lfs merge=lfs -text
+# Virtual Hard Disk
+*.[vV][hH][dD]         filter=lfs diff=lfs merge=lfs -text
+# Virtual Hard Disk for Hyper-V
+*.[vV][hH][dD][xX]        filter=lfs diff=lfs merge=lfs -text
+# VMware disk image
+*.[vV][mM][dD][kK]        filter=lfs diff=lfs merge=lfs -text
+
+## 🇬🇧 Application, browser and system extension formats
+## 🇵🇹 Formatos de extensão de aplicação, navegador e sistema
+## 🇪🇸 Formatos de extensión de aplicación, navegador y sistema
+# Adobe Photoshop plug-in
+*.8[bB][iI]         filter=lfs diff=lfs merge=lfs -text
+# Adobe Photoshop plug-in
+*.8[pP][iI]         filter=lfs diff=lfs merge=lfs -text
+# Chrome extension
+*.[cC][rR][xX]         filter=lfs diff=lfs merge=lfs -text
+# Adobe InDesign plug-in
+*.[iI][nN][dD][eE][sS][iI][gG][nN][pP][lL][uU][gG][iI][nN] filter=lfs diff=lfs merge=lfs -text
+# macOS kernel extension
+*.[kK][eE][xX][tT]        filter=lfs diff=lfs merge=lfs -text
+# OpenOffice extension
+*.[oO][xX][tT]         filter=lfs diff=lfs merge=lfs -text
+# macOS plug-in
+*.[pP][lL][uU][gG][iI][nN]      filter=lfs diff=lfs merge=lfs -text
+# Safari extension
+*.[sS][aA][fF][aA][rR][iI][eE][xX][tT][zZ]  filter=lfs diff=lfs merge=lfs -text
+# Visual Studio Code extension
+*.[vV][sS][iI][xX]        filter=lfs diff=lfs merge=lfs -text
+# Xcode plug-in
+*.[xX][cC][oO][dD][eE][pP][lL][uU][gG][iI][nN] filter=lfs diff=lfs merge=lfs -text
+# Xcode plug-in
+*.[xX][cC][pP][lL][uU][gG][iI][nN]    filter=lfs diff=lfs merge=lfs -text
+# Firefox extension
+*.[xX][pP][iI]         filter=lfs diff=lfs merge=lfs -text
+
+## 🇬🇧 Document and office binary formats
+## 🇵🇹 Formatos binários de documento e de escritório
+## 🇪🇸 Formatos binarios de documento y de oficina
+# AbiWord
+*.[aA][bB][wW]         filter=lfs diff=lfs merge=lfs -text
+# Microsoft Word
+*.[dD][oO][cC]         filter=lfs diff=lfs merge=lfs -text
+# Microsoft Word (OpenXML)
+*.[dD][oO][cC][xX]        filter=lfs diff=lfs merge=lfs -text
+# Tumult Hype document
+*.[hH][yY][pP][eE]        filter=lfs diff=lfs merge=lfs -text
+# Apple Numbers
+*.[nN][uU][mM][bB][eE][rR][sS]     filter=lfs diff=lfs merge=lfs -text
+# OpenDocument presentation
+*.[oO][dD][pP]         filter=lfs diff=lfs merge=lfs -text
+# OpenDocument spreadsheet
+*.[oO][dD][sS]         filter=lfs diff=lfs merge=lfs -text
+# OpenDocument text
+*.[oO][dD][tT]         filter=lfs diff=lfs merge=lfs -text
+# Apple Pages
+*.[pP][aA][gG][eE][sS]       filter=lfs diff=lfs merge=lfs -text
+# Adobe Portable Document Format
+*.[pP][dD][fF]         filter=lfs diff=lfs merge=lfs -text
+# Microsoft PowerPoint
+*.[pP][pP][tT]         filter=lfs diff=lfs merge=lfs -text
+# Microsoft PowerPoint (OpenXML)
+*.[pP][pP][tT][xX]        filter=lfs diff=lfs merge=lfs -text
+# Scribus document
+*.[sS][cC][rR][iI][bB][uU][sS]     filter=lfs diff=lfs merge=lfs -text
+# Scrivener document
+*.[sS][cC][rR][iI][vV]       filter=lfs diff=lfs merge=lfs -text
+# Scribus document
+*.[sS][lL][aA]         filter=lfs diff=lfs merge=lfs -text
+# Microsoft Excel
+*.[xX][lL][sS]         filter=lfs diff=lfs merge=lfs -text
+# Microsoft Excel macro-enabled workbook
+*.[xX][lL][sS][mM]        filter=lfs diff=lfs merge=lfs -text
+# Microsoft Excel (OpenXML)
+*.[xX][lL][sS][xX]        filter=lfs diff=lfs merge=lfs -text
+
+## 🇬🇧 Template binary formats
+## 🇵🇹 Formatos binários de modelo
+## 🇪🇸 Formatos binarios de modelo
+# Affinity template
+*.[aA][fF][tT][eE][mM][pP][lL][aA][tT][eE]  filter=lfs diff=lfs merge=lfs -text
+# Adobe Illustrator template
+*.[aA][iI][tT]         filter=lfs diff=lfs merge=lfs -text
+# AbiWord template
+*.[aA][wW][tT]         filter=lfs diff=lfs merge=lfs -text
+# Microsoft Word template
+# Microsoft Word template (OpenXML)
+*.[dD][oO][tT][xX]        filter=lfs diff=lfs merge=lfs -text
+# Tumult Hype template
+*.[hH][yY][pP][eE][tT][eE][mM][pP][lL][aA][tT][eE] filter=lfs diff=lfs merge=lfs -text
+# Adobe InDesign template
+*.[iI][nN][dD][tT]        filter=lfs diff=lfs merge=lfs -text
+# Komodo Edit template
+*.[kK][pP][zZ]         filter=lfs diff=lfs merge=lfs -text
+# Keynote theme
+*.[kK][tT][hH]         filter=lfs diff=lfs merge=lfs -text
+# OpenDocument text template
+*.[oO][tT][tT]         filter=lfs diff=lfs merge=lfs -text
+# OpenDocument spreadsheet template
+*.[oO][tT][sS]         filter=lfs diff=lfs merge=lfs -text
+# Microsoft PowerPoint template (OpenXML)
+*.[pP][oO][tT][xX]        filter=lfs diff=lfs merge=lfs -text
+
+## 🇬🇧 Book formats
+## 🇵🇹 Formatos de livro
+## 🇪🇸 Formatos de libro
+# Amazon Kindle eBook
+*.[aA][zZ][wW]         filter=lfs diff=lfs merge=lfs -text
+# Amazon Kindle eBook
+*.[aA][zZ][wW]3        filter=lfs diff=lfs merge=lfs -text
+# Amazon Kindle eBook
+*.[aA][zZ][wW]4        filter=lfs diff=lfs merge=lfs -text
+# Comic Book Archive
+*.[cC][bB]7         filter=lfs diff=lfs merge=lfs -text
+# Comic Book Archive
+*.[cC][bB][cC]         filter=lfs diff=lfs merge=lfs -text
+# Comic Book Archive RAR
+*.[cC][bB][rR]         filter=lfs diff=lfs merge=lfs -text
+# Comic Book Archive ZIP
+*.[cC][bB][zZ]         filter=lfs diff=lfs merge=lfs -text
+# DjVu document
+*.[dD][jJ][vV][uU]        filter=lfs diff=lfs merge=lfs -text
+# Electronic publication
+*.[eE][pP][uU][bB]        filter=lfs diff=lfs merge=lfs -text
+# eBook HTML compressed
+*.[hH][tT][mM][lL][zZ]       filter=lfs diff=lfs merge=lfs -text
+# iBooks Author
+*.[iI][bB][aA]         filter=lfs diff=lfs merge=lfs -text
+# iBooks
+*.[iI][bB][oO][oO][kK][sS]      filter=lfs diff=lfs merge=lfs -text
+# Mobipocket eBook
+*.[mM][oO][bB][iI]        filter=lfs diff=lfs merge=lfs -text
+# eBook Web archive compressed
+*.[wW][eE][bB][zZ]        filter=lfs diff=lfs merge=lfs -text
+
+## 🇬🇧 Binary font formats
+## 🇵🇹 Formatos binários de tipo de letra
+## 🇪🇸 Formatos binarios de fuente
+# Mac OS X data fork font
+*.[dD][fF][oO][nN][tT]       filter=lfs diff=lfs merge=lfs -text
+# Embedded OpenType font
+*.[eE][oO][tT]         filter=lfs diff=lfs merge=lfs -text
+# Windows font
+*.[fF][nN][tT]         filter=lfs diff=lfs merge=lfs -text
+# Windows font
+*.[fF][oO][nN]         filter=lfs diff=lfs merge=lfs -text
+# OpenType font
+*.[oO][tT][fF]         filter=lfs diff=lfs merge=lfs -text
+# Portable Compiled Format font for X terminals
+*.[pP][cC][fF]         filter=lfs diff=lfs merge=lfs -text
+# PostScript Type 1 font for bootloaders
+*.[pP][fF]2         filter=lfs diff=lfs merge=lfs -text
+# PostScript Type 1 font
+*.[pP][fF][aA]         filter=lfs diff=lfs merge=lfs -text
+# PostScript Type 1 font
+*.[pP][fF][bB]         filter=lfs diff=lfs merge=lfs -text
+# PostScript Type 1 font
+*.[pP][fF][mM]         filter=lfs diff=lfs merge=lfs -text
+# TrueType font collection
+*.[tT][tT][cC]         filter=lfs diff=lfs merge=lfs -text
+# TrueType font
+*.[tT][tT][fF]         filter=lfs diff=lfs merge=lfs -text
+# FontLab font
+*.[vV][fF][bB]         filter=lfs diff=lfs merge=lfs -text
+# Web Open Font Format font
+*.[wW][oO][fF][fF]        filter=lfs diff=lfs merge=lfs -text
+# Web Open Font Format font
+*.[wW][oO][fF][fF]2       filter=lfs diff=lfs merge=lfs -text
+
+## 🇬🇧 Binary colour palette formats
+## 🇵🇹 Formatos binários de paleta de cor
+## 🇪🇸 Formatos binarios de paleta de color
+# Adobe Colour Book file
+*.[aA][cC][bB]         filter=lfs diff=lfs merge=lfs -text
+# Adobe Colour file
+*.[aA][cC][oO]         filter=lfs diff=lfs merge=lfs -text
+# Adobe Swatch Exchange file
+*.[aA][sS][eE]         filter=lfs diff=lfs merge=lfs -text
+# Apple colour palette file
+*.[cC][lL][rR]         filter=lfs diff=lfs merge=lfs -text
+# Corel palette file
+*.[cC][pP][lL]         filter=lfs diff=lfs merge=lfs -text
+# Adobe colours configuration file
+*.[cC][sS][fF]         filter=lfs diff=lfs merge=lfs -text
+# Gravit Designer swatch file
+*.[gG][vV][sS][wW][aA][tT][cC][hH]    filter=lfs diff=lfs merge=lfs -text
+# Microsoft Windows palette file
+*.[pP][aA][lL]         filter=lfs diff=lfs merge=lfs -text
+# Microsoft Windows palette file
+*.[pP][aA][lL][xX]        filter=lfs diff=lfs merge=lfs -text
+
+## 🇬🇧 Binary database formats
+## 🇵🇹 Formatos binários de base de dados
+## 🇪🇸 Formatos binarios de base de datos
+# Database file
+*.[dD][bB]          filter=lfs diff=lfs merge=lfs -text
+# dBASE database file
+*.[dD][bB][fF]         filter=lfs diff=lfs merge=lfs -text
+# Microsoft Access database file
+*.[mM][dD][bB]         filter=lfs diff=lfs merge=lfs -text
+# SQLite database file
+*.[sS][qQ][lL][iI][tT][eE]      filter=lfs diff=lfs merge=lfs -text
+# SQLite database file
+*.[sS][qQ][lL][iI][tT][eE]3     filter=lfs diff=lfs merge=lfs -text
+
+## 🇬🇧 Adobe After Effects formats
+## 🇵🇹 Formatos de Adobe After Effects
+## 🇪🇸 Formatos de Adobe After Effects
+# Adobe After Effects template file
+*.[aA][eE][cC][aA][pP]       filter=lfs diff=lfs merge=lfs -text
+# Adobe After Effects graphic file
+*.[aA][eE][gG][rR][aA][pP][hH][iI][cC]   filter=lfs diff=lfs merge=lfs -text
+# Adobe After Effects project file
+*.[aA][eE][pP]         filter=lfs diff=lfs merge=lfs -text
+# Adobe After Effects project file
+*.[aA][eE][pP][xX]        filter=lfs diff=lfs merge=lfs -text
+# Adobe After Effects template file
+*.[aA][eE][tT]         filter=lfs diff=lfs merge=lfs -text
+# Adobe After Effects preset file
+*.[fF][fF][xX]         filter=lfs diff=lfs merge=lfs -text
+
+## 🇬🇧 Skylum application formats
+## 🇵🇹 Formatos de aplicações de Skylum
+## 🇪🇸 Formatos de aplicaciones de Skylum
+# Luminar catalogue file
+*.[lL][rR][cC][aA][tT]        filter=lfs diff=lfs merge=lfs -text
+# Luminar Template Collection file
+*.[lL][tT][cC]          filter=lfs diff=lfs merge=lfs -text
+# Look Up Table file
+*.[lL][uU][tT]          filter=lfs diff=lfs merge=lfs -text
+
+## 🇬🇧 Sundry binary formats
+## 🇵🇹 Formatos binários diversos
+## 🇪🇸 Formatos binarios diversos
+# Adobe Photoshop brush
+*.8[bB][aA]         filter=lfs diff=lfs merge=lfs -text
+# Adobe Photoshop colour picker
+*.8[cC][iI]         filter=lfs diff=lfs merge=lfs -text
+# Adobe Photoshop pattern
+*.8[eE][lL]         filter=lfs diff=lfs merge=lfs -text
+# Adobe Photoshop gradient
+*.8[lL][mM]         filter=lfs diff=lfs merge=lfs -text
+# Adobe brush file
+*.[aA][bB][rR]         filter=lfs diff=lfs merge=lfs -text
+# Affinity Designer brush file
+*.[aA][fF][bB][rR][uU][sS][hH][eE][sS]   filter=lfs diff=lfs merge=lfs -text
+# Unity asset file
+*.[aA][sS][sS][eE][tT]       filter=lfs diff=lfs merge=lfs -text
+# Dynamic Link Library file
+*.[dD][lL][lL]         filter=lfs diff=lfs merge=lfs -text
+# DaVinci Resolve project
+*.[dD][rR][pP]         filter=lfs diff=lfs merge=lfs -text
+# Lighting data (Unity)
+*.[dD][wW][lL][tT]        filter=lfs diff=lfs merge=lfs -text
+# MATLAB data or 3D materials file
+*.[mM][aA][tT]         filter=lfs diff=lfs merge=lfs -text
+# Outlook e-mail file
+*.[mM][sS][gG]         filter=lfs diff=lfs merge=lfs -text
+# Natron project file
+*.[nN][tT][pP]         filter=lfs diff=lfs merge=lfs -text
+# Pixelmator brush file
+*.[pP][xX][bB]         filter=lfs diff=lfs merge=lfs -text
+# Pixelmator gradient file
+*.[pP][xX][gG]         filter=lfs diff=lfs merge=lfs -text
+# Compiled Python file
+*.[pP][yY][cC]         filter=lfs diff=lfs merge=lfs -text
+# Compiled Python file
+*.[pP][yY][oO]         filter=lfs diff=lfs merge=lfs -text
+# R data file
+*.[rR][dD][aA]         filter=lfs diff=lfs merge=lfs -text
+# R data file
+*.[rR][dD][aA][tT][aA]       filter=lfs diff=lfs merge=lfs -text
+# Visual Studio solution cache
+*.[sS][uU][oO]         filter=lfs diff=lfs merge=lfs -text
+# Sublime Text package
+*.[sS][uU][bB][lL][iI][mM][eE]-[pP][aA][cC][kK][aA][gG][eE] filter=lfs diff=lfs merge=lfs -text
+# TextExpander settings file
+*.[tT][eE][xX][tT][eE][xX][pP][aA][nN][dD][eE][rR][sS][eE][tT][tT][iI][nN][gG][sS] filter=lfs diff=lfs merge=lfs -text
+# Unity asset package
+*.[uU][nN][iI][tT][yY][pP][aA][cC][kK][aA][gG][eE] filter=lfs diff=lfs merge=lfs -text
+# Web archive file (Safari)
+*.[wW][eE][bB][aA][rR][cC][hH][iI][vV][eE]  filter=lfs diff=lfs merge=lfs -text
+# Wondershare Filmora project
+*.[wW][fF][pP]         filter=lfs diff=lfs merge=lfs -text
+
+## 🇬🇧 Camera raw formats
+## 🇵🇹 Formatos raw de câmara
+## 🇪🇸 Formatos raw de cámara
+# Adobe Digital Negative raw image
+*.[dD][nN][gG]         filter=lfs diff=lfs merge=lfs -text
+# Canon raw image
+*.[cC][rR]2         filter=lfs diff=lfs merge=lfs -text
+# Canon raw image
+*.[cC][rR]3         filter=lfs diff=lfs merge=lfs -text
+# Nikon raw image
+*.[nN][eE][fF]         filter=lfs diff=lfs merge=lfs -text
+# Sony raw image
+*.[aA][rR][wW]         filter=lfs diff=lfs merge=lfs -text
+# Olympus raw image
+*.[oO][rR][fF]         filter=lfs diff=lfs merge=lfs -text
+# Fujifilm raw image
+*.[rR][aA][fF]         filter=lfs diff=lfs merge=lfs -text
+# Panasonic raw image
+*.[rR][wW]2         filter=lfs diff=lfs merge=lfs -text
+
+## 🇬🇧 Additional image formats
+## 🇵🇹 Formatos de imagem adicionais
+## 🇪🇸 Formatos de imagen adicionales
+# Adobe Photoshop large document
+*.[pP][sS][bB]         filter=lfs diff=lfs merge=lfs -text
+# High Efficiency Image Container
+*.[hH][eE][iI][cC]        filter=lfs diff=lfs merge=lfs -text
+# High Efficiency Image File
+*.[hH][eE][iI][fF]        filter=lfs diff=lfs merge=lfs -text
+# JPEG XL image
+*.[jJ][xX][lL]         filter=lfs diff=lfs merge=lfs -text
+# JPEG 2000 image
+*.[jJ][pP]2         filter=lfs diff=lfs merge=lfs -text
+# OpenEXR image
+*.[eE][xX][rR]         filter=lfs diff=lfs merge=lfs -text
+# Truevision TGA image
+*.[tT][gG][aA]         filter=lfs diff=lfs merge=lfs -text
+# DirectDraw surface texture
+*.[dD][dD][sS]         filter=lfs diff=lfs merge=lfs -text
+# Procreate document
+*.[pP][rR][oO][cC][rR][eE][aA][tT][eE]   filter=lfs diff=lfs merge=lfs -text
+# Clip Studio Paint document
+*.[cC][lL][iI][pP]        filter=lfs diff=lfs merge=lfs -text
+
+## 🇬🇧 Additional 3D and CAD formats
+## 🇵🇹 Formatos 3D e CAD adicionais
+## 🇪🇸 Formatos 3D y CAD adicionales
+# Binary glTF model
+*.[gG][lL][bB]         filter=lfs diff=lfs merge=lfs -text
+# Universal Scene Description archive
+*.[uU][sS][dD][zZ]        filter=lfs diff=lfs merge=lfs -text
+# 3D Manufacturing Format
+*.3[mM][fF]         filter=lfs diff=lfs merge=lfs -text
+# Autodesk Maya binary scene
+*.[mM][bB]          filter=lfs diff=lfs merge=lfs -text
+# Autodesk 3ds Max scene
+*.[mM][aA][xX]         filter=lfs diff=lfs merge=lfs -text
+# AutoCAD drawing
+*.[dD][wW][gG]         filter=lfs diff=lfs merge=lfs -text
+# SketchUp model
+*.[sS][kK][pP]         filter=lfs diff=lfs merge=lfs -text
+
+## 🇬🇧 Additional video and audio formats
+## 🇵🇹 Formatos de vídeo e áudio adicionais
+## 🇪🇸 Formatos de vídeo y audio adicionales
+# 3GPP video
+*.3[gG][pP]         filter=lfs diff=lfs merge=lfs -text
+# Blu-ray MPEG-2 transport stream video
+*.[mM]2[tT][sS]        filter=lfs diff=lfs merge=lfs -text
+# Core Audio Format
+*.[cC][aA][fF]         filter=lfs diff=lfs merge=lfs -text
+# Matroska audio
+*.[mM][kK][aA]         filter=lfs diff=lfs merge=lfs -text
+
+## 🇬🇧 Additional archive and package formats
+## 🇵🇹 Formatos de arquivo e pacote adicionais
+## 🇪🇸 Formatos de archivo y paquete adicionales
+# Lzip archive
+*.[lL][zZ]          filter=lfs diff=lfs merge=lfs -text
+# LZ4 archive
+*.[lL][zZ]4         filter=lfs diff=lfs merge=lfs -text
+# CPIO archive
+*.[cC][pP][iI][oO]        filter=lfs diff=lfs merge=lfs -text
+# Python wheel
+*.[wW][hH][lL]         filter=lfs diff=lfs merge=lfs -text
+# Java web archive
+*.[wW][aA][rR]         filter=lfs diff=lfs merge=lfs -text
+# NuGet package
+*.[nN][uU][pP][kK][gG]       filter=lfs diff=lfs merge=lfs -text
+
+## 🇬🇧 Data and machine learning formats
+## 🇵🇹 Formatos de dados e de aprendizagem automática
+## 🇪🇸 Formatos de datos y de aprendizaje automático
+# Apache Parquet table
+*.[pP][aA][rR][qQ][uU][eE][tT]     filter=lfs diff=lfs merge=lfs -text
+# Apache Arrow Feather table
+*.[fF][eE][aA][tT][hH][eE][rR]     filter=lfs diff=lfs merge=lfs -text
+# HDF5 container
+*.[hH]5          filter=lfs diff=lfs merge=lfs -text
+# HDF5 container
+*.[hH][dD][fF]5        filter=lfs diff=lfs merge=lfs -text
+# NumPy array
+*.[nN][pP][yY]         filter=lfs diff=lfs merge=lfs -text
+# NumPy compressed arrays
+*.[nN][pP][zZ]         filter=lfs diff=lfs merge=lfs -text
+# Python pickle
+*.[pP][kK][lL]         filter=lfs diff=lfs merge=lfs -text
+# Python pickle
+*.[pP][iI][cC][kK][lL][eE]      filter=lfs diff=lfs merge=lfs -text
+# ONNX model
+*.[oO][nN][nN][xX]        filter=lfs diff=lfs merge=lfs -text
+# Safetensors model
+*.[sS][aA][fF][eE][tT][eE][nN][sS][oO][rR][sS] filter=lfs diff=lfs merge=lfs -text
+# PyTorch model
+*.[pP][tT]          filter=lfs diff=lfs merge=lfs -text
+# PyTorch model
+*.[pP][tT][hH]         filter=lfs diff=lfs merge=lfs -text
+# Model checkpoint
+*.[cC][kK][pP][tT]        filter=lfs diff=lfs merge=lfs -text
+# GGUF model
+*.[gG][gG][uU][fF]        filter=lfs diff=lfs merge=lfs -text
+# Microsoft Access database
+*.[aA][cC][cC][dD][bB]       filter=lfs diff=lfs merge=lfs -text
+
+## 🇬🇧 Additional document and office formats
+## 🇵🇹 Formatos de documento e de escritório adicionais
+## 🇪🇸 Formatos de documento y de oficina adicionales
+# Microsoft Excel binary workbook
+*.[xX][lL][sS][bB]        filter=lfs diff=lfs merge=lfs -text
+# Microsoft Excel template
+*.[xX][lL][tT][xX]        filter=lfs diff=lfs merge=lfs -text
+# Microsoft Word macro document
+*.[dD][oO][cC][mM]        filter=lfs diff=lfs merge=lfs -text
+# Microsoft PowerPoint macro presentation
+*.[pP][pP][tT][mM]        filter=lfs diff=lfs merge=lfs -text
+# Microsoft Visio drawing
+*.[vV][sS][dD]         filter=lfs diff=lfs merge=lfs -text
+# Microsoft Visio drawing
+*.[vV][sS][dD][xX]        filter=lfs diff=lfs merge=lfs -text
+# OpenDocument drawing
+*.[oO][dD][gG]         filter=lfs diff=lfs merge=lfs -text
+
+## 🇬🇧 Native and runtime binaries
+## 🇵🇹 Binários nativos e de execução
+## 🇪🇸 Binarios nativos y de ejecución
+# Shared object library
+*.[sS][oO]          filter=lfs diff=lfs merge=lfs -text
+# macOS dynamic library
+*.[dD][yY][lL][iI][bB]       filter=lfs diff=lfs merge=lfs -text
+# Python extension module
+*.[pP][yY][dD]         filter=lfs diff=lfs merge=lfs -text
+# WebAssembly module
+*.[wW][aA][sS][mM]        filter=lfs diff=lfs merge=lfs -text
+# Adobe Flash movie
+*.[sS][wW][fF]         filter=lfs diff=lfs merge=lfs -text
+
+# ============================================================================
+# 🇬🇧 Small binary formats kept in Git, not LFS
+# 🇵🇹 Formatos binários pequenos mantidos no Git, não em LFS
+# 🇪🇸 Formatos binarios pequeños mantenidos en Git, no en LFS
+# ============================================================================
+# Windows icon
+*.[iI][cC][oO]         binary
+# macOS icon
+*.[iI][cC][nN][sS]        binary
+# macOS custom folder icon resource, the file named «Icon» followed by a carriage return
+Icon[!a-zA-Z0-9] binary
+# Windows shortcut
+*.[lL][nN][kK]         binary
+# BitTorrent description file
+*.[tT][oO][rR][rR][eE][nN][tT]     binary
+
+# ============================================================================
+# 🇬🇧 Repository housekeeping kept as plain diffable text
+# 🇵🇹 Manutenção do repositório mantida como texto simples comparável
+# 🇪🇸 Mantenimiento del repositorio mantenido como texto simple comparable
+# ============================================================================
+.gitattributes  text eol=lf
+.gitignore      text eol=lf
+.gitmodules     text eol=lf
+CHANGELOG.md    text eol=lf
+CONTRIBUTING.md text eol=lf
+FAQ.md          text eol=lf
+LICENSE         text eol=lf
+LICENSE.md      text eol=lf
+README.md       text eol=lf
+package.json    text eol=lf
+package-lock.json text eol=lf
+pnpm-lock.yaml  text eol=lf
+yarn.lock       text eol=lf
+*.[dD][oO][cC][kK][eE][rR][fF][iI][lL][eE]    text eol=lf
+*.[dD][oO][cC][kK][eE][rR][iI][gG][nN][oO][rR][eE]  text eol=lf
+
+# ============================================================================
+# 🇬🇧 Keeping small in-repository asset images out of LFS
+# 🇵🇹 Mantendo as imagens pequenas de recursos do repositório fora do LFS
+# 🇪🇸 Manteniendo las imágenes pequeñas de recursos del repositorio fuera de LFS
+# ============================================================================
+**/assets/images/**/*.[pP][nN][gG]  !filter !diff !merge -text
+**/assets/images/**/*.[jJ][pP][gG]  !filter !diff !merge -text
+**/assets/images/**/*.[jJ][pP][eE][gG] !filter !diff !merge -text
+**/assets/images/**/*.[gG][iI][fF]  !filter !diff !merge -text
+**/assets/images/**/*.[sS][vV][gG]  !filter !diff !merge text
+
+# 🇬🇧 Vault overlay, appended below `gitattributes-base` because later lines win
+# 🇵🇹 Sobreposição do cofre, acrescentada abaixo de `gitattributes-base` porque as linhas posteriores prevalecem
+# 🇪🇸 Superposición de la bóveda, añadida debajo de `gitattributes-base` porque las líneas posteriores prevalecen
+
+# 🇬🇧 Keeping vault attachments in ordinary Git so that the mirror receives real files and not LFS pointers
+# 🇵🇹 Mantendo os anexos do cofre no Git comum para que o espelho receba ficheiros reais e não ponteiros LFS
+# 🇪🇸 Manteniendo los adjuntos de la bóveda en Git común para que el espejo reciba archivos reales y no punteros LFS
+*.[pP][nN][gG]       !filter !diff !merge -text
+*.[jJ][pP][gG]       !filter !diff !merge -text
+*.[jJ][pP][eE][gG]   !filter !diff !merge -text
+*.[gG][iI][fF]       !filter !diff !merge -text
+*.[wW][eE][bB][pP]   !filter !diff !merge -text
+*.[pP][dD][fF]       !filter !diff !merge -text
+*.[xX][lL][sS][xX]   !filter !diff !merge -text
+
+# 🇬🇧 Keeping minified plugin bundles out of diffs
+# 🇵🇹 Mantendo os pacotes minificados de extensões fora das diferenças
+# 🇪🇸 Manteniendo los paquetes minificados de extensiones fuera de las diferencias
+.obsidian/plugins/**/main.js -diff
+
+# ============================================================================
+# 🇬🇧 Project overlay: aecesuperaluese-corpus
+# 🇵🇹 Sobreposição de projecto: aecesuperaluese-corpus
+# 🇪🇸 Superposición de proyecto: aecesuperaluese-corpus
+# ============================================================================
+
+# 🇬🇧 Shift fonts are SQLite databases, so they are binary and go to LFS
+# 🇵🇹 As fontes Shift são bases de dados SQLite, pelo que são binárias e vão para o LFS
+# 🇪🇸 Las fuentes Shift son bases de datos SQLite, por lo que son binarias y van a LFS
+*.[sS][hH][iI][fF][tT]       filter=lfs diff=lfs merge=lfs -text
+
+# 🇬🇧 Keeping the Apache virtual host files of the `.pt` domain as text, because the generic `*.pt` rule above would send them to Git LFS
+# 🇵🇹 Mantendo como texto os ficheiros de host virtual Apache do domínio `.pt`, pois a regra genérica `*.pt` acima enviá-los-ia para o Git LFS
+# 🇪🇸 Manteniendo como texto los archivos de host virtual de Apache del dominio `.pt`, pues la regla genérica `*.pt` de arriba los enviaría a Git LFS
+root/etc/httpd/conf/vhosts/*.pt text eol=lf !filter !diff !merge
+home/username/.local/share/servers/hostinger-vps/etc/httpd/conf/vhosts/*.pt text eol=lf !filter !diff !merge
