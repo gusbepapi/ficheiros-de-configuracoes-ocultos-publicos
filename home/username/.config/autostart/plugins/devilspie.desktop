@@ -1,0 +1,15 @@
+[Desktop Entry]
+Comment[en_GB] = It performs actions on windows as they are created
+Comment[pt] = Executa ações nas janelas conforme elas são criadas
+Comment = It performs actions on windows as they're created
+Exec = devilspie
+GenericName[en_GB] = Windows actions manipulations
+GenericName[pt] = Manipulações de ações das janelas
+GenericName = Windows actions manipulations
+Icon = system-run
+Name[en_GB] = DevilSpie
+Name = DevilSpie
+StartupNotify = true
+Terminal = false
+Type = Application
+X-KDE-SubstituteUID = false
