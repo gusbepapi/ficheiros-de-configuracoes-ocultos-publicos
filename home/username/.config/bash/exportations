@@ -1,0 +1,61 @@
+#!/usr/bin/bash
+
+# 🇬🇧 Exports
+# 🇵🇹 Exportações
+# 🇪🇸 Exporaicones
+
+# 🇬🇧 Favourite terminal editor
+# 🇵🇹 Editor de terminal favorito
+# 🇪🇸 Editor de terminal favorito
+export EDITOR="micro"
+
+## 🇬🇧 Bin local and Rust
+## 🇵🇹 Local de executáveis e Rust
+## 🇪🇸 Local de ejecutables y Rust
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export RUST_BACKTRACE=1
+
+## 🇬🇧 Browsers
+## 🇵🇹 Navegadores
+## 🇪🇸 Navegadores
+export BROWSER="firefox-nightly"
+export CHROME_BIN="google-chrome-unstable"
+export EDGE_BIN="microsoft-edge-dev"
+export FIREFOX_BIN="firefox-nightly"
+export FIREFOX_NIGHTLY_BIN="firefox-nightly"
+
+# 🇬🇧 You may need to manually set your language environment
+# 🇵🇹 Você pode precisar definir manualmente o seu ambiente de linguagem
+# 🇪🇸 Puede que necesites definir manualmente tu entorno de lenguaje
+# export LANG=en_GB.UTF-8
+
+# 🇬🇧 Compilation flags
+# 🇵🇹 Flags de compilação
+# 🇪🇸 Flags de compilación
+# export ARCHFLAGS="-arch x86_64"
+
+# 🇬🇧 Libraries
+# 🇵🇹 Bibliotecas
+# 🇪🇸 Bibliotecas
+# export LD_LIBRARY_PATH="$HOME/.local/lib"
+export LD_LIBRARY_PATH="/lib/:/usr/lib:$HOME/.local/lib"
+
+# SSH
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+## 🇬🇧 NVM, Node.js and NPM
+## 🇵🇹 NVM, Node.js e NPM
+## 🇪🇸 NVM, Node.js y NPM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# PNPM
+export PNPM_HOME="$HOME/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+
+# 🇬🇧 rbenv, rvm or Ruby
+# 🇵🇹 rbenv, rvm ou Ruby
+# 🇪🇸 rbenv, rvm o Ruby
+eval "$(~/.rbenv/bin/rbenv init - bash)"
