@@ -1,0 +1,43 @@
+# Describing the nodes of the Chromium `Preferences` file that merge-the-chromium-preferences changes
+# A path is a list of keys, because DevTools keys contain dots
+# Modes: merge (default), replace, remove
+# `json: true` means that Chromium stores the value as a JSON string
+# `key: FIELD` merges lists of dictionaries by that field
+version: 1
+
+# Removing the account, synchronisation and identifier nodes before anything else
+# The names come from the Edge and Chrome files of the old dotfiles, so review them for each browser
+sanitise:
+  - [account_info]
+  - [account_tracker_service_last_update]
+  - [gaia_cookie]
+  - [signin]
+  - [sync]
+  - [sync_profile_info]
+  - [sync_consent_recorded]
+  - [personalization_data_consent]
+  - [muid]
+  - [enterprise_profile_guid]
+  - [edge_wallet]
+  - [edge_rewards]
+
+nodes:
+  # Opening the device toolbar with a responsive viewport
+  - path: [devtools, preferences, emulation.showDeviceMode]
+    mode: replace
+    json: true
+    value: true
+
+  - path: [devtools, preferences, emulation.deviceScale]
+    mode: replace
+    json: true
+    value: 1
+
+  # Reusing the custom screen sizes of the old DevTools, with neutral titles
+  - path: [devtools, preferences, customEmulatedDeviceList]
+    kind: devtools-custom-devices
+    devices:
+      - { title: "Laptop 1366x625", width: 1366, height: 625, pixel-ratio: 1 }
+      - { title: "Laptop 1440x837 (with browser)", width: 1440, height: 837, pixel-ratio: 2 }
+      - { title: "Laptop 1440x900", width: 1440, height: 900, pixel-ratio: 2 }
+      - { title: "Phone 375x559 (with browser)", width: 375, height: 559, pixel-ratio: 2, mobile: true }
