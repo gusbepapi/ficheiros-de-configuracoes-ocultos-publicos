@@ -1,0 +1,6 @@
+[Defaults]
+Profile=Default
+
+[PROFILE_Default]
+EmailClient=/opt/microsoft/msedge-dev/microsoft-edge-dev
+TerminalClient=false

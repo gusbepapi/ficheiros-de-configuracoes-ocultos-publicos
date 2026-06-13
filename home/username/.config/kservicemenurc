@@ -1,0 +1,13 @@
+[Show]
+compressfileitemaction=true
+extractfileitemaction=true
+forgetfileitemaction=true
+kactivitymanagerd_fileitem_linking_plugin=false
+kdeconnectfileitemaction=false
+makefileactions=true
+mountisoaction=true
+movetonewfolderitemaction=true
+rename=true
+sharefileitemaction=false
+slideshowfileitemaction=false
+tagsfileitemaction=true

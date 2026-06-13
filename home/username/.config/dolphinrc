@@ -1,0 +1,47 @@
+[CompactMode]
+IconSize=32
+PreviewSize=22
+
+[ContentDisplay]
+UsePermissionsFormat=CombinedFormat
+UseShortRelativeDates=false
+
+[ContextMenu]
+ShowCopyMoveMenu=true
+ShowCopyToOtherSplitView=false
+
+[DetailsMode]
+IconSize=32
+LeftPadding=54
+PreviewSize=16
+
+[General]
+ConfirmClosingMultipleTabs=false
+ConfirmClosingTerminalRunningProgram=false
+GlobalViewProps=false
+RenameInline=false
+ShowStatusBar=FullWidth
+ShowToolTips=true
+Version=202
+ViewPropsTimestamp=2026,7,23,17,46,15.03
+shadeSortColumn=false
+
+[IconsMode]
+PreviewSize=256
+
+[KFileDialog Settings]
+Places Icons Auto-resize=false
+Places Icons Static Size=22
+
+[MainWindow]
+MenuBar=Disabled
+
+[Notification Messages]
+ConfirmOpenManyFolders=false
+ConfirmOpenManyTerminals=false
+
+[PreviewSettings]
+Plugins=appimagethumbnail,exrthumbnail,imagethumbnail,jpegthumbnail,windowsexethumbnail,windowsimagethumbnail,rawthumbnail,svgthumbnail,ffmpegthumbs,gdk-pixbuf-thumbnailer
+
+[UiSettings]
+ColorScheme=Kanagawa

@@ -1,0 +1,21 @@
+[ExtractDialog]
+2560x1440 screen: Window-Maximized=true
+DirHistory[$e]=$HOME/Downloads/,$HOME/Downloads/Linux/Debian/
+
+[General]
+ColorScheme=Kanagawa
+LockSidebar=true
+ShowSidebar=true
+
+[MainWindow]
+StatusBar=Disabled
+splitterSizes=856,74
+
+[Preview]
+limitPreviewFileSize=false
+
+[UiSettings]
+ColorScheme=Kanagawa
+
+[Viewer]
+StatusBar=Disabled

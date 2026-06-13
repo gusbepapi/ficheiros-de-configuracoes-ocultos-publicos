@@ -1,0 +1,9 @@
+[$Version]
+update_info = kscreenlocker.upd:0.1-autolock
+
+[Greeter]
+Theme = Arc-Dark
+WallpaperPlugin = org.kde.slideshow
+
+[Greeter][Wallpaper][org.kde.slideshow][General]
+SlidePaths = $HOME/.config/global/wallpapers

@@ -1,0 +1,76 @@
+Config Version = 1
+First Time = false
+Version = 2.7.1
+
+[Archives]
+Supported Packers = tar,gzip,bzip2,lzma,xz
+
+[Dependencies]
+bzip2 = /usr/bin/bzip2
+checksum utility = /usr/bin/md5sum
+gzip = /usr/bin/gzip
+lzma = /usr/bin/lzma
+md5sum = /usr/bin/md5sum
+mount = /usr/bin/mount
+sha1sum = /usr/bin/sha1sum
+sha224sum = /usr/bin/sha224sum
+sha256sum = /usr/bin/sha256sum
+sha384sum = /usr/bin/sha384sum
+sha512sum = /usr/bin/sha512sum
+tar = /usr/bin/tar
+umount = /usr/bin/umount
+xz = /usr/bin/xz
+
+[Konfigurator]
+Window Height = 680
+Window Maximized = false
+Window Width = 900
+
+[Notification Messages]
+Confirm Root Mode = false
+
+[Private]
+PopularUrlsRank = 24,19,18
+Start Position = 0,32
+Start Size = 1600,816
+
+[Startup]
+Left Side Is Active = true
+Show Cmd Line = false
+Show FN Keys = true
+Show Terminal Emulator = false
+Show status bar = true
+Splitter Sizes = 798,798
+Terminal Emulator Splitter Sizes = 100,100
+Vertical Mode = false
+
+[Startup][Left Tab Bar]
+ActiveTab = 0
+
+[Startup][Left Tab Bar][Tabs][Tab0]
+Properties = 0
+Type = 0
+
+[Startup][Left Tab Bar][Tabs][Tab0][View]
+AutoResizeColumns = true
+Descending Sort Order = 0
+Filter = 3
+FilterApplysToDirs = false
+IconSize = 22
+ShowPreviews = false
+Sort Column = 2
+
+[Startup][Right Tab Bar]
+ActiveTab = 0
+
+[Startup][Right Tab Bar][Tabs][Tab0][View]
+AutoResizeColumns = true
+Descending Sort Order = 0
+Filter = 3
+FilterApplysToDirs = false
+IconSize = 22
+ShowPreviews = false
+Sort Column = 0
+
+[ViewerModule]
+FirstRun = false
