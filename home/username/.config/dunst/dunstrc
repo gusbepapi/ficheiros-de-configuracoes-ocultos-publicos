@@ -1,0 +1,406 @@
+[global]
+    ### 🇬🇧 Display ###
+    ### 🇵🇹 Exibição ###
+    ### 🇪🇸 Mostrar ###
+
+    # 🇬🇧 Which monitor should the notifications be displayed on.
+    # 🇵🇹 Em qual monitor as notificações devem ser exibidas.
+    # 🇪🇸 En qué monitor se deben mostrar las notificaciones.
+    monitor = 0
+
+    # 🇬🇧 To display notification on focused monitor.
+    # 🇵🇹 Exibir notificação no monitor focado.
+    # 🇪🇸 Mostrar notificación en el monitor enfocado.
+    follow = mouse
+
+    # 🇬🇧 The geometry of the window:
+    # 🇵🇹 A geometria da janela:
+    # 🇪🇸 La geometría de la ventana:
+    geometry = "300x5-30-20"
+
+    # 🇬🇧 To show how many messages are currently hidden (because of geometry).
+    # 🇵🇹 Mostrar quantas mensagens estão atualmente ocultas (devido à geometria).
+    # 🇪🇸 Mostrar cuántos mensajes están actualmente ocultos (debido a la geometría).
+    indicate_hidden = yes
+
+    # 🇬🇧 To shrink window if it's smaller than the width.
+    # 🇵🇹 Encolher a janela se for menor que a largura.
+    # 🇪🇸 Encoger la ventana si es más pequeña que el ancho.
+    shrink = no
+
+    # 🇬🇧 The transparency of the window.
+    # 🇵🇹 A transparência da janela.
+    # 🇪🇸 La transparencia de la ventana.
+    transparency = 16
+
+    # 🇬🇧 The height of the entire notification.
+    # 🇵🇹 A altura da notificação inteira.
+    # 🇪🇸 La altura de la notificación completa.
+    notification_height = 0
+
+    # 🇬🇧 To draw a line of "separator_height" pixel height between two notifications.
+    # 🇵🇹 Desenhar uma linha de "separator_height" pixel de altura entre duas notificações.
+    # 🇪🇸 Dibujar una línea de "separator_height" píxeles de altura entre dos notificaciones.
+    separator_height = 2
+
+    # 🇬🇧 Padding between text and separator.
+    # 🇵🇹 Espaçamento entre o texto e o separador.
+    # 🇪🇸 Relleno entre el texto y el separador.
+    padding = 8
+
+    # 🇬🇧 Horizontal padding.
+    # 🇵🇹 Espaçamento horizontal.
+    # 🇪🇸 Relleno horizontal.
+    horizontal_padding = 8
+
+    # 🇬🇧 Defining width in pixels of frame around the notification window.
+    # 🇵🇹 A definir a largura em pixels do quadro ao redor da janela de notificação.
+    # 🇪🇸 Definir el ancho en píxeles del marco alrededor de la ventana de notificación.
+    frame_width = 3
+
+    # 🇬🇧 Defining color of the frame around the notification window.
+    # 🇵🇹 Definir a cor do quadro ao redor da janela de notificação.
+    # 🇪🇸 Definir el color del marco alrededor de la ventana de notificación.
+    frame_color = "#bd93f9"
+
+    # 🇬🇧 To define a color for the separator.
+    # 🇵🇹 Definir uma cor para o separador.
+    # 🇪🇸 Definir un color para el separador.
+    separator_color = auto 
+
+    # 🇬🇧 To sort messages by urgency.
+    # 🇵🇹 Classificar mensagens por urgência.
+    # 🇪🇸 Ordenar mensajes por urgencia.
+    sort = yes
+
+    # 🇬🇧 Don't remove messages, if the user is «idle» (no mouse or keyboard input) for longer than «idle_threshold» seconds.
+    # 🇵🇹 Não remover mensagens, se o usuário estiver «idle» (sem entrada de mouse ou teclado) por mais de «idle_threshold» segundos.
+    # 🇪🇸 No elimine mensajes, si el usuario está «idle» (sin entrada de ratón o teclado) durante más de «idle_threshold» segundos.
+    idle_threshold = 120
+
+    ### 🇬🇧 Text ###
+    ### 🇵🇹 Texto ###
+    ### 🇪🇸 Texto ###
+
+    font = Bahnscrhift 10
+
+    # 🇬🇧 The spacing between lines. If the height is smaller than the font height, it will get raised to the font height.
+    # 🇵🇹 O espaçamento entre linhas. Se a altura for menor que a altura da fonte, ela será elevada à altura da fonte.
+    # 🇪🇸 El espaciado entre líneas. Si la altura es menor que la altura de la fuente, se elevará a la altura de la fuente.
+    line_height = 0
+    markup = full
+
+    # 🇬🇧 The format of the message. Possible variables are:
+    # 🇵🇹 O formato da mensagem. Variáveis ​​possíveis são:
+    # 🇪🇸 El formato del mensaje. Las variables posibles son:
+
+    ## 🇬🇧 appname 
+    ## 🇵🇹 nome do app
+    ## 🇪🇸 nombre de la app
+    #  %a
+
+    ## 🇬🇧 summary
+    ## 🇵🇹 resumo
+    ## 🇪🇸 resumen
+    #  %s
+
+    ## 🇬🇧 body
+    ## 🇵🇹 corpo
+    ## 🇪🇸 cuerpo
+    #  %b
+
+    ## 🇬🇧 icon name (including its path)
+    ## 🇵🇹 nome do ícone (incluindo o seu caminho)
+    ## 🇪🇸 nombre del icono (incluyendo su ruta)
+    #  %i
+
+    ## 🇬🇧 icon name (without its path)
+    ## 🇵🇹 nome do ícone (sem o seu caminho)
+    ## 🇪🇸 nombre del icono (sin su ruta)
+    #  %I
+
+    ## 🇬🇧 progress value if set ([  0%] to [100%]) or nothing
+    ## 🇵🇹 valor de progresso se definido ([  0%] a [100%]) ou nada
+    ## 🇪🇸 valor de progreso si está definido ([  0%] a [100%]) o nada
+    #  %p
+
+    ## 🇬🇧 progress value if set without any extra characters
+    ## 🇵🇹 valor de progresso se definido sem qualquer caractere extra
+    ## 🇪🇸 valor de progreso si está definido sin ningún carácter adicional
+    #  %n
+
+    ## 🇬🇧 Literal %
+    ## 🇵🇹 Literal %
+    ## 🇪🇸 Literal %
+    #  %%
+    
+    # 🇬🇧 Markup is allowed
+    # 🇵🇹 É permitido o markup
+    # 🇪🇸 Se permite el markup
+    format = "<span foreground='#bd93f9' font='SF Compact Rounded 14'><b>%s</b></span>\n%b"
+
+    # 🇬🇧 Alignment of message text.
+    # 🇵🇹 Alinhamento do texto da mensagem.
+    # 🇪🇸 Alineación del texto del mensaje.
+    alignment = center
+
+    # 🇬🇧 To show the age of message if message is older than show_age_threshold seconds.
+    # 🇵🇹 Para mostrar a idade da mensagem se a mensagem for mais antiga que show_age_threshold segundos.
+    # 🇪🇸 Para mostrar la edad del mensaje si el mensaje es más antiguo que show_age_threshold segundos.
+    show_age_threshold = 60
+
+    # 🇬🇧 To split notifications into multiple lines if they don't fit into geometry.
+    # 🇵🇹 Para dividir as notificações em várias linhas se não couberem na geometria.
+    # 🇪🇸 Para dividir las notificaciones en varias líneas si no caben en la geometría.
+    word_wrap = yes
+
+    # 🇬🇧 When «word_wrap» is set to «no», specify where to make an ellipsis in long lines.
+    # 🇵🇹 Quando «word_wrap» estiver definido como «no», especifique onde fazer um elipse em linhas longas.
+    # 🇪🇸 Cuando «word_wrap» está configurado como «no», especifique dónde hacer una elipse en líneas largas.
+    ellipsize = middle
+
+    # 🇬🇧 To ignore newlines '\n' in notifications.
+    # 🇵🇹 Ignorar quebras de linha '\n' nas notificações.
+    # 🇪🇸 Ignorar saltos de línea '\n' en las notificaciones.
+    ignore_newline = no
+
+    # 🇬🇧 To stack together notifications with the same content
+    # 🇵🇹 Empilhar notificações com o mesmo conteúdo
+    # 🇪🇸 Apilar notificaciones con el mismo contenido
+    stack_duplicates = true
+
+    # 🇬🇧 To hide the count of stacked notifications with the same content
+    # 🇵🇹 Ocultar a contagem de notificações empilhadas com o mesmo conteúdo
+    # 🇪🇸 Ocultar la cuenta de notificaciones apiladas con el mismo contenido
+    hide_duplicate_count = false
+
+    # 🇬🇧 To display the indicators for URLs (U) and actions (A).
+    # 🇵🇹 Exibir os indicadores para URLs (U) e ações (A).
+    # 🇪🇸 Mostrar los indicadores para URLs (U) y acciones (A).
+    show_indicators = yes
+
+    ### 🇬🇧 Icons ###
+    ### 🇵🇹 Ícones ###
+    ### 🇪🇸 Íconos ###
+
+    # 🇬🇧  Align icons to "left" or "right" or "off"
+    # 🇵🇹  Alinhar ícones a "left" (esquerda) ou "right" (direita) ou "off" (desligado)
+    # 🇪🇸  Alinear iconos a "left" (izquierda) o "right" (derecha) o "off" (apagado)
+    icon_position = left
+
+    # 🇬🇧 To scale larger icons down to this size, set to 0 to disable
+    # 🇵🇹 Reduzir ícones maiores para este tamanho, defina como 0 para desativar
+    # 🇪🇸 Reducir iconos más grandes a este tamaño, establecer en 0 para desactivar
+    max_icon_size = 32
+
+    # 🇬🇧 Paths to default icons.
+    # 🇵🇹 Caminhos para ícones padrão.
+    # 🇪🇸 Rutas a iconos predeterminados.
+    icon_path = /usr/share/icons/Arc-X-D/status/:/usr/share/icons/Arc-X-D/devices/:/usr/share/icons/Arc-X-D/apps/:/usr/share/icons/Arc-X-D/actions/:/usr/share/icons/Arc-X-D/categories/
+    
+    ### 🇬🇧 History ###
+    ### 🇵🇹 Histórico ###
+    ### 🇪🇸 Historial ###
+
+    # 🇬🇧 A notification popped up from history should be sticky or timeout as if it would normally do.
+    # 🇵🇹 Uma notificação que apareceu do histórico deve ser fixa ou expirar como se normalmente fizesse.
+    # 🇪🇸 Una notificación que apareció del historial debe ser pegajosa o caducar como si lo haría normalmente.
+    sticky_history = yes
+
+    # 🇬🇧 Maximum amount of notifications kept in history
+    # 🇵🇹 Quantidade máxima de notificações mantidas no histórico
+    # 🇪🇸 Cantidad máxima de notificaciones mantenidas en el historial
+    history_length = 20
+
+    ### 🇬🇧 Misc/Advanced ###
+    ### 🇵🇹 Diversos/Avançado ###
+    ### 🇪🇸 Misceláneo/Avanzado ###
+
+    # 🇬🇧 dmenu path.
+    # 🇵🇹 Caminho do dmenu.
+    # 🇪🇸 Ruta de dmenu.
+    dmenu = /usr/bin/rofi -dmenu -p dunst:
+
+    # 🇬🇧 Browser for opening URLs in context menu.
+    # 🇵🇹 Navegador para abrir URLs no menu de contexto.
+    # 🇪🇸 Navegador para abrir URLs en el menú contextual.
+    browser = /usr/bin/firefox -new-tab
+
+    # 🇬🇧 Always run rule-defined scripts, even if the notification is suppressed
+    # 🇵🇹 Executar sempre os scripts definidos nas regras, mesmo que a notificação seja suprimida
+    # 🇪🇸 Ejecutar siempre los scripts definidos en las reglas, incluso si la notificación se suprime
+    always_run_script = true
+
+    # 🇬🇧 Defining the title of the windows spawned by dunst
+    # 🇵🇹 Definir o título das janelas criadas pelo dunst
+    # 🇪🇸 Definir el título de las ventanas creadas por dunst
+    title = Dunst
+
+    # 🇬🇧 Defining the class of the windows spawned by dunst
+    # 🇵🇹 Definir a classe das janelas criadas pelo dunst
+    # 🇪🇸 Definir la clase de las ventanas creadas por dunst
+    class = Dunst
+
+    # 🇬🇧 Printing a notification on startup.
+    # 🇵🇹 Imprimir uma notificação ao iniciar.
+    # 🇪🇸 Imprimir una notificación al iniciar.
+    startup_notification = false
+
+    # 🇬🇧 Managing dunst's desire for talking
+    # 🇵🇹 Gerenciar o desejo do dunst de falar
+    # 🇪🇸 Gestionar el deseo de dunst de hablar
+    verbosity = mesg
+
+    # 🇬🇧 Defining the corner radius of the notification window in pixel size. If the radius is 0, you have no rounded corners.
+    # 🇵🇹 Definir o raio das esquinas da janela de notificação em tamanho de pixel. Se o raio for 0, você não tem cantos arredondados.
+    # 🇪🇸 Definir el radio de las esquinas de la ventana de notificación en tamaño de píxel. Si el radio es 0, no tiene esquinas redondeadas.
+    corner_radius = 3
+
+    ### 🇬🇧 Legacy
+    ### 🇵🇹 Legado
+    ### 🇪🇸 Legado
+
+    # 🇬🇧 To use the Xinerama extension instead of RandR for multi-monitor support.
+    # 🇵🇹 Para usar a extensão Xinerama em vez de RandR para suporte a multi-monitor.
+    # 🇪🇸 Para usar la extensión Xinerama en lugar de RandR para soporte multi-monitor.
+    force_xinerama = false
+
+    ### 🇬🇧 Mouse
+    ### 🇵🇹 Rato/mouse
+    ### 🇪🇸 Ratón
+
+    # 🇬🇧 Defining the action of mouse event
+    # 🇵🇹 Definir a ação do evento do mouse/rato
+    # 🇪🇸 Definir la acción del evento del mouse
+    mouse_left_click= close_current
+    mouse_middle_click = do_action
+    mouse_right_click = close_all
+
+# 🇬🇧 Experimental features that may or may not work correctly. Do not expect them to have a consistent behaviour across releases.
+# 🇵🇹 Recursos experimentais que podem ou não funcionar corretamente. Não espere que tenham um comportamento consistente em todas as versões.
+# 🇪🇸 Características experimentales que pueden o no funcionar correctamente. No espere que tengan un comportamiento consistente en todas las versiones.
+[experimental]
+    per_monitor_dpi = false
+
+[shortcuts]
+
+    # 🇬🇧 Shortcuts are specified as [modifier+][modifier+]...key
+    # 🇵🇹 Atalhos são especificados como [modificador+][modificador+]...tecla
+    # 🇪🇸 Los atajos se especifican como [modificador+][modificador+]...tecla
+
+    # 🇬🇧 Available modifiers are "ctrl", "mod1" (the alt-key), "mod2", "mod3" and "mod4" (Windows key).
+    # 🇵🇹 Modificadores disponíveis são "ctrl", "mod1" (a tecla alt), "mod2", "mod3" e "mod4" (a tecla do Windows).
+    # 🇪🇸 Los modificadores disponibles son "ctrl", "mod1" (la tecla alt), "mod2", "mod3" y "mod4" (la tecla de Windows).
+
+    # 🇬🇧 Xev might be helpful to find names for keys.
+    # 🇵🇹 Xev pode ser útil para encontrar nomes para teclas.
+    # 🇪🇸 Xev puede ser útil para encontrar nombres para teclas.
+
+    # 🇬🇧 To close the notification.
+    # 🇵🇹 Fechar a notificação.
+    # 🇪🇸 Cerrar la notificación.
+    close = ctrl+alt+s
+
+    # 🇬🇧 To close all notifications.
+    # 🇵🇹 Fechar todas as notificações.
+    # 🇪🇸 Cerrar todas las notificaciones.
+    close_all = ctrl+shift+space
+
+    # 🇬🇧 To redisplay last message(s).
+    # 🇵🇹 Reexibir a última mensagem(ns).
+    # 🇪🇸 Reexibir el último mensaje(s).
+    history = ctrl+grave
+
+    # 🇬🇧 Context menu.
+    # 🇵🇹 Menu de contexto.
+    # 🇪🇸 Menú contextual.
+    context = ctrl+shift+period
+
+[urgency_low]
+    # 🇬🇧 IMPORTANT: the colours have to be defined in quotation marks.
+    # 🇵🇹 IMPORTANTE: as cores têm que ser definidas entre aspas.
+    # 🇪🇸 IMPORTANTE: los colores tienen que ser definidos entre comillas.
+
+    # 🇬🇧 Otherwise the "#" and following would be interpreted as a comment.
+    # 🇵🇹 Caso contrário, o "#" e o seguinte seriam interpretados como um comentário.
+    # 🇪🇸 De lo contrario, el "#" y el siguiente serían interpretados como un comentario.
+    background = "#282a36"
+    foreground = "#ffffff"
+    timeout = 5
+
+    # 🇬🇧 Icon for notifications with low urgency, uncomment to enable
+    # 🇵🇹 Ícone para notificações com baixa urgência, descomente para ativar
+    # 🇪🇸 Icono para notificaciones con baja urgencia, descomente para activar
+    icon = /usr/share/icons/Arc-X-D/status/16/dialog-information.png
+
+[urgency_normal]
+    background = "#21222c"
+    foreground = "#ffffff"
+    timeout = 5
+
+    # 🇬🇧 Icon for notifications with normal urgency, uncomment to enable
+    # 🇵🇹 Ícone para notificações com urgência normal, descomente para ativar
+    # 🇪🇸 Icono para notificaciones con urgencia normal, descomente para activar
+    icon = /usr/share/icons/Arc-X-D/status/16/dialog-question.png
+
+[urgency_critical]
+    background = "#6272a4"
+    foreground = "#ffffff"
+    frame_color = "#ff7f7f"
+    timeout = 120
+
+    # 🇬🇧 Icon for notifications with critical urgency, uncomment to enable
+    # 🇵🇹 Ícone para notificações com urgência crítica, descomente para ativar
+    # 🇪🇸 Icono para notificaciones con urgencia crítica, descomente para activar
+    icon = /usr/share/icons/Arc-X-D/status/16/dialog-warning.png
+
+# 🇬🇧 Fullscreen values
+# 🇵🇹 Valores de tela cheia
+# 🇪🇸 Valores de pantalla completa
+
+[fullscreen_delay_everything]
+    fullscreen = delay
+[fullscreen_show_critical]
+    msg_urgency = critical
+    fullscreen = show
+
+# [ignore]
+#     # 🇬🇧 This notification will not be displayed
+#     # 🇵🇹 Esta notificação não será exibida
+#     # 🇪🇸 Esta notificación no será mostrada
+#     appname = "Tu deves actualizar em breve"
+#     summary = "Tu deves actualizar em breve"
+#     format= ''
+
+# [history-ignore]
+#    # 🇬🇧 This notification will not be saved in history
+#    # 🇵🇹 Esta notificação não será salva no histórico
+#    # 🇪🇸 Esta notificación no será guardada en el historial
+#    summary="foobar"
+#    history_ignore=yes
+
+# [signed_on]
+#    appname=Pidgin
+#    summary="*signed on*"
+#    urgency=low
+#
+# [signed_off]
+#    appname=Pidgin
+#    summary=*signed off*
+#    urgency=low
+#
+# [says]
+#    appname=Pidgin
+#    summary=*says*
+#    urgency=critical
+#
+# [twitter]
+#    appname=Pidgin
+#    summary=*twitter.com*
+#    urgency=normal
+#
+# [stack-volumes]
+#    appname="some_volume_notifiers"
+#    set_stack_tag="volume"
+#
+# vim: ft=cfg

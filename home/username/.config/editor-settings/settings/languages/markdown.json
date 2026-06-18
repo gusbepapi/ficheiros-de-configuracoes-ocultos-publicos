@@ -1,0 +1,9 @@
+{
+  "basis": {},
+  "advanced": {},
+  "mastery": {
+    "[markdown]": {
+      "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    }
+  }
+}

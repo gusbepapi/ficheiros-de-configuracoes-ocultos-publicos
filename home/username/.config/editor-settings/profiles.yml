@@ -1,0 +1,77 @@
+# Composing each editor profile from layers: global, system, language level (cumulative), frameworks and project
+# A profile name here is also the name that the folder of the profile receives
+version: 1
+profiles:
+  Linux:
+    system: linux
+  macOS:
+    system: macos
+  Windows:
+    system: windows
+  Angular:
+    frameworks:
+    - angular
+  C and C++:
+    frameworks:
+    - c-and-c
+  Codebraid, Pandoc and Quarto:
+    frameworks:
+    - codebraid-pandoc-and-quarto
+  Data Science:
+    frameworks:
+    - data-science
+  Django and Flask:
+    frameworks:
+    - django-and-flask
+  Docker:
+    frameworks:
+    - docker
+  .NET and C# Essentials:
+    frameworks:
+    - net-and-c-essentials
+  .NET and C# Web:
+    frameworks:
+    - net-and-c-web
+  Go:
+    frameworks:
+    - go
+  Hugo:
+    frameworks:
+    - hugo
+  Jekyll:
+    frameworks:
+    - jekyll
+  LaTeX:
+    frameworks:
+    - latex
+  Lua:
+    frameworks:
+    - lua
+  Markdown Mastery:
+    language:
+      markdown: mastery
+  PHP Mastery:
+    language:
+      php: mastery
+  PHP Laravel:
+    language:
+      php: advanced
+    frameworks:
+    - php-laravel
+  PHP WordPress:
+    language:
+      php: advanced
+    frameworks:
+    - php-wordpress
+  Rust and Scheme:
+    frameworks:
+    - rust-and-scheme
+  Typst:
+    frameworks:
+    - typst
+  Vue.js:
+    frameworks:
+    - vue-js
+  Web Essentials:
+    frameworks:
+    - web-essentials

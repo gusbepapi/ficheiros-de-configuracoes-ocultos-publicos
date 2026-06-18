@@ -1,0 +1,793 @@
+{
+  "code-runner.executorMap": {
+    "javascript": "$HOME/.nvm/versions/node/v22.7.0/bin/node"
+  },
+  "cody.commandHints.enabled": true,
+  "colorInfo.languages": [
+    {
+      "selector": "css",
+      "colors": "css-color-name"
+    },
+    {
+      "selector": "html",
+      "colors": "css-color-name"
+    },
+    {
+      "selector": "sass",
+      "colors": "css-color-name"
+    },
+    {
+      "selector": "less",
+      "colors": "css-color-name"
+    },
+    {
+      "selector": "scss",
+      "colors": "css-color-name"
+    }
+  ],
+  "commentAnchors.tags.anchors": {
+    "FULLY QUALIFIED NAME": {
+      "backgroundColor": "rgba(0, 0, 0, 0.7)",
+      "borderRadius": 4,
+      "borderStyle": "5px solid rgba(0, 0, 0, 0.7)",
+      "highlightColor": "#A8C023",
+      "iconColor": "default",
+      "isBold": true,
+      "isItalic": false,
+      "scope": "hidden",
+      "styleComment": true,
+      "tag": "FULLY QUALIFIED NAME"
+    },
+    "`FQN`": {
+      "backgroundColor": "rgba(0, 0, 0, 0.7)",
+      "borderRadius": 4,
+      "borderStyle": "5px solid rgba(0, 0, 0, 0.7)",
+      "highlightColor": "#A8C023",
+      "iconColor": "default",
+      "isBold": true,
+      "isItalic": false,
+      "scope": "hidden",
+      "styleComment": true,
+      "tag": "`FQN`"
+    }
+  },
+  "debug.terminal.clearBeforeReusing": true,
+  "dictCompletion.useExternalUserDictFile": true,
+  "dictCompletion.externalUserDictFiles": [
+    "/usr/share/hunspell/en_GB.dic",
+    "/usr/share/hunspell/ca_ES.dic",
+    "/usr/share/hunspell/de_DE.dic",
+    "/usr/share/hunspell/es_AR.dic",
+    "/usr/share/hunspell/es_ES.dic",
+    "/usr/share/hunspell/fr_FR.dic",
+    "/usr/share/hunspell/it_IT.dic",
+    "/usr/share/hunspell/nl_NL.dic",
+    "/usr/share/hunspell/pt_PT-preao.dic",
+    "/usr/share/hunspell/ro_RO.dic"
+  ],
+  "diffEditor.codeLens": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.acceptSuggestionOnCommitCharacter": true,
+  "editor.acceptSuggestionOnEnter": "on",
+  "editor.codeLens": true,
+  "editor.colorDecorators": false,
+  "editor.cursorStyle": "line",
+  "editor.defaultColorDecorators": true,
+  "editor.detectIndentation": false,
+  "editor.find.autoFindInSelection": "multiline",
+  "editor.fontFamily": "'Hack', 'Blex Mono', 'Gen Jyuu Gothic Monospace', 'Gus Moji Minimal COLRv1', 'OpenMoji COLRv0', 'OpenMoji Color', monospace",
+  "editor.fontSize": 14,
+  "editor.fontLigatures": true,
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": false,
+  "editor.formatOnType": false,
+  "editor.hover.enabled": false,
+  "editor.inlineSuggest.enabled": true,
+  "editor.inlineSuggest.suppressSuggestions": true,
+  "editor.insertSpaces": false,
+  "editor.largeFileOptimizations": false,
+  "editor.lineHeight": 0,
+  "editor.linkedEditing": true,
+  "editor.matchBrackets": "always",
+  "editor.minimap.enabled": false,
+  "editor.minimap.renderCharacters": false,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.occurrencesHighlight": "off",
+  "editor.renderControlCharacters": true,
+  "editor.renderLineHighlight": "line",
+  "editor.renderWhitespace": "all",
+  "editor.quickSuggestions": {
+    "other": "on",
+    "comments": "off",
+    "strings": "on"
+  },
+  "editor.selectionHighlight": false,
+  "editor.smoothScrolling": true,
+  "editor.snippetSuggestions": "top",
+  "editor.suggestSelection": "recentlyUsedByPrefix",
+  "editor.tabCompletion": "on",
+  "editor.tabSize": 2,
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          "comment",
+          "comment.block",
+          "comment.block.documentation",
+          "comment.line"
+        ],
+        "settings": {
+          "fontStyle": ""
+        }
+      },
+      {
+        "scope": [
+          "log.error"
+        ],
+        "settings": {
+          "fontStyle": "bold"
+        }
+      },
+      {
+        "scope": "log.warning",
+        "settings": {
+          "foreground": "#F4AD42",
+          "fontStyle": ""
+        }
+      }
+    ]
+  },
+  "explorer.autoReveal": false,
+  "explorer.compactFolders": false,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.openEditors.sortOrder": "alphabetical",
+  "explorer.openEditors.visible": 1,
+  "explorer.sortOrder": "default",
+  "extensions.autoUpdate": false,
+  "extensions.closeExtensionDetailsOnViewChange": true,
+  "extensions.ignoreRecommendations": true,
+  "extensions.webWorker": true,
+  "files.associations": {
+    "*.qss": "css",
+    "*.desktop": "desktop",
+    "fonts.conf": "html",
+    "*moji.conf": "html",
+    "*.conkyrc": "lua",
+    "~/.config/waybar/config": "jsonc",
+    "0*.conf": "shellscript",
+    "Aptfile": "shellscript",
+    "config": "shellscript",
+    "definitions": "shellscript",
+    "commands": "shellscript",
+    "default-screen": "shellscript",
+    "default": "shellscript",
+    "dunstrc": "ini",
+    "recording": "shellscript",
+    "release": "shellscript",
+    "resize": "shellscript",
+    "runserver": "shellscript",
+    "scratchpad": "shellscript",
+    "screenshot": "shellscript",
+    "system-overview": "lua",
+    ".pam_environment": "shellscript",
+    "**/.bin/**/*": "shellscript",
+    ".profile": "shellscript",
+    ".xprofile": "shellscript",
+    ".zprofile": "shellscript",
+    "*.strings": "plist",
+    "**/docker/dockerfiles/*": "dockerfile",
+    "**/dockerfiles/*": "dockerfile",
+    "**/requirements{/**,*}.{txt,in}": "pip-requirements",
+    "dockerfiles/*": "dockerfile",
+    "*.rmd": "markdown",
+    "*.tpl": "twig"
+  },
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.DS_Store": false,
+    "**/.factorypath": true,
+    "**/.git": false,
+    "**/.project": true,
+    "**/.settings": true
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/.hg/store/**": true,
+    "**/node_modules/**": true
+  },
+  "fontshortcuts.defaultFontSize": 15,
+  "fontshortcuts.defaultTerminalFontSize": 15,
+  "fontshortcuts.step": 1,
+  "git.autofetch": true,
+  "git.autorefresh": true,
+  "git.autoRepositoryDetection": false,
+  "git.confirmSync": false,
+  "git.detectSubmodules": false,
+  "git.enableSmartCommit": true,
+  "git.ignoreRebaseWarning": true,
+  "git.enabled": true,
+  "git.ignoreMissingGitWarning": true,
+  "git.pullTags": false,
+  "git.openRepositoryInParentFolders": "never",
+  "git.suggestSmartCommit": false,
+  "gitmoji.addCustomEmoji": [
+    {
+      "emoji": "📁",
+      "code": ":file_folder:",
+      "description": "Create or preserve a folder",
+      "entity": "&#x1F4C1;"
+    },
+    {
+      "emoji": "☕",
+      "code": ":coffee:",
+      "description": "Re-organise the code, files, and/or folders",
+      "entity": "&#9749;"
+    },
+    {
+      "emoji": "🏴󠁥󠁳󠁣󠁴󠁿",
+      "code": ":catalonia:",
+      "description": "Català",
+      "entity": "&#127463;&#127479;&#127466;"
+    },
+    {
+      "emoji": "🇬🇧",
+      "code": ":gb:",
+      "description": "English from the United Kingdom",
+      "entity": "&#127482;&#127480;"
+    },
+    {
+      "emoji": "🇺🇸",
+      "code": ":us:",
+      "description": "English from the United States",
+      "entity": "&#127482;&#127479;"
+    },
+    {
+      "emoji": "🇪🇸",
+      "code": ":es:",
+      "description": "Español",
+      "entity": "&#127482;&#127480;"
+    },
+    {
+      "emoji": "🇦🇷",
+      "code": ":argentina:",
+      "description": "Español de Argentina",
+      "entity": "&#127482;&#127480;"
+    },
+    {
+      "emoji": "🇨🇱",
+      "code": ":chile:",
+      "description": "Español de Chile",
+      "entity": "&#127482;&#127480;"
+    },
+    {
+      "emoji": "🇨🇷",
+      "code": ":costa_rica:",
+      "description": "Español de Costa Rica",
+      "entity": "&#127482;&#127480;"
+    },
+    {
+      "emoji": "🇨🇺",
+      "code": ":cuba:",
+      "description": "Español de Cuba",
+      "entity": "&#127482;&#127480;"
+    },
+    {
+      "emoji": "🇲🇽",
+      "code": ":mexico:",
+      "description": "Español de México",
+      "entity": "&#127482;&#127480;"
+    },
+    {
+      "emoji": "🇨🇴",
+      "code": ":colombia:",
+      "description": "Español de Colombia",
+      "entity": "&#127482;&#127480;"
+    },
+    {
+      "emoji": "🇺🇾",
+      "code": ":uruguay:",
+      "description": "Español de Uruguay",
+      "entity": "&#127482;&#127480;"
+    },
+    {
+      "emoji": "🇩🇪",
+      "code": ":de:",
+      "description": "Deutsch",
+      "entity": "&#127482;&#127479;"
+    },
+    {
+      "emoji": "🇦🇹",
+      "code": ":austria:",
+      "description": "Deutsch von Österreich",
+      "entity": "&#127482;&#127479;"
+    },
+    {
+      "emoji": "🇨🇭",
+      "code": ":switzerland:",
+      "description": "Deutsch von Schweiz",
+      "entity": "&#127482;&#127479;"
+    },
+    {
+      "emoji": "🇫🇷",
+      "code": ":fr:",
+      "description": "Français",
+      "entity": "&#127482;&#127479;"
+    },
+    {
+      "emoji": "🇧🇪",
+      "code": ":belgium:",
+      "description": "Français de Belgique",
+      "entity": "&#127482;&#127479;"
+    },
+    {
+      "emoji": "🇨🇦",
+      "code": ":canada:",
+      "description": "Français du Canada",
+      "entity": "&#127482;&#127479;"
+    },
+    {
+      "emoji": "🇨🇭",
+      "code": ":switzerland:",
+      "description": "Français de Suisse",
+      "entity": "&#127482;&#127479;"
+    },
+    {
+      "emoji": "🇳🇬",
+      "code": ":nigeria:",
+      "description": "Hausa",
+      "entity": "&#127482;&#127479;"
+    },
+    {
+      "emoji": "🇿🇦",
+      "code": ":south_africa:",
+      "description": "isiXhosa",
+      "entity": "&#127482;&#127479;"
+    },
+    {
+      "emoji": "🇮🇹",
+      "code": ":it:",
+      "description": "Italiano",
+      "entity": "&#127482;&#127479;"
+    },
+    {
+      "emoji": "🇭🇹",
+      "code": ":haiti:",
+      "description": "Kreyòl ayisyen",
+      "entity": "&#127482;&#127479;"
+    },
+    {
+      "emoji": "🇲🇹",
+      "code": ":malta:",
+      "description": "Malti",
+      "entity": "&#127482;&#127479;"
+    },
+    {
+      "emoji": "🇳🇱",
+      "code": ":netherlands:",
+      "description": "Nederlands",
+      "entity": "&#127482;&#127479;"
+    },
+    {
+      "emoji": "🇳🇿",
+      "code": ":new_zealand:",
+      "description": "Māori",
+      "entity": "&#127482;&#127479;"
+    },
+    {
+      "emoji": "🇧🇷",
+      "code": ":brazil:",
+      "description": "Português do Brasil",
+      "entity": "&#127482;&#127479;"
+    },
+    {
+      "emoji": "🇵🇹",
+      "code": ":portugal:",
+      "description": "Português de Portugal",
+      "entity": "&#127482;&#127479;"
+    },
+    {
+      "emoji": "🇷🇴",
+      "code": ":romania:",
+      "description": "Română",
+      "entity": "&#127482;&#127479;"
+    },
+    {
+      "emoji": "🇨🇬",
+      "code": ":congo:",
+      "description": "Yorùba",
+      "entity": "&#127482;&#127479;"
+    },
+    {
+      "emoji": "🇬🇷",
+      "code": ":greece:",
+      "description": "Ελληνικά",
+      "entity": "&#127482;&#127479;"
+    },
+    {
+      "emoji": "🇺🇦",
+      "code": ":ukraine:",
+      "description": "Українська",
+      "entity": "&#127482;&#127479;"
+    },
+    {
+      "emoji": "🇬🇪",
+      "code": ":georgia:",
+      "description": "ქართული",
+      "entity": "&#127482;&#127479;"
+    },
+    {
+      "emoji": "🇨🇳",
+      "code": ":cn:",
+      "description": "中文",
+      "entity": "&#127482;&#127479;"
+    },
+    {
+      "emoji": "🇯🇵",
+      "code": ":jp:",
+      "description": "日本語",
+      "entity": "&#127482;&#127479;"
+    },
+    {
+      "emoji": "🇰🇷",
+      "code": ":kr:",
+      "description": "한국어",
+      "entity": "&#127482;&#127479;"
+    }
+  ],
+  "gitmoji.showEmojiCode": true,
+  "highlight.regexes": {
+    "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *TODO(?:\\s*\\([^)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^@\\n]+)?))": {
+      "filterFileRegex": ".*(?<!CHANGELOG.md)$",
+      "decorations": [
+        {
+          "overviewRulerColor": "#ffcc00",
+          "backgroundColor": "#ffcc00",
+          "color": "#1f1f1f",
+          "fontWeight": "bold"
+        },
+        {
+          "backgroundColor": "#ffcc00",
+          "color": "#1f1f1f"
+        }
+      ]
+    }
+  },
+  "keyboard.dispatch": "keyCode",
+  "ltex.clearDiagnosticsWhenClosingFile": true,
+  "local-history.absolute": true,
+  "local-history.dateLocale": "en-GB",
+  "local-history.daysLimit": 60,
+  "local-history.enabled": 1,
+  "local-history.maxDisplay": 5,
+  "local-history.path": "~/.history/",
+  "local-history.saveDelay": 10,
+  "material-icon-theme.files.associations": {
+    "COPYING_PT_BR": "certificate",
+    "LICENÇA": "certificate",
+    "LICENÇA.md": "certificate",
+    "conversao-e-otimizacao.gulpfile.js": "gulp",
+    "css.gulpfile.js": "gulp",
+    "default.gulpfile.js": "gulp",
+    "expressoes-regulares.gulpfile.js": "gulp",
+    "igor.gulpfile.js": "gulp",
+    "js.gulpfile.js": "gulp",
+    "imagens.gulpfile.js": "gulp",
+    "php.gulpfile.js": "gulp",
+    "postcss.gulpfile.js": "gulp",
+    "regex.gulpfile.js": "gulp",
+    "regex-e-base64.gulpfile.js": "gulp",
+    "sass.gulpfile.js": "gulp",
+    "package-alternative-1.json": "nodejs",
+    "package-original.json": "nodejs",
+    "css.webpack.config.js": "webpack",
+    "default.webpack.config.js": "webpack",
+    "js.webpack.config.js": "webpack",
+    "merge.webpack.config.js": "webpack",
+    "scss.webpack.config.js": "webpack",
+    "terser.webpack.config.js": "webpack",
+    "changelog.php": "changelog",
+    "changelog_pt_br.md": "changelog",
+    "Änderungsprotokoll.md": "changelog",
+    "Journal des Modifications.md": "changelog",
+    "Registro de Cambios.md": "changelog",
+    "Dockerfile Ubuntu": "docker",
+    "fonts.css": "font"
+  },
+  "material-icon-theme.folders.associations": {
+    "_i18n": "i18n",
+    "_layouts": "layout",
+    ".history": "temp",
+    "amostras": "examples",
+    "anotações": "docs",
+    "dados": "database",
+    "documentos": "docs",
+    "executáveis": "scripts",
+    "ferramentas": "tools",
+    "fontes": "font",
+    "idiomas": "i18n",
+    "icones": "images",
+    "ícones": "images",
+    "imagens": "images",
+    "javascript": "javascript",
+    "public_html": "public",
+    "src.backup": "archive",
+    "src.espera": "archive",
+    "src_backup": "archive",
+    "src_espera": "archive",
+    "language": "i18n",
+    "teste": "test",
+    "testes": "test",
+    "versão 1": "temp",
+    "websites": "public"
+  },
+  "material-icon-theme.activeIconPack": "none",
+  "material-icon-theme.folders.color": "#16a085",
+  "qalc.enabledLanguages": [
+    "markdown",
+    "plaintext",
+    "rmarkdown"
+  ],
+  "qalc.output.delimiter": "==",
+  "qalc.output.showDelimiter": false,
+  "search.collapseResults": "auto",
+  "search.exclude": {
+    "**/Django": true,
+    "**/node_modules": true
+  },
+  "search.followSymlinks": false,
+  "search.showLineNumbers": true,
+  "search.useGlobalIgnoreFiles": true,
+  "security.workspace.trust.banner": "always",
+  "security.workspace.trust.enabled": false,
+  "security.workspace.trust.startupPrompt": "never",
+  "security.workspace.trust.untrustedFiles": "open",
+  "ShortcutMenuBar.beautify": false,
+  "ShortcutMenuBar.commentLine": false,
+  "ShortcutMenuBar.navigateBack": false,
+  "ShortcutMenuBar.navigateForward": false,
+  "ShortcutMenuBar.switchHeaderSource": false,
+  "ShortcutMenuBar.formatWith": true,
+  "ShortcutMenuBar.showCommands": true,
+  "ShortcutMenuBar.toggleTerminal": true,
+  "spellright.documentTypes": [
+    "jupyter",
+    "latex",
+    "md"
+  ],
+  "spellright.language": [],
+  "terminal.explorerKind": "integrated",
+  "terminal.external.linuxExec": "kitty",
+  "terminal.integrated.confirmOnExit": "always",
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle": "underline",
+  "terminal.integrated.customGlyphs": true,
+  "terminal.integrated.defaultProfile.linux": "Bash",
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "terminal.integrated.detectLocale": "on",
+  "terminal.integrated.drawBoldTextInBrightColors": true,
+  "terminal.integrated.env.linux": {
+    "LANG": "pt_PT.UTF-8",
+    "LANGUAGE": "pt:en_NZ:en_GB:en_US",
+    "LESSCHARSET": "utf-8",
+    "PATH": ".bin:${env:PATH}",
+    "VSCODE_INTEGRATED_TERMINAL": "true"
+  },
+  "terminal.integrated.env.osx": {
+    "PATH": ".bin:${env:PATH}"
+  },
+  "terminal.integrated.env.windows": {
+    "PATH": ".bin;${env:PATH}"
+  },
+  "terminal.integrated.fastScrollSensitivity": 1,
+  "terminal.integrated.fontFamily": "'Hack', 'Blex Mono', 'Gen Jyuu Gothic Monospace', 'Gus Moji Minimal COLRv1', 'OpenMoji COLRv0', 'OpenMoji Color', monospace",
+  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.fontWeightBold": "bold",
+  "terminal.integrated.lineHeight": 1.5,
+  "terminal.integrated.profiles.linux": {
+    "bash": null,
+    "Bash": {
+      "path": "bash"
+    },
+    "Docker Preferido": {
+      "path": "docker",
+      "args": [
+        "exec",
+        "-it",
+        "gus",
+        "zsh"
+      ]
+    },
+    "fish": null,
+    "git-shell": null,
+    "ksh": null,
+    "JavaScript Debug Terminal": null,
+    "pwsh": null,
+    "pwsh-preview": null,
+    "PowerShell": {
+      "path": "pwsh",
+      "icon": "terminal-powershell"
+    },
+    "sh": null,
+    "Terminal Multiplexer": {
+      "path": "tmux",
+      "icon": "terminal-tmux"
+    },
+    "tmux": null,
+    "zsh": null,
+    "Zhong Shao Shell": {
+      "path": "zsh"
+    }
+  },
+  "terminal.integrated.rightClickBehavior": "paste",
+  "terminal.integrated.sendKeybindingsToShell": true,
+  "terminal.integrated.shellIntegration.enabled": true,
+  "terminal.integrated.tabs.description": "${separator} ${cwdFolder}",
+  "terminal.integrated.tabs.enabled": true,
+  "terminal.integrated.tabs.hideCondition": "never",
+  "terminal.integrated.tabs.location": "left",
+  "terminal.integrated.tabs.showActions": "never",
+  "terminal.integrated.tabs.showActiveTerminal": "always",
+  "terminal.integrated.tabs.title": "${workspaceFolder}",
+  "theme-by-language.themes": {
+    "css": "Steam Punk",
+    "jsonc": "Rouge 2",
+    "markdown": "Steam Punk",
+    "php": "Steam Punk",
+    "python": "Ayu Dark Bordered"
+  },
+  "txtsyntax.associations": [
+    ".info",
+    ".ini",
+    ".log",
+    ".properties",
+    ".text",
+    ".txt"
+  ],
+  "vscodeGoogleTranslate.HoverTranslations": false,
+  "vscodeGoogleTranslate.preferredLanguage": "Portuguese",
+  "vscode-better-color-picker.languages": [
+    "cs",
+    "csharp"
+  ],
+  "vscode_custom_css.imports": [
+    "~/.vscode-insiders/themes/fonts.css"
+  ],
+  "webSearch.searchEngines": {
+    "DuckDuckGo": "https://duckduckgo.com/?q=%s",
+    "GitHub": "https://github.com/search?q=%s",
+    "GitLab": "https://gitlab.com/explore/projects?name=%s",
+    "Pacotes de Alpine": "https://pkgs.alpinelinux.org/packages?name=%s",
+    "Pacotes de Gentoo": "https://packages.gentoo.org/packages/search?q=%s",
+    "Pacotes de Mageia": "https://madb.mageia.org/package/list/t_search/%s/release/cauldron/application/0/arch/x86_64",
+    "Pacotes de Void": "https://voidlinux.org/packages/?arch=x86_64&q=%s",
+    "PKGs": "https://pkgs.org/download/%s",
+    "Reddit": "https://www.reddit.com/search?q=%s",
+    "Stack Overflow": "https://stackoverflow.com/search?q=%s",
+    "Wikipedia": "https://en.wikipedia.org/wiki/Special:Search?search=%s"
+  },
+  "webSearch.useDefaultSearchEnginesList": false,
+  "window.autoDetectColorScheme": true,
+  "window.autoDetectHighContrast": false,
+  "window.commandCenter": true,
+  "window.confirmSaveUntitledWorkspace": false,
+  "window.customTitleBarVisibility": "auto",
+  "window.restoreWindows": "none",
+  "window.menuBarVisibility": "visible",
+  "window.titleBarStyle": "custom",
+  "window.zoomLevel": 0,
+  "window.zoomPerWindow": true,
+  "workbench.activityBar.location": "top",
+  "workbench.colorTheme": "Rouge 2",
+  "workbench.colorCustomizations": {
+    "editorWhitespace.foreground": "#e4e4e438",
+    "diffEditor.insertedTextBackground": "#c4f53c3d",
+    "diffEditor.removedTextBackground": "#f53c3d3d",
+    "diffEditor.insertedLineBackground": "#00000000",
+    "diffEditor.removedLineBackground": "#00000000",
+    "[An Old*]": {
+      "activityBarBadge.background": "#E5CD52",
+      "activityBar.border": "#E5CD52",
+      "activityBar.foreground": "#A9B8BA",
+      "editorWidget.border": "#4FB4D7",
+      "editorWidget.resizeBorder": "#4FB4D7",
+      "menu.selectionForeground": "#EB3D54",
+      "menubar.selectionForeground": "#EB3D54",
+      "scrollbarSlider.activeBackground": "#E5CD5250",
+      "scrollbarSlider.background": "#E5CD52",
+      "scrollbarSlider.hoverBackground": "#4FB4D750",
+      "tab.activeBorder": "#EF7C2A",
+      "textLink.foreground": "#EF7C2A"
+    },
+    "[Darktooth]": {
+      "terminal.background": "#1D2021",
+      "terminal.foreground": "#A89984",
+      "terminalCursor.background": "#A89984",
+      "terminalCursor.foreground": "#A89984",
+      "terminal.ansiBlack": "#1D2021",
+      "terminal.ansiBlue": "#0D6678",
+      "terminal.ansiBrightBlack": "#665C54",
+      "terminal.ansiBrightBlue": "#0D6678",
+      "terminal.ansiBrightCyan": "#8BA59B",
+      "terminal.ansiBrightGreen": "#95C085",
+      "terminal.ansiBrightMagenta": "#8F4673",
+      "terminal.ansiBrightRed": "#FB543F",
+      "terminal.ansiBrightWhite": "#FDF4C1",
+      "terminal.ansiBrightYellow": "#FAC03B",
+      "terminal.ansiCyan": "#8BA59B",
+      "terminal.ansiGreen": "#95C085",
+      "terminal.ansiMagenta": "#8F4673",
+      "terminal.ansiRed": "#FB543F",
+      "terminal.ansiWhite": "#A89984",
+      "terminal.ansiYellow": "#FAC03B"
+    },
+    "[Steam Punk]": {
+      "terminal.background": "#202124",
+      "terminal.foreground": "#eeeeee",
+      "terminalCursor.background": "#A89984",
+      "terminalCursor.foreground": "#A89984",
+      "terminal.ansiBlack": "#1D2021",
+      "terminal.ansiBlue": "#398eb2",
+      "terminal.ansiBrightBlack": "#665C54",
+      "terminal.ansiBrightBlue": "#398eb2",
+      "terminal.ansiBrightGreen": "#5eb48a",
+      "terminal.ansiBrightMagenta": "#C792EA",
+      "terminal.ansiBrightRed": "#D1675A",
+      "terminal.ansiBrightWhite": "#eec475",
+      "terminal.ansiBrightYellow": "#ffbf6b",
+      "terminal.ansiCyan": "#68AEC9",
+      "terminal.ansiGreen": "#5eb48a",
+      "terminal.ansiMagenta": "#C792EA",
+      "terminal.ansiRed": "#D1675A",
+      "terminal.ansiWhite": "#bbbbbb",
+      "terminal.ansiYellow": "#ffbf6b"
+    },
+    "[Terran Empire]": {
+      "activityBarBadge.background": "#C6FF00",
+      "activityBar.border": "#C6FF00",
+      "activityBar.foreground": "#A9B8BA",
+      "breadcrumb.activeSelectionForeground": "#C6FF00",
+      "editorSuggestWidget.highlightForeground": "#C6FF00",
+      "editorWidget.border": "#C6FF00",
+      "editorWidget.resizeBorder": "#C6FF00",
+      "list.activeSelectionForeground": "#C6FF00",
+      "list.highlightForeground": "#C6FF00",
+      "list.inactiveSelectionForeground": "#C6FF00",
+      "menu.selectionForeground": "#C6FF00",
+      "menubar.selectionForeground": "#C6FF00",
+      "notificationLink.foreground": "#C6FF00",
+      "panelTitle.activeBorder": "#C6FF00",
+      "pickerGroup.foreground": "#C6FF00",
+      "progressBar.background": "#C6FF00",
+      "scrollbarSlider.activeBackground": "#C6FF0050",
+      "scrollbarSlider.background": "#C6FF00",
+      "scrollbarSlider.hoverBackground": "#C6FF0050",
+      "settings.headerForeground": "#C6FF00",
+      "settings.modifiedItemIndicator": "#C6FF00",
+      "tab.activeBorder": "#C6FF00",
+      "textLink.foreground": "#C6FF00"
+    }
+  },
+  "workbench.editorAssociations": {
+    "*.csv": "default",
+    "*.ipynb": "jupyter-notebook",
+    "*.md": "default",
+    "*.otf": "font.detail.preview",
+    "*.pdf": "analyticsignal.preview-pdf",
+    "*.png": "luna.editor",
+    "*.tff": "font.detail.preview",
+    "*.woff": "font.detail.preview",
+    "*.woff2": "font.detail.preview"
+  },
+  "workbench.editor.enablePreview": false,
+  "workbench.enableExperiments": true,
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.preferredLightColorTheme": "Ayu Light Bordered",
+  "workbench.productIconTheme": "material-product-icons",
+  "workbench.quickOpen.preserveInput": true,
+  "workbench.settings.editor": "json",
+  "workbench.startupEditor": "none",
+  "workbench.preferredDarkColorTheme": "Ayu Dark Bordered"
+}

@@ -1,0 +1,77 @@
+{
+  "arkFormatShell.engine": "shfmt",
+  "arkFormatShell.indentSize": 2,
+  "arkFormatShell.indentStyle": "space",
+  "css.format.braceStyle": "expand",
+  "dateTime.padDays": true,
+  "dateTime.showDayOfWeek": true,
+  "dateTime.showDayOfMonth": true,
+  "dateTime.showMonth": true,
+  "dateTime.showSeconds": true,
+  "dateTime.statusBarAlignment": "left",
+  "dateTime.statusBarPriority": 20,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.renderSideBySide": true,
+  "diffEditor.useInlineViewWhenSpaceIsLimited": true,
+  "editor.fontFamily": "'Adwaita Mono', 'OpenMoji Color', monospace",
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": false,
+  "editor.hover.enabled": "off",
+  "editor.minimap.enabled": false,
+  "explorer.compactFolders": false,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmPasteNative": false,
+  "extensions.autoUpdate": "off",
+  "files.associations": {
+    "*.md": "markdown"
+  },
+  "files.defaultLanguage": "markdown",
+  "git.openRepositoryInParentFolders": "never",
+  "html.format.wrapLineLength": 0,
+  "ltex.additionalRules.motherTongue": "en-GB",
+  "ltex.language": "en-GB",
+  "ltex.dictionary": {
+    "en-US": [
+      "adaptivity",
+      "precomputed",
+      "subproblem"
+    ],
+    "de-DE": [
+      "B-Splines",
+      ":/path/to/externalFile.txt"
+    ]
+  },
+  "openInExternalApp.openMapper": [
+    {
+      "extensionName": "pnf",
+      "apps": "/usr/bin/gwenview"
+    }
+  ],
+  "qt-core.additionalQtPaths": [
+    {
+      "name": "Qt-6.8.2-linux-g++-x86_64_from_PATH",
+      "path": "/usr/lib/qt6/bin/qtpaths"
+    }
+  ],
+  "qt-qml.qmlls.traceLsp": "off",
+  "qt-qml.qmlls.enabled": false,
+  "redhat.telemetry.enabled": true,
+  "runner.runCommands": {
+    "qml": "export QML_IMPORT_PATH=\"$HOME/.config/quickshell${QML_IMPORT_PATH:+:$QML_IMPORT_PATH}\" && quickshell -p '<file>'"
+  },
+  "security.workspace.trust.untrustedFiles": "open",
+  "semantic-highlighting.isEnable": false,
+  "terminal.integrated.tabs.location": "left",
+  "workbench.activityBar.compact": true,
+  "workbench.activityBar.location": "top",
+  "workbench.colorTheme": "Claude Dark",
+  "workbench.editorAssociations": {
+    "{chat-editing-snapshot-text-model,copilot,gitlens,git-graph,git-graph-3}:/**/*.qrc": "default"
+  },
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.productIconTheme": "material-product-icons",
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.editor.tabSizingFixedMinWidth": 40,
+  "workbench.editor.pinnedTabSizing": "shrink"
+}
