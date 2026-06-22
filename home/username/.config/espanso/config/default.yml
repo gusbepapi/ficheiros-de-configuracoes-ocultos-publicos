@@ -1,0 +1,4 @@
+# Configuring Espanso for Wayland and X11 alike; the backend is detected automatically
+# Other files of this folder are merged with this one
+backend: Auto
+show_notifications: true

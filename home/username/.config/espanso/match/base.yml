@@ -1,0 +1,110 @@
+# Converted from autokey by Luigi, 29 October 2026
+# Espanso merges every file of this folder, so the public file and the private file add up
+# Untested: no Espanso is installed here; check the form fields, the script variables and the triggers
+matches:
+- trigger: :en-dash
+  replace: –
+- trigger: :dash
+  form: '[[dash]]'
+  form_fields:
+    dash:
+      type: choice
+      values:
+      - –
+      - —
+      - ―
+- trigger: :udd
+  replace: update-desktop-database
+- trigger: :rm-thumbnails
+  replace: rm -Rf "$HOME/.cache/thumbnails"
+- trigger: :kbd
+  replace: <kbd>$|$</kbd>
+- trigger: :rename-symbolic
+  replace: rename -s '.svg' -- '-symbolic.svg' *.svg
+- trigger: :date-short
+  replace: '{{output}}'
+  vars:
+  - name: output
+    type: date
+    params:
+      format: '%d-%m-%Y'
+- trigger: :date-long-fr
+  replace: '{{output}}'
+  vars:
+  - name: output
+    type: shell
+    params:
+      cmd: LC_ALL='fr_FR.UTF-8' date '+%A %e %B %Y'
+      trim: true
+- trigger: :date-long
+  replace: '{{output}}'
+  vars:
+  - name: choice
+    type: form
+    params:
+      layout: 'Language: [[lang]]'
+      fields:
+        lang:
+          type: choice
+          values:
+          - Deutsch
+          - English
+          - Français
+          - Hrvatski
+          - Português
+  - name: output
+    type: script
+    params:
+      args:
+      - bash
+      - -c
+      - case "$1" in Deutsch) c=de;; English) c=en;; Français) c=fr;; Hrvatski) c=hr;; Italiano) c=it;; Português) c=pt;; *) c=en;; esac; trans -e google -shell -brief ":$c" "$(date '+%A %e %B %Y')"
+      - _
+      - '{{choice.lang}}'
+- trigger: :translate
+  replace: '{{output}}'
+  vars:
+  - name: choice
+    type: form
+    params:
+      layout: 'Phrase: [[phrase]]
+
+        Language: [[lang]]'
+      fields:
+        phrase:
+          multiline: true
+        lang:
+          type: choice
+          values:
+          - Deutsch
+          - English
+          - Français
+          - Hrvatski
+          - Italiano
+          - Português
+  - name: output
+    type: script
+    params:
+      args:
+      - bash
+      - -c
+      - case "$1" in Deutsch) c=de;; English) c=en;; Français) c=fr;; Hrvatski) c=hr;; Italiano) c=it;; Português) c=pt;; *) c=en;; esac; exec trans -e google -shell -brief ":$c" "$2"
+      - _
+      - '{{choice.lang}}'
+      - '{{choice.phrase}}'
+- trigger: :cd
+  form: '[[dir]]'
+  form_fields:
+    dir:
+      type: choice
+      values:
+      - cd ~/GitHub/suru-plus/Suru++/apps/scalable/
+      - cd ~/GitHub/suru-plus-Bahnschrift/Suru++-Bahnschrift/apps/scalable/
+      - cd ~/Pictures/icons/
+      - cd ~
+- trigger: :icon-copy
+  form: cp -R $(find -L -samefile [[icon]].svg) ~/Pictures/icons
+- trigger: :icon-link
+  form: ln -sfnr [[original]].svg [[symbolic]].svg
+- trigger: :icon-rename
+  form: rename -s '[[original]]' -- '[[symbolic]]' *.svg
