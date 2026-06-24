@@ -1,0 +1,124 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# The script is defining the target units for minutes and seconds (ending in 0 or 5)
+target_units=(0 5 10 15 20 25 30 35 40 45 50 55)
+
+# The script is verifying the presence of required executables
+command -v curl >/dev/null 2>&1 || { echo "The \`curl\` binary is absent from the system \`PATH\`." >&2; exit 1; }
+command -v glab >/dev/null 2>&1 || { echo "The \`glab\` binary is absent from the system \`PATH\`." >&2; exit 1; }
+command -v glow >/dev/null 2>&1 || { echo "The \`glow\` binary is absent from the system \`PATH\`." >&2; exit 1; }
+command -v jq >/dev/null 2>&1 || { echo "The \`jq\` binary is absent from the system \`PATH\`." >&2; exit 1; }
+command -v notify-send >/dev/null 2>&1 || { echo "The \`notify-send\` binary is absent. Please install \`libnotify\`." >&2; exit 1; }
+
+# The script is sourcing the secrets file to load the environment variables
+if [[ -f $HOME/.env.secrets ]]; then
+  # The shell is loading the environment variables from the secrets file
+  set -a
+  source $HOME/.env.secrets
+  set +a
+else
+  echo "The \`.env.secrets\` file is missing from the current directory." >&2
+  exit 1
+fi
+
+# The script is verifying the presence of the GitLab API token
+if [[ -z "${GITLAB_API_TOKEN:-}" ]]; then
+  echo "The \`GITLAB_API_TOKEN\` variable is not defined in \`.env.secrets\`." >&2
+  exit 1
+fi
+
+# The script is retrieving the global Git username for address construction
+git_username=$(git config --global user.username)
+
+if [[ -z "${git_username}" ]]; then
+  echo "The global Git username is not configured. Execute \`git config --global user.username <your_username>\`." >&2
+  exit 1
+fi
+
+# The routine is soliciting repository metadata from the operator
+read -rp "Enter the repository name (for example, Awesome Repo): " repo_name
+read -rp "Enter the repository description (for example, An awesome repo with an awesome collection of stuffs): " repo_desc
+read -rp "Enter the repository path component (for example, awesome-repo): " repo_path
+
+# The script is constructing the full project path and URL-encoded API endpoint
+project_path="${git_username}/${repo_path}"
+encoded_path=$(printf '%s' "${project_path}" | sed 's|/|%2F|g')
+
+echo "The system is awaiting a minute and second terminating in 0 or 5 for immediate dispatch."
+
+# The routine is monitoring the system clock until a target minute and second align
+while true; do
+  current_minute=$(date +%M)
+  current_second=$(date +%S)
+  current_minute=$((10#$current_minute))
+  current_second=$((10#$current_second))
+
+  # The script is checking if the current minute is a target minute
+  minute_matched=false
+
+  for target in "${target_units[@]}"; do
+    if (( current_minute == target )); then
+      minute_matched=true
+      break
+    fi
+  done
+
+  if [[ "${minute_matched}" == true ]]; then
+    # The script is checking if the current second is a target second
+    for target in "${target_units[@]}"; do
+      if (( current_second == target )); then
+        # The script is notifying the operator via desktop notification and terminal output
+        notify-send "Target Time Reached" "The repository creation is proceeding immediately."
+        echo "The target time has arrived. The repository creation is proceeding immediately."
+        
+        # The script is executing the repository creation routine with piped affirmation
+        echo "yes" | glab repo create -n "${repo_name}" -d "${repo_desc}" -p "${project_path}"
+        
+        # The script is fetching the creation date from the GitLab API
+        api_url="https://gitlab.com/api/v4/projects/${encoded_path}"
+        raw_date=$(curl --silent --header "PRIVATE-TOKEN: ${GITLAB_API_TOKEN}" "${api_url}" | jq -r '.created_at')
+        
+        if [[ -z "${raw_date}" || "${raw_date}" == "null" ]]; then
+          echo "Failed to retrieve creation date from GitLab API." >&2
+        else
+          # The script is converting the date to São Paulo time and extracting components
+          tz_aware_date=$(TZ='America/Sao_Paulo' date -d "${raw_date}")
+          formatted_base=$(TZ='America/Sao_Paulo' date -d "${raw_date}" +"%Y-%m-%d %H:%M")
+          raw_second=$(TZ='America/Sao_Paulo' date -d "${raw_date}" +"%S")
+          raw_second=$((10#$raw_second))
+          timezone_offset=$(TZ='America/Sao_Paulo' date -d "${raw_date}" +"%::z")
+
+          # The script is rounding the second to the nearest 0 or 5
+          remainder=$((raw_second % 5))
+          if (( remainder < 3 )); then
+            rounded_second=$((raw_second - remainder))
+          else
+            rounded_second=$((raw_second + (5 - remainder)))
+          fi
+
+          # The script is handling the case where rounding up reaches 60 seconds
+          if (( rounded_second == 60 )); then
+            rounded_second=0
+            # The script is incrementing the minute and hour if necessary
+            formatted_date=$(TZ='America/Sao_Paulo' date -d "${tz_aware_date} + 1 minute" +"%Y-%m-%d %H:%M")
+            formatted_date="${formatted_date}:${rounded_second} ${timezone_offset}"
+          else
+            formatted_date="${formatted_base}:${rounded_second} ${timezone_offset}"
+          fi
+          
+          # The script is displaying the formatted date and notifying the user
+          echo "**The repository was created at**: ${formatted_date}" | glow -
+          notify-send "Repository Created" "The repository was created at ${formatted_date}"
+        fi
+        
+        # The process is terminating immediately after dispatch
+        exit 0
+      fi
+    done
+  fi
+
+  # The shell is pausing for one second to ensure precise second-level detection
+  sleep 1
+done

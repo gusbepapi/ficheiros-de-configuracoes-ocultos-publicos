@@ -1,0 +1,101 @@
+#!/usr/bin/env bash
+
+# Installing and enabling the Jupyter extensions of the 2021 workstation, from the old `extensions.sh`
+#
+# Usage
+#   install-jupyter-extensions [--dry-run] [--help]
+#
+# The `labextension install` commands belong to JupyterLab 2 and earlier; the script detects the version and skips them on JupyterLab 3 and later, where extensions are pip packages
+# The script keeps going after a failed command, and it lists the failed commands at the end
+# The script is untested, because Jupyter is not installed here
+# Requires: jupyter, and sudo for the MIME type line
+
+set -u
+
+dry_run=0
+failures=()
+
+case "${1:-}" in
+  --dry-run)
+    dry_run=1
+    ;;
+  --help|-h)
+    sed -n '3,9p' "$0"
+    exit 0
+    ;;
+esac
+
+# Running a command, or printing it when the dry run is active
+run()
+{
+  if [ "${dry_run}" -eq 1 ];
+  then
+    printf '+ %s\n' "$*"
+  elif ! "$@";
+  then
+    failures+=("$*")
+  fi
+}
+
+if [ "${dry_run}" -eq 0 ] && ! command -v jupyter >/dev/null 2>&1;
+then
+  printf 'Error: «jupyter» was not found in the PATH\n' >&2
+  exit 1
+fi
+
+# Detecting the major version of JupyterLab, because `labextension install` of the original only suits version 2 and earlier
+lab_major=0
+if [ "${dry_run}" -eq 0 ];
+then
+  lab_major="$(jupyter lab --version 2>/dev/null | cut -d. -f1)"
+  lab_major="${lab_major:-0}"
+fi
+
+# Installing the JupyterLab extensions
+if [ "${lab_major}" -ge 3 ];
+then
+  printf 'JupyterLab %s was detected; skipping «labextension install», because the extensions are pip packages there\n' "${lab_major}" >&2
+else
+for extension in @jupyterlab-drawio @jupyterlab_latex @jupyterlab/katex-extension @yeebc/jupyterlab_neon_theme @yudai-nkt/jupyterlab_city-lights-theme;
+do
+  run jupyter labextension install "${extension}"
+done
+fi
+
+# Enabling the server extensions
+for extension in jupyterlab-drawio jupyterlab_latex hide_code;
+do
+  run jupyter serverextension enable --sys-prefix "${extension}"
+done
+
+# Installing the classic notebook extensions
+run jupyter contrib nbextension install --sys-prefix
+run jupyter nbextension install jupyter_nbextensions_configurator --py --sys-prefix
+run jupyter nbextension install latex_envs --py --sys-prefix
+
+for extension in codefolding/main nbTranslate/main python-markdown/main toc2/main toggle_all_line_numbers/main;
+do
+  run jupyter nbextension enable "${extension}" --sys-prefix
+done
+
+run jupyter nbextension enable jupyter_nbextensions_configurator --py --sys-prefix
+run jupyter nbextension enable latex_envs --py --sys-prefix
+run jupyter nbextensions_configurator enable --sys-prefix
+
+# Registering the WebAssembly MIME type once, because the original appended the line on every run
+if ! grep -qs '^application/wasm[[:space:]]' /etc/mime.types;
+then
+  if [ "${dry_run}" -eq 1 ];
+  then
+    printf '+ echo "application/wasm      wasm" | sudo tee -a /etc/mime.types\n'
+  else
+    printf 'application/wasm      wasm\n' | sudo tee -a /etc/mime.types >/dev/null
+  fi
+fi
+
+if [ "${#failures[@]}" -gt 0 ];
+then
+  printf 'The following commands failed:\n' >&2
+  printf '  %s\n' "${failures[@]}" >&2
+  exit 1
+fi

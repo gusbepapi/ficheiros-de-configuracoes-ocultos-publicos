@@ -1,0 +1,318 @@
+#!/usr/bin/env bash
+#
+# install-and-update-poetry
+#
+# Installing and updating Poetry in an isolated virtual environment:
+#
+#   ${POETRY_ROOT}/venv           the virtual environment holding Poetry
+#   ${POETRY_ROOT}/bin/poetry     a symbolic link to ../venv/bin/poetry
+#
+# Poetry is installed from PyPI with `pip`, so the official installer host is
+# not required
+#
+# Exit codes:
+#   0  success (or, with `--check`, everything is up to date)
+#   1  runtime failure
+#   2  usage error
+#   3  at least one plugin failed to install; the other plugins were installed
+#   4  with `--check` only: an installation or an update is pending
+
+set -euo pipefail
+
+readonly SCRIPT_NAME="${0##*/}"
+
+POETRY_ROOT="${POETRY_ROOT:-${HOME}/.local/bin/python-executables/poetry}"
+POETRY_PYTHON="${POETRY_PYTHON:-}"
+POETRY_PLUGINS="${POETRY_PLUGINS:-}"
+
+FORCE=0
+CHECK=0
+VENV_CREATED=0
+
+usage()
+{
+  cat <<EOF
+Usage: ${SCRIPT_NAME} [options]
+
+Installs or updates Poetry in an isolated virtual environment.
+
+Options:
+  -p, --plugins LIST  Plugins to add with \`poetry self add\`, separated by
+                      commas or spaces (for example
+                      "poetry-plugin-export,poetry-plugin-up")
+  -f, --force         Recreates the virtual environment from scratch
+  -n, --check         Reports the installed and the latest version without
+                      changing anything; exits with 4 when action is pending
+  -h, --help          Shows this help
+
+Environment:
+  POETRY_ROOT         Installation root
+                      (default: ~/.local/bin/python-executables/poetry)
+  POETRY_PYTHON       Interpreter used to create the virtual environment
+                      (default: newest \`python3.N\` that provides \`venv\`)
+  POETRY_PLUGINS      Default plugin list, overridden by \`--plugins\`
+
+Exit codes:
+  0 success, 1 failure, 2 usage error, 3 plugin failure, 4 action pending
+EOF
+}
+
+log()
+{
+  printf '%s: %s\n' "${SCRIPT_NAME}" "$*"
+}
+
+die()
+{
+  printf '%s: error: %s\n' "${SCRIPT_NAME}" "$*" >&2
+  exit 1
+}
+
+usage_error()
+{
+  printf '%s: %s\n' "${SCRIPT_NAME}" "$*" >&2
+  printf "Try '%s --help'.\n" "${SCRIPT_NAME}" >&2
+  exit 2
+}
+
+parse_arguments()
+{
+  while (( $# > 0 ))
+  do
+    case "$1" in
+      -p|--plugins)
+        (( $# >= 2 )) || usage_error "option '$1' requires an argument"
+        POETRY_PLUGINS="$2"
+        shift 2
+        ;;
+      --plugins=*)
+        POETRY_PLUGINS="${1#*=}"
+        shift
+        ;;
+      -f|--force)
+        FORCE=1
+        shift
+        ;;
+      -n|--check)
+        CHECK=1
+        shift
+        ;;
+      -h|--help)
+        usage
+        exit 0
+        ;;
+      *)
+        usage_error "unknown option '$1'"
+        ;;
+    esac
+  done
+}
+
+# Splitting the plugin list on whitespace and on commas that precede a letter,
+# so that version constraints such as `name>=1,<2` remain intact
+split_plugins()
+{
+  printf '%s' "${POETRY_PLUGINS}" \
+    | sed -E 's/,([A-Za-z])/ \1/g; s/^,+//; s/,+$//' \
+    | tr -s '[:space:]' '\n' \
+    | sed '/^$/d'
+}
+
+# Selecting the newest `python3.N` that provides `venv` and `ensurepip`
+find_python()
+{
+  local candidate
+  local resolved
+
+  if [[ -n "${POETRY_PYTHON}" ]]
+  then
+    resolved="$(command -v "${POETRY_PYTHON}" || true)"
+    [[ -n "${resolved}" ]] || die "interpreter '${POETRY_PYTHON}' was not found"
+    "${resolved}" -c 'import ensurepip, venv' >/dev/null 2>&1 \
+      || die "interpreter '${resolved}' does not provide the \`venv\` module"
+    printf '%s\n' "${resolved}"
+    return 0
+  fi
+
+  while read -r candidate
+  do
+    resolved="$(command -v "${candidate}" || true)"
+    [[ -n "${resolved}" ]] || continue
+    if "${resolved}" -c 'import ensurepip, venv' >/dev/null 2>&1
+    then
+      printf '%s\n' "${resolved}"
+      return 0
+    fi
+  done < <(compgen -c | grep -E '^python3\.[0-9]+$' | sort -Vru)
+
+  die 'no python3.N interpreter with the `venv` module was found'
+}
+
+installed_version()
+{
+  local venv_python="${POETRY_ROOT}/venv/bin/python"
+
+  [[ -x "${venv_python}" ]] || return 0
+  { "${venv_python}" -m pip --disable-pip-version-check show poetry 2>/dev/null || true; } \
+    | sed -n 's/^Version: //p'
+}
+
+# Printing the latest version that `pip` can resolve for Poetry
+latest_version()
+{
+  local venv_python="${POETRY_ROOT}/venv/bin/python"
+
+  { "${venv_python}" -m pip --disable-pip-version-check index versions poetry 2>/dev/null || true; } \
+    | sed -n 's/^poetry (\([^)]*\)).*/\1/p' \
+    | head -n 1
+}
+
+check_only()
+{
+  local installed
+  local latest
+
+  installed="$(installed_version)"
+
+  if [[ -z "${installed}" ]]
+  then
+    log "Poetry is not installed in ${POETRY_ROOT}"
+    exit 4
+  fi
+
+  latest="$(latest_version)"
+  [[ -n "${latest}" ]] || die 'the latest version could not be determined'
+
+  log "installed: ${installed}"
+  log "latest:    ${latest}"
+
+  if [[ "${installed}" == "${latest}" ]]
+  then
+    log 'Poetry is up to date'
+    exit 0
+  fi
+
+  log 'an update is available'
+  exit 4
+}
+
+create_venv()
+{
+  local python
+
+  python="$(find_python)"
+  log "creating the virtual environment with ${python} ($("${python}" --version 2>&1))"
+
+  rm -rf "${POETRY_ROOT}/venv"
+  mkdir -p "${POETRY_ROOT}"
+  "${python}" -m venv "${POETRY_ROOT}/venv"
+  VENV_CREATED=1
+}
+
+# Reinstalling the plugins already registered in the Poetry configuration after
+# the virtual environment was recreated, because `poetry self add` would skip
+# them as already present
+restore_registered_plugins()
+{
+  local output
+
+  if ! output="$("${POETRY_ROOT}/bin/poetry" self install < /dev/null 2>&1)"
+  then
+    printf '%s: warning: registered plugins could not be restored\n%s\n' \
+      "${SCRIPT_NAME}" "${output}" >&2
+  fi
+}
+
+install_or_update()
+{
+  local before
+  local after
+
+  if (( FORCE )) || [[ ! -x "${POETRY_ROOT}/venv/bin/python" ]]
+  then
+    create_venv
+  fi
+
+  before="$(installed_version)"
+
+  log 'installing or updating Poetry from PyPI'
+  "${POETRY_ROOT}/venv/bin/python" -m pip install \
+    --disable-pip-version-check --progress-bar off --upgrade poetry
+
+  after="$(installed_version)"
+
+  mkdir -p "${POETRY_ROOT}/bin"
+  ln -sfn ../venv/bin/poetry "${POETRY_ROOT}/bin/poetry"
+
+  if (( VENV_CREATED ))
+  then
+    restore_registered_plugins
+  fi
+
+  if [[ -z "${before}" ]]
+  then
+    log "installed Poetry ${after}"
+  elif [[ "${before}" == "${after}" ]]
+  then
+    log "Poetry ${after} is already the newest version"
+  else
+    log "updated Poetry ${before} -> ${after}"
+  fi
+}
+
+# Adding each plugin separately, so that one failure does not block the rest
+install_plugins()
+{
+  local plugin
+  local -a plugins=()
+  local -a failed=()
+
+  # Loading the list into an array first, so that no command inside the loop
+  # can consume the remaining entries from standard input
+  mapfile -t plugins < <(split_plugins)
+
+  for plugin in "${plugins[@]}"
+  do
+    log "adding the plugin ${plugin}"
+    if ! "${POETRY_ROOT}/bin/poetry" self add "${plugin}" < /dev/null
+    then
+      printf '%s: warning: the plugin %s failed\n' "${SCRIPT_NAME}" "${plugin}" >&2
+      failed+=("${plugin}")
+    fi
+  done
+
+  if (( ${#failed[@]} > 0 ))
+  then
+    printf '%s: %d plugin(s) failed: %s\n' \
+      "${SCRIPT_NAME}" "${#failed[@]}" "${failed[*]}" >&2
+    return 3
+  fi
+}
+
+main()
+{
+  local status=0
+
+  parse_arguments "$@"
+
+  if (( CHECK ))
+  then
+    check_only
+  fi
+
+  install_or_update
+  install_plugins || status=$?
+
+  case ":${PATH}:" in
+    *":${POETRY_ROOT}/bin:"*)
+      ;;
+    *)
+      log "note: add ${POETRY_ROOT}/bin to your \`PATH\` to run \`poetry\` directly"
+      ;;
+  esac
+
+  "${POETRY_ROOT}/bin/poetry" --version
+  exit "${status}"
+}
+
+main "$@"

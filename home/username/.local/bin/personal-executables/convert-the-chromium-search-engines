@@ -1,0 +1,175 @@
+#!/usr/bin/env python3
+
+# Exporting the search engines of a Chromium-based profile to YAML, and importing them back
+#
+# Usage
+#   convert-the-chromium-search-engines export PROFILE_DIRECTORY OUTPUT.yml
+#   convert-the-chromium-search-engines import PROFILE_DIRECTORY INPUT.yml [--dry-run] [--no-backup] [--allow-running]
+#
+# The engines live in the `keywords` table of the `Web Data` SQLite database, not in `Preferences`
+# The columns are read from the database itself, so that other browser versions work as well
+# Rows created by a policy, and the identifiers, are never exported
+# The browser must be closed, and a timestamped backup is written before an import
+# Requires: python3 and PyYAML
+#
+# Untested against a real `Web Data` file, because the old dotfiles contain none
+# The column `url_hash` is left empty on import, because its algorithm is not documented here
+
+import argparse
+import datetime
+import os
+import shutil
+import sqlite3
+import sys
+import time
+import uuid
+
+import yaml
+
+# Columns that identify a row or depend on the machine, and therefore never travel
+SKIPPED = {"id", "sync_guid", "url_hash", "created_by_policy", "enforced_by_policy", "featured_by_policy", "date_created", "last_modified", "last_visited", "usage_count"}
+
+
+def log(message):
+  print(message, file=sys.stderr)
+
+
+def browser_is_running(profile_directory):
+  for directory in (profile_directory, os.path.dirname(profile_directory)):
+    lock = os.path.join(directory, "SingletonLock")
+
+    if not os.path.islink(lock):
+      continue
+
+    try:
+      os.kill(int(os.readlink(lock).rsplit("-", 1)[1]), 0)
+      return True
+    except (ValueError, IndexError, ProcessLookupError):
+      continue
+    except PermissionError:
+      return True
+
+  return False
+
+
+def columns_of(connection):
+  return [row[1] for row in connection.execute("PRAGMA table_info(keywords)")]
+
+
+def export_engines(database, output):
+  connection = sqlite3.connect("file:" + database + "?mode=ro", uri=True)
+  columns = [name for name in columns_of(connection) if name not in SKIPPED]
+  policy = "created_by_policy = 0" if "created_by_policy" in columns_of(connection) else "1 = 1"
+  engines = []
+
+  for row in connection.execute("SELECT " + ", ".join(columns) + " FROM keywords WHERE " + policy + " ORDER BY keyword"):
+    engines.append({name: value for name, value in zip(columns, row) if value not in (None, "", 0, "[]")})
+
+  default_id = None
+
+  try:
+    result = connection.execute("SELECT value FROM meta WHERE key = 'Default Search Provider ID'").fetchone()
+    default_id = result[0] if result else None
+  except sqlite3.Error:
+    pass
+
+  default_keyword = None
+
+  if default_id is not None:
+    result = connection.execute("SELECT keyword FROM keywords WHERE id = ?", (default_id,)).fetchone()
+    default_keyword = result[0] if result else None
+
+  connection.close()
+
+  with open(output, "w", encoding="utf-8") as handle:
+    yaml.safe_dump({"version": 1, "default_keyword": default_keyword, "engines": engines}, handle, allow_unicode=True, sort_keys=False)
+
+  print("Exported " + str(len(engines)) + " engines to " + output)
+  return 0
+
+
+def import_engines(database, source, arguments):
+  try:
+    with open(source, encoding="utf-8") as handle:
+      plan = yaml.safe_load(handle)
+  except yaml.YAMLError as error:
+    log("Error: the YAML file is invalid: " + str(error).splitlines()[0])
+    return 1
+
+  connection = sqlite3.connect(database)
+  known = columns_of(connection)
+  now = int(time.time())
+  changed = 0
+
+  for engine in plan.get("engines", []):
+    values = {name: value for name, value in engine.items() if name in known and name not in SKIPPED}
+    existing = connection.execute("SELECT id FROM keywords WHERE keyword = ?", (engine["keyword"],)).fetchone()
+
+    if existing:
+      assignments = ", ".join(name + " = ?" for name in values)
+      connection.execute("UPDATE keywords SET " + assignments + ", last_modified = ? WHERE id = ?", [*values.values(), now, existing[0]])
+      print("updated   " + engine["keyword"])
+    else:
+      values.update({"sync_guid": str(uuid.uuid4()), "date_created": now, "last_modified": now})
+      values = {name: value for name, value in values.items() if name in known}
+      connection.execute("INSERT INTO keywords (" + ", ".join(values) + ") VALUES (" + ", ".join("?" for _ in values) + ")", list(values.values()))
+      print("inserted  " + engine["keyword"])
+
+    changed += 1
+
+  # Setting the default engine through the meta table, when the YAML file names one
+  keyword = plan.get("default_keyword")
+
+  if keyword:
+    row = connection.execute("SELECT id FROM keywords WHERE keyword = ?", (keyword,)).fetchone()
+
+    if row:
+      connection.execute("INSERT OR REPLACE INTO meta (key, value) VALUES ('Default Search Provider ID', ?)", (str(row[0]),))
+      print("default   " + keyword)
+      log("Warning: Chromium may also verify the default engine through `default_search_provider_data` in the tracked preferences")
+
+  if arguments.dry_run:
+    connection.rollback()
+    print("Dry run: nothing was written")
+  else:
+    connection.commit()
+    print("Imported " + str(changed) + " engines")
+
+  connection.close()
+  return 0
+
+
+def main():
+  parser = argparse.ArgumentParser(description="Exporting and importing Chromium search engines")
+  parser.add_argument("action", choices=["export", "import"])
+  parser.add_argument("profile_directory")
+  parser.add_argument("file")
+  parser.add_argument("--dry-run", action="store_true")
+  parser.add_argument("--no-backup", action="store_true")
+  parser.add_argument("--allow-running", action="store_true")
+  arguments = parser.parse_args()
+
+  profile_directory = os.path.abspath(os.path.expanduser(arguments.profile_directory))
+  database = os.path.join(profile_directory, "Web Data")
+
+  if not os.path.isfile(database):
+    log("Error: «" + database + "» cannot be found")
+    return 1
+
+  if arguments.action == "export":
+    return export_engines(database, arguments.file)
+
+  if not arguments.allow_running and browser_is_running(profile_directory):
+    log("Error: the browser seems to be running, close it first")
+    return 1
+
+  if not arguments.dry_run and not arguments.no_backup:
+    backup = database + ".bak-" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+    shutil.copy2(database, backup)
+    print("Backup: " + backup)
+
+  return import_engines(database, arguments.file, arguments)
+
+
+if __name__ == "__main__":
+  sys.exit(main())

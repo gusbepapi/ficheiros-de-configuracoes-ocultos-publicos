@@ -1,0 +1,141 @@
+#!/usr/bin/env python3
+
+# Renaming the hashed profile folders of `User/profiles` to the names of the profiles, and updating `globalStorage/storage.json` in the same run
+#
+# Usage
+#   rename-the-editor-profile-folders EDITOR_CONFIGURATION_DIRECTORY [--dry-run] [--no-backup] [--allow-running]
+#
+# The directory is the one that holds `User`, for example `~/.config/VSCodium - Insiders`
+# A profile is the pair «name» and «location» in `userDataProfiles`, and the location is the folder name under `User/profiles`
+# The `location` of every renamed profile is rewritten, and so are the values of `profileAssociations` that point to it
+# The editor must be closed, and `storage.json` is backed up before it is written
+#
+# Untested in a real editor, because none is installed here: the names are kept as they are, with spaces, except for `/` and NUL
+# Run `setup-editor-profiles-and-extensions` afterwards, because it skips the profiles that already exist by name
+
+import argparse
+import datetime
+import json
+import os
+import shutil
+import subprocess
+import sys
+import tempfile
+import unicodedata
+
+
+def log(message):
+  print(message, file=sys.stderr)
+
+
+def editor_is_running(configuration_directory):
+  # Looking for processes whose command line names the configuration directory as the user data directory
+  name = os.path.basename(configuration_directory.rstrip("/"))
+
+  try:
+    output = subprocess.run(["pgrep", "-fa", name], capture_output=True, text=True).stdout
+  except FileNotFoundError:
+    return False
+
+  return any(line for line in output.splitlines() if "rename-the-editor-profile-folders" not in line)
+
+
+def folder_name_of(profile_name):
+  # Normalising to NFC and removing the characters that no folder name can hold
+  return unicodedata.normalize("NFC", profile_name).replace("/", "-").replace("\0", "").strip()
+
+
+def replace_values(node, old, new):
+  # Replacing every string value equal to the old location, at any depth of `profileAssociations`
+  if isinstance(node, dict):
+    return {key: replace_values(value, old, new) for key, value in node.items()}
+
+  if isinstance(node, list):
+    return [replace_values(value, old, new) for value in node]
+
+  return new if node == old else node
+
+
+def main():
+  parser = argparse.ArgumentParser(description="Renaming hashed editor profile folders to the profile names")
+  parser.add_argument("configuration_directory")
+  parser.add_argument("--dry-run", action="store_true")
+  parser.add_argument("--no-backup", action="store_true")
+  parser.add_argument("--allow-running", action="store_true")
+  arguments = parser.parse_args()
+
+  base = os.path.abspath(os.path.expanduser(arguments.configuration_directory))
+  storage_path = os.path.join(base, "User", "globalStorage", "storage.json")
+  profiles_directory = os.path.join(base, "User", "profiles")
+
+  if not os.path.isfile(storage_path):
+    log("Error: «" + storage_path + "» cannot be found")
+    return 1
+
+  if not arguments.allow_running and editor_is_running(base):
+    log("Error: the editor seems to be running, close it first")
+    return 1
+
+  with open(storage_path, encoding="utf-8") as handle:
+    storage = json.load(handle)
+
+  taken = {entry.get("location") for entry in storage.get("userDataProfiles", [])}
+  plan = []
+
+  for entry in storage.get("userDataProfiles", []):
+    old, new = entry.get("location"), folder_name_of(entry.get("name", ""))
+
+    if not new or old == new:
+      continue
+
+    if new in taken:
+      log("Skipped «" + entry["name"] + "»: a profile already uses the location «" + new + "»")
+      continue
+
+    source, target = os.path.join(profiles_directory, old), os.path.join(profiles_directory, new)
+
+    if os.path.exists(target):
+      log("Skipped «" + entry["name"] + "»: the folder «" + new + "» exists already")
+      continue
+
+    plan.append((entry, old, new, source, target))
+    taken.add(new)
+
+  for entry, old, new, source, target in plan:
+    present = os.path.isdir(source)
+    print(("renaming  " if present else "no folder, location only  ") + old + " -> " + new)
+
+  if arguments.dry_run or not plan:
+    print("Dry run: nothing was written" if arguments.dry_run else "Nothing to rename")
+    return 0
+
+  if not arguments.no_backup:
+    backup = storage_path + ".bak-" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+    shutil.copy2(storage_path, backup)
+    print("Backup: " + backup)
+
+  for entry, old, new, source, target in plan:
+    if os.path.isdir(source):
+      os.rename(source, target)
+
+    entry["location"] = new
+
+    if "profileAssociations" in storage:
+      storage["profileAssociations"] = replace_values(storage["profileAssociations"], old, new)
+
+  descriptor, temporary = tempfile.mkstemp(dir=os.path.dirname(storage_path), prefix=".storage.")
+
+  with os.fdopen(descriptor, "w", encoding="utf-8") as handle:
+    json.dump(storage, handle, ensure_ascii=False, indent=2)
+    handle.write("\n")
+    handle.flush()
+    os.fsync(handle.fileno())
+
+  os.chmod(temporary, os.stat(storage_path).st_mode & 0o7777)
+  os.replace(temporary, storage_path)
+  print("Written: " + storage_path)
+  return 0
+
+
+if __name__ == "__main__":
+  sys.exit(main())

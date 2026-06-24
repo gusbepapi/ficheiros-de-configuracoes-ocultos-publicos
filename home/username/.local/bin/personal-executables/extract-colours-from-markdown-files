@@ -1,0 +1,84 @@
+#!/usr/bin/env python3
+
+"""Extracting colour names and hex codes from Markdown files into JSON and YAML.
+
+Requires:
+  pip install pyyaml
+
+Usage:
+  extract-colours
+"""
+
+import os
+import re
+import json
+import yaml
+
+
+def parse_markdown_colours(file_path):
+  """Parsing a Markdown file for colour entries."""
+  colours = {}
+  if not os.path.exists(file_path):
+    print(f"Warning: File «{file_path}» not found.")
+    return colours
+  
+  with open(file_path, "r", encoding="utf-8") as f:
+    content = f.read()
+  
+  # Matching [Name](link) #HEX or similar patterns
+  pattern = r'\[([^\]]+)\][^\n]*?#([0-9A-Fa-f]{6})'
+  matches = re.findall(pattern, content)
+  
+  for name, hex_code in matches:
+    # Cleaning the name: removing parenthetical notes for the key, but keeping the full name if desired
+    # For uniqueness, we use the hex code as the primary identifier if we were merging, 
+    # but here we want a name-to-hex map.
+    clean_name = name.split("(")[0].strip()
+    hex_upper = f"#{hex_code.upper()}"
+    
+    # Using the hex code as a secondary check to avoid duplicates if desired, 
+    # but for a "list of names", we keep the first occurrence of a name.
+    if clean_name.lower() not in colours:
+      colours[clean_name.lower()] = hex_upper
+      
+  return colours
+
+
+def main():
+  """Main execution block."""
+  # Defining the source files and target directory
+  source_files = [
+    "Wikipedia – Colours in alphabetical order.md",
+    "Wikipedia – List of colours (alphabetical).md"
+  ]
+  
+  assets_dir = "assets"
+  os.makedirs(assets_dir, exist_ok=True)
+  
+  all_colours = {}
+  
+  print("=== Extracting Colours from Wikipedia Markdown ===")
+  for file_name in source_files:
+    print(f"Processing «{file_name}»...")
+    file_colours = parse_markdown_colours(file_name)
+    # Updating the main dictionary; later files overwrite earlier ones if names clash
+    all_colours.update(file_colours)
+    
+  # Sorting the dictionary by key for elegance and consistency
+  sorted_colours = dict(sorted(all_colours.items()))
+  
+  # Exporting to JSON
+  json_path = os.path.join(assets_dir, "safe-colours.json")
+  with open(json_path, "w", encoding="utf-8") as f:
+    json.dump(sorted_colours, f, indent=2, ensure_ascii=False)
+  print(f"✓ Exported {len(sorted_colours)} colours to «{json_path}»")
+  
+  # Exporting to YAML
+  yaml_path = os.path.join(assets_dir, "safe-colours.yml")
+  with open(yaml_path, "w", encoding="utf-8") as f:
+    yaml.dump(sorted_colours, f, allow_unicode=True, sort_keys=True)
+  print(f"✓ Exported {len(sorted_colours)} colours to «{yaml_path}»")
+
+
+if __name__ == "__main__":
+  main()

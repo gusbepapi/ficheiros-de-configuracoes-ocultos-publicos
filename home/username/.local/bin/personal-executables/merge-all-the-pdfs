@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+
+# Merging every PDF file of a directory, in alphabetical order, into one document with Ghostscript
+#
+# Usage
+#   merge-all-the-pdfs DIRECTORY OUTPUT.pdf
+#
+# The output file is never taken as an input, and an existing output file is refused unless it is removed first
+# Requires: gs (Ghostscript)
+
+set -u
+
+target_directory="${1:-}"
+output_file="${2:-}"
+
+if [ -z "${target_directory}" ] || [ -z "${output_file}" ];
+then
+  printf 'Usage: %s DIRECTORY OUTPUT.pdf\n' "${0##*/}" >&2
+  exit 2
+fi
+
+if [ ! -d "${target_directory}" ];
+then
+  printf 'Error: the directory «%s» cannot be found\n' "${target_directory}" >&2
+  exit 1
+fi
+
+if [ -e "${output_file}" ];
+then
+  printf 'Error: «%s» exists already, remove it first\n' "${output_file}" >&2
+  exit 1
+fi
+
+if ! command -v gs >/dev/null 2>&1;
+then
+  printf 'Error: «gs» was not found in the PATH\n' >&2
+  exit 1
+fi
+
+# Listing the sources in alphabetical order, with the pattern expanded by the shell
+sources=()
+
+for file in "${target_directory}"/*.pdf;
+do
+  [ -e "${file}" ] && sources+=("${file}")
+done
+
+if [ "${#sources[@]}" -eq 0 ];
+then
+  printf 'No PDF files found in «%s»\n' "${target_directory}"
+  exit 1
+fi
+
+printf 'Merging %d PDF files from «%s» into «%s»...\n' "${#sources[@]}" "${target_directory}" "${output_file}"
+
+if gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile="${output_file}" "${sources[@]}" && [ -f "${output_file}" ];
+then
+  printf 'Successfully created «%s»\n' "${output_file}"
+else
+  printf 'Error: the output file could not be created\n' >&2
+  rm -f -- "${output_file}"
+  exit 1
+fi

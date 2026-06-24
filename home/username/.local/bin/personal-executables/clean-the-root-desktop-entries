@@ -1,0 +1,127 @@
+#!/usr/bin/env bash
+
+# Removing the unwanted desktop entries that a package manager restores under the system applications directory
+#
+# Usage
+#   clean-the-root-desktop-entries [--dry-run] [--quiet] [--deduplicate] [--directory DIR] [--list FILE]
+#
+# The script never fails a transaction: every problem is reported and the exit status stays 0,
+# except for a wrong usage, which exits with 2
+
+set -u
+
+default_directory="/usr/share/applications"
+default_list="/etc/clean-the-root-desktop-entries.list"
+
+directory="${default_directory}"
+list_file="${default_list}"
+dry_run=0
+quiet=0
+deduplicate=0
+
+function say()
+{
+  # Printing a message unless the quiet mode is active
+  if [ "${quiet}" -eq 0 ];
+  then
+    printf '%s\n' "$*" >&2
+  fi
+
+  # Recording the message in the system log when the tool exists
+  if command -v logger >/dev/null 2>&1;
+  then
+    logger -t clean-the-root-desktop-entries -- "$*" 2>/dev/null || true
+  fi
+}
+
+function remove_entry()
+{
+  local file="$1"
+  local reason="$2"
+
+  if [ "${dry_run}" -eq 1 ];
+  then
+    say "would remove ${file} (${reason})"
+    return 0
+  fi
+
+  # Removing only a regular file, never a symbolic link or a directory
+  if [ -f "${file}" ] && [ ! -L "${file}" ];
+  then
+    if rm -f -- "${file}";
+    then
+      say "removed ${file} (${reason})"
+    else
+      say "could not remove ${file}"
+    fi
+  fi
+}
+
+while [ "$#" -gt 0 ];
+do
+  case "$1" in
+    --dry-run) dry_run=1 ;;
+    --quiet) quiet=1 ;;
+    --deduplicate) deduplicate=1 ;;
+    --directory) shift; directory="${1:-}" ;;
+    --list) shift; list_file="${1:-}" ;;
+    *)
+      printf 'Usage: %s [--dry-run] [--quiet] [--deduplicate] [--directory DIR] [--list FILE]\n' "${0##*/}" >&2
+      exit 2
+      ;;
+  esac
+  shift
+done
+
+# Refusing to touch anything when the directory does not exist
+if [ ! -d "${directory}" ];
+then
+  say "directory ${directory} does not exist, nothing to do"
+  exit 0
+fi
+
+# Refusing to delete as an ordinary user, unless the run is a simulation
+if [ "$(id -u)" -ne 0 ] && [ "${dry_run}" -eq 0 ];
+then
+  say "root is required to remove entries from ${directory}, nothing was removed"
+  exit 0
+fi
+
+# Removing every entry that the list names
+if [ -r "${list_file}" ];
+then
+  while IFS= read -r name || [ -n "${name}" ];
+  do
+    # Skipping comments, empty lines and anything that is not a plain file name
+    case "${name}" in
+      ''|'#'*|*/*) continue ;;
+    esac
+
+    if [ -e "${directory}/${name}" ] || [ -L "${directory}/${name}" ];
+    then
+      remove_entry "${directory}/${name}" "listed in ${list_file}"
+    fi
+  done < "${list_file}"
+else
+  say "list ${list_file} is not readable, skipping the list"
+fi
+
+# Removing the later copies of byte-identical entries, keeping the first in alphabetical order
+if [ "${deduplicate}" -eq 1 ];
+then
+  declare -A first_seen=()
+
+  while IFS= read -r -d '' file;
+  do
+    sum="$(sha256sum -- "${file}" | cut -d' ' -f1)"
+
+    if [ -n "${first_seen[${sum}]:-}" ];
+    then
+      remove_entry "${file}" "identical to ${first_seen[${sum}]}"
+    else
+      first_seen["${sum}"]="${file}"
+    fi
+  done < <(find "${directory}" -maxdepth 1 -type f -name '*.desktop' -print0 | sort -z)
+fi
+
+exit 0

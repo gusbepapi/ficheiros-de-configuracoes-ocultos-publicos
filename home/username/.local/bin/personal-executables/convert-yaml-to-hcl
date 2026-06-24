@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+# Converting a YAML file into HCL through the console of Terraform
+#
+# Usage
+#   convert-yaml-to-hcl INPUT.yaml OUTPUT.hcl
+#
+# Requires: terraform
+
+set -u
+
+input_file="${1:-}"
+output_file="${2:-}"
+
+if [ -z "${input_file}" ] || [ -z "${output_file}" ];
+then
+  printf 'Usage: %s INPUT.yaml OUTPUT.hcl\n' "${0##*/}" >&2
+  exit 2
+fi
+
+if [ ! -f "${input_file}" ];
+then
+  printf 'Error: the file «%s» cannot be found\n' "${input_file}" >&2
+  exit 1
+fi
+
+if ! command -v terraform >/dev/null 2>&1;
+then
+  printf 'Error: «terraform» was not found in the PATH\n' >&2
+  exit 1
+fi
+
+# Escaping the path for the HCL string, then evaluating it in the console
+escaped="${input_file//\\/\\\\}"
+escaped="${escaped//\"/\\\"}"
+
+printf 'yamldecode(file("%s"))\n' "${escaped}" | terraform console > "${output_file}"

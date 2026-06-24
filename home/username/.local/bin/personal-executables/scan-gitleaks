@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+umask 077
+
+# Resolving the executable directory
+script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+
+# Resolving the supporting resources directory
+resource_dir="${script_dir}/sensitive-scan"
+
+state_dir="${XDG_STATE_HOME:-$HOME/.local/state}/sensitive-scan"
+
+mkdir -p -- "$state_dir"
+
+report="${GITLEAKS_YAML_REPORT:-$state_dir/gitleaks.yaml}"
+
+command -v gitleaks >/dev/null || { printf 'Missing gitleaks\n' >&2; exit 2; }
+command -v python3 >/dev/null || { printf 'Missing python3\n' >&2; exit 2; }
+
+[[ -f "$resource_dir/gitleaks.toml" ]] || { printf 'Missing gitleaks.toml\n' >&2; exit 2; }
+(( $# )) || set -- "$HOME"
+work_dir="$(mktemp -d)"
+trap 'rm -rf -- "$work_dir"' EXIT
+printf 'files: []\n' > "$report"
+
+failed=0
+
+for target in "$@"; do
+  [[ -d "$target" ]] || { printf 'Invalid directory: %s\n' "$target" >&2; failed=1; continue; }
+  printf 'Gitleaks scanning: %s\n' "$target" >&2
+  status=0
+  gitleaks dir "$target" \
+    --config="$resource_dir/gitleaks.toml" \
+    --redact=100 \
+    --max-target-megabytes="${GITLEAKS_MAX_MB:-20}" \
+    --report-format=json \
+    --report-path="$work_dir/findings.json" \
+    --no-banner --exit-code=10 || status=$?
+  if [[ -s "$work_dir/findings.json" ]]; then
+    python3 "$resource_dir/report.py" gitleaks "$work_dir/findings.json" "$report"
+  fi
+  rm -f -- "$work_dir/findings.json"
+  if (( status != 0 && status != 10 )); then
+    printf 'Gitleaks error (exit %s) for %s\n' "$status" "$target" >&2
+    failed=1
+  fi
+  printf 'Report saved: %s\n' "$report" >&2
+done
+
+exit "$((failed ? 2 : 0))"

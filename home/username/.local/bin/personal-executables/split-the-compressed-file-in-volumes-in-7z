@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+# Exiting immediately on error, unset variable, or pipeline failure
+set -euo pipefail
+
+# Validating the provided argument for \`TARGET_FILE\`
+if [ $# -eq 0 ]; then
+  echo "Error: No file path provided" >&2
+  exit 1
+fi
+
+TARGET_FILE="$1"
+
+# Checking if \`TARGET_FILE\` exists on disk
+if [ ! -f "${TARGET_FILE}" ]; then
+  echo "Error: File '${TARGET_FILE}' does not exist" >&2
+  exit 1
+fi
+
+# Defining \`MAX_BYTES\` threshold in bytes
+MAX_BYTES=31457280
+
+# Measuring \`ACTUAL_BYTES\` of \`TARGET_FILE\`
+ACTUAL_BYTES="$(stat -c %s "${TARGET_FILE}")"
+
+# Evaluating whether \`ACTUAL_BYTES\` exceeds \`MAX_BYTES\`
+if [ "${ACTUAL_BYTES}" -gt "${MAX_BYTES}" ]; then
+  echo "File exceeds 30 MiB threshold; splitting into 30 MiB volumes..."
+
+  split \
+    --bytes=30M \
+    --numeric-suffixes=1 \
+    --suffix-length=3 \
+    "${TARGET_FILE}" \
+    "${TARGET_FILE}."
+
+  # Removing original monolithic file after successful splitting
+  rm -f "${TARGET_FILE}"
+
+  echo "Splitting complete"
+  ls -lh "$(dirname "${TARGET_FILE}")"
+else
+  echo "File is under 30 MiB; no splitting required"
+fi

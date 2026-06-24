@@ -1,0 +1,325 @@
+#!/usr/bin/env bash
+#
+# install-and-update-homebrew
+#
+# Installing and updating Homebrew on Linux as an ordinary user, without any
+# privilege, in the tree below (the official installer would require `sudo`
+# for /home/linuxbrew/.linuxbrew; this script uses the supported alternative
+# of a prefix owned by the user)
+#
+#   ~/.linuxbrew/Homebrew     the git clone of Homebrew/brew
+#   ~/.linuxbrew/bin/brew     the symbolic link to the executable
+#
+# Homebrew refuses to run as root. When this script runs as root (as in a
+# container), it creates and uses an unprivileged owner, `linuxbrew` by default
+#
+# What Homebrew needs from the network, apart from the git clone of GitHub
+#   ghcr.io, pkg-containers.githubusercontent.com   Portable Ruby and bottles
+#   formulae.brew.sh                                the formula index
+# Homebrew requires Ruby 4.0 and downloads its own Portable Ruby from ghcr.io,
+# so `brew` cannot run at all when that host is blocked
+#
+# Exit codes
+#   0   Homebrew is installed, runs, and is up to date
+#   1   failure
+#   3   the clone is installed, but `brew` cannot run (usually a blocked host)
+#
+# Saving this file as ~/.local/bin/personal-executables/install-and-update-homebrew
+# and running `chmod +x` on it is all that the installation requires
+
+set -euo pipefail
+
+readonly SCRIPT_NAME="${0##*/}"
+readonly REPOSITORY="https://github.com/Homebrew/brew"
+readonly DEFAULT_OWNER="linuxbrew"
+
+WORK_DIR=""
+OWNER=""
+OWNER_HOME=""
+PREFIX=""
+PROXY_ENV=()
+
+log()
+{
+  printf '==> %s\n' "$*"
+}
+
+warn()
+{
+  printf 'warning: %s\n' "$*" >&2
+}
+
+die()
+{
+  printf 'error: %s\n' "$*" >&2
+  exit 1
+}
+
+usage()
+{
+  cat <<EOF
+Usage: ${SCRIPT_NAME} [options]
+
+Installing and updating Homebrew on Linux as an ordinary user.
+
+Options:
+  --user NAME    As root: the ordinary user that owns the installation
+                 (created if missing; default: ${DEFAULT_OWNER})
+  --no-upgrade   Update Homebrew itself but do not upgrade the packages
+  -n, --check    Report the installed and latest versions, then exit
+  -h, --help     Show this help
+
+Environment:
+  HOMEBREW_PREFIX_DIR   Overriding the prefix (default: ~/.linuxbrew of the owner)
+EOF
+}
+
+remove_work_dir()
+{
+  if [[ -n "${WORK_DIR}" && -d "${WORK_DIR}" ]]
+  then
+    rm -rf -- "${WORK_DIR}"
+  fi
+}
+
+# Forwarding the proxy variables and a world-readable CA bundle to the owner,
+# whose clean environment would otherwise lose them
+collect_proxy_env()
+{
+  local name ca=""
+
+  for name in HTTPS_PROXY https_proxy HTTP_PROXY http_proxy ALL_PROXY all_proxy NO_PROXY no_proxy
+  do
+    if [[ -n "${!name:-}" ]]
+    then
+      PROXY_ENV+=("${name}=${!name}")
+    fi
+  done
+
+  if [[ -n "${HTTPS_PROXY:-${https_proxy:-}}" ]]
+  then
+    for name in "${HOMEBREW_CA_BUNDLE:-}" "${SSL_CERT_FILE:-}" "${CURL_CA_BUNDLE:-}" "${REQUESTS_CA_BUNDLE:-}" /root/.ccr/ca-bundle.crt
+    do
+      if [[ -n "${name}" && -r "${name}" ]]
+      then
+        ca="${name}"
+        break
+      fi
+    done
+
+    if [[ -n "${ca}" ]]
+    then
+      cp -- "${ca}" "${WORK_DIR}/ca-bundle.crt"
+      chmod 644 "${WORK_DIR}/ca-bundle.crt"
+      PROXY_ENV+=("SSL_CERT_FILE=${WORK_DIR}/ca-bundle.crt" "CURL_CA_BUNDLE=${WORK_DIR}/ca-bundle.crt" "GIT_SSL_CAINFO=${WORK_DIR}/ca-bundle.crt")
+    fi
+  fi
+}
+
+# Running a command as the owner with a clean environment, because an
+# unreadable `PATH` entry of another user (such as /root/.bun/bin) breaks tools
+run_as_owner()
+{
+  if [[ "$(id -un)" == "${OWNER}" ]]
+  then
+    env HOME="${OWNER_HOME}" \
+      PATH="${PREFIX}/bin:/usr/local/bin:/usr/bin:/bin" \
+      HOMEBREW_NO_ANALYTICS=1 HOMEBREW_NO_ENV_HINTS=1 \
+      "${PROXY_ENV[@]+"${PROXY_ENV[@]}"}" "$@"
+  else
+    runuser -u "${OWNER}" -- env -i HOME="${OWNER_HOME}" USER="${OWNER}" LANG=C.UTF-8 \
+      PATH="${PREFIX}/bin:/usr/local/bin:/usr/bin:/bin" \
+      HOMEBREW_NO_ANALYTICS=1 HOMEBREW_NO_ENV_HINTS=1 \
+      "${PROXY_ENV[@]+"${PROXY_ENV[@]}"}" "$@"
+  fi
+}
+
+resolve_owner()
+{
+  if [[ "$(id -u)" -eq 0 ]]
+  then
+    OWNER="${OWNER:-${DEFAULT_OWNER}}"
+
+    if ! id "${OWNER}" >/dev/null 2>&1
+    then
+      log "Creating the unprivileged user ${OWNER}"
+      useradd --create-home --shell /bin/bash "${OWNER}"
+    fi
+  else
+    [[ -z "${OWNER}" || "${OWNER}" == "$(id -un)" ]] || die "--user other than yourself requires root"
+    OWNER="$(id -un)"
+  fi
+
+  OWNER_HOME="$(getent passwd "${OWNER}" | cut -d: -f6)"
+  [[ -n "${OWNER_HOME}" && -d "${OWNER_HOME}" ]] || die "could not determine the home directory of ${OWNER}"
+  PREFIX="${HOMEBREW_PREFIX_DIR:-${OWNER_HOME}/.linuxbrew}"
+}
+
+check_requirements()
+{
+  local tool
+
+  for tool in git curl file
+  do
+    command -v "${tool}" >/dev/null 2>&1 || die "${tool} is required"
+  done
+
+  if ! command -v gcc >/dev/null 2>&1 || ! command -v make >/dev/null 2>&1
+  then
+    warn "gcc and make are missing; packages that have no bottle cannot be built (install build-essential)"
+  fi
+}
+
+latest_version()
+{
+  git ls-remote --tags --refs "${REPOSITORY}" \
+    | sed 's#.*refs/tags/##' \
+    | grep --extended-regexp '^[0-9]+\.[0-9]+\.[0-9]+$' \
+    | sort --version-sort \
+    | tail --lines=1
+}
+
+installed_version()
+{
+  local describe
+
+  if [[ -d "${PREFIX}/Homebrew/.git" ]]
+  then
+    describe="$(run_as_owner git -C "${PREFIX}/Homebrew" describe --tags --abbrev=0 2>/dev/null || true)"
+    printf '%s' "${describe}"
+  fi
+}
+
+install_clone()
+{
+  if [[ -d "${PREFIX}/Homebrew/.git" ]]
+  then
+    log "The clone exists; fetching the latest commits and tags"
+    run_as_owner git -C "${PREFIX}/Homebrew" fetch --quiet --tags origin
+  else
+    [[ ! -e "${PREFIX}/Homebrew" ]] || die "${PREFIX}/Homebrew exists but is not a git clone"
+    log "Cloning Homebrew into ${PREFIX}/Homebrew"
+    run_as_owner mkdir -p -- "${PREFIX}/bin"
+    run_as_owner git clone --quiet "${REPOSITORY}" "${PREFIX}/Homebrew"
+  fi
+
+  # Creating the directories that the official installer creates in advance,
+  # because `brew list` fails with «No such file or directory» without Caskroom
+  run_as_owner mkdir -p -- "${PREFIX}/bin" "${PREFIX}/Cellar" "${PREFIX}/Caskroom"
+  run_as_owner ln -sf ../Homebrew/bin/brew "${PREFIX}/bin/brew"
+}
+
+# Running Ruby through `brew config`, which fails when the Portable Ruby cannot
+# be downloaded; `brew --version` alone would pass because it never runs Ruby
+verify()
+{
+  log "Verifying that brew runs"
+  run_as_owner env HOMEBREW_NO_AUTO_UPDATE=1 "${PREFIX}/bin/brew" config > "${WORK_DIR}/config.out" 2>&1
+}
+
+update_packages()
+{
+  local upgrade="$1"
+
+  log "Updating Homebrew"
+  run_as_owner "${PREFIX}/bin/brew" update || return 1
+
+  if [[ "${upgrade}" -eq 1 ]]
+  then
+    log "Upgrading the installed packages"
+    run_as_owner "${PREFIX}/bin/brew" upgrade || return 1
+  fi
+}
+
+main()
+{
+  local check_only=0 upgrade=1
+  local latest current
+
+  while [[ $# -gt 0 ]]
+  do
+    case "$1" in
+      --user)
+        [[ $# -ge 2 ]] || die "--user requires a name"
+        OWNER="$2"
+        shift
+        ;;
+      --no-upgrade)
+        upgrade=0
+        ;;
+      -n|--check)
+        check_only=1
+        ;;
+      -h|--help)
+        usage
+        exit 0
+        ;;
+      *)
+        usage >&2
+        die "unknown option: $1"
+        ;;
+    esac
+    shift
+  done
+
+  case "$(uname -s)" in
+    Linux)
+      ;;
+    Darwin)
+      die "on macOS use the official installer (it needs sudo for /opt/homebrew); a prefix in the home directory has no bottles there"
+      ;;
+    *)
+      die "unsupported operating system: $(uname -s)"
+      ;;
+  esac
+
+  check_requirements
+
+  WORK_DIR="$(mktemp -d "${TMPDIR:-/tmp}/install-and-update-homebrew.XXXXXX")"
+  chmod 755 "${WORK_DIR}"
+  trap remove_work_dir EXIT
+
+  if [[ "${check_only}" -eq 1 && "$(id -u)" -eq 0 ]] && ! id "${OWNER:-${DEFAULT_OWNER}}" >/dev/null 2>&1
+  then
+    latest="$(latest_version)"
+    log "Installed version: none (owner ${OWNER:-${DEFAULT_OWNER}} does not exist yet)"
+    log "Latest version:    ${latest}"
+    exit 0
+  fi
+
+  resolve_owner
+  collect_proxy_env
+
+  latest="$(latest_version)"
+  [[ -n "${latest}" ]] || die "could not determine the latest version of Homebrew"
+  current="$(installed_version)"
+
+  log "Owner:             ${OWNER}"
+  log "Prefix:            ${PREFIX}"
+  log "Installed version: ${current:-none}"
+  log "Latest version:    ${latest}"
+
+  if [[ "${check_only}" -eq 1 ]]
+  then
+    exit 0
+  fi
+
+  install_clone
+
+  if ! verify
+  then
+    warn "the clone is installed, but brew cannot run; the usual cause is a blocked host (ghcr.io and pkg-containers.githubusercontent.com for the Portable Ruby, formulae.brew.sh for the index)"
+    grep --max-count=3 -E '^(Error|  - https)' "${WORK_DIR}/config.out" >&2 || true
+    exit 3
+  fi
+
+  if ! update_packages "${upgrade}"
+  then
+    warn "brew runs, but the update or the upgrade failed; the usual cause is a blocked host (formulae.brew.sh or ghcr.io)"
+    exit 3
+  fi
+
+  log "To use it: eval \"\$(${PREFIX}/bin/brew shellenv)\""
+}
+
+main "$@"

@@ -1,0 +1,261 @@
+#!/usr/bin/env python3
+
+# Generating tiny, valid and clearly fake fonts, icons and themes, then packing them as one reproducible 7z archive
+#
+# Usage
+#   generate-the-fake-appearances OUTPUT_DIRECTORY
+#
+# Requires: python3, fonttools and 7zz (or 7z) in the PATH
+# Every name carries the prefix «Fake-», so that nobody mistakes it for a real appearance
+
+import json
+import os
+import shutil
+import struct
+import subprocess
+import sys
+import zlib
+
+from fontTools.fontBuilder import FontBuilder
+from fontTools.pens.t2CharStringPen import T2CharStringPen
+from fontTools.pens.ttGlyphPen import TTGlyphPen
+
+FIXED_TIME = "202601010000.00"
+UNITS = 1000
+
+
+def square_path(pen, x0, y0, x1, y1):
+    # Drawing one filled square, clockwise for TrueType and counter-clockwise for CFF
+    pen.moveTo((x0, y0))
+    pen.lineTo((x0, y1))
+    pen.lineTo((x1, y1))
+    pen.lineTo((x1, y0))
+    pen.closePath()
+
+
+def build_font(path, family, style, cff=False):
+    glyph_order = [".notdef", "space", "A", "B"]
+    cmap = {0x20: "space", 0x41: "A", 0x42: "B"}
+    builder = FontBuilder(UNITS, isTTF=not cff)
+    builder.setupGlyphOrder(glyph_order)
+    builder.setupCharacterMap(cmap)
+
+    if cff:
+        pens = {}
+        for name in glyph_order:
+            pen = T2CharStringPen(600, None)
+            if name == ".notdef":
+                square_path(pen, 50, 0, 550, 700)
+            elif name != "space":
+                square_path(pen, 100, 0, 500, 700 if name == "A" else 500)
+            pens[name] = pen.getCharString()
+        ps_name = (family + "-" + style).replace(" ", "")
+        builder.setupCFF(ps_name, {"FullName": family + " " + style}, pens, {})
+    else:
+        glyphs = {}
+        for name in glyph_order:
+            pen = TTGlyphPen(None)
+            if name == ".notdef":
+                square_path(pen, 50, 0, 550, 700)
+            elif name != "space":
+                square_path(pen, 100, 0, 500, 700 if name == "A" else 500)
+            glyphs[name] = pen.glyph()
+        builder.setupGlyf(glyphs)
+
+    metrics = {name: (600, 50) for name in glyph_order}
+    builder.setupHorizontalMetrics(metrics)
+    builder.setupHorizontalHeader(ascent=800, descent=-200)
+    builder.setupNameTable({"familyName": family, "styleName": style})
+    builder.setupOS2(sTypoAscender=800, sTypoDescender=-200, usWinAscent=800, usWinDescent=200)
+    builder.setupPost()
+    builder.font["head"].created = 0
+    builder.font["head"].modified = 0
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    builder.save(path)
+
+
+def write(path, text, mode=0o644):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", encoding="utf-8", newline="\n") as handle:
+        handle.write(text)
+    os.chmod(path, mode)
+
+
+def write_png(path, size, rgb):
+    # Writing a flat-colour PNG with the standard library only
+    row = b"\x00" + bytes(rgb) * size
+    raw = row * size
+
+    def chunk(tag, data):
+        body = tag + data
+        return struct.pack(">I", len(data)) + body + struct.pack(">I", zlib.crc32(body) & 0xFFFFFFFF)
+
+    png = b"\x89PNG\r\n\x1a\n"
+    png += chunk(b"IHDR", struct.pack(">IIBBBBB", size, size, 8, 2, 0, 0, 0))
+    png += chunk(b"IDAT", zlib.compress(raw, 9))
+    png += chunk(b"IEND", b"")
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "wb") as handle:
+        handle.write(png)
+
+
+def svg_icon(colour):
+    return (
+        '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">'
+        f'<rect x="4" y="4" width="40" height="40" rx="6" fill="{colour}"/></svg>\n'
+    )
+
+
+def build_icon_theme(root, name, comment):
+    theme = os.path.join(root, name)
+    write(
+        os.path.join(theme, "index.theme"),
+        "[Icon Theme]\n"
+        f"Name={name}\n"
+        f"Comment={comment}\n"
+        "Inherits=hicolor\n"
+        "Directories=16x16/apps,scalable/apps,scalable/places\n\n"
+        "[16x16/apps]\nSize=16\nContext=Applications\nType=Fixed\n\n"
+        "[scalable/apps]\nSize=48\nMinSize=16\nMaxSize=512\nContext=Applications\nType=Scalable\n\n"
+        "[scalable/places]\nSize=48\nMinSize=16\nMaxSize=512\nContext=Places\nType=Scalable\n",
+    )
+    write_png(os.path.join(theme, "16x16/apps/fake-application.png"), 16, (200, 60, 60))
+    write(os.path.join(theme, "scalable/apps/fake-application.svg"), svg_icon("#c83c3c"))
+    write(os.path.join(theme, "scalable/apps/fake-terminal.svg"), svg_icon("#3c8cc8"))
+    write(os.path.join(theme, "scalable/places/fake-folder.svg"), svg_icon("#c8a03c"))
+
+
+def build_gtk_theme(root, name):
+    theme = os.path.join(root, name)
+    write(
+        os.path.join(theme, "index.theme"),
+        "[Desktop Entry]\nType=X-GNOME-Metatheme\n"
+        f"Name={name}\nComment=A fake GTK theme for testing the shipping of themes\n"
+        "Encoding=UTF-8\n\n[X-GNOME-Metatheme]\n"
+        f"GtkTheme={name}\nMetacityTheme={name}\nIconTheme=Fake-Icons\n",
+    )
+    css = "/* Styling a fake window so that a desktop lists this theme */\nwindow {\n  background-color: #202428;\n  color: #e0e4e8;\n}\n"
+    write(os.path.join(theme, "gtk-3.0/gtk.css"), css)
+    write(os.path.join(theme, "gtk-4.0/gtk.css"), css)
+
+
+def plasma_metadata(identifier, structure, description):
+    return json.dumps(
+        {
+            "KPlugin": {
+                "Id": identifier,
+                "Name": identifier,
+                "Description": description,
+                "Authors": [{"Name": "Fake Author"}],
+                "License": "CC0-1.0",
+                "Version": "1.0",
+                "Website": "https://example.invalid/",
+            },
+            "KPackageStructure": structure,
+        },
+        indent=2,
+    ) + "\n"
+
+
+def build_plasma(root):
+    theme = os.path.join(root, "plasma/desktoptheme/Fake-Plasma")
+    write(os.path.join(theme, "metadata.json"), plasma_metadata("Fake-Plasma", "Plasma/Theme", "A fake Plasma desktop theme"))
+    write(
+        os.path.join(theme, "colors"),
+        "[Colors:Window]\nBackgroundNormal=32,36,40\nForegroundNormal=224,228,232\n\n"
+        "[Colors:View]\nBackgroundNormal=24,28,32\nForegroundNormal=224,228,232\n",
+    )
+    write(
+        os.path.join(theme, "widgets/background.svg"),
+        '<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64">'
+        '<rect id="center" width="64" height="64" fill="#202428"/></svg>\n',
+    )
+    look = os.path.join(root, "plasma/look-and-feel/Fake-LookAndFeel")
+    write(
+        os.path.join(look, "metadata.json"),
+        plasma_metadata("Fake-LookAndFeel", "Plasma/LookAndFeel", "A fake Plasma look-and-feel package"),
+    )
+    write(
+        os.path.join(look, "contents/defaults"),
+        "[kdeglobals][General]\nColorScheme=BreezeDark\n\n[kdeglobals][Icons]\nTheme=Fake-Icons\n\n"
+        "[plasmarc][Theme]\nname=Fake-Plasma\n\n[kwinrc][org.kde.kdecoration2]\nlibrary=org.kde.kwin.aurorae\ntheme=__aurorae__svg__Fake-Aurorae\n",
+    )
+
+
+def build_aurorae(root):
+    theme = os.path.join(root, "aurorae/themes/Fake-Aurorae")
+    write(
+        os.path.join(theme, "metadata.desktop"),
+        "[Desktop Entry]\nName=Fake-Aurorae\nComment=A fake Aurorae window decoration\n"
+        "X-KDE-PluginInfo-Name=Fake-Aurorae\nX-KDE-PluginInfo-Author=Fake Author\n"
+        "X-KDE-PluginInfo-Version=1.0\nX-KDE-PluginInfo-License=CC0-1.0\n",
+    )
+    write(
+        os.path.join(theme, "Fake-Aurorae.rc"),
+        "[General]\nTitleAlignment=Center\nTitleVerticalAlignment=Center\nButtonSize=24\nButtonSpacing=2\n"
+        "TitleEdgeTop=4\nTitleEdgeBottom=4\nTitleEdgeLeft=8\nTitleEdgeRight=8\nTitleBorderLeft=0\nTitleBorderRight=0\n"
+        "TitleHeight=28\nPaddingLeft=1\nPaddingRight=1\nPaddingTop=0\nPaddingBottom=1\n",
+    )
+    elements = [
+        "decoration-top", "decoration-topleft", "decoration-topright", "decoration-left",
+        "decoration-right", "decoration-bottom", "decoration-bottomleft", "decoration-bottomright",
+        "close", "maximize", "restore", "minimize",
+    ]
+    body = "".join(f'<rect id="{name}" width="16" height="16" fill="#3c4450"/>' for name in elements)
+    write(os.path.join(theme, "decoration.svg"), f'<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64">{body}</svg>\n')
+
+
+def reset_times(root):
+    # Fixing every modification time so that identical input gives an identical archive
+    for directory, _, files in os.walk(root):
+        for name in files + [""]:
+            target = os.path.join(directory, name) if name else directory
+            subprocess.run(["touch", "-h", "-t", FIXED_TIME, target], check=True)
+
+
+def main():
+    if len(sys.argv) != 2:
+        sys.exit("Usage: generate-the-fake-appearances OUTPUT_DIRECTORY")
+
+    out = os.path.abspath(sys.argv[1])
+    work = os.path.join(out, "fake-appearances")
+    shutil.rmtree(work, ignore_errors=True)
+    os.makedirs(work)
+
+    build_font(os.path.join(work, ".fonts/Fake-Legacy-Sans-Regular.ttf"), "Fake-Legacy-Sans", "Regular")
+    fonts = os.path.join(work, ".local/share/fonts/Fake-Fonts")
+    build_font(os.path.join(fonts, "Fake-Sans-Regular.ttf"), "Fake-Sans", "Regular")
+    build_font(os.path.join(fonts, "Fake-Serif-Regular.ttf"), "Fake-Serif", "Regular")
+    build_font(os.path.join(fonts, "Fake-Mono-Regular.ttf"), "Fake-Mono", "Regular")
+    build_font(os.path.join(fonts, "Fake-Display-Regular.otf"), "Fake-Display", "Regular", cff=True)
+
+    build_icon_theme(os.path.join(work, ".icons"), "Fake-Legacy-Icons", "A fake legacy icon theme")
+    build_icon_theme(os.path.join(work, ".local/share/icons"), "Fake-Icons", "A fake icon theme")
+    build_gtk_theme(os.path.join(work, ".themes"), "Fake-Legacy-GTK")
+    build_gtk_theme(os.path.join(work, ".local/share/themes"), "Fake-GTK")
+    build_plasma(os.path.join(work, ".local/share"))
+    build_aurorae(os.path.join(work, ".local/share"))
+
+    reset_times(work)
+
+    archive = os.path.join(out, "fake-appearances.7z")
+
+    if os.path.exists(archive):
+        os.remove(archive)
+
+    tool = shutil.which("7zz") or shutil.which("7z")
+
+    if tool is None:
+        sys.exit("7zz or 7z was not found in the PATH")
+
+    # Sorting the entries and dropping the extra metadata, for a reproducible archive
+    subprocess.run(
+        [tool, "a", "-t7z", "-mx=9", "-ms=off", "-mtm=off", "-mtc=off", "-mta=off", "-bso0", "-bsp0", archive, "."],
+        cwd=work,
+        check=True,
+    )
+    print(archive)
+
+
+if __name__ == "__main__":
+    main()

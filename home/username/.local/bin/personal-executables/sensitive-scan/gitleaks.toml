@@ -1,0 +1,13 @@
+title = "Filesystem secrets scan"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Skip caches, generated directories and common binary formats"
+paths = [
+  '''(^|/)(\.cache|\.flatpak|\.var|node_modules|vendor|dist|build|target|coverage|\.venv|venv|__pycache__|\.tox|\.mypy_cache)(/|$)''',
+  '''(^|/)\.local/share/Trash(/|$)''',
+  '''(^|/)\.git/(objects|lfs)(/|$)''',
+  '''(?i)\.(png|jpe?g|gif|webp|ico|bmp|tiff?|avif|mp3|mp4|mkv|avi|mov|wav|flac|ogg|webm|zip|7z|rar|tar|gz|xz|bz2|zst|iso|pdf|exe|dll|so|dylib|o|a|class|pyc|wasm|woff2?|ttf|otf|eot)$'''
+]

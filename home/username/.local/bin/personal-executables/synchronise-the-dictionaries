@@ -1,0 +1,166 @@
+#!/usr/bin/env python3
+# Collecting the personal words of browsers and editors into one YAML dictionary, and writing them back to every dictionary file
+#
+# Usage:
+#   synchronise-the-dictionaries collect [--home DIR]... [--project DIR]... [--yaml FILE]
+#   synchronise-the-dictionaries apply   [--home DIR]... [--project DIR]... [--yaml FILE] [--write] [--backup]
+#
+# The `collect` command merges the words found in every known dictionary file with the words of the YAML file
+# The `apply` command only prints the plan unless `--write` is given; close the browsers before writing
+#
+# Dictionary files known to the script:
+#   Chromium family: `~/.config/*/<profile>/Custom Dictionary.txt` (words plus a `checksum_v1` line, the MD5 of the words with newlines)
+#   Firefox and Thunderbird: `persdict.dat`
+#   Spellright: `spellright.dict` (under `~/.config/*/User`, `.vscode` of the home, of a project or of a workspace)
+#   LTeX: `ltex.dictionary.<language>.txt` (under `ltex_dictionaries`, `.vscode` or the extension storage)
+#   Aspell: `~/.aspell.<language>.pws`; Hunspell: `~/.hunspell_<language>`
+
+import argparse
+import glob
+import hashlib
+import os
+import re
+import sys
+import tempfile
+
+try:
+  import yaml
+except ImportError:
+  sys.exit('The module «yaml» is missing; install it with `pip install pyyaml`')
+
+DEFAULT_YAML = os.path.expanduser('~/.config/dictionaries/personal.yml')
+CHECKSUM = re.compile(r'^checksum_v1 = [0-9a-f]{32}$')
+
+
+def words_of(text):
+  # Reading one word per line, ignoring the checksum line, the Aspell header and the blank lines
+  out = []
+  for line in text.splitlines():
+    line = line.strip()
+    if not line or CHECKSUM.match(line) or line.startswith('personal_ws-'):
+      continue
+    out.append(line)
+  return out
+
+
+def language_of(path):
+  # Deriving a language tag such as `en_GB` from the name of the file when the name carries one
+  name = os.path.basename(path)
+  for pattern in (r'ltex\.dictionary\.([A-Za-z-]+)\.txt$', r'\.aspell\.([A-Za-z_]+)\.pws$', r'\.hunspell_([A-Za-z_]+)$'):
+    m = re.search(pattern, name)
+    if m:
+      return m.group(1).replace('-', '_')
+  return None
+
+
+def targets(homes, projects):
+  # Listing every dictionary file, with its kind
+  found = []
+  for home in homes:
+    for pattern, kind in (
+      ('.config/*/Custom Dictionary.txt', 'chromium'),
+      ('.config/*/*/Custom Dictionary.txt', 'chromium'),
+      ('.mozilla/firefox/*/persdict.dat', 'plain'),
+      ('.thunderbird/*/persdict.dat', 'plain'),
+      ('.config/*/User/spellright.dict', 'plain'),
+      ('.config/*/User/globalStorage/valentjn.vscode-ltex/ltex.dictionary.*.txt', 'plain'),
+      ('.vscode/spellright.dict', 'plain'),
+      ('.vscode/ltex.dictionary.*.txt', 'plain'),
+      ('.vscode/ltex_dictionaries/*.txt', 'plain'),
+      ('.aspell.*.pws', 'plain'),
+      ('.hunspell_*', 'plain'),
+    ):
+      for p in glob.glob(os.path.join(home, pattern)):
+        found.append((p, kind))
+  for proj in projects:
+    for pattern in ('.vscode/spellright.dict', '.vscode/ltex.dictionary.*.txt', '.vscode/ltex_dictionaries/*.txt'):
+      for p in glob.glob(os.path.join(proj, pattern)):
+        found.append((p, 'plain'))
+  return sorted(set(found))
+
+
+def load_yaml(path):
+  if not os.path.exists(path):
+    return {'words': [], 'languages': {}}
+  with open(path, encoding='utf-8') as f:
+    data = yaml.safe_load(f) or {}
+  return {'words': list(data.get('words') or []), 'languages': {k: list(v or []) for k, v in (data.get('languages') or {}).items()}}
+
+
+def key(word):
+  return (word.casefold(), word)
+
+
+def write_yaml(path, data):
+  data['words'] = sorted(set(data['words']), key=key)
+  data['languages'] = {k: sorted(set(v), key=key) for k, v in sorted(data['languages'].items())}
+  os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
+  with open(path, 'w', encoding='utf-8') as f:
+    yaml.safe_dump(data, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
+
+
+def render(kind, words):
+  body = ''.join(w + '\n' for w in words)
+  if kind == 'chromium':
+    # Appending the checksum Chromium verifies, the MD5 of the words with their newlines
+    return body + 'checksum_v1 = ' + hashlib.md5(body.encode('utf-8')).hexdigest() + '\n'
+  return body
+
+
+def collect(args):
+  data = load_yaml(args.yaml)
+  before = len(data['words']) + sum(len(v) for v in data['languages'].values())
+  total = 0
+  for path, kind in targets(args.home, args.project):
+    with open(path, encoding='utf-8', errors='replace') as f:
+      found = words_of(f.read())
+    lang = language_of(path)
+    if lang:
+      data['languages'].setdefault(lang, []).extend(found)
+    else:
+      data['words'].extend(found)
+    total += len(found)
+    print('collected %5d words from %s' % (len(found), path))
+  write_yaml(args.yaml, data)
+  after = len(data['words']) + sum(len(v) for v in data['languages'].values())
+  print('the YAML file held %d words, %d were read, and it now holds %d after removing the duplicates' % (before, total, after))
+
+
+def apply(args):
+  data = load_yaml(args.yaml)
+  everywhere = set(data['words'])
+  for path, kind in targets(args.home, args.project):
+    lang = language_of(path)
+    wanted = set(everywhere) | (set(data['languages'].get(lang, [])) if lang else set())
+    with open(path, encoding='utf-8', errors='replace') as f:
+      current = words_of(f.read())
+    merged = sorted(set(current) | wanted, key=key)
+    added = len(set(merged) - set(current))
+    print('%-8s %+5d words  %s' % ('write' if args.write else 'plan', added, path))
+    if not args.write or added == 0:
+      continue
+    if args.backup:
+      with open(path + '.orig', 'w', encoding='utf-8') as f:
+        f.write(render(kind, current))
+    directory = os.path.dirname(path)
+    fd, tmp = tempfile.mkstemp(dir=directory)
+    with os.fdopen(fd, 'w', encoding='utf-8') as f:
+      f.write(render(kind, merged))
+    os.replace(tmp, path)
+
+
+def main():
+  parser = argparse.ArgumentParser(description='Collecting and applying the personal dictionaries')
+  parser.add_argument('command', choices=('collect', 'apply'))
+  parser.add_argument('--home', action='append', default=[], help='home directory to search (default: the current home)')
+  parser.add_argument('--project', action='append', default=[], help='project or workspace directory to search')
+  parser.add_argument('--yaml', default=DEFAULT_YAML)
+  parser.add_argument('--write', action='store_true')
+  parser.add_argument('--backup', action='store_true')
+  args = parser.parse_args()
+  args.home = args.home or [os.path.expanduser('~')]
+  (collect if args.command == 'collect' else apply)(args)
+
+
+if __name__ == '__main__':
+  main()

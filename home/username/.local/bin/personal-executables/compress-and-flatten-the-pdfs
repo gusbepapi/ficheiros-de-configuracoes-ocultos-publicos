@@ -1,0 +1,74 @@
+#!/usr/bin/env bash
+
+# Compressing and flattening every PDF file of a directory with Ghostscript, writing «NAME_compressed_flatten.pdf» beside each source
+#
+# Usage
+#   compress-and-flatten-the-pdfs [DIRECTORY]
+#
+# The directory defaults to the current one, and the sources are never modified or deleted
+# Requires: ps2pdf, gs (Ghostscript), stat and numfmt (GNU coreutils)
+
+set -u
+
+target_directory="${1:-.}"
+total_saved=0
+found=0
+
+# Verifying that the directory exists
+if [ ! -d "${target_directory}" ];
+then
+  printf 'Error: the directory «%s» cannot be found\n' "${target_directory}" >&2
+  exit 1
+fi
+
+for tool in ps2pdf gs stat;
+do
+  if ! command -v "${tool}" >/dev/null 2>&1;
+  then
+    printf 'Error: «%s» was not found in the PATH\n' "${tool}" >&2
+    exit 1
+  fi
+done
+
+# Iterating through the PDF files of the target directory, skipping the files that this script wrote earlier
+for file in "${target_directory}"/*.pdf;
+do
+  # Guarding against a pattern that matched nothing
+  [ -e "${file}" ] || continue
+
+  case "${file}" in
+    *_compressed_flatten.pdf) continue ;;
+  esac
+
+  found=1
+  base_name="$(basename -s .pdf "${file}")"
+  output_file="$(dirname "${file}")/${base_name}_compressed_flatten.pdf"
+  original_size="$(stat -c %s "${file}")"
+
+  printf 'Processing «%s»...\n' "${base_name}"
+
+  # Processing with `ps2pdf` and writing beside the source
+  if ps2pdf -dNumRenderingThreads=4 "${file}" - | \
+    gs -dSAFER -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -dPreserveAnnots=false -sOutputFile="${output_file}" -;
+  then
+    new_size="$(stat -c %s "${output_file}")"
+    total_saved=$(( total_saved + original_size - new_size ))
+  else
+    printf 'Error: «%s» could not be processed\n' "${base_name}" >&2
+    rm -f -- "${output_file}"
+  fi
+done
+
+if [ "${found}" -eq 0 ];
+then
+  printf 'No PDF files found in «%s»\n' "${target_directory}"
+  exit 0
+fi
+
+# Displaying the final report
+if [ "${total_saved}" -gt 0 ];
+then
+  printf 'Total disk space reclaimed: %s\n' "$(numfmt --to=iec --suffix=B "${total_saved}")"
+else
+  printf 'Process complete, and no space was reclaimed\n'
+fi

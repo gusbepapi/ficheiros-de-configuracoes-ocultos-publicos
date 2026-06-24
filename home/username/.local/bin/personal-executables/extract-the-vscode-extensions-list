@@ -1,0 +1,96 @@
+#!/usr/bin/env python3
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Extracting the extension identifiers from the unified editor setup script
+#
+# Reading the unified script, gathering every active extension identifier, discarding the duplicates, permuting the result, and writing it to a text file.
+# ─────────────────────────────────────────────────────────────────────────────
+
+import argparse
+import random
+import re
+import sys
+from pathlib import Path
+
+# Defining the default directory holding the local VSIX packages
+VSIX_DIR = Path.home() / "Downloads" / "Extensions" / "VSCode and its forks"
+
+# Defining the regular expression matching a bare quoted extension identifier
+# An identifier joins a publisher and a name with a full stop, and it contains neither whitespace nor the equals sign, which excludes the editor names, the profile registry entries, and the global array names
+IDENTIFIER_PATTERN = re.compile(
+  r'^"([A-Za-z0-9_][A-Za-z0-9._-]*\.[A-Za-z0-9._-]+)"$'
+)
+
+def extract_identifiers(source_path):
+  # Reading the source script and gathering the unique identifiers
+  identifiers = set()
+
+  with source_path.open("r", encoding="utf-8") as source_file:
+    for line in source_file:
+      stripped = line.strip()
+
+      # Skipping the commented lines so the inactive extensions are ignored
+      if stripped.startswith("#"):
+        continue
+
+      # Retaining the line only when it is a bare quoted identifier
+      match = IDENTIFIER_PATTERN.match(stripped)
+
+      if match:
+        identifiers.add(match.group(1))
+
+  return identifiers
+
+def main():
+  # Parsing the command line arguments
+  parser = argparse.ArgumentParser(
+    description="Extracting the extension identifiers from the unified setup script"
+  )
+
+  parser.add_argument(
+    "source",
+    nargs="?",
+    default="setup-editor-profiles-and-extensions",
+    help="The path to the unified editor setup script"
+  )
+
+  parser.add_argument(
+    "destination",
+    nargs="?",
+    default=str(VSIX_DIR / "extension-identifiers.txt"),
+    help="The path to the text file receiving the identifiers"
+  )
+
+  arguments = parser.parse_args()
+
+  source_path = Path(arguments.source)
+  destination_path = Path(arguments.destination)
+
+  # Verifying the existence of the source script
+  if not source_path.is_file():
+    print(f"The source script «{source_path}» does not exist")
+    sys.exit(1)
+
+  # Extracting the unique identifiers from the source script
+  identifiers = extract_identifiers(source_path)
+
+  if not identifiers:
+    print(f"No extension identifiers were found within «{source_path}»")
+    sys.exit(1)
+
+  # Permuting the unique identifiers into a random order
+  permuted = list(identifiers)
+  random.shuffle(permuted)
+
+  # Creating the destination directory when it is absent
+  destination_path.parent.mkdir(parents=True, exist_ok=True)
+
+  # Writing the permuted identifiers to the destination file
+  with destination_path.open("w", encoding="utf-8") as destination_file:
+    for identifier in permuted:
+      destination_file.write(f"{identifier}\n")
+
+  print(f"Extracting {len(permuted)} unique identifiers into «{destination_path}»")
+
+if __name__ == "__main__":
+  main()

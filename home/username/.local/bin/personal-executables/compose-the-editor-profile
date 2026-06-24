@@ -1,0 +1,118 @@
+#!/usr/bin/env python3
+
+# Composing the settings and the extension list of one editor profile from layers
+#
+# Usage
+#   compose-the-editor-profile PROFILE_NAME [--directory DIR] [--settings FILE] [--extensions FILE] [--list]
+#
+# The directory defaults to `~/.config/editor-settings` and holds `profiles.yml`, `extensions.yml` and `settings/`
+# Layers, from the first to the last: global, system, language levels, frameworks, project
+# The levels of a language are cumulative: «mastery» applies basis, advanced and mastery, in this order
+# Dictionaries merge recursively, and later layers win; extensions keep their first position and drop duplicates
+# Requires: python3 and PyYAML
+
+import argparse
+import json
+import os
+import sys
+
+import yaml
+
+LEVELS = ["basis", "advanced", "mastery"]
+
+
+def log(message):
+  print(message, file=sys.stderr)
+
+
+def merge(base, extra):
+  result = dict(base)
+
+  for key, value in extra.items():
+    result[key] = merge(result[key], value) if isinstance(value, dict) and isinstance(result.get(key), dict) else value
+
+  return result
+
+
+def read_json(path):
+  if not os.path.isfile(path):
+    return {}
+
+  with open(path, encoding="utf-8") as handle:
+    return json.load(handle)
+
+
+def main():
+  parser = argparse.ArgumentParser(description="Composing an editor profile from layers")
+  parser.add_argument("profile", nargs="?")
+  parser.add_argument("--directory", default=os.path.expanduser("~/.config/editor-settings"))
+  parser.add_argument("--settings", help="writing the composed settings to this file")
+  parser.add_argument("--extensions", help="writing the extension list to this file")
+  parser.add_argument("--list", action="store_true", help="listing the profile names")
+  arguments = parser.parse_args()
+
+  directory = os.path.abspath(os.path.expanduser(arguments.directory))
+
+  with open(os.path.join(directory, "profiles.yml"), encoding="utf-8") as handle:
+    profiles = yaml.safe_load(handle)["profiles"]
+
+  with open(os.path.join(directory, "extensions.yml"), encoding="utf-8") as handle:
+    catalogue = yaml.safe_load(handle)
+
+  if arguments.list or not arguments.profile:
+    print("\n".join(profiles))
+    return 0
+
+  if arguments.profile not in profiles:
+    log("Error: the profile «" + arguments.profile + "» is not defined")
+    return 1
+
+  profile = profiles[arguments.profile]
+  settings = read_json(os.path.join(directory, "settings", "global.json"))
+  extensions = [item for group in catalogue.get("global", {}).values() for item in group]
+
+  if profile.get("system"):
+    extensions += catalogue.get("systems", {}).get(profile["system"], [])
+    settings = merge(settings, read_json(os.path.join(directory, "settings", "systems", profile["system"] + ".json")))
+
+  for language, level in profile.get("language", {}).items():
+    if level not in LEVELS:
+      log("Error: the level «" + str(level) + "» of «" + language + "» is unknown, use " + ", ".join(LEVELS))
+      return 1
+
+    layer = read_json(os.path.join(directory, "settings", "languages", language + ".json"))
+
+    # Applying every level up to the wanted one, because the levels are cumulative
+    for step in LEVELS[: LEVELS.index(level) + 1]:
+      settings = merge(settings, layer.get(step, {}))
+      extensions += catalogue.get("languages", {}).get(language, {}).get(step, [])
+
+  for framework in profile.get("frameworks", []):
+    settings = merge(settings, read_json(os.path.join(directory, "settings", "frameworks", framework + ".json")))
+    extensions += catalogue.get("frameworks", {}).get(framework, [])
+
+  project = profile.get("project")
+
+  if project:
+    settings = merge(settings, read_json(os.path.join(directory, "settings", "projects", project + ".json")))
+    extensions += catalogue.get("projects", {}).get(project, [])
+
+  unique = list(dict.fromkeys(extensions))
+  text = json.dumps(settings, ensure_ascii=False, indent=2) + "\n"
+
+  if arguments.settings:
+    with open(arguments.settings, "w", encoding="utf-8") as handle:
+      handle.write(text)
+  else:
+    sys.stdout.write(text)
+
+  if arguments.extensions:
+    with open(arguments.extensions, "w", encoding="utf-8") as handle:
+      handle.write("\n".join(unique) + "\n")
+
+  log("Composed «" + arguments.profile + "»: " + str(len(settings)) + " settings, " + str(len(unique)) + " extensions")
+  return 0
+
+
+if __name__ == "__main__":
+  sys.exit(main())

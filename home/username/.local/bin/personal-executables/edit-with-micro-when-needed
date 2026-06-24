@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+# Opening files with `micro`, and escalating to `sudo` only when a file, or the folder of a new file, is not writable
+#
+# Usage
+#   edit-with-micro-when-needed FILE...
+#
+# The environment is preserved with `sudo -E`, so the colours and the configuration of the user apply
+
+set -u
+
+binary_path="$(command -v micro || true)"
+
+# Ensuring that the editor was found
+if [ -z "${binary_path}" ];
+then
+  printf 'Error: the «micro» binary could not be found in the PATH\n' >&2
+  exit 1
+fi
+
+use_sudo=0
+
+# Looping through the arguments to verify the permissions
+for argument in "$@";
+do
+  # Skipping options, because only paths matter here
+  case "${argument}" in
+    -*) continue ;;
+  esac
+
+  if [ -e "${argument}" ] && [ ! -w "${argument}" ];
+  then
+    use_sudo=1
+    break
+  fi
+
+  if [ ! -e "${argument}" ] && [ ! -w "$(dirname -- "${argument}")" ];
+  then
+    use_sudo=1
+    break
+  fi
+done
+
+# Executing the editor with the correct privileges
+if [ "${use_sudo}" -eq 1 ];
+then
+  printf 'Privilege escalation required for «micro», prompting for «sudo»...\n' >&2
+  exec sudo -E "${binary_path}" "$@"
+fi
+
+exec "${binary_path}" "$@"

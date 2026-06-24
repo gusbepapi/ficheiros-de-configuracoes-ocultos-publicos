@@ -1,0 +1,89 @@
+#!/usr/bin/env bash
+
+# Aborting a package transaction that would install a font package from the deny list
+#
+# Usage
+#   block-the-unwanted-fonts --pacman            # reading package names from the standard input, one per line
+#   block-the-unwanted-fonts --apt               # reading the package lines that apt sends to a pre-install hook
+#   block-the-unwanted-fonts --args NAME...      # reading package names from the arguments
+#
+# Exit status: 0 when nothing is blocked, 1 when a package matches the deny list, 2 for a wrong usage
+# A missing deny list never blocks anything, because a broken file must not lock the package manager
+
+set -u
+
+list_file="${BLOCK_THE_UNWANTED_FONTS_LIST:-/etc/block-the-unwanted-fonts.list}"
+names=()
+
+function collect_pacman()
+{
+  local line
+
+  while IFS= read -r line || [ -n "${line}" ];
+  do
+    [ -n "${line}" ] && names+=("${line}")
+  done
+}
+
+function collect_apt()
+{
+  local line
+  local in_header=1
+
+  # Skipping the configuration lines that apt sends before the first empty line
+  while IFS= read -r line || [ -n "${line}" ];
+  do
+    if [ "${in_header}" -eq 1 ];
+    then
+      [ -z "${line}" ] && in_header=0
+      continue
+    fi
+
+    # Taking the first field of each package line as the package name, without the architecture
+    [ -n "${line}" ] && names+=("${line%% *}")
+  done
+}
+
+case "${1:-}" in
+  --pacman) collect_pacman ;;
+  --apt) collect_apt ;;
+  --args) shift; names=("$@") ;;
+  *)
+    printf 'Usage: %s --pacman | --apt | --args NAME...\n' "${0##*/}" >&2
+    exit 2
+    ;;
+esac
+
+if [ ! -r "${list_file}" ];
+then
+  printf '%s: deny list %s is not readable, nothing is blocked\n' "${0##*/}" "${list_file}" >&2
+  exit 0
+fi
+
+blocked=()
+
+for name in ${names[@]+"${names[@]}"};
+do
+  name="${name%%:*}"
+
+  while IFS= read -r pattern || [ -n "${pattern}" ];
+  do
+    case "${pattern}" in
+      ''|'#'*) continue ;;
+    esac
+
+    # shellcheck disable=SC2254
+    case "${name}" in
+      ${pattern}) blocked+=("${name}"); break ;;
+    esac
+  done < "${list_file}"
+done
+
+if [ "${#blocked[@]}" -gt 0 ];
+then
+  printf '%s: refusing the transaction, these packages are on the deny list %s:\n' "${0##*/}" "${list_file}" >&2
+  printf '  %s\n' "${blocked[@]}" >&2
+  exit 1
+fi
+
+exit 0

@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+umask 077
+
+# Resolving the executable directory
+script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+
+# Resolving the supporting resources directory
+resource_dir="${script_dir}/sensitive-scan"
+state_dir="${XDG_STATE_HOME:-$HOME/.local/state}/sensitive-scan"
+
+mkdir -p -- "$state_dir"
+
+report="${RIPGREP_YAML_REPORT:-$state_dir/ripgrep.yaml}"
+
+command -v rg >/dev/null || { printf 'Missing rg\n' >&2; exit 2; }
+command -v python3 >/dev/null || { printf 'Missing python3\n' >&2; exit 2; }
+[[ -f "$script_dir/patterns.pcre2" ]] || { printf 'Missing patterns.pcre2\n' >&2; exit 2; }
+
+(( $# )) || set -- "$HOME"
+
+work_dir="$(mktemp -d)"
+
+trap 'rm -rf -- "$work_dir"' EXIT
+
+printf 'files: []\n' > "$report"
+
+excludes=(
+  --glob '!**/.cache/**' --glob '!**/.flatpak/**' --glob '!**/.var/**'
+  --glob '!**/.local/share/Trash/**' --glob '!**/node_modules/**'
+  --glob '!**/vendor/**' --glob '!**/dist/**' --glob '!**/build/**'
+  --glob '!**/target/**' --glob '!**/coverage/**'
+  --glob '!**/.venv/**' --glob '!**/venv/**'
+  --glob '!**/__pycache__/**' --glob '!**/.git/objects/**'
+  --glob '!**/.git/lfs/**'
+  --glob '!*.{png,jpg,jpeg,gif,webp,ico,bmp,tif,tiff,avif,mp3,mp4,mkv,avi,mov,wav,flac,ogg,webm,zip,7z,rar,tar,gz,xz,bz2,zst,iso,pdf,exe,dll,so,dylib,o,a,class,pyc,wasm,woff,woff2,ttf,otf,eot}'
+)
+
+failed=0
+
+for target in "$@"; do
+  [[ -d "$target" ]] || { printf 'Invalid directory: %s\n' "$target" >&2; failed=1; continue; }
+  printf 'Ripgrep scanning: %s\n' "$target" >&2
+  : > "$work_dir/filenames.nul"
+  : > "$work_dir/errors.log"
+  
+  status=0
+  
+  rg --pcre2 --hidden --no-ignore --files-with-matches --null \
+    "${excludes[@]}" -f "$script_dir/patterns.pcre2" -- "$target" \
+    > "$work_dir/filenames.nul" 2> "$work_dir/errors.log" || status=$?
+ 
+  # Preserving matches even when unreadable files cause exit status 2
+  python3 "$script_dir/report.py" rg "$work_dir/filenames.nul" "$report"
+  
+  if (( status > 1 )); then
+    printf 'Ripgrep error (exit %s); partial matches preserved\n' "$status" >&2
+    printf 'First diagnostic messages:\n' >&2
+    sed -n '1,10p' "$work_dir/errors.log" >&2
+    failed=1
+  fi
+  
+  printf 'Report saved: %s\n' "$report" >&2
+done
+
+exit "$((failed ? 2 : 0))"

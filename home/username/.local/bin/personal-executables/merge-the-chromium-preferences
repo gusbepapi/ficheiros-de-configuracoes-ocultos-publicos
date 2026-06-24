@@ -1,0 +1,248 @@
+#!/usr/bin/env python3
+
+# Merging, replacing or removing chosen nodes of the `Preferences` file of a Chromium-based profile, driven by a global YAML file
+#
+# Usage
+#   merge-the-chromium-preferences PROFILE_DIRECTORY [--yaml FILE] [--dry-run] [--no-backup] [--allow-running]
+#
+# PROFILE_DIRECTORY is the folder that holds `Preferences`, for example `~/.config/microsoft-edge-dev/Default`
+# The YAML file defaults to `~/.config/chromium-preferences/global.yml`
+# The browser must be closed, a timestamped backup is written beside the file, and the write is atomic
+# Requires: python3 and PyYAML
+#
+# Study notes for gdrotz
+#   The helper changes only the `Preferences` file, which is plain JSON
+#   Search engines live in the `keywords` table of `Web Data`, which is a SQLite database, so they need their own helper
+#   Paths are lists of keys, because DevTools keys such as `emulation.showDeviceMode` contain dots
+#   DevTools stores every value of `devtools.preferences` as a JSON string, so a node may ask for `json: true`
+
+import argparse
+import copy
+import datetime
+import json
+import os
+import shutil
+import sys
+import tempfile
+
+import yaml
+
+# Paths that Chromium tracks with a keyed hash (`protection.macs`), and may therefore reset after an outside change
+# The list is partial, because the complete one lives in the Chromium source code (kTrackedPrefs) and could not be fetched
+TRACKED_PREFIXES = [
+  ["homepage"],
+  ["homepage_is_newtabpage"],
+  ["browser", "show_home_button"],
+  ["session", "restore_on_startup"],
+  ["session", "startup_urls"],
+  ["extensions", "settings"],
+  ["default_search_provider_data"],
+  ["search_provider_overrides"],
+  ["protection"],
+]
+
+
+def log(message):
+  print(message, file=sys.stderr)
+
+
+def browser_is_running(profile_directory):
+  # Looking for the singleton lock, which is a symbolic link named «host-pid», in the profile and in its parent
+  for directory in (profile_directory, os.path.dirname(profile_directory)):
+    lock = os.path.join(directory, "SingletonLock")
+
+    if not os.path.islink(lock):
+      continue
+
+    try:
+      pid = int(os.readlink(lock).rsplit("-", 1)[1])
+      os.kill(pid, 0)
+      return True
+    except (ValueError, IndexError, ProcessLookupError):
+      continue
+    except PermissionError:
+      return True
+
+  return False
+
+
+def is_tracked(path):
+  return any(path[: len(prefix)] == prefix for prefix in TRACKED_PREFIXES)
+
+
+def get_parent(document, path, create):
+  # Walking to the dictionary that holds the last key of the path
+  node = document
+
+  for key in path[:-1]:
+    if not isinstance(node.get(key), dict):
+      if not create:
+        return None
+      node[key] = {}
+    node = node[key]
+
+  return node
+
+
+def merge_values(current, wanted, key_field):
+  # Merging dictionaries recursively and lists by the field named «key_field», and replacing anything else
+  if isinstance(current, dict) and isinstance(wanted, dict):
+    result = copy.deepcopy(current)
+
+    for key, value in wanted.items():
+      result[key] = merge_values(result[key], value, key_field) if key in result else copy.deepcopy(value)
+
+    return result
+
+  if isinstance(current, list) and isinstance(wanted, list) and key_field:
+    result = copy.deepcopy(current)
+    index = {item.get(key_field): position for position, item in enumerate(result) if isinstance(item, dict)}
+
+    for item in wanted:
+      position = index.get(item.get(key_field)) if isinstance(item, dict) else None
+
+      if position is None:
+        result.append(copy.deepcopy(item))
+      else:
+        result[position] = merge_values(result[position], item, key_field)
+
+    return result
+
+  if isinstance(current, list) and isinstance(wanted, list):
+    return current + [item for item in wanted if item not in current]
+
+  return copy.deepcopy(wanted)
+
+
+def build_custom_device(entry):
+  # Building a DevTools device entry from the short form of the YAML file
+  width, height = int(entry["width"]), int(entry["height"])
+  mobile = bool(entry.get("mobile", False))
+
+  return {
+    "title": entry["title"],
+    "type": "phone" if mobile else "unknown",
+    "user-agent": entry.get("user-agent", ""),
+    "capabilities": ["mobile", "touch"] if mobile else [],
+    "screen": {
+      "device-pixel-ratio": entry.get("pixel-ratio", 1),
+      "vertical": {"width": width, "height": height},
+      "horizontal": {"width": height, "height": width},
+    },
+    "modes": [
+      {"title": "", "orientation": "vertical", "insets": {"left": 0, "top": 0, "right": 0, "bottom": 0}},
+      {"title": "", "orientation": "horizontal", "insets": {"left": 0, "top": 0, "right": 0, "bottom": 0}},
+    ],
+    "show": "Default",
+    "show-by": "Default",
+  }
+
+
+def apply_node(document, node, report):
+  path = node["path"]
+  mode = node.get("mode", "merge")
+
+  if mode == "remove":
+    parent = get_parent(document, path, create=False)
+
+    if parent is not None and path[-1] in parent:
+      del parent[path[-1]]
+      report.append("removed   " + ".".join(path))
+
+    return
+
+  if node.get("kind") == "devtools-custom-devices":
+    wanted = [build_custom_device(entry) for entry in node["devices"]]
+    key_field = "title"
+    as_json = True
+  else:
+    wanted = node["value"]
+    key_field = node.get("key")
+    as_json = bool(node.get("json", False))
+
+  parent = get_parent(document, path, create=True)
+  current = parent.get(path[-1])
+
+  if as_json and isinstance(current, str):
+    try:
+      current = json.loads(current)
+    except ValueError:
+      current = None
+
+  result = wanted if (mode == "replace" or current is None) else merge_values(current, wanted, key_field)
+
+  if as_json:
+    result = json.dumps(result, ensure_ascii=False, separators=(",", ":"))
+
+  parent[path[-1]] = result
+  report.append(("replaced  " if mode == "replace" else "merged    ") + ".".join(path))
+
+
+def main():
+  parser = argparse.ArgumentParser(description="Merging chosen nodes into a Chromium Preferences file")
+  parser.add_argument("profile_directory")
+  parser.add_argument("--yaml", default=os.path.expanduser("~/.config/chromium-preferences/global.yml"))
+  parser.add_argument("--dry-run", action="store_true")
+  parser.add_argument("--no-backup", action="store_true")
+  parser.add_argument("--allow-running", action="store_true", help="skipping the check for a running browser, which risks losing the change")
+  arguments = parser.parse_args()
+
+  profile_directory = os.path.abspath(os.path.expanduser(arguments.profile_directory))
+  target = os.path.join(profile_directory, "Preferences")
+
+  if not os.path.isfile(target):
+    log("Error: «" + target + "» cannot be found")
+    return 1
+
+  if not arguments.allow_running and browser_is_running(profile_directory):
+    log("Error: the browser seems to be running, close it first")
+    return 1
+
+  with open(arguments.yaml, encoding="utf-8") as handle:
+    plan = yaml.safe_load(handle)
+
+  with open(target, encoding="utf-8") as handle:
+    document = json.load(handle)
+
+  report = []
+
+  # Removing the account and the synchronisation data first, so that nothing of them survives a merge
+  for path in plan.get("sanitise", []):
+    apply_node(document, {"path": path, "mode": "remove"}, report)
+
+  for node in plan.get("nodes", []):
+    if is_tracked(node["path"]):
+      log("Warning: «" + ".".join(node["path"]) + "» is tracked by Chromium and may be reset at the next start")
+
+    apply_node(document, node, report)
+
+  for line in report:
+    print(line)
+
+  if arguments.dry_run:
+    print("Dry run: nothing was written")
+    return 0
+
+  if not arguments.no_backup:
+    stamp = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+    backup = target + ".bak-" + stamp
+    shutil.copy2(target, backup)
+    print("Backup: " + backup)
+
+  # Writing a temporary file in the same folder, then replacing the original atomically with the same mode
+  mode_bits = os.stat(target).st_mode & 0o7777
+  descriptor, temporary = tempfile.mkstemp(dir=profile_directory, prefix=".Preferences.")
+
+  with os.fdopen(descriptor, "w", encoding="utf-8") as handle:
+    json.dump(document, handle, ensure_ascii=False, separators=(",", ":"))
+    handle.flush()
+    os.fsync(handle.fileno())
+
+  os.chmod(temporary, mode_bits)
+  os.replace(temporary, target)
+  print("Written: " + target)
+  return 0
+
+
+if __name__ == "__main__":
+  sys.exit(main())

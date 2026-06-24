@@ -1,0 +1,481 @@
+#!/usr/bin/env bash
+#
+# install-and-update-miktex
+#
+# Installing, configuring and updating MiKTeX on Debian, Ubuntu and their
+# derivatives, from the signed repository mirrored on a fixed CTAN host
+#
+# Running it again is safe: `apt-get install` upgrades the `miktex` programme
+# package, and `miktex packages update` then updates the installed TeX packages
+#
+# Modes
+#   private   a per-user tree in ~/.miktex/texmfs/{config,data,install} with
+#             symbolic links in ~/.local/bin/miktex (default for ordinary users)
+#   shared    a system-wide installation with links in /usr/local/bin/miktex
+#             (default for root, because MiKTeX selects admin mode for root)
+#
+# Neither link directory is added to the PATH, on purpose: MiKTeX ships its own
+# builds of tools such as pdfinfo and pdftohtml, which would otherwise shadow
+# the system ones (and print a warning on every call). Add the directory to the
+# PATH only in the shells that need TeX, for example:
+#   export PATH="/usr/local/bin/miktex:${PATH}"
+#
+# Exit codes
+#   0   installed, updated and verified by compiling a document that needs a
+#       package
+#   1   failure
+#   3   installed, but the package update or the verification failed
+#       (usually a blocked host)
+#
+# Saving this file as ~/.local/bin/personal-executables/install-and-update-miktex
+# and running `chmod +x` on it is all that the installation requires
+
+set -euo pipefail
+
+readonly SCRIPT_NAME="${0##*/}"
+readonly MIRROR="${MIKTEX_MIRROR:-https://ctan.math.illinois.edu}"
+readonly SETUP_URL="${MIRROR}/systems/win32/miktex/setup"
+readonly PACKAGES_URL="${MIRROR}/systems/win32/miktex/tm/packages/"
+readonly API_URL="https://api2.miktex.org/hello"
+readonly COMMON_LINK_DIR="/usr/local/bin/miktex"
+readonly KEYRING="/usr/share/keyrings/miktex.gpg"
+readonly SOURCE_LIST="/etc/apt/sources.list.d/miktex.list"
+readonly DEFAULT_PRIVATE_USER="miktex"
+
+WORK_DIR=""
+MODE=""
+TARGET_USER=""
+PROXY_ENV=()
+
+log()
+{
+  printf '==> %s\n' "$*"
+}
+
+warn()
+{
+  printf 'warning: %s\n' "$*" >&2
+}
+
+die()
+{
+  printf 'error: %s\n' "$*" >&2
+  exit 1
+}
+
+usage()
+{
+  cat <<EOF
+Usage: ${SCRIPT_NAME} [options]
+
+Installing, configuring and updating MiKTeX on Debian, Ubuntu and their
+derivatives. Running it again upgrades the programme and the TeX packages.
+
+Options:
+  --private        Per-user tree in ~/.miktex (default for ordinary users)
+  --shared         System-wide installation (default for root)
+  --user NAME      With --private as root: the ordinary user that owns the
+                   tree (created if missing; default: ${DEFAULT_PRIVATE_USER})
+  --check          Test the network hosts and exit
+  --no-update      Skip the update of the installed TeX packages
+  --skip-verify    Skip the compilation test
+  -h, --help       Show this help
+
+Environment:
+  MIKTEX_MIRROR      CTAN mirror (default: https://ctan.math.illinois.edu)
+  MIKTEX_CODENAME    Overriding the detected distribution codename
+  MIKTEX_CA_BUNDLE   CA bundle for a TLS-intercepting proxy
+EOF
+}
+
+remove_work_dir()
+{
+  if [[ -n "${WORK_DIR}" && -d "${WORK_DIR}" ]]
+  then
+    rm -rf -- "${WORK_DIR}"
+  fi
+}
+
+run_privileged()
+{
+  if [[ "$(id -u)" -eq 0 ]]
+  then
+    "$@"
+  elif command -v sudo >/dev/null 2>&1
+  then
+    sudo "$@"
+  else
+    die "root privileges are required to run: $*"
+  fi
+}
+
+# Probing a URL and printing its HTTP status, where 000 means no connection
+http_status()
+{
+  curl --silent --head --location --max-time 25 --output /dev/null \
+    --write-out '%{http_code}' "$1" 2>/dev/null || true
+}
+
+# Forwarding the proxy variables and a world-readable CA bundle to MiKTeX,
+# because its own `libcurl` ignores the system trust store settings of the shell
+collect_proxy_env()
+{
+  local name ca=""
+
+  for name in HTTPS_PROXY https_proxy HTTP_PROXY http_proxy ALL_PROXY all_proxy NO_PROXY no_proxy
+  do
+    if [[ -n "${!name:-}" ]]
+    then
+      PROXY_ENV+=("${name}=${!name}")
+    fi
+  done
+
+  if [[ -n "${HTTPS_PROXY:-${https_proxy:-}}" ]]
+  then
+    for name in "${MIKTEX_CA_BUNDLE:-}" "${SSL_CERT_FILE:-}" "${CURL_CA_BUNDLE:-}" "${REQUESTS_CA_BUNDLE:-}" /root/.ccr/ca-bundle.crt
+    do
+      if [[ -n "${name}" && -r "${name}" ]]
+      then
+        ca="${name}"
+        break
+      fi
+    done
+
+    if [[ -n "${ca}" ]]
+    then
+      cp -- "${ca}" "${WORK_DIR}/ca-bundle.crt"
+      chmod 644 "${WORK_DIR}/ca-bundle.crt"
+      PROXY_ENV+=("SSL_CERT_FILE=${WORK_DIR}/ca-bundle.crt" "CURL_CA_BUNDLE=${WORK_DIR}/ca-bundle.crt")
+    fi
+  fi
+}
+
+ensure_prerequisites()
+{
+  local missing=()
+
+  command -v curl >/dev/null 2>&1 || missing+=(curl)
+  command -v gpg >/dev/null 2>&1 || missing+=(gnupg)
+  [[ -e /etc/ssl/certs/ca-certificates.crt ]] || missing+=(ca-certificates)
+
+  if [[ "${#missing[@]}" -gt 0 ]]
+  then
+    command -v apt-get >/dev/null 2>&1 || die "missing tools (${missing[*]}) and no apt-get to install them"
+    log "Installing prerequisites: ${missing[*]}"
+    run_privileged apt-get update || true
+    run_privileged env DEBIAN_FRONTEND=noninteractive apt-get install --yes --no-install-recommends "${missing[@]}"
+  fi
+}
+
+# Reporting every host that MiKTeX needs, including the one that the
+# installation does not touch but the first update check does
+preflight()
+{
+  local status failed=0
+
+  log "Testing the network hosts"
+
+  status="$(http_status "${SETUP_URL}/miktex.org.key")"
+  printf '    %-4s repository key      %s\n' "${status}" "${SETUP_URL}/miktex.org.key"
+  [[ "${status}" == 2* ]] || failed=1
+
+  status="$(http_status "${PACKAGES_URL}")"
+  printf '    %-4s package repository  %s\n' "${status}" "${PACKAGES_URL}"
+  [[ "${status}" == 2* ]] || failed=1
+
+  status="$(http_status "${API_URL}")"
+  printf '    %-4s MiKTeX API          %s\n' "${status}" "${API_URL}"
+
+  if [[ "${status}" == "000" ]]
+  then
+    warn "api2.miktex.org is unreachable; the installation succeeds but the first update check and any package download will fail"
+  fi
+
+  if [[ "${failed}" -eq 1 ]]
+  then
+    die "a required host is unreachable; allow $(printf '%s' "${MIRROR}" | sed 's#^https\?://##') in the network settings"
+  fi
+}
+
+detect_codename()
+{
+  local codename="${MIKTEX_CODENAME:-}"
+
+  [[ -r /etc/os-release ]] || die "/etc/os-release is missing; this script supports Debian and Ubuntu only"
+
+  if [[ -z "${codename}" ]]
+  then
+    codename="$(. /etc/os-release; printf '%s' "${UBUNTU_CODENAME:-${VERSION_CODENAME:-}}")"
+  fi
+
+  [[ -n "${codename}" ]] || die "could not detect the distribution codename; set MIKTEX_CODENAME"
+
+  if [[ "$(http_status "${SETUP_URL}/deb/dists/${codename}/InRelease")" != 2* ]]
+  then
+    die "the repository does not publish '${codename}'; set MIKTEX_CODENAME to a supported codename"
+  fi
+
+  printf '%s' "${codename}"
+}
+
+register_repository()
+{
+  local codename="$1"
+
+  log "Registering the MiKTeX repository for ${codename}"
+  curl --fail --silent --show-error --location "${SETUP_URL}/miktex.org.key" \
+    | run_privileged gpg --dearmor --yes --output "${KEYRING}"
+
+  printf 'deb [signed-by=%s] %s/deb %s universe\n' "${KEYRING}" "${SETUP_URL}" "${codename}" \
+    | run_privileged tee "${SOURCE_LIST}" >/dev/null
+}
+
+install_package()
+{
+  local candidate
+
+  log "Installing the miktex package"
+  run_privileged apt-get update || warn "apt-get update reported errors; unrelated repositories may be blocked"
+
+  candidate="$(apt-cache policy miktex | awk '/Candidate:/ { print $2 }')"
+  [[ -n "${candidate}" && "${candidate}" != "(none)" ]] || die "apt has no candidate for miktex; check the repository registration"
+
+  run_privileged env DEBIAN_FRONTEND=noninteractive apt-get install --yes --no-install-recommends miktex
+  command -v miktexsetup >/dev/null 2>&1 || die "miktexsetup is missing after the installation"
+}
+
+# Running a command as the owner of the private tree, with a clean environment
+# because an unreadable `PATH` entry (such as /root/.bun/bin) aborts MiKTeX
+run_as_owner()
+{
+  local home
+
+  if [[ "$(id -un)" == "${TARGET_USER}" ]]
+  then
+    env "${PROXY_ENV[@]+"${PROXY_ENV[@]}"}" "$@"
+  else
+    home="$(getent passwd "${TARGET_USER}" | cut -d: -f6)"
+    runuser -u "${TARGET_USER}" -- env -i HOME="${home}" USER="${TARGET_USER}" LANG=C.UTF-8 \
+      PATH="${home}/.local/bin/miktex:/usr/local/bin:/usr/bin:/bin" \
+      "${PROXY_ENV[@]+"${PROXY_ENV[@]}"}" "$@"
+  fi
+}
+
+finish_private()
+{
+  if ! id "${TARGET_USER}" >/dev/null 2>&1
+  then
+    [[ "$(id -u)" -eq 0 ]] || die "user '${TARGET_USER}' does not exist"
+    log "Creating the unprivileged user ${TARGET_USER}"
+    useradd --create-home --shell /bin/bash "${TARGET_USER}"
+  fi
+
+  log "Creating the private tree for ${TARGET_USER}"
+  run_as_owner bash -c '
+    set -euo pipefail
+    mkdir -p "$HOME/.local/bin/miktex"
+    miktexsetup finish --modify-path=no \
+      --user-config="$HOME/.miktex/texmfs/config" \
+      --user-data="$HOME/.miktex/texmfs/data" \
+      --user-install="$HOME/.miktex/texmfs/install" \
+      --user-link-target-directory="$HOME/.local/bin/miktex"
+    initexmf --mklinks
+    initexmf --set-config-value="[MPM]AutoInstall=1"
+    initexmf --set-config-value="[MPM]RemoteRepository=$1"
+  ' _ "${PACKAGES_URL}"
+}
+
+finish_shared()
+{
+  log "Creating the system-wide installation (links in ${COMMON_LINK_DIR})"
+  run_privileged mkdir -p -- "${COMMON_LINK_DIR}"
+  run_privileged env "${PROXY_ENV[@]+"${PROXY_ENV[@]}"}" bash -c '
+    set -euo pipefail
+    miktexsetup --shared=yes finish --modify-path=no \
+      --common-link-target-directory="$2"
+    initexmf --admin --mklinks
+    initexmf --admin --set-config-value="[MPM]AutoInstall=1"
+    initexmf --admin --set-config-value="[MPM]RemoteRepository=$1"
+  ' _ "${PACKAGES_URL}" "${COMMON_LINK_DIR}"
+}
+
+# Refreshing the package database and updating the installed TeX packages,
+# which contacts the MiKTeX API and the CTAN mirror
+update_tex_packages()
+{
+  log "Updating the installed TeX packages"
+
+  if [[ "${MODE}" == "private" ]]
+  then
+    run_as_owner bash -c '
+      set -euo pipefail
+      miktex packages update-package-database
+      miktex packages update
+    '
+  else
+    run_privileged env "${PROXY_ENV[@]+"${PROXY_ENV[@]}"}" bash -c '
+      set -euo pipefail
+      miktex --admin packages update-package-database
+      miktex --admin packages update
+    '
+  fi
+}
+
+# Compiling a document that needs a package outside the basic installation,
+# which proves the engine, the repository and the on-demand installation
+verify()
+{
+  local dir="${WORK_DIR}/verify"
+  local runner=()
+
+  log "Verifying by compiling a document that needs the lipsum package"
+  mkdir -p -- "${dir}"
+  chmod 777 "${dir}"
+  printf '\\documentclass{article}\n\\usepackage{lipsum}\n\\begin{document}\n\\lipsum[1]\n\\end{document}\n' > "${dir}/test.tex"
+  chmod 666 "${dir}/test.tex"
+
+  if [[ "${MODE}" == "private" ]]
+  then
+    runner=(run_as_owner)
+  else
+    runner=(env "PATH=${COMMON_LINK_DIR}:${PATH}" "${PROXY_ENV[@]+"${PROXY_ENV[@]}"}")
+  fi
+
+  if ! "${runner[@]}" bash -c 'cd "$1" && timeout 600 pdflatex -interaction=nonstopmode test.tex >/dev/null 2>&1' _ "${dir}"
+  then
+    return 1
+  fi
+
+  [[ -s "${dir}/test.pdf" ]]
+}
+
+main()
+{
+  local check_only=0 skip_verify=0 skip_update=0 degraded=0 codename summary
+
+  while [[ $# -gt 0 ]]
+  do
+    case "$1" in
+      --no-update)
+        skip_update=1
+        ;;
+      --private)
+        MODE="private"
+        ;;
+      --shared)
+        MODE="shared"
+        ;;
+      --user)
+        [[ $# -ge 2 ]] || die "--user requires a name"
+        TARGET_USER="$2"
+        shift
+        ;;
+      --check)
+        check_only=1
+        ;;
+      --skip-verify)
+        skip_verify=1
+        ;;
+      -h|--help)
+        usage
+        exit 0
+        ;;
+      *)
+        usage >&2
+        die "unknown option: $1"
+        ;;
+    esac
+    shift
+  done
+
+  [[ "$(uname -s)" == "Linux" ]] || die "this script supports Linux only"
+  [[ "$(uname -m)" == "x86_64" ]] || die "the MiKTeX repository publishes amd64 packages only"
+
+  if [[ -z "${MODE}" ]]
+  then
+    if [[ "$(id -u)" -eq 0 ]]
+    then
+      MODE="shared"
+    else
+      MODE="private"
+    fi
+  fi
+
+  if [[ "${MODE}" == "private" && -z "${TARGET_USER}" ]]
+  then
+    if [[ "$(id -u)" -eq 0 ]]
+    then
+      TARGET_USER="${DEFAULT_PRIVATE_USER}"
+    else
+      TARGET_USER="$(id -un)"
+    fi
+  fi
+
+  if [[ "${MODE}" == "private" && "$(id -u)" -ne 0 && "${TARGET_USER}" != "$(id -un)" ]]
+  then
+    die "--user other than yourself requires root"
+  fi
+
+  WORK_DIR="$(mktemp -d "${TMPDIR:-/tmp}/install-miktex.XXXXXX")"
+  chmod 755 "${WORK_DIR}"
+  trap remove_work_dir EXIT
+
+  collect_proxy_env
+  ensure_prerequisites
+  preflight
+
+  if [[ "${check_only}" -eq 1 ]]
+  then
+    exit 0
+  fi
+
+  log "Mode: ${MODE}${TARGET_USER:+ (owner: ${TARGET_USER})}"
+  codename="$(detect_codename)"
+  register_repository "${codename}"
+  install_package
+
+  if [[ "${MODE}" == "private" ]]
+  then
+    finish_private
+  else
+    finish_shared
+  fi
+
+  if [[ "${skip_update}" -eq 0 ]]
+  then
+    if ! update_tex_packages
+    then
+      warn "the package update failed; the usual cause is a blocked host (api2.miktex.org or the CTAN mirror)"
+      degraded=1
+    fi
+  fi
+
+  if [[ "${skip_verify}" -eq 0 ]]
+  then
+    if ! verify
+    then
+      warn "the verification failed; the usual cause is a blocked host (api2.miktex.org or the CTAN mirror)"
+      degraded=1
+    fi
+  fi
+
+  if [[ "${degraded}" -eq 1 ]]
+  then
+    warn "installed, but not fully updated or verified"
+    exit 3
+  fi
+
+  summary="Installed"
+  [[ "${skip_update}" -eq 0 ]] && summary+=", updated"
+  [[ "${skip_verify}" -eq 0 ]] && summary+=", verified"
+  log "${summary}"
+
+  if [[ "${MODE}" == "private" ]]
+  then
+    log "To use TeX: export PATH=\"\$(getent passwd ${TARGET_USER} | cut -d: -f6)/.local/bin/miktex:\${PATH}\""
+  else
+    log "To use TeX: export PATH=\"${COMMON_LINK_DIR}:\${PATH}\""
+  fi
+}
+
+main "$@"

@@ -1,0 +1,65 @@
+#!/usr/bin/env python3
+# Requires: pip install requests
+
+import os
+import sys
+import requests
+
+# Configuração da API do Groq
+GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
+GROQ_AUDIO_URL = "https://api.groq.com/openai/v1/audio/transcriptions"
+
+def execute_transcription(audio_path):
+    """
+    Envia o ficheiro de áudio para a API do Groq Whisper e devolve a transcrição.
+    """
+    print(f"=== Transcrevendo o áudio: {os.path.basename(audio_path)} ===")
+    
+    if not GROQ_API_KEY:
+        print("Erro: A variável de ambiente «GROQ_API_KEY» é obrigatória para a transcrição.")
+        sys.exit(1)
+
+    try:
+        with open(audio_path, "rb") as audio_file:
+            response = requests.post(
+                GROQ_AUDIO_URL,
+                headers={"Authorization": f"Bearer {GROQ_API_KEY}"},
+                files={"file": (os.path.basename(audio_path), audio_file, "audio/mp4")},
+                data={"model": "whisper-large-v3", "language": "pt"}
+            )
+        
+        response.raise_for_status()
+        return response.json()["text"].strip()
+        
+    except requests.exceptions.RequestException as e:
+        print(f"Erro na requisição à API: {e}")
+        sys.exit(1)
+    except KeyError:
+        print("Erro: Resposta inesperada da API (campo 'text' não encontrado).")
+        sys.exit(1)
+
+if __name__ == "__main__":
+    print("=== GROQ WHISPER TRANSCRIPTION SCRIPT ===")
+
+    # Solicita o caminho do ficheiro ao utilizador
+    user_file_input = input("Arraste e solte ou digite o caminho do áudio: ").strip()
+    # Remove aspas automáticas que surgem ao arrastar o ficheiro para o terminal
+    user_file_input = os.path.expanduser(user_file_input.strip("'\""))
+
+    if not os.path.exists(user_file_input):
+        print(f"Erro: O ficheiro «{user_file_input}» não foi encontrado.")
+        sys.exit(1)
+
+    # Executa a transcrição
+    transcription_text = execute_transcription(user_file_input)
+    
+    # Define o nome do ficheiro de saída (.txt) com base no áudio original
+    base_name = os.path.splitext(user_file_input)[0]
+    output_filename = f"{base_name}_transcricao.txt"
+    
+    # Guarda o resultado
+    with open(output_filename, "w", encoding="utf-8") as f:
+        f.write(transcription_text)
+        
+    print(f"\n✓ Transcrição concluída com sucesso!")
+    print(f"Ficheiro guardado em: {output_filename}")

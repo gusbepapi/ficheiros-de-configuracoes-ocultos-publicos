@@ -1,0 +1,380 @@
+#!/usr/bin/env bash
+#
+# install-and-update-mise
+#
+# Installing and updating `mise` as an ordinary user, without any privilege,
+# from the signed GitHub release archives, and optionally installing or
+# upgrading the tools of the tree below
+#
+#   ~/.local/bin/mise                    the binary
+#   ~/.local/share/mise/downloads        archives of the tools
+#   ~/.local/share/mise/installs         the installed versions and aliases
+#   ~/.local/share/mise/plugins          plugins, such as act
+#   ~/.local/share/mise/shims            shims
+#
+# Why not `curl https://mise.run | sh`: that host is often unreachable in
+# restricted networks, whereas the GitHub release archives are not, and the
+# SHA-256 checksum published with each release can be verified here. The
+# newest tag sometimes has no published archive yet, so the script walks back
+# to the newest tag that has one
+#
+# Exit codes
+#   0   mise is installed and up to date (and the tools, if requested)
+#   1   failure
+#   3   mise is installed, but the tools could not be installed or upgraded
+#       (usually a blocked host)
+#
+# Tools
+#   --tools LIST   installs and upgrades only the named tools, so that a
+#                  constrained environment (such as Claude) installs what a
+#                  project needs and keeps the disk free
+#   --all          installs and upgrades every known tool (for your machines)
+#   Neither        installs mise alone
+# Names: act go node pnpm python dotnet (alias csharp) rust (alias cargo) ruby;
+# a name with a version (node@22) is passed unchanged, and node means node@lts
+#
+# Saving this file as ~/.local/bin/personal-executables/install-and-update-mise
+# and running `chmod +x` on it is all that the installation requires
+
+set -euo pipefail
+
+readonly SCRIPT_NAME="${0##*/}"
+readonly REPOSITORY="https://github.com/jdx/mise"
+readonly BIN_DIR="${MISE_BIN_DIR:-${HOME}/.local/bin}"
+readonly MAX_TAGS_TO_TRY=25
+
+# Every tool that --all installs; --tools installs only the ones that are named
+readonly ALL_TOOLS=(act go node pnpm python dotnet rust ruby)
+
+WORK_DIR=""
+OS=""
+ARCH=""
+
+log()
+{
+  printf '==> %s\n' "$*"
+}
+
+warn()
+{
+  printf 'warning: %s\n' "$*" >&2
+}
+
+die()
+{
+  printf 'error: %s\n' "$*" >&2
+  exit 1
+}
+
+usage()
+{
+  cat <<EOF
+Usage: ${SCRIPT_NAME} [options]
+
+Installing and updating mise as an ordinary user, with SHA-256 verification.
+
+Options:
+  -t, --tools LIST   Install and upgrade only the named tools; the list is
+                     separated by commas or spaces, for instance: node,ruby
+                     Known names: act, go, node, pnpm, python, dotnet (csharp),
+                     rust (cargo), ruby; a version may follow, as in node@22
+  -a, --all          Install and upgrade every known tool
+  -f, --force    Reinstall even when the installed version is current
+  -n, --check    Report the installed and latest versions, then exit
+  -h, --help     Show this help
+
+Environment:
+  MISE_BIN_DIR   Directory of the binary (default: ~/.local/bin)
+  MISE_TOOLS     Tool list used as if it followed --tools
+  MISE_RUBY_GITHUB_ATTESTATIONS=false
+                 Skipping the Sigstore verification of Ruby, only when the
+                 Sigstore hosts are blocked
+EOF
+}
+
+remove_work_dir()
+{
+  if [[ -n "${WORK_DIR}" && -d "${WORK_DIR}" ]]
+  then
+    rm -rf -- "${WORK_DIR}"
+  fi
+}
+
+detect_platform()
+{
+  local libc_info
+
+  case "$(uname -s)" in
+    Linux)
+      OS="linux"
+      ;;
+    Darwin)
+      OS="macos"
+      ;;
+    *)
+      die "unsupported operating system: $(uname -s)"
+      ;;
+  esac
+
+  case "$(uname -m)" in
+    x86_64|amd64)
+      ARCH="x64"
+      ;;
+    aarch64|arm64)
+      ARCH="arm64"
+      ;;
+    *)
+      die "unsupported architecture: $(uname -m)"
+      ;;
+  esac
+
+  # Selecting the musl archive on distributions such as Alpine, capturing the
+  # output first so that `grep --quiet` cannot trigger a false failure under
+  # `pipefail`
+  if [[ "${OS}" == "linux" ]]
+  then
+    libc_info="$(ldd --version 2>&1 || true)"
+
+    if grep --quiet --ignore-case musl <<< "${libc_info}"
+    then
+      ARCH="${ARCH}-musl"
+    fi
+  fi
+}
+
+asset_name()
+{
+  printf 'mise-%s-%s-%s.tar.gz' "$1" "${OS}" "${ARCH}"
+}
+
+asset_exists()
+{
+  curl --fail --silent --head --location --max-time 30 --output /dev/null \
+    "${REPOSITORY}/releases/download/$1/$(asset_name "$1")"
+}
+
+# Walking back from the newest tag to the newest one that has a release archive
+latest_version()
+{
+  local tag tried=0
+
+  while read -r tag
+  do
+    tried=$((tried + 1))
+
+    if asset_exists "${tag}"
+    then
+      printf '%s' "${tag}"
+      return 0
+    fi
+
+    if [[ "${tried}" -ge "${MAX_TAGS_TO_TRY}" ]]
+    then
+      break
+    fi
+  done < <(git ls-remote --tags --refs "${REPOSITORY}" \
+    | sed 's#.*refs/tags/##' \
+    | grep --extended-regexp '^v[0-9]+\.[0-9]+\.[0-9]+$' \
+    | sort --version-sort --reverse)
+
+  return 1
+}
+
+installed_version()
+{
+  local binary="${BIN_DIR}/mise"
+
+  if [[ -x "${binary}" ]]
+  then
+    "${binary}" --version 2>/dev/null | awk 'NR == 1 { print $1 }'
+  fi
+}
+
+check_sha256()
+{
+  local file="$1" expected="$2" actual
+
+  if command -v sha256sum >/dev/null 2>&1
+  then
+    actual="$(sha256sum "${file}" | awk '{ print $1 }')"
+  elif command -v shasum >/dev/null 2>&1
+  then
+    actual="$(shasum -a 256 "${file}" | awk '{ print $1 }')"
+  else
+    die "neither sha256sum nor shasum is available"
+  fi
+
+  [[ "${actual}" == "${expected}" ]]
+}
+
+install_release()
+{
+  local tag="$1"
+  local asset base expected destination
+
+  asset="$(asset_name "${tag}")"
+  base="${REPOSITORY}/releases/download/${tag}"
+  destination="${BIN_DIR}/mise"
+
+  log "Downloading ${asset}"
+  curl --fail --silent --show-error --location --max-time 300 \
+    --output "${WORK_DIR}/${asset}" "${base}/${asset}"
+  curl --fail --silent --show-error --location --max-time 60 \
+    --output "${WORK_DIR}/SHASUMS256.txt" "${base}/SHASUMS256.txt"
+
+  # Matching the name with or without the leading `./` that the file uses
+  expected="$(awk -v name="${asset}" '$2 == name || $2 == "./" name || $2 == "*" name { print $1 }' "${WORK_DIR}/SHASUMS256.txt")"
+  [[ -n "${expected}" ]] || die "no checksum is published for ${asset}"
+
+  check_sha256 "${WORK_DIR}/${asset}" "${expected}" || die "the SHA-256 checksum of ${asset} does not match"
+  log "Checksum verified"
+
+  tar -xzf "${WORK_DIR}/${asset}" -C "${WORK_DIR}"
+  [[ -x "${WORK_DIR}/mise/bin/mise" ]] || die "the archive does not contain mise/bin/mise"
+
+  mkdir -p -- "${BIN_DIR}"
+
+  if [[ -e "${destination}" ]]
+  then
+    cp -p -- "${destination}" "${destination}.previous"
+  fi
+
+  install -m 0755 -- "${WORK_DIR}/mise/bin/mise" "${destination}.new"
+  mv -f -- "${destination}.new" "${destination}"
+  log "Installed ${destination}"
+}
+
+# Mapping a requested name to a mise tool specification
+tool_spec()
+{
+  case "$1" in
+    *@*)
+      printf '%s' "$1"
+      ;;
+    node)
+      printf 'node@lts'
+      ;;
+    csharp|dotnet|.net)
+      printf 'dotnet@latest'
+      ;;
+    cargo|rust)
+      printf 'rust@latest'
+      ;;
+    act|go|pnpm|python|ruby)
+      printf '%s@latest' "$1"
+      ;;
+    *)
+      return 1
+      ;;
+  esac
+}
+
+# Installing the requested tools and upgrading them; the names are validated
+# before anything is installed
+manage_tools()
+{
+  local mise="${BIN_DIR}/mise"
+  local requested=("$@")
+  local specs=() names=() name spec
+
+  for name in "${requested[@]}"
+  do
+    spec="$(tool_spec "${name}")" || { warn "unknown tool: ${name}"; return 2; }
+    specs+=("${spec}")
+    names+=("${spec%%@*}")
+  done
+
+  # Returning explicitly on each failure because `set -e` is suspended inside
+  # a function that is called as the condition of an `if`
+  log "Installing the tools: ${specs[*]}"
+  "${mise}" use --global "${specs[@]}" || return 1
+
+  log "Upgrading the tools: ${names[*]}"
+  "${mise}" upgrade "${names[@]}" || return 1
+}
+
+main()
+{
+  local force=0 check_only=0 status
+  local names=()
+  local latest current
+  local requested=()
+
+  while [[ $# -gt 0 ]]
+  do
+    case "$1" in
+      -t|--tools)
+        [[ $# -ge 2 ]] || die "--tools requires a list, for instance: --tools node,ruby"
+        read -r -a names <<< "${2//,/ }"
+        requested+=("${names[@]}")
+        shift
+        ;;
+      -a|--all)
+        requested+=("${ALL_TOOLS[@]}")
+        ;;
+      -f|--force)
+        force=1
+        ;;
+      -n|--check)
+        check_only=1
+        ;;
+      -h|--help)
+        usage
+        exit 0
+        ;;
+      *)
+        usage >&2
+        die "unknown option: $1"
+        ;;
+    esac
+    shift
+  done
+
+  command -v curl >/dev/null 2>&1 || die "curl is required"
+  command -v git >/dev/null 2>&1 || die "git is required"
+  detect_platform
+
+  latest="$(latest_version)" || die "no release archive was found among the newest ${MAX_TAGS_TO_TRY} tags"
+  current="$(installed_version)"
+
+  log "Installed version: ${current:-none}"
+  log "Latest version:    ${latest#v}"
+
+  if [[ "${check_only}" -eq 1 ]]
+  then
+    exit 0
+  fi
+
+  if [[ "${current}" == "${latest#v}" && "${force}" -eq 0 ]]
+  then
+    log "Already up to date; use --force to reinstall"
+  else
+    WORK_DIR="$(mktemp -d "${TMPDIR:-/tmp}/install-and-update-mise.XXXXXX")"
+    trap remove_work_dir EXIT
+    install_release "${latest}"
+  fi
+
+  if [[ -z "${requested[*]:-}" && -n "${MISE_TOOLS:-}" ]]
+  then
+    read -r -a requested <<< "${MISE_TOOLS//,/ }"
+  fi
+
+  if [[ "${#requested[@]}" -gt 0 ]]
+  then
+    status=0
+    manage_tools "${requested[@]}" || status=$?
+
+    if [[ "${status}" -eq 2 ]]
+    then
+      exit 1
+    elif [[ "${status}" -ne 0 ]]
+    then
+      warn "the tools could not be installed or upgraded; the usual cause is a blocked host (mise-versions.jdx.dev, nodejs.org, dl.google.com, dot.net and the .NET download hosts, sh.rustup.rs, static.rust-lang.org, the Sigstore hosts for Ruby, or api.github.com for act and pnpm)"
+      exit 3
+    fi
+  fi
+
+  log "To activate it in bash: eval \"\$(${BIN_DIR}/mise activate bash)\""
+}
+
+main "$@"
