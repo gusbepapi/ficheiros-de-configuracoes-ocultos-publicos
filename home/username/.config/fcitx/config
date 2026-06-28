@@ -1,0 +1,309 @@
+[Hotkey]
+# 🇬🇧 To trigger input method
+# 🇵🇹 Ativar o método de entrada
+# 🇪🇸 Activar el método de entrada
+TriggerKey=
+
+# 🇬🇧 To use a extra trigger key only after using it to inactivate
+# 🇵🇹 Usar uma tecla de ativação extra apenas depois de usá-la para desativar
+# 🇪🇸 Usar una tecla de activación extra solo después de usarla para desactivar
+
+# 🇬🇧 Available values:
+# 🇵🇹 Valores disponíveis:
+# 🇪🇸 Valores disponibles:
+# True False
+# UseExtraTriggerKeyOnlyWhenUseItToInactivate=True
+
+# 🇬🇧 Extra key for trigger input method
+# 🇵🇹 Tecla extra para ativar o método de entrada
+# 🇪🇸 Tecla extra para activar el método de entrada
+
+# 🇬🇧 Available values:
+# 🇵🇹 Valores disponíveis:
+# 🇪🇸 Valores disponibles:
+# R_CTRL
+# R_SHIFT
+# L_SHIFT
+# L_CTRL
+# ALT_L_SHIFT
+# ALT_R_SHIFT
+# CTRL Both
+# SHIFT Both
+# L_ALT
+# R_ALT
+# ALT Both
+# Left Super
+# Right Super
+# Super Both
+# Ctrl+Left Super
+# Ctrl+Right Super
+# Super+Left Ctrl
+# Super+Right Ctrl
+# Disabled
+# Custom
+SwitchKey=Super+Left Ctrl
+
+# 🇬🇧 Custom switch key
+# 🇵🇹 Tecla de alternação personalizada
+# 🇪🇸 Tecla de alternación personalizada
+# CustomSwitchKey=
+
+# 🇬🇧 To activate the input method
+# 🇵🇹 Ativar o método de entrada
+# 🇪🇸 Activar el método de entrada
+# ActivateKey=
+
+# 🇬🇧 To inactivate the input method
+# 🇵🇹 Desativar o método de entrada
+# 🇪🇸 Desactivar el método de entrada
+# InactivateKey=
+
+# 🇬🇧 To enable a hotkey to scroll between input methods
+# 🇵🇹 Ativar uma tecla de atalho para deslocar entre os métodos de entrada
+# 🇪🇸 Activar una tecla de acceso directo para desplazarse entre los métodos de entrada
+
+# 🇬🇧 Available values:
+# 🇵🇹 Valores disponíveis:
+# 🇪🇸 Valores disponibles:
+# True False
+IMSwitchKey=False
+
+# 🇬🇧 To include the inactivation when scrolling between input methods
+# 🇵🇹 Incluir a inativação ao deslocar entre os métodos de entrada
+# 🇪🇸 Incluir la inactivación al desplazarse entre los métodos de entrada
+
+# 🇬🇧 Available values:
+# 🇵🇹 Valores disponíveis:
+# 🇪🇸 Valores disponibles:
+# True False
+# IMSwitchIncludeInactive=False
+
+# 🇬🇧 To scroll between input methods
+# 🇵🇹 Deslocar entre os métodos de entrada
+# 🇪🇸 Desplazarse entre los métodos de entrada
+
+# 🇬🇧 Available values:
+# 🇵🇹 Valores disponíveis:
+# 🇪🇸 Valores disponibles:
+# CTRL_SHIFT
+# ALT_SHIFT
+# CTRL_SUPER
+# ALT_SUPER
+# IMSwitchHotkey=CTRL_SHIFT
+
+# 🇬🇧 To reload the configuration
+# 🇵🇹 Recarregar a configuração
+# 🇪🇸 Recargar la configuración
+# ReloadConfig=CTRL_5
+
+# 🇬🇧 Interval of two key inputs
+# 🇵🇹 Intervalo de duas entradas de tecla
+# 🇪🇸 Intervalo de dos entradas de tecla
+# TimeInterval=250
+
+# 🇬🇧 Switching virtual keyboard
+# 🇵🇹 Alternar o teclado virtual
+# 🇪🇸 Alternar el teclado virtual
+# VKSwitchKey=CTRL_ALT_B
+
+# 🇬🇧 Switching remind mode
+# 🇵🇹 Alternar o modo de lembrete
+# 🇪🇸 Alternar el modo de recordatorio
+# RemindSwitchKey=
+
+# 🇬🇧 Switching full width character mode
+# 🇵🇹 Alternar o modo de caractere de largura total
+# 🇪🇸 Alternar el modo de carácter de ancho completo
+# FullWidthSwitchKey=
+
+# 🇬🇧 Switching full width punc mode
+# 🇵🇹 Alternar o modo de pontuação de largura total
+# 🇪🇸 Alternar el modo de puntuación de ancho completo
+# PuncSwitchKey=CTRL_.
+
+# 🇬🇧 Previous page
+# 🇵🇹 Página anterior
+# 🇪🇸 Página anterior
+#PrevPageKey=- UP
+
+# 🇬🇧 Next page
+# 🇵🇹 Página seguinte
+# 🇪🇸 Página siguiente
+# NextPageKey== DOWN
+
+# 🇬🇧 Choose the second and third candidate words
+# 🇵🇹 Escolher a segunda e terceira palavra candidata
+# 🇪🇸 Elegir la segunda y tercera palabra candidata
+# SecondThirdCandWordKey=
+
+# 🇬🇧 Saving all configs and inputs history
+# 🇵🇹 Guardar o histórico de configurações e entradas
+# 🇪🇸 Guardar el historial de configuraciones y entradas
+# SaveAllKey=CTRL_ALT_S
+
+# 🇬🇧 Switching the embedded preedit
+# 🇵🇹 Alternar a preedição incorporada
+# 🇪🇸 Alternar la preedición incorporada
+# SwitchPreedit=CTRL_ALT_P
+
+# 🇬🇧 Previous candidate word
+# 🇵🇹 Palavra candidata anterior
+# 🇪🇸 Palabra candidata anterior
+# PrevWord=SHIFT_TAB
+
+# 🇬🇧 Next candidate word
+# 🇵🇹 Palavra candidata seguinte
+# 🇪🇸 Palabra candidata siguiente
+# NextWord=TAB
+
+[Program]
+# 🇬🇧 Sleep seconds before fcitx really start
+# 🇵🇹 Segundos de sono antes de o fcitx realmente começar
+# 🇪🇸 Segundos de sueño antes de que fcitx realmente comience
+# DelayStart=0
+
+# 🇬🇧 Sharing the states among windows
+# 🇵🇹 Partilhar os estados entre as janelas
+# 🇪🇸 Compartir los estados entre las ventanas
+
+# 🇬🇧 Available values:
+# 🇵🇹 Valores disponíveis:
+# 🇪🇸 Valores disponibles:
+# No All PerProgram
+ShareStateAmongWindow=PerProgram
+
+# 🇬🇧 Default input method state
+# 🇵🇹 Estado do método de entrada predefinido
+# 🇪🇸 Estado del método de entrada predeterminado
+
+# 🇬🇧 Available values:
+# 🇵🇹 Valores disponíveis:
+# 🇪🇸 Valores disponibles:
+# Inactive Active
+# DefaultInputMethodState=Inactive
+
+[Output]
+# 🇬🇧 Typing the half width punc after a number
+# 🇵🇹 Introduzir a pontuação de largura parcial após um número
+# 🇪🇸 Introducir la puntuación de ancho parcial después de un número
+
+# 🇬🇧 Available values:
+# 🇵🇹 Valores disponíveis:
+# 🇪🇸 Valores disponibles:
+# True False
+# HalfPuncAfterNumber=True
+
+# 🇬🇧 To disable the paging in remind mode
+# 🇵🇹 Desativar a paginação no modo de lembrete
+# 🇪🇸 Desactivar la paginación en el modo de recordatorio
+
+# 🇬🇧 Available values:
+# 🇵🇹 Valores disponíveis:
+# 🇪🇸 Valores disponibles:
+# True False
+# RemindModeDisablePaging=True
+
+# 🇬🇧 Committing when toggling the state
+# 🇵🇹 Submeter ao alternar o estado
+# 🇪🇸 Presentar al alternar el estado
+
+# 🇬🇧 Available values:
+# 🇵🇹 Valores disponíveis:
+# 🇪🇸 Valores disponibles:
+# True False
+SendTextWhenSwitchEng=False
+
+# 🇬🇧 Candidate words number
+# 🇵🇹 Número de palavras candidatas
+# 🇪🇸 Número de palabras candidatas
+# CandidateWordNumber=5
+
+# 🇬🇧 To give the tips of phrase
+# 🇵🇹 Dar as dicas de frase
+# 🇪🇸 Dar las sugerencias de frase
+
+# 🇬🇧 Available values:
+# 🇵🇹 Valores disponíveis:
+# 🇪🇸 Valores disponibles:
+# True False
+# PhraseTips=True
+
+# 🇬🇧 Do not commit a preedit text when unfocusing a window
+# 🇵🇹 Não submeter um texto de preedição ao perder o foco duma janela
+# 🇪🇸 No presentar un texto de preedición al perder el foco de una ventana
+
+# 🇬🇧 Available values:
+# 🇵🇹 Valores disponíveis:
+# 🇪🇸 Valores disponibles:
+# True False
+#DontCommitPreeditWhenUnfocus=False
+
+[Appearance]
+# 🇬🇧 To show the input method hint after input method changed
+# 🇵🇹 Mostrar a dica do método de entrada após o método de entrada ter sido alterado
+# 🇪🇸 Mostrar la sugerencia del método de entrada después de que el método de entrada haya cambiado
+
+# 🇬🇧 Available values:
+# 🇵🇹 Valores disponíveis:
+# 🇪🇸 Valores disponibles:
+# True False
+# ShowInputWindowAfterTriggering=True
+
+# 🇬🇧 To show the input method hint after input method changed and focused in
+# 🇵🇹 Mostrar a dica do método de entrada após o método de entrada ter sido alterado e focado
+# 🇪🇸 Mostrar la sugerencia del método de entrada después de que el método de entrada haya cambiado y se haya enfocado
+
+# 🇬🇧 Available values:
+# 🇵🇹 Valores disponíveis:
+# 🇪🇸 Valores disponibles:
+# True False
+# ShowInputWindowWhenFocusIn=False
+
+# 🇬🇧 Input method hint will be only shown when state is active
+# 🇵🇹 A dica do método de entrada só será mostrada quando o estado estiver ativo
+# 🇪🇸 La sugerencia del método de entrada solo se mostrará cuando el estado esté activo
+
+# 🇬🇧 Available values:
+# 🇵🇹 Valores disponíveis:
+# 🇪🇸 Valores disponibles:
+# True False
+# ShowInputWindowOnlyWhenActive=True
+
+# 🇬🇧 To show the input speed
+# 🇵🇹 Mostrar a velocidade de entrada
+# 🇪🇸 Mostrar la velocidad de entrada
+
+# 🇬🇧 Available values:
+# 🇵🇹 Valores disponíveis:
+# 🇪🇸 Valores disponibles:
+# True False
+# ShowInputSpeed=False
+
+# 🇬🇧 To show the version
+
+# 🇬🇧 Available values:
+# 🇵🇹 Valores disponíveis:
+# 🇪🇸 Valores disponibles:
+# True False
+# ShowVersion=False
+
+# 🇬🇧 Do not show the input window if there is only a preedit string
+# 🇵🇹 Não mostrar a janela de entrada se só houver uma string de preedição
+# 🇪🇸 No mostrar la ventana de entrada si solo hay una cadena de preedición
+
+# 🇬🇧 Available values:
+# 🇵🇹 Valores disponíveis:
+# 🇪🇸 Valores disponibles:
+# True False
+# HideInputWindowWhenOnlyPreeditString=False
+
+# 🇬🇧 Do not show the input window if there is only one candidate and preedit
+# 🇵🇹 Não mostrar a janela de entrada se só houver um candidato e uma preedição
+# 🇪🇸 No mostrar la ventana de entrada si solo hay un candidato y una preedición
+
+# 🇬🇧 Available values:
+# 🇵🇹 Valores disponíveis:
+# 🇪🇸 Valores disponibles:
+# True False
+# HideInputWindowWhenOnlyOneCandidate=False
+

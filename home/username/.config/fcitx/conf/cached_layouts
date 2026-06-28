@@ -1,0 +1,184 @@
+[keyboard-gb]
+Description="Keyboard - Inglês (UK)"
+Language=en
+Label=en
+
+[keyboard-gb-extd]
+Description="Keyboard - Inglês (UK) - Inglês (UK, estendido, Windows)"
+Language=en
+Label=gb
+
+[keyboard-gb-intl]
+Description="Keyboard - Inglês (UK) - Inglês (UK, intl., com teclas mortas)"
+Language=en
+Label=gb
+
+[keyboard-gb-mac]
+Description="Keyboard - Inglês (UK) - Inglês (UK, Macintosh)"
+Language=en
+Label=gb
+
+[keyboard-gb-mac_intl]
+Description="Keyboard - Inglês (UK) - Inglês (UK, Macintosh, intl.)"
+Language=en
+Label=gb
+
+[keyboard-ua-phonetic]
+Description="Keyboard - Ucraniano - Ucraniano (fonético)"
+Language=uk
+Label=ua
+
+[keyboard-ua-macOS]
+Description="Keyboard - Ucraniano - Ukrainian (macOS)"
+Language=uk
+Label=ua
+
+[keyboard-ru-phonetic]
+Description="Keyboard - Russian - Russo (fonético)"
+Language=ru
+Label=ru
+
+[keyboard-ru-phonetic_winkeys]
+Description="Keyboard - Russian - Russo (fonético, Windows)"
+Language=ru
+Label=ru
+
+[keyboard-ru-mac]
+Description="Keyboard - Russian - Russo (Macintosh)"
+Language=ru
+Label=ru
+
+[keyboard-ru-ruu]
+Description="Keyboard - Russian - Russo (com disposição ucraniana-bielorrussa)"
+Language=ru
+Label=ru
+
+[keyboard-ru-phonetic_mac]
+Description="Keyboard - Russian - Russo (Macintosh fonético)"
+Language=ru
+Label=ru
+
+[keyboard-ru-prxn]
+Description="Keyboard - Russian - Russo (Poliglota e Reactionário)"
+Language=ru
+Label=ru
+
+[keyboard-trans]
+Description="Keyboard - International Phonetic Alphabet"
+Language=
+Label=ipa
+
+[keyboard-trans-qwerty]
+Description="Keyboard - International Phonetic Alphabet - International Phonetic Alphabet (QWERTY)"
+Language=
+Label=trans
+
+[keyboard-ir]
+Description="Keyboard - Persa"
+Language=fa
+Label=fa
+
+[keyboard-se-swl]
+Description="Keyboard - Sueco - Linguagem gestual sueca"
+Language=swl
+Label=se
+
+[keyboard-us-euro]
+Description="Keyboard - Inglês (US) - Inglês (US, euro em 5)"
+Language=en
+Label=us
+
+[keyboard-us-intl]
+Description="Keyboard - Inglês (US) - Inglês (US, intl., com teclas mortas)"
+Language=en
+Label=us
+
+[keyboard-us-alt-intl]
+Description="Keyboard - Inglês (US) - Inglês (US, alt. intl.)"
+Language=en
+Label=us
+
+[keyboard-us-mac]
+Description="Keyboard - Inglês (US) - Inglês (Macintosh)"
+Language=en
+Label=us
+
+[keyboard-us-altgr-intl]
+Description="Keyboard - Inglês (US) - Inglês (intl., com AltGr + teclas mortas)"
+Language=en
+Label=us
+
+[keyboard-us-intl-unicode]
+Description="Keyboard - Inglês (US) - Inglês (US, AltGr Unicode combinado)"
+Language=en
+Label=us
+
+[keyboard-us-alt-intl-unicode]
+Description="Keyboard - Inglês (US) - Inglês (US, AltGr Unicode combinado, alt.)"
+Language=en
+Label=us
+
+[keyboard-ge]
+Description="Keyboard - Geórgiano"
+Language=ka
+Label=ka
+
+[keyboard-ge-ergonomic]
+Description="Keyboard - Geórgiano - Geórgiano (ergonónico)"
+Language=ka
+Label=ge
+
+[keyboard-ge-mess]
+Description="Keyboard - Geórgiano - Geórgiano (MESS)"
+Language=ka
+Label=ge
+
+[keyboard-am-phonetic]
+Description="Keyboard - Arménio - Arménio (fonético)"
+Language=hy
+Label=am
+
+[keyboard-br]
+Description="Keyboard - Português (Brasil)"
+Language=pt
+Label=pt
+
+[keyboard-pt]
+Description="Keyboard - Português"
+Language=pt
+Label=pt
+
+[keyboard-pt-mac]
+Description="Keyboard - Português - Português (Macintosh)"
+Language=pt
+Label=pt
+
+[keyboard-pt-mac_nodeadkeys]
+Description="Keyboard - Português - Português (Macintosh, sem teclas mortas)"
+Language=pt
+Label=pt
+
+[keyboard-gr-extended]
+Description="Keyboard - Grego - Grego (estendido)"
+Language=el
+Label=gr
+
+[keyboard-gr-polytonic]
+Description="Keyboard - Grego - Grego (politónico)"
+Language=el
+Label=gr
+
+[keyboard-mao]
+Description="Keyboard - Maori"
+Language=mi
+Label=mi
+
+[keyboard-il-phonetic]
+Description="Keyboard - Hebreu - Hebreu (fonético)"
+Language=he
+Label=il
+
+[keyboard-jp]
+Description="Keyboard - Japonês"
+Language=ja
+Label=ja
