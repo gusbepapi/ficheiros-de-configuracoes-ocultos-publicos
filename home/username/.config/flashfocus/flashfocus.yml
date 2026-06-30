@@ -1,0 +1,120 @@
+## 🇬🇧 Flashfocus config file
+## 🇵🇹 Ficheiro de configuração do Flashfocus
+## 🇪🇸 Archivo de configuración de Flashfocus
+
+# 🇬🇧 Opacity of window during flash
+# 🇵🇹 Opacidade da janela durante o flash
+# 🇪🇸 Opacidad de la ventana durante el flash
+flash-opacity: 0.8
+
+# 🇬🇧 Windows are restored to this opacity value at the end of a flash
+# 🇵🇹 As janelas são restauradas para este valor de opacidade no final de um flash
+# 🇪🇸 Las ventanas se restauran a este valor de opacidad al final de un flash
+default-opacity: 1
+
+# 🇬🇧 Length of flash in milliseconds
+# 🇵🇹 Comprimento do flash em milissegundos
+# 🇪🇸 Longitud del flash en milisegundos
+time: 300
+
+# 🇬🇧 If true, flashes are not faded out. This will improve performance but flashes won't be smooth
+# 🇵🇹 Se verdadeiro, os flashes não são desvanecidos. Isto melhorará o desempenho, mas os flashes não serão suaves
+# 🇪🇸 Si es verdadero, los flashes no se desvanecen. Esto mejorará el rendimiento, pero los flashes no serán suaves
+simple: false
+
+# 🇬🇧 Number of animation frames in a flash
+# 🇵🇹 Número de quadros de animação num flash
+# 🇪🇸 Número de cuadros de animación en un flash
+ntimepoints: 20
+
+# 🇬🇧 Set this to false if you don't want windows to flash on focus
+# 🇵🇹 Defina isto como falso se não quiser que as janelas brilhem ao focar
+# 🇪🇸 Establezca esto en falso si no desea que las ventanas brillen al enfocar
+flash-on-focus: true
+
+# 🇬🇧 Set this to false if you don't want fullscreen windows to flash
+# 🇵🇹 Defina isto como falso se não quiser que as janelas em ecrã inteiro brilhem
+# 🇪🇸 Establezca esto en falso si no desea que las ventanas en pantalla completa brillen
+flash-fullscreen: true
+
+# 🇬🇧 Whether or not to flash windows if they are the only window on the desktop
+# 🇵🇹 Se deve ou não brilhar as janelas se forem a única janela no ambiente de trabalho
+# 🇪🇸 Si debe o no brillar las ventanas si son la única ventana en el escritorio
+
+# 🇬🇧 Possible values:
+# 🇵🇹 Valores possíveis:
+# 🇪🇸 Valores posibles:
+#   'always':
+#      🇬🇧 Always flash lone windows
+#      🇵🇹 Sempre brilhar janelas solitárias
+#      🇪🇸 Siempre brillar ventanas solitarias
+#   'never':
+#      🇬🇧 Never flash lone windows
+#      🇵🇹 Nunca brilhar janelas solitárias
+#      🇪🇸 Nunca brillar ventanas solitarias
+#   'on_open_close':
+#      🇬🇧 Lone windows will be flashed only if a) if they were just opened and b) if another window was just closed
+#      🇵🇹 As janelas solitárias serão brilhantes apenas se a) se foram abertas agora e b) se outra janela foi fechada agora
+#      🇪🇸 Las ventanas solitarias brillarán solo si a) si se abrieron ahora y b) si otra ventana se cerró ahora
+#   'on_switch':
+#      🇬🇧 Lone windows will be flashed only upon switching desktops
+#      🇵🇹 As janelas solitárias serão brilhantes apenas ao mudar de ambiente de trabalho
+#      🇪🇸 Las ventanas solitarias brillarán solo al cambiar de escritorio
+flash-lone-windows: 'always'
+
+# 🇬🇧 Defining window-specific flash rules
+# 🇵🇹 Definindo regras de flash específicas da janela
+# 🇪🇸 Definición de reglas de flash específicas de la ventana
+#
+# 🇬🇧 X11-based window managers (for example, bspwn, i3, sway)
+# 🇵🇹 Gestores de janelas baseados em X11 (por exemplo, bspwn, i3, sway)
+# 🇪🇸 Gestores de ventanas basados en X11 (por ejemplo, bspwn, i3, sway)
+# -----------------------------------------
+
+# 🇬🇧 Flash rules are defined by matching the WM_CLASS property of a window. To get the WM_CLASS property, use 'xprop WM_CLASS' and click on a window. The property is a tuple of the form (window-id, window-class). The window-class is usually the name of the application, but not always.
+# 🇵🇹 As regras de flash são definidas por correspondência à propriedade WM_CLASS de uma janela. Para obter a propriedade WM_CLASS, use 'xprop WM_CLASS' e faça um clique numa janela. A propriedade é uma tupla do tipo (window-id, window-class). A window-class é geralmente o nome da aplicação, mas nem sempre.
+# 🇪🇸 Las reglas de flash se definen mediante la coincidencia con la propiedad WM_CLASS de una ventana. Para obtener la propiedad WM_CLASS, use 'xprop WM_CLASS' y haga clic en una ventana. La propiedad es una tupla de la forma (window-id, window-class). La window-class es generalmente el nombre de la aplicación, pero no siempre.
+
+# 🇬🇧 Say I'd like to set all 'termite' windows to 80% opacity but leave other windows at full opacity:
+# 🇵🇹 Digamos que eu gotsava de definir todas as janelas de 'termite' para 80% de opacidade, mas deixar outras janelas com opacidade total:
+# 🇪🇸 Digamos que me gustaría definir todas las ventanas de 'termite' al 80% de opacidad, pero dejar otras ventanas con opacidad completa:
+# rules:
+#   - window-class: Termite
+#     default-opacity: 0.8
+#
+# 🇬🇧 I also would prefer that Firefox windows are not flashed on focus:
+# 🇵🇹 Também gostava que as janelas do Firefox não brilhassem ao focar:
+# 🇪🇸 También prefiero que las ventanas de Firefox no brillen al enfocar:
+# rules:
+#   - window-class: firefox
+#     flash-on-focus: False
+#   - window-class: Termite
+#     default-opacity: 0.8
+#
+#
+# 🇬🇧 For more complicated rules, you can use regexes in a Python style:
+# 🇵🇹 Para regras mais complicadas, pode usar as expressões regulares no estilo de Python:
+# 🇪🇸 Para reglas más complicadas, puede usar expresiones regulares en estilo Python:
+# rules:
+#   - window-id: ^(?!termite)$
+#     default-opacity: 0.8
+#
+# Sway
+# ----
+
+# 🇬🇧 Native Wayland apps can be matched using the «app_id» and window name. These can be found using `swaymsg -t get_tree`. XWayland apps are matched with using «WM_CLASS» as above (this can also be found with `swaymsg`)
+# 🇵🇹 As aplicações nativas do Wayland podem ser correspondidas utilizando a propriedade «app_id» e o nome da janela. Estes podem ser encontrados utilizando `swaymsg -t get_tree`. As aplicações de XWayland são correspondidas utilizando «WM_CLASS» como acima (isto também pode ser encontrado com `swaymsg`)
+# 🇪🇸 Las aplicaciones nativas de Wayland se pueden emparejar utilizando la propiedad «app_id» y el nombre de la ventana. Estos se pueden encontrar utilizando `swaymsg -t get_tree`. Las aplicaciones de XWayland se emparejan utilizando «WM_CLASS» como arriba (esto también se puede encontrar con `swaymsg`)
+#
+# 🇬🇧 Given that termite is a Wayland native and Firefox is not, the rules above could instead be written:
+# 🇵🇹 Dado que termite é nativo do Wayland e Firefox não é, as regras acima poderiam ser escritas:
+# 🇪🇸 Dado que termite es nativo de Wayland y Firefox no lo es, las reglas anteriores podrían escribirse:
+# rules:
+#   - window-class: firefox
+#     flash-on-focus: False
+#   - app-id: termite
+#     default-opacity: 0.8
+#
+# rules:
+#   - window-name: ^(?!termite)$
+#     default-opacity: 0.8

@@ -1,0 +1,116 @@
+[Hotkey]
+# 🇬🇧 o tTrigger input method
+# 🇵🇹 Activar o método de entrada
+# 🇪🇸 Activar el método de entrada
+TriggerKeys=
+# 🇬🇧 To enumerate when to press triggering key repeatedly
+# 🇵🇹 Enumerar ao pressionar a tecla de activação repetidamente
+# 🇪🇸 Enumerar al presionar la tecla de activación repetidamente
+EnumerateWithTriggerKeys=False
+# 🇬🇧 Temporally switching between first and current input method
+# 🇵🇹 Alternar temporariamente entre o primeiro e o método de entrada actual
+# 🇪🇸 Alternar temporalmente entre el primer y el método de entrada actual
+AltTriggerKeys=
+# 🇬🇧 To enumerate input method forward
+# 🇵🇹 Enumerar o método de entrada seguinte
+# 🇪🇸 Enumerar el método de entrada siguiente
+EnumerateForwardKeys=
+# 🇬🇧 To enumerate input method backward
+# 🇵🇹 Enumerar o método de entrada anterior
+# 🇪🇸 Enumerar el método de entrada anterior
+EnumerateBackwardKeys=
+# 🇬🇧 To skip first input method while enumerating
+# 🇵🇹 Saltar o primeiro método de entrada ao enumerar
+# 🇪🇸 Saltar el primer método de entrada al enumerar
+EnumerateSkipFirst=False
+# 🇬🇧 To enumerate input method group forward
+# 🇵🇹 Enumerar o grupo de métodos de entrada seguinte
+# 🇪🇸 Enumerar el grupo de métodos de entrada siguiente
+EnumerateGroupForwardKeys=
+# 🇬🇧 To enumerate input method group backward
+# 🇵🇹 Enumerar o grupo de métodos de entrada anterior
+# 🇪🇸 Enumerar el grupo de métodos de entrada anterior
+EnumerateGroupBackwardKeys=
+# 🇬🇧 Activating input method
+# 🇵🇹 Activar o método de entrada
+# 🇪🇸 Activar el método de entrada
+ActivateKeys=
+# 🇬🇧 Deactivate input method
+# 🇵🇹 Desactivar o método de entrada
+# 🇪🇸 Desactivar el método de entrada
+DeactivateKeys=
+# 🇬🇧 Default previous page
+# 🇵🇹 Página anterior padrão
+# 🇪🇸 Página anterior por defecto
+PrevPage=
+# 🇬🇧 Default next page
+# 🇵🇹 Página seguinte padrão
+# 🇪🇸 Página siguiente por defecto
+NextPage=
+# 🇬🇧 Default previous candidate
+# 🇵🇹 Candidato anterior padrão
+# 🇪🇸 Candidato anterior por defecto
+PrevCandidate=
+# 🇬🇧 Default next candidate
+# 🇵🇹 Candidato seguinte padrão
+# 🇪🇸 Candidato siguiente por defecto
+NextCandidate=
+# 🇬🇧 Toggle embedded preedit
+# 🇵🇹 Alternar preedição incorporada
+# 🇪🇸 Alternar preedición incorporada
+TogglePreedit=
+
+[Behavior]
+# 🇬🇧 Activing By Default
+# 🇵🇹 Activar por padrão
+# 🇪🇸 Activar por defecto
+ActiveByDefault=False
+# 🇬🇧 Sharing input state
+# 🇵🇹 Partilhar estado de entrada
+# 🇪🇸 Compartir estado de entrada
+ShareInputState=No
+# 🇬🇧 To show preedit in application
+# 🇵🇹 Mostrar preedição na aplicação
+# 🇪🇸 Mostrar preedición en la aplicación
+PreeditEnabledByDefault=True
+# 🇬🇧 To show input method information when switch input method
+# 🇵🇹 Mostrar informação do método de entrada ao alternar
+# 🇪🇸 Mostrar información del método de entrada al alternar
+ShowInputMethodInformation=True
+# 🇬🇧 To show input method information when changing focus
+# 🇵🇹 Mostrar informação do método de entrada ao mudar o foco
+# 🇪🇸 Mostrar información del método de entrada al cambiar el foco
+showInputMethodInformationWhenFocusIn=False
+# 🇬🇧 To show compact input method information
+# 🇵🇹 Mostrar informação compacta do método de entrada
+# 🇪🇸 Mostrar información compacta del método de entrada
+CompactInputMethodInformation=True
+# 🇬🇧 To show first input method information
+# 🇵🇹 Mostrar informação do primeiro método de entrada
+# 🇪🇸 Mostrar información del primer método de entrada
+ShowFirstInputMethodInformation=True
+# 🇬🇧 Default page size
+# 🇵🇹 Tamanho da página padrão
+# 🇪🇸 Tamaño de la página por defecto
+DefaultPageSize=5
+# 🇬🇧 Override Xkb option
+# 🇵🇹 Substituir opção de Xkb
+# 🇪🇸 Sustituir opción de Xkb
+OverrideXkbOption=False
+# 🇬🇧 Custom Xkb option
+# 🇵🇹 Opção de Xkb personalizada
+# 🇪🇸 Opción de Xkb personalizada
+CustomXkbOption=
+# 🇬🇧 Force enabled addons
+# 🇵🇹 Forçar addons activados
+# 🇪🇸 Forzar addons activados
+EnabledAddons=
+# 🇬🇧 Force disabled addons
+# 🇵🇹 Forçar addons desactivados
+# 🇪🇸 Forzar addons desactivados
+DisabledAddons=
+# 🇬🇧 Preloading input method to be used by default
+# 🇵🇹 Pré-carregar método de entrada a ser usado por padrão
+# 🇪🇸 Pré-cargar método de entrada a ser usado por defecto
+PreloadInputMethod=True
+

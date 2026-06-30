@@ -1,0 +1,96 @@
+[Groups/0]
+# 🇬🇧 Group name
+# 🇵🇹 Nome do grupo
+# 🇪🇸 Nombre del grupo
+Name=Default
+# Layout
+Default Layout=us-mac
+# 🇬🇧 Default input method
+# 🇵🇹 Método de entrada padrão
+# 🇪🇸 Método de entrada predeterminado
+DefaultIM=keyboard-gr-extended
+
+# 🇬🇧 Input method list
+# 🇵🇹 Lista de métodos de entrada
+# 🇪🇸 Lista de métodos de entrada
+
+# 🇬🇧 Apple US English keyboard
+# 🇵🇹 Teclado americano inglês da Apple
+# 🇪🇸 Teclado inglés americano de Apple
+[Groups/0/Items/0]
+# 🇬🇧 Name
+# 🇵🇹 Nome
+# 🇪🇸 Nombre
+Name=keyboard-us-mac
+# Layout
+Layout=
+
+# 🇬🇧 Georgian QWERTY keyboard
+# 🇵🇹 Teclado QWERTY georgiano
+# 🇪🇸 Teclado QWERTY georgiano
+[Groups/0/Items/1]
+# 🇬🇧 Name
+# 🇵🇹 Nome
+# 🇪🇸 Nombre
+Name=keyboard-ge-mess
+# Layout
+Layout=
+
+# 🇬🇧 Extended Greek keyboard
+# 🇵🇹 Teclado grego estendido
+# 🇪🇸 Teclado griego extendido
+[Groups/0/Items/2]
+# 🇬🇧 Name
+# 🇵🇹 Nome
+# 🇪🇸 Nombre
+Name=keyboard-gr-extended
+# Layout
+Layout=
+
+# 🇬🇧 Phonetic Russian keyboard
+# 🇵🇹 Teclado russo fonético
+# 🇪🇸 Teclado ruso fonético
+[Groups/0/Items/3]
+# 🇬🇧 Name
+# 🇵🇹 Nome
+# 🇪🇸 Nombre
+Name=keyboard-ru-phonetic
+# Layout
+Layout=
+
+# 🇬🇧 Phonetic Ukrainian keyboard
+# 🇵🇹 Teclado ucraniano fonético
+# 🇪🇸 Teclado ucraniano fonético
+[Groups/0/Items/4]
+# 🇬🇧 Name
+# 🇵🇹 Nome
+# 🇪🇸 Nombre
+Name=keyboard-ua-phonetic
+# Layout
+Layout=
+
+# 🇬🇧 Japanese keyboard
+# 🇵🇹 Teclado japonês
+# 🇪🇸 Teclado japonés
+[Groups/0/Items/5]
+# 🇬🇧 Name
+# 🇵🇹 Nome
+# 🇪🇸 Nombre
+Name=mozc
+# Layout
+Layout=us-mac
+
+# 🇬🇧 Korean keyboard
+# 🇵🇹 Teclado coreano
+# 🇪🇸 Teclado coreano
+[Groups/0/Items/6]
+# 🇬🇧 Name
+# 🇵🇹 Nome
+# 🇪🇸 Nombre
+Name=hangul
+# Layout
+Layout=
+
+[GroupOrder]
+0=Default
+
