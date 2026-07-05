@@ -1,0 +1,610 @@
+[
+  {
+    "emoji": "🎨",
+    "entity": "&#x1f3a8;",
+    "code": ":art:",
+    "description": "Improving the structure or the format of the code",
+    "name": "art",
+    "semver": null
+  },
+  {
+    "emoji": "⚡️",
+    "entity": "&#x26a1;",
+    "code": ":zap:",
+    "description": "Improving the performance",
+    "name": "zap",
+    "semver": "patch"
+  },
+  {
+    "emoji": "🔥",
+    "entity": "&#x1f525;",
+    "code": ":fire:",
+    "description": "Removing the code or the files",
+    "name": "fire",
+    "semver": null
+  },
+  {
+    "emoji": "🐛",
+    "entity": "&#x1f41b;",
+    "code": ":bug:",
+    "description": "Fixing a bug",
+    "name": "bug",
+    "semver": "patch"
+  },
+  {
+    "emoji": "🚑️",
+    "entity": "&#128657;",
+    "code": ":ambulance:",
+    "description": "Critical hotfix",
+    "name": "ambulance",
+    "semver": "patch"
+  },
+  {
+    "emoji": "✨",
+    "entity": "&#x2728;",
+    "code": ":sparkles:",
+    "description": "Introducing the new features",
+    "name": "sparkles",
+    "semver": "minor"
+  },
+  {
+    "emoji": "📝",
+    "entity": "&#x1f4dd;",
+    "code": ":memo:",
+    "description": "Adding or updating documentation",
+    "name": "documentation",
+    "semver": null
+  },
+  {
+    "emoji": "🚀",
+    "entity": "&#x1f680;",
+    "code": ":rocket:",
+    "description": "Deploying the stuff",
+    "name": "rocket",
+    "semver": null
+  },
+  {
+    "emoji": "💄",
+    "entity": "&#ff99cc;",
+    "code": ":lipstick:",
+    "description": "Adding or updating the UI and style files",
+    "name": "lipstick",
+    "semver": "patch"
+  },
+  {
+    "emoji": "🎉",
+    "entity": "&#127881;",
+    "code": ":tada:",
+    "description": "Beginning a project",
+    "name": "tada",
+    "semver": null
+  },
+  {
+    "emoji": "✅",
+    "entity": "&#x2705;",
+    "code": ":white_check_mark:",
+    "description": "Adding, updating, or passing tests",
+    "name": "checmark",
+    "semver": null
+  },
+  {
+    "emoji": "🔒️",
+    "entity": "&#x1f512;",
+    "code": ":lock:",
+    "description": "Fixing a security issues",
+    "name": "lock",
+    "semver": "patch"
+  },
+  {
+    "emoji": "🔐",
+    "entity": "&#x1f510;",
+    "code": ":closed_lock_with_key:",
+    "description": "Adding or updating the secrets",
+    "name": "closed-lock-with-key",
+    "semver": null
+  },
+  {
+    "emoji": "🔖",
+    "entity": "&#x1f516;",
+    "code": ":bookmark:",
+    "description": "Release or version tags",
+    "name": "bookmark",
+    "semver": null
+  },
+  {
+    "emoji": "🚨",
+    "entity": "&#x1f6a8;",
+    "code": ":rotating_light:",
+    "description": "Fixing compiler or linter warnings",
+    "name": "rotating-light",
+    "semver": null
+  },
+  {
+    "emoji": "🚧",
+    "entity": "&#x1f6a7;",
+    "code": ":construction:",
+    "description": "Working in progress",
+    "name": "construction",
+    "semver": null
+  },
+  {
+    "emoji": "💚",
+    "entity": "&#x1f49a;",
+    "code": ":green_heart:",
+    "description": "Fixing a CI Build",
+    "name": "green-heart",
+    "semver": null
+  },
+  {
+    "emoji": "⬇️",
+    "entity": "⬇️",
+    "code": ":arrow_down:",
+    "description": "Downgrading dependencies",
+    "name": "arrow-down",
+    "semver": "patch"
+  },
+  {
+    "emoji": "⬆️",
+    "entity": "⬆️",
+    "code": ":arrow_up:",
+    "description": "Upgrading dependencies",
+    "name": "arrow-up",
+    "semver": "patch"
+  },
+  {
+    "emoji": "📌",
+    "entity": "&#x1F4CC;",
+    "code": ":pushpin:",
+    "description": "Pinning dependencies to specific versions",
+    "name": "pushpin",
+    "semver": "patch"
+  },
+  {
+    "emoji": "♻️",
+    "entity": "&#x267b;",
+    "code": ":recycle:",
+    "description": "Refactor code",
+    "name": "refactor",
+    "semver": null
+  },
+  {
+    "emoji": "➕",
+    "entity": "&#10133;",
+    "code": ":heavy_plus_sign:",
+    "description": "Adding a dependency",
+    "name": "hplus-sign",
+    "semver": "patch"
+  },
+  {
+    "emoji": "➖",
+    "entity": "&#10134;",
+    "code": ":heavy_minus_sign:",
+    "description": "Removing a dependency",
+    "name": "minus-sign",
+    "semver": "patch"
+  },
+  {
+    "emoji": "🔧",
+    "entity": "&#x1f527;",
+    "code": ":wrench:",
+    "description": "Adding or updating the configuration files",
+    "name": "wrench",
+    "semver": "patch"
+  },
+  {
+    "emoji": "🔨",
+    "entity": "&#128296;",
+    "code": ":hammer:",
+    "description": "Adding or updating development scripts",
+    "name": "hammer",
+    "semver": null
+  },
+  {
+    "emoji": "🌐",
+    "entity": "&#127760;",
+    "code": ":globe_with_meridians:",
+    "description": "Internationalization and localization",
+    "name": "global",
+    "semver": "patch"
+  },
+  {
+    "emoji": "✏️",
+    "entity": "&#59161;",
+    "code": ":pencil2:",
+    "description": "Fix typos",
+    "name": "pencil",
+    "semver": "patch"
+  },
+  {
+    "emoji": "⏪️",
+    "entity": "&#9194;",
+    "code": ":rewind:",
+    "description": "Revertiong the changes",
+    "name": "rewind",
+    "semver": "patch"
+  },
+  {
+    "emoji": "🔀",
+    "entity": "&#128256;",
+    "code": ":twisted_rightwards_arrows:",
+    "description": "Merging the branches",
+    "name": "twisted-rightwards-arrows",
+    "semver": null
+  },
+  {
+    "emoji": "📦️",
+    "entity": "&#1F4E6;",
+    "code": ":package:",
+    "description": "Adding or updating files or packages",
+    "name": "package",
+    "semver": "patch"
+  },
+  {
+    "emoji": "👽️",
+    "entity": "&#1F47D;",
+    "code": ":alien:",
+    "description": "Updating the code due to external API changes",
+    "name": "alien",
+    "semver": "patch"
+  },
+  {
+    "emoji": "🚚",
+    "entity": "&#1F69A;",
+    "code": ":truck:",
+    "description": "Moving or renaming resources (for example: files, paths, routes)",
+    "name": "truck",
+    "semver": null
+  },
+  {
+    "emoji": "📄",
+    "entity": "&#1F4C4;",
+    "code": ":page_facing_up:",
+    "description": "Adding or updating license",
+    "name": "paper",
+    "semver": null
+  },
+  {
+    "emoji": "🍱",
+    "entity": "&#1F371",
+    "code": ":bento:",
+    "description": "Adding or updating assets",
+    "name": "bento",
+    "semver": "patch"
+  },
+  {
+    "emoji": "♿️",
+    "entity": "&#9855;",
+    "code": ":wheelchair:",
+    "description": "Improving the accessibility",
+    "name": "wheelchair",
+    "semver": "patch"
+  },
+  {
+    "emoji": "💡",
+    "entity": "&#128161;",
+    "code": ":bulb:",
+    "description": "Adding or updating the comments in source code",
+    "name": "idea",
+    "semver": null
+  },
+  {
+    "emoji": "💬",
+    "entity": "&#128172;",
+    "code": ":speech_balloon:",
+    "description": "Adding or updating the texts and the literals",
+    "name": "dialogue",
+    "semver": "patch"
+  },
+  {
+    "emoji": "🗃️",
+    "entity": "&#128451;",
+    "code": ":card_file_box:",
+    "description": "Performing the database related changes",
+    "name": "folders-box",
+    "semver": "patch"
+  },
+  {
+    "emoji": "🔊",
+    "entity": "&#128266;",
+    "code": ":loud_sound:",
+    "description": "Adding or updating logs",
+    "name": "loud",
+    "semver": null
+  },
+  {
+    "emoji": "🔇",
+    "entity": "&#128263;",
+    "code": ":mute:",
+    "description": "Removing the logs",
+    "name": "mute",
+    "semver": null
+  },
+  {
+    "emoji": "👥",
+    "entity": "&#128101;",
+    "code": ":busts_in_silhouette:",
+    "description": "Adding or updating contributor(s)",
+    "name": "busts-in-silhouette",
+    "semver": null
+  },
+  {
+    "emoji": "🚸",
+    "entity": "&#128696;",
+    "code": ":children_crossing:",
+    "description": "Improving the user experience or usability",
+    "name": "ux",
+    "semver": "patch"
+  },
+  {
+    "emoji": "📱",
+    "entity": "&#128241;",
+    "code": ":iphone:",
+    "description": "Working on responsive design",
+    "name": "iphone",
+    "semver": "patch"
+  },
+  {
+    "emoji": "🥚",
+    "entity": "&#129370;",
+    "code": ":egg:",
+    "description": "Adding or updating an easter egg",
+    "name": "egg",
+    "semver": "patch"
+  },
+  {
+    "emoji": "🙈",
+    "entity": "&#8bdfe7;",
+    "code": ":see_no_evil:",
+    "description": "Adding or updating a `.gitignore` file",
+    "name": "see-no-evil",
+    "semver": null
+  },
+  {
+    "emoji": "📸",
+    "entity": "&#128248;",
+    "code": ":camera_flash:",
+    "description": "Adding or updating the snapshots",
+    "name": "camera-flash",
+    "semver": null
+  },
+  {
+    "emoji": "🔍️",
+    "entity": "&#128269;",
+    "code": ":mag:",
+    "description": "Improving the SEO",
+    "name": "mag",
+    "semver": "patch"
+  },
+  {
+    "emoji": "🗑️",
+    "entity": "&#x1F5D1;",
+    "code": ":wastebasket:",
+    "description": "Deprecating the code that needs to be cleaned up",
+    "name": "wastebasket",
+    "semver": "patch"
+  },
+  {
+    "emoji": "🩹",
+    "entity": "&#x1FA79;",
+    "code": ":adhesive_bandage:",
+    "description": "Simple fix for a non-critical issue",
+    "name": "bandage",
+    "semver": "patch"
+  },
+  {
+    "emoji": "⚰️",
+    "entity": "&#x26B0;",
+    "code": ":coffin:",
+    "description": "Removing the dead code",
+    "name": "coffin",
+    "semver": null
+  },
+  {
+    "emoji": "🧪",
+    "entity": "&#x1F9EA;",
+    "code": ":test_tube:",
+    "description": "Adding a test",
+    "name": "test-tube",
+    "semver": null
+  },
+  {
+    "emoji": "🧑‍💻",
+    "entity": "&#129489;&#8205;&#128187;",
+    "code": ":technologist:",
+    "description": "Improving the developer experience",
+    "name": "technologist",
+    "semver": null
+  },
+  {
+    "emoji": "💸",
+    "entity": "&#x1F4B8;",
+    "code": ":money_with_wings:",
+    "description": "Adding the sponsorships or money related infrastructure",
+    "name": "money",
+    "semver": null
+  },
+  {
+    "emoji": "🎙️",
+    "entity": "&#x1F399;",
+    "code": ":studio_microphone:",
+    "description": "Adding or creating one or more interviews",
+    "name": "interview",
+    "semver": null
+  },
+  {
+    "emoji": "🩺",
+    "entity": "&#129670;",
+    "code": ":stethoscope:",
+    "description": "Adding or creating one or more medical or psychological certificates, diagnoses and reports",
+    "name": "interview",
+    "semver": null
+  },
+  {
+    "emoji": "📁",
+    "entity": "&#x1F4C1;",
+    "code": ":file_folder:",
+    "description": "Creating, preserving or updating a folder or a submodule",
+    "name": "folder",
+    "semver": null
+  },
+  {
+    "emoji": "📜",
+    "entity": "&#x1F4DC;",
+    "code": ":scroll:",
+    "description": "Adding, creating or backing up one or more certificates, or degrees, or diplomas",
+    "name": "certificate",
+    "semver": null
+  },
+  {
+    "emoji": "🎫",
+    "entity": "&#x1F3AB;",
+    "code": ":ticket:",
+    "description": "Adding or backing up one or more tickets",
+    "name": "certificate",
+    "semver": null
+  },
+  {
+    "emoji": "📷",
+    "entity": "&#x1F4F7;",
+    "code": ":film_strip:",
+    "description": "Adding or updating one or more images and/or photos",
+    "name": "photo",
+    "semver": null
+  },
+  {
+    "emoji": "🎞️",
+    "entity": "&#x1F39E;",
+    "code": ":film_strip:",
+    "description": "Adding one or more videos",
+    "name": "video",
+    "semver": null
+  },
+  {
+    "emoji": "🍽️",
+    "entity": "&#x1F37D;",
+    "code": ":plate_with_cutlery:",
+    "description": "Adding one or more diets",
+    "name": "diet",
+    "semver": null
+  },
+  {
+    "emoji": "💪",
+    "entity": "&#x1F4AA;",
+    "code": ":muscle:",
+    "description": "Adding one or more training sheets",
+    "name": "training",
+    "semver": null
+  },
+  {
+    "emoji": "🏴󠁥󠁳󠁣󠁴󠁿",
+    "entity": "&#x1F3F4;&#xE0065;&#xE0073;&#xE0063;&#xE0074;&#xE007F;",
+    "code": ":catalonia:",
+    "description": "Translating the texts into Catalan",
+    "name": "catalonia",
+    "semver": null
+  },
+  {
+    "emoji": "🇩🇪",
+    "entity": "&#x1F1E9;&#x1F1EA;",
+    "code": ":de:",
+    "description": "Translating the texts into German",
+    "name": "germany",
+    "semver": null
+  },
+  {
+    "emoji": "🇬🇷",
+    "entity": "&#x1F1EC;&#x1F1F7;",
+    "code": ":greece:",
+    "description": "Translating the texts into Greek",
+    "name": "greece",
+    "semver": null
+  },
+  {
+    "emoji": "🇪🇸",
+    "entity": "&#x1F1EA;&#x1F1F8;",
+    "code": ":es:",
+    "description": "Translating the texts into Spanish",
+    "name": "spain",
+    "semver": null
+  },
+  {
+    "emoji": "🇫🇷",
+    "entity": "&#127467;&#127479;",
+    "code": ":fr:",
+    "description": "Translating the texts into French",
+    "name": "france",
+    "semver": null
+  },
+  {
+    "emoji": "🇬🇧",
+    "entity": "&#127482;&#127480;",
+    "code": ":gb:",
+    "description": "Translating the texts into English",
+    "name": "united-kingdom",
+    "semver": null
+  },
+  {
+    "emoji": "🇮🇹",
+    "entity": "&#127470;&#127479;",
+    "code": ":it:",
+    "description": "Translating the texts into Italian",
+    "name": "italy",
+    "semver": null
+  },
+  {
+    "emoji": "🇯🇵",
+    "entity": "&#127471;&#127479;",
+    "code": ":jp:",
+    "description": "Translating the texts into Japanese",
+    "name": "japan",
+    "semver": null
+  },
+  {
+    "emoji": "🇬🇪",
+    "entity": "&#127466;&#127472;",
+    "code": ":georgia:",
+    "description": "Translating the texts into Georgian",
+    "name": "georgia",
+    "semver": null
+  },
+  {
+    "emoji": "🇳🇱",
+    "entity": "&#127474;&#127480;",
+    "code": ":netherlands:",
+    "description": "Translating the texts into Dutch",
+    "name": "netherlands",
+    "semver": null
+  },
+  {
+    "emoji": "🇳🇿",
+    "entity": "&#127474;&#127474;&#127480;&#127474;&#127480;",
+    "code": ":new_zealand:",
+    "description": "Translating the texts into Maori",
+    "name": "new-zealand",
+    "semver": null
+  },
+  {
+    "emoji": "🇵🇹",
+    "entity": "&#127479;&#127477;",
+    "code": ":portugal:",
+    "description": "Translating the texts into Portuguese",
+    "name": "portugal",
+    "semver": null
+  },
+  {
+    "emoji": "🇷🇴",
+    "entity": "&#127479;&#127472;",
+    "code": ":romania:",
+    "description": "Translating the texts into Romanian",
+    "name": "romania",
+    "semver": null
+  },
+  {
+    "emoji": "🇺🇦",
+    "entity": "&#127482;&#127479;",
+    "code": ":ukraine:",
+    "description": "Translating the texts into Ukrainian",
+    "name": "ukraine",
+    "semver": null
+  }
+]
