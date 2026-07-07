@@ -1,0 +1,96 @@
+################################################################################
+#
+# 🇬🇧 Sway theme:
+# 🇵🇹 Tema do Sway:
+# 🇪🇸 Tema de Sway:
+# Andromeda
+#
+# 🇬🇧 Converted using:
+# 🇵🇹 Convertido utilizando:
+# 🇪🇸 Convertido utilizando:
+# https://github.com/andrius/manjaro-sway-themes
+#
+# 🇬🇧 Author
+# 🇵🇹 Autor
+# 🇪🇸 Autor
+# https://twitter.com/@andrius_kai
+#
+################################################################################
+
+# 🇬🇧 Some global theme specific variables for GTK, Kvantum, QT and X11, and GUI and terminal fonts
+# 🇵🇹 Algumas variáveis específicas do tema global para GTK, Kvantum, QT e X11, e fontes de GUI e terminal
+# 🇪🇸 Algunas variables específicas del tema global para GTK, Kvantum, QT y X11, y fuentes de GUI y terminal
+## 🇬🇧 X11 cursor
+## 🇵🇹 Cursor X11
+## 🇪🇸 Cursor X11
+set $cursor-theme xcursor-breeze
+## 🇬🇧 GTK theme
+## 🇵🇹 Tema GTK
+## 🇪🇸 Tema GTK
+set $gtk-theme Matcha-dark-sea
+## 🇬🇧 GUI font
+## 🇵🇹 Fonte de GUI
+## 🇪🇸 Fuente de GUI
+set $gui-font Roboto 11
+## 🇬🇧 GUI icon theme
+## 🇵🇹 Tema de ícones de GUI
+## 🇪🇸 Tema de iconos de GUI
+set $icon-theme Papirus-Dark-Maia
+## 🇬🇧 Kvantum theme
+## 🇵🇹 Tema Kvantum
+## 🇪🇸 Tema Kvantum
+set $kvantum-theme Matcha-Dark
+## 🇬🇧 Terminal font
+## 🇵🇹 Fonte de terminal
+## 🇪🇸 Fuente de terminal
+set $term-font PragmataPro Mono 11
+
+set $color0  #000000
+set $color1  #cd3131
+set $color2  #05bc79
+set $color3  #e5e512
+set $color4  #2472c8
+set $color5  #bc3fbc
+set $color6  #0fa8cd
+set $color7  #e5e5e5
+set $color8  #666666
+set $color9  #cd3131
+set $color10 #05bc79
+set $color11 #e5e512
+set $color12 #2472c8
+set $color13 #bc3fbc
+set $color14 #0fa8cd
+set $color15 #e5e5e5
+
+# 🇬🇧 Seting $background-color for $color0
+# 🇵🇹 A definir $background-color para $color0
+# 🇪🇸 Definiendo $background-color para $color0
+set $background-color #262a33
+
+# 🇬🇧 Seting $text-color for $color6
+# 🇵🇹 A definir $text-color para $color6
+# 🇪🇸 Definiendo $text-color para $color6
+set $text-color #e5e5e5
+
+# 🇬🇧 Seting $selection-color for $color1
+# 🇵🇹 A definir $selection-color para $color1
+# 🇪🇸 Definiendo $selection-color para $color1
+set $selection-color #5a5c62
+
+# 🇬🇧 Seting $accent-color for $color12
+# 🇵🇹 A definir $accent-color para $color12
+# 🇪🇸 Definiendo $accent-color para $color12
+set $accent-color #ece7e7
+
+# 🇬🇧 Basic colour configuration using the Base16 variables for windows and borders
+# 🇵🇹 Configuração básica de cores utilizando as variáveis Base16 para janelas e bordas
+# 🇪🇸 Configuración básica de colores utilizando las variables Base16 para ventanas y bordes
+# 🇬🇧 Property Name            Border  Background    Text      Indicator   Child Border
+# 🇵🇹 Nome da Propriedade      Borda   Fundo         Texto     Indicador   Borda do Filho
+# 🇪🇸 Nombre de la Propiedad   Borde   Fondo         Texto     Indicador   Borde del Hijo
+client.focused                $color5 $color12      $color0   $color12    $color12
+client.focused_inactive       $color1 $color1       $color5   $color3     $color1
+client.unfocused              $color1 $color0       $color5   $color1     $color1
+client.urgent                 $color8 $color8       $color0   $color8     $color8
+client.placeholder            $color0 $color0       $color5   $color0     $color0
+client.background             $color7

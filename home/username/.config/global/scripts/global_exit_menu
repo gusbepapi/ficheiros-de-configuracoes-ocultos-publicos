@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# 🇬🇧 EXIT MENU
+# 🇵🇹 MENU DE SAÍDA
+# 🇪🇸 MENÚ DE SALIDA
+
+# 🇬🇧 Variables exportations
+# 🇵🇹 Exportação de variáveis
+# 🇪🇸 Exportación de variables
+DESKTOP_ENVIRONMENT=$(echo $XDG_CURRENT_DESKTOP | awk '{print tolower($0)}')
+
+while [ "$select" != "NO" -a "$select" != "YES" ]; do
+    select=$(echo -e 'NO\nYES' | dmenu -nb '#2f343f' -nf '#f3f4f5' -sb '#9575cd' -sf '#f3f4f5' -fn '-*-*-medium-r-normal-*-*-*-*-*-*-100-*-*' -i -p "Are you sure you want to logout?")
+    [ -z "$select" ] && exit 0
+done
+
+[ "$select" = "NO" ] && exit 0
+
+if [ "$DESKTOP_ENVIRONMENT" = "i3" ]; then
+    i3-msg exit
+else
+    swaymsg exit
+fi

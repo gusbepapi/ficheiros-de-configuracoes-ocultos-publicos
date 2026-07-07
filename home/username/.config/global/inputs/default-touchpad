@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# 🇬🇧 INPUT CONFIGURATION
+# 🇵🇹 CONFIGURAÇÃO DE ENTRADA
+# 🇪🇸 CONFIGURACIÓN DE ENTRADA
+
+input type:touchpad 
+{
+      dwt enabled
+      tap enabled
+      natural_scroll enabled
+}
+

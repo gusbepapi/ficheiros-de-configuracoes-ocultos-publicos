@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# 🇬🇧 INPUT CONFIGURATION
+# 🇵🇹 CONFIGURAÇÃO DE ENTRADA
+# 🇪🇸 CONFIGURACIÓN DE ENTRADA
+
+# 🇬🇧 Read `man 5 sway-input` or `man 5 i3-input` for more information about this section.
+# 🇵🇹 Leia `man 5 sway-input` ou `man 5 i3-input` para mais informações sobre esta seção.
+# 🇪🇸 Lea `man 5 sway-input` o `man 5 i3-input` para más información sobre esta sección.
+
+# 🇬🇧 You can get the names of your inputs by running: swaymsg -t get_inputs or i3-msg -t get_inputs
+# 🇵🇹 Você pode obter os nomes de suas entradas executando: swaymsg -t get_inputs ou i3-msg -t get_inputs
+# 🇪🇸 Puede obtener los nombres de sus entradas ejecutando: swaymsg -t get_inputs o i3-msg -t get_inputs
+
+input *
+{
+    ## 🇬🇧 American English, Greek, Georgian, Russian, Ukrainian and Armenian layouts
+    ## 🇵🇹 Teclado Americano Inglês, Grego, Geórgia, Russo, Ucraniano e Armênio
+    ## 🇪🇸 Teclado Americano Inglés, Griego, Georgiano, Ruso, Ucraniano y Armenio
+    xkb_layout  "us,el,ge,ru,ua,am"
+
+    ## 🇬🇧 Using the Alt button on the Apple keyboard to accentuate the letters
+    ## 🇵🇹 Utilizar o botão Alt do teclado da Apple para acentuar as letras
+    ## 🇪🇸 Utilizar el botón Alt del teclado de Apple para acentuar las letras
+    xkb_options "grp:alt_shift_toggle,grp:alt_shift_toggle,grp:alt_shift_toggle,winkeys,winkeys,winkeys"
+
+    ## 🇬🇧 Taking the international American English, extended Greek, QWERTY Georgian, phonetic Russian, phonetic Ukrainian and alternate phonetic Armenian variants
+    ## 🇵🇹 A pegar as variantes de inglês americano internacional, grego estendido, QWERTY georgiano, russo fonético, ucraniano fonético e armênio fonético alternativo
+    ## 🇪🇸 Tomando las variantes de inglés americano internacional, griego extendido, georgiano QWERTY, ruso fonético, ucraniano fonético y armenio fonético alternativo
+    xkb_variant "mac,extended,mess,phonetic,phonetic,phonetic-alt"
+} 
+
+## 🇬🇧 Picking up the model of the Apple computer keyboard
+## 🇵🇹 Pegar o modelo do teclado do computador da Apple
+## 🇪🇸 Tomar el modelo del teclado del ordenador de Apple
+input * xkb_model "macbookpro78"
