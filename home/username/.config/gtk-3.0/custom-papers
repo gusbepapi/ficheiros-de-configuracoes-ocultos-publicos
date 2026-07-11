@@ -1,0 +1,43 @@
+[Paper0]
+Name=Alura
+DisplayName=Alura
+Width=396.80000000000001
+Height=257.80000000000001
+MarginTop=0
+MarginBottom=0
+MarginLeft=0
+MarginRight=0
+Orientation=portrait
+
+[Paper1]
+Name=Claude
+DisplayName=Claude
+Width=148
+Height=500
+MarginTop=1
+MarginBottom=1
+MarginLeft=1
+MarginRight=1
+Orientation=portrait
+
+[Paper2]
+Name=Claude 3kmm
+DisplayName=Claude 3kmm
+Width=210
+Height=3200
+MarginTop=1
+MarginBottom=1
+MarginLeft=1
+MarginRight=1
+Orientation=portrait
+
+[Paper3]
+Name=Glyphs Updates
+DisplayName=Glyphs Updates
+Width=210
+Height=6500
+MarginTop=1
+MarginBottom=1
+MarginLeft=1
+MarginRight=1
+Orientation=portrait

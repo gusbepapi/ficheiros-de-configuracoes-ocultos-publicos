@@ -1,0 +1,15 @@
+@import 'colors.css';
+
+/* Removing all drop-shadows and surrounding padding margins from app windows */
+decoration, 
+decoration:backdrop, 
+.csd.popup decoration, 
+.fullscreen decoration, 
+.maximized decoration, 
+.tiled decoration 
+{
+    border-width: 0px !important;
+    box-shadow: none !important;
+    margin: 0px !important;
+    padding: 0px !important;
+}
