@@ -1,0 +1,5 @@
+keycode  12 = 3 numbersign 3 ssharp ssharp ssharp threesuperior ssharp
+keycode  51 = backslash bar sterling bar sterling
+keycode  56 = b	B b B rightdoublequotemark rightsinglequotemark rightdoublequotemark rightsinglequotemark b 0x0042
+keycode  59 = comma less comma less dead_cedilla 0x1000326 dead_cedilla 0x1000326 comma less
+keycode 118 = Multi_key

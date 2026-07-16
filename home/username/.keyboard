@@ -1,0 +1,9 @@
+# Console keyboard configuration.
+# See also /etc/default/keyboard and keyboard(5)
+
+XKBMODEL="macbookpro78"
+XKBLAYOUT="us"
+XKBVARIANT="mac"
+XKBOPTIONS="compose:menu,grp:alt_shift_toggle"
+
+BACKSPACE="guess"

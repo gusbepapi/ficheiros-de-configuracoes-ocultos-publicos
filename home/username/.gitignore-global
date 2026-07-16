@@ -1,0 +1,84 @@
+# Global
+
+## 🇬🇧 Unwanted .history folder
+## 🇵🇹 Pasta .history indesejada
+## 🇪🇸 Carpeta .history indeseada
+.history
+
+## 🇬🇧 Others
+## 🇵🇹 Outros
+## 🇪🇸 Otros
+.cache
+.caches
+.sass-cache
+.svn/
+.temp
+.tmp
+*.class
+*.css.map
+*.pyc
+*.sass.map
+*.scss.map
+*.swp
+
+# 🇬🇧 Operating system
+
+## Linux
+*~
+.fuse_hidden*
+.Trash-*
+.nfs*
+
+## 🇬🇧 macOS
+## 🇵🇹 macOS
+## 🇪🇸 macOS
+._*
+.apdisk
+.AppleDesktop
+.AppleDouble
+.com.apple.timemachine.donotpresent
+.DocumentRevisions-V100
+.DS_Store
+.fseventsd
+.LSOverride
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+AppleDB
+Network Trash Folder
+Temporary Items
+
+## 🇬🇧 Windows
+## 🇵🇹 Windows
+## 🇪🇸 Windows
+*.log*
+*.stackdump
+*.tmp
+*.tmp*
+$RECYCLE.BIN/
+ehthumbs_vista.db
+ehthumbs.db
+Thumbs.db
+Thumbs.db:encryptable
+# 🇬🇧 Universal editor and tool noise
+# 🇵🇹 Ruído universal de editor e de ferramenta
+# 🇪🇸 Ruido universal de editor y de herramienta
+*~
+*.bak
+*.orig
+*.swo
+*.swn
+.history/
+
+# 🇬🇧 User-specific Sublime Text session state
+# 🇵🇹 Estado de sessão do Sublime Text específico do utilizador
+# 🇪🇸 Estado de sesión de Sublime Text específico del usuario
+*.sublime-workspace
+
+# 🇬🇧 Secret environment variants, while the plain .env is committed deliberately
+# 🇵🇹 Variantes secretas de ambiente, enquanto o .env simples é submetido deliberadamente
+# 🇪🇸 Variantes secretas de entorno, mientras que el .env simple se envía deliberadamente
+.env.local
+.env.private
+.env.secrets

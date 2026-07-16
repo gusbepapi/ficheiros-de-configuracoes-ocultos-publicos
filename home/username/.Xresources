@@ -1,0 +1,51 @@
+!! Aparência
+URxvt.termName:   rxvt-unicode
+URxvt.scrollBar:  false
+Xft.dpi:          96
+Xft.antialias:    true
+Xft.rgba:      	rgb
+Xft.hinting:      true
+Xft.hintstyle:    hintslight
+
+!! Configurações de transparência
+URxvt.transparent:      true
+URxvt.shading:          15
+URxvt.depth:            32
+!! URxvt.inheritPixmap: true
+
+!! Fontes
+URxvt.font:          xft:Bahnschrift:size=10:antialias=true:hinting=true
+URxvt.boldFont:      xft:Bahnschrift:size=10:weight=bold:antialias=true:hinting=true
+URxvt.letterSpace:   -1
+
+!! Limite maior de histórico
+URxvt.saveLines:  1000000
+
+URxvt.background:    #334455
+URxvt.foreground:    #aacccc
+URxvt.color0:        #2e1f1f
+URxvt.color10:       #1fd9a9
+URxvt.color11:       #2cdb93
+URxvt.color12:       #8194bf
+URxvt.color13:       #7f5aa1
+URxvt.color14:       #669997
+URxvt.color15:       #d9d9d9
+URxvt.color1:        #aa0e50
+URxvt.color2:        #1dcc9f
+URxvt.color3:        #27c282
+URxvt.color4:        #7182a8
+URxvt.color5:        #aa5566
+URxvt.color6:        #22ddcc
+URxvt.color7:        #b7bbbd
+URxvt.color8:        #bb8899
+URxvt.color9:        #bb8899
+URxvt.colorBD:       #d7d7d7
+URxvt.colorIT:       #87af5f
+URxvt.colorUL:       #87afd7
+
+URxvt.perl-ext-common:  selection-to-clipboard,default,matcher,tabbed
+URxvt.url-launcher:     /usr/bin/xdg-open
+URxvt.matcher.button:   1
+
+URxvt.keysym.Control-V: eval:paste_clipboard
+URxvt.keysym.Control-C: eval:selection_to_clipboard
