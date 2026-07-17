@@ -1,0 +1,54 @@
+GIMP Palette
+Name: GNOME++
+Columns: 5
+
+26  95  180  Blue 01 (#1a5fb4)
+28  113 216  Blue 02 (#1c71d8)
+53  132 228  Blue 03 (#3584e4)
+98  160 234  Blue 04 (#62a0ea)
+153 193 241  Blue 05 (#99c1f1)
+
+38  162 105  Green 01 (#26a269)
+46  194 126  Green 02 (#2ec27e)
+51  209 122  Green 03 (#33d17a)
+87  227 137  Green 04 (#57e389)
+143 240 164  Green 05 (#8ff0a4)
+
+229 165 10   Yellow 01 (#e5a50a)
+245 194 17   Yellow 02 (#f5c211)
+246 211 45   Yellow 03 (#f6d32d)
+248 228 92   Yellow 04 (#f8e45c)
+249 240 107  Yellow 05 (#f9f06b)
+
+198 70  0    Orange 01 (#c64600)
+230 97  0    Orange 02 (#e66100)
+255 120 0    Orange 03 (#ff7800)
+255 163 72   Orange 04 (#ffa348)
+255 190 111  Orange 05 (#ffbe6f)
+
+165 29  45   Red 01 (#a51d2d)
+192 28  40   Red 02 (#c01c28)
+224 27  36   Red 03 (#e01b24)
+237 51  59   Red 04 (#ed333b)
+246 97  81   Red 05 (#f66151)
+
+97  53  131  Purple 01 (#613583)
+129 61  156  Purple 02 (#813d9c)
+145 65  172  Purple 03 (#9141ac)
+192 97  203  Purple 04 (#c061cb)
+220 138 221  Purple 05 (#dc8add)
+
+99  69   44  Brown 01 (#63452c)
+134 94   60  Brown 02 (#865e3c)
+152 106  68  Brown 03 (#986a44)
+181 131  90  Brown 04 (#b5835a)
+205 171  143 Brown 05 (#cdab8f)
+
+36  31  49  Neutral 01 (#241f31)
+61  56  70  Neutral 02 (#3d3846)
+94  92  100 Neutral 03 (#5e5c64)
+119 118 123 Neutral 04 (#77767b)
+154 153 150 Neutral 05 (#9a9996)
+192 191 188 Neutral 06 (#c0bfbc)
+222 221 218 Neutral 07 (#deddda)
+246 245 244 Neutral 08 (#f6f5f4)
