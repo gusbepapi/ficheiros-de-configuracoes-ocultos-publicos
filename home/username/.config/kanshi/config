@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# 🇬🇧 Reference:
+# 🇵🇹 Referência:
+#	🇪🇸 Referencia:
+# https://github.com/emersion/kanshi#configuration-file
+
+# 🇬🇧 Two commands:
+# 🇵🇹 Dois comandos:
+#	🇪🇸 Dos comandos:
+# man kanshi
+# swaymsg -t get_outputs
+
+profile 
+{
+	output eDP-1 position 0,0
+}

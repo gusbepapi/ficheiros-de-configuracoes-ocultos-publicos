@@ -1,0 +1,9 @@
+{
+  "NotebookApp": {
+    "nbserver_extensions": 
+    {
+      "hide_code": true,
+      "jupyter_nbextensions_configurator": true
+    }
+  }
+}

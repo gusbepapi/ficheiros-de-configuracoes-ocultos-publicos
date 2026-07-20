@@ -1,0 +1,28 @@
+{
+    // 🇬🇧 Theme
+    // 🇵🇹 Tema
+    // 🇪🇸 Tema
+    // @jupyterlab/apputils-extension:themes
+    // 🇬🇧 Theme manager settings.
+    // 🇵🇹 Configurações do gestor de temas.
+    // 🇪🇸 Configuración del gestor de temas.
+    // *************************************
+
+    // 🇬🇧 Selected Theme
+    // 🇵🇹 Tema Selecionado
+    // 🇪🇸 Tema Seleccionado
+
+    // 🇬🇧 Application-level visual styling theme
+    // 🇵🇹 Tema de estilo visual a nível de aplicação
+    // 🇪🇸 Tema de estilo visual a nivel de aplicación
+    "theme": "JupyterLab Neon Night",
+
+    // 🇬🇧 Scrollbar Theming
+    // 🇵🇹 Tema de Barra de Deslocamento
+    // 🇪🇸 Tema de Barra de Desplazamiento
+    
+    // 🇬🇧 Enable or disable styling of the application scrollbars
+    // 🇵🇹 Activar ou desactivar o estilo das barras de deslocamento da aplicação
+    // 🇪🇸 Activar o desactivar el estilo de las barras de desplazamiento de la aplicación
+    "theme-scrollbars": true
+}

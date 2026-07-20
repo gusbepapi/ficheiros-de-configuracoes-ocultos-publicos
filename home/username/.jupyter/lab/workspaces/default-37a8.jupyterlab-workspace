@@ -1,0 +1,46 @@
+{
+  "data": {
+    "layout-restorer:data": {
+      "main": {
+        "dock": {
+          "type": "tab-area",
+          "currentIndex": 0,
+          "widgets": []
+        }
+      },
+      "left": {
+        "collapsed": false,
+        "current": "running-sessions",
+        "widgets": [
+          "filebrowser",
+          "running-sessions",
+          "@jupyterlab/toc:plugin",
+          "extensionmanager.main-view"
+        ]
+      },
+      "right": {
+        "collapsed": false,
+        "current": "jp-property-inspector",
+        "widgets": [
+          "jp-property-inspector"
+        ]
+      }
+    },
+    "@jupyterlab/settingeditor-extension:plugin": {
+      "sizes": [
+        0.1441299790356394,
+        0.8558700209643606
+      ],
+      "container": {
+        "plugin": "@jupyterlab/apputils-extension:themes",
+        "sizes": [
+          0.5,
+          0.5
+        ]
+      }
+    }
+  },
+  "metadata": {
+    "id": "default"
+  }
+}

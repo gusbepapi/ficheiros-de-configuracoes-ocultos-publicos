@@ -1,0 +1,12 @@
+{
+  "load_extensions": 
+  {
+    "codefolding/main": true,
+    "contrib_nbextensions_help_item/main": true,
+    "hide_code/hide_code": true,
+    "nbextensions_configurator/config_menu/main": true,
+    "nbTranslate/main": true,
+    "python-markdown/main": true,
+    "qgrid/extension": true
+  }
+}

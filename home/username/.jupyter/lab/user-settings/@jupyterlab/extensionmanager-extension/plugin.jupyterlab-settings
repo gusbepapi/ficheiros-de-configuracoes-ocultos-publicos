@@ -1,0 +1,33 @@
+{
+    // 🇬🇧 Extension Manager
+    // 🇵🇹 Gestor de Extensões
+    // 🇪🇸 Gestor de Extensiones
+    // @jupyterlab/extensionmanager-extension:plugin
+
+    // 🇬🇧 Extension manager settings.
+    // 🇵🇹 Configurações do gestor de extensões.
+    // 🇪🇸 Configuraciones del gestor de extensiones.
+    // *********************************************
+
+    // 🇬🇧 Disclaimed Status
+    // 🇵🇹 Estado de Aviso
+    // 🇪🇸 Estado de Aviso
+
+    // 🇬🇧 Whether the user understand that extensions managed through this interface run arbitrary code that may be dangerous
+    // 🇵🇹 Se o utilizador compreende que as extensões geridas através desta interface executam código arbitrário que pode ser perigoso
+    // 🇪🇸 Si el usuario comprende que las extensiones gestionadas a través de esta interfaz ejecutan código arbitrario que puede ser peligroso
+    "disclaimed": true,
+
+    // 🇬🇧 Enabled Status
+    // 🇵🇹 Estado de Activado
+    // 🇪🇸 Estado de Activado
+
+    // 🇬🇧 Enables extension manager (requires Node.js/npm).
+    // 🇵🇹 Activa o gestor de extensões (requer Node.js/npm).
+    // 🇪🇸 Activa el gestor de extensiones (requiere Node.js/npm).
+
+    // 🇬🇧 WARNING: installing untrusted extensions may be unsafe.
+    // 🇵🇹 AVISO: instalar extensões não confiáveis pode ser inseguro.
+    // 🇪🇸 AVISO: instalar extensiones no confiables puede ser inseguro.
+    "enabled": true
+}
