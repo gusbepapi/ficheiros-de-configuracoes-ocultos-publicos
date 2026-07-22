@@ -1,0 +1,119 @@
+[ColorEffects:Disabled]
+Color = 56,56,56
+ColorAmount = 0
+ColorEffect = 0
+ContrastAmount = 0.65
+ContrastEffect = 1
+IntensityAmount = 0.1
+IntensityEffect = 2
+
+[ColorEffects:Inactive]
+ChangeSelectionColor = true
+Color = 112,111,110
+ColorAmount = 0.025
+ColorEffect = 2
+ContrastAmount = 0.1
+ContrastEffect = 2
+Enable = false
+IntensityAmount = 0
+IntensityEffect = 0
+
+[Colors:Button]
+BackgroundAlternate = 77,77,77
+BackgroundNormal = 49,54,59
+DecorationFocus = 87,79,90
+DecorationHover = 62,59,69
+ForegroundActive = 84,79,98
+ForegroundInactive = 189,195,199
+ForegroundLink = 92,83,98
+ForegroundNegative = 218,68,83
+ForegroundNeutral = 246,116,0
+ForegroundNormal = 239,240,241
+ForegroundPositive = 57,51,61
+ForegroundVisited = 127,140,141
+
+[Colors:Complementary]
+BackgroundAlternate = 59,64,69
+BackgroundNormal = 49,54,59
+DecorationFocus = 78,72,84
+DecorationHover = 88,81,94
+ForegroundActive = 246,116,0
+ForegroundInactive = 175,176,179
+ForegroundLink = 88,81,94
+ForegroundNegative = 237,21,21
+ForegroundNeutral = 201,206,59
+ForegroundNormal = 239,240,241
+ForegroundPositive = 17,209,22
+ForegroundVisited = 88,81,94
+
+[Colors:Selection]
+BackgroundAlternate = 61,55,65
+BackgroundNormal = 62,55,65
+DecorationFocus = 87,79,90
+DecorationHover = 62,59,69
+ForegroundActive = 252,252,252
+ForegroundInactive = 239,240,241
+ForegroundLink = 253,188,75
+ForegroundNegative = 218,68,83
+ForegroundNeutral = 246,116,0
+ForegroundNormal = 239,240,241
+ForegroundPositive = 57,51,61
+ForegroundVisited = 189,195,199
+
+[Colors:Tooltip]
+BackgroundAlternate = 77,77,77
+BackgroundNormal = 49,54,59
+DecorationFocus = 87,79,90
+DecorationHover = 62,59,69
+ForegroundActive = 88,81,94
+ForegroundInactive = 189,195,199
+ForegroundLink = 88,81,94
+ForegroundNegative = 218,68,83
+ForegroundNeutral = 246,116,0
+ForegroundNormal = 239,240,241
+ForegroundPositive = 57,51,61
+ForegroundVisited = 127,140,141
+
+[Colors:View]
+BackgroundAlternate = 49,54,59
+BackgroundNormal = 35,38,41
+DecorationFocus = 87,79,90
+DecorationHover = 62,59,69
+ForegroundActive = 77,74,86
+ForegroundInactive = 189,195,199
+ForegroundLink = 71,65,77
+ForegroundNegative = 218,68,83
+ForegroundNeutral = 246,116,0
+ForegroundNormal = 239,240,241
+ForegroundPositive = 76,72,83
+ForegroundVisited = 127,140,141
+
+[Colors:Window]
+BackgroundAlternate = 77,77,77
+BackgroundNormal = 49,54,59
+DecorationFocus = 87,79,90
+DecorationHover = 75,72,84
+ForegroundActive = 101,95,115
+ForegroundInactive = 189,195,199
+ForegroundLink = 82,79,94
+ForegroundNegative = 218,68,83
+ForegroundNeutral = 246,116,0
+ForegroundNormal = 239,240,241
+ForegroundPositive = 83,74,89
+ForegroundVisited = 127,140,141
+
+[General]
+ColorScheme = Breeze Dark
+Name = Breeze Dark Yosemite
+shadeSortColumn = true
+
+[KDE]
+contrast = 4
+
+[WM]
+activeBackground = 49,54,59
+activeBlend = 255,255,255
+activeForeground = 239,240,241
+inactiveBackground = 49,54,59
+inactiveBlend = 75,71,67
+inactiveForeground = 127,140,141

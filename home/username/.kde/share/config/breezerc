@@ -1,0 +1,8 @@
+[Common]
+ShadowSize = ShadowNone
+
+[Style]
+MenuOpacity = 40
+
+[Windeco]
+DrawBackgroundGradient = false
