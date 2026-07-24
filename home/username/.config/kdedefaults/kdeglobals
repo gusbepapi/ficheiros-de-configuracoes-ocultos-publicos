@@ -1,0 +1,11 @@
+[General]
+ColorScheme=Kanagawa
+
+[Icons]
+Theme=Palette-Adwaita-Dark
+
+[KDE]
+widgetStyle=Breeze
+
+[UiSettings]
+ColorScheme=Kanagawa

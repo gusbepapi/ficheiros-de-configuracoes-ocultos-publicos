@@ -1,0 +1,111 @@
+# 🇬🇧 LaTeXmk configuration file
+# 🇵🇹 Ficheiro de configuração do LaTeXmk
+# 🇪🇸 Fichero de configuración de LaTeXmk
+
+# 🇬🇧 Usage example
+# 🇵🇹 Exemplo de utilização
+# 🇪🇸 Ejemplo de uso
+# latexmk file.tex
+
+# 🇬🇧 Main command line options
+# 🇵🇹 Opções principais da linha de comandos
+# 🇪🇸 Opciones principales de la línea de comandos
+# -pdf : 🇬🇧 generate PDF using pdflatex
+#        🇵🇹 gerar PDF utilizando pdflatex
+#        🇪🇸 generar PDF utilizando pdflatex
+# -pv  : 🇬🇧 run file previewer
+#        🇵🇹 executar visualizador de ficheiros
+#        🇪🇸 ejecutar visor de ficheros
+# -pvc : 🇬🇧 run file previewer and continually recompile on change
+#        🇵🇹 executar visualizador de ficheiros e recompilar continuamente ao alterar
+#        🇪🇸 ejecutar visor de ficheros y recompilar continuamente al cambiar
+# -C   : 🇬🇧 clean up by removing all regeneratable files
+#        🇵🇹 limpar removendo todos os ficheiros regeneráveis
+#        🇪🇸 limpiar eliminando todos los ficheros regenerables
+
+# 🇬🇧 PDF-generating modes are:
+# 🇵🇹 Os modos de geração de PDF são:
+# 🇪🇸 Los modos de generación de PDF son:
+
+# 🇬🇧 1: pdflatex, as specified by $pdflatex variable (still largely in use)
+# 🇵🇹 1: pdflatex, como especificado pela variável $pdflatex (ainda largamente em uso)
+# 🇪🇸 1: pdflatex, como especificado por la variable $pdflatex (todavía ampliamente en uso)
+
+# 🇬🇧 2: postscript conversion, as specified by the $ps2pdf variable (useless)
+# 🇵🇹 2: conversão de postscript, como especificado pela variável $ps2pdf (inútil)
+# 🇪🇸 2: conversión de postscript, como especificado por la variable $ps2pdf (inútil)
+
+# 🇬🇧 3: dvi conversion, as specified by the $dvipdf variable (useless)
+# 🇵🇹 3: conversão de dvi, como especificado pela variável $dvipdf (inútil)
+# 🇪🇸 3: conversión de dvi, como especificado por la variable $dvipdf (inútil)
+
+# 🇬🇧 4: lualatex, as specified by the $lualatex variable (best)
+# 🇵🇹 4: lualatex, como especificado pela variável $lualatex (melhor)
+# 🇪🇸 4: lualatex, como especificado por la variable $lualatex (mejor)
+
+# 🇬🇧 5: xelatex, as specified by the $xelatex variable (second best)
+# 🇵🇹 5: xelatex, como especificado pela variável $xelatex (segundo melhor)
+# 🇪🇸 5: xelatex, como especificado por la variable $xelatex (segundo mejor)
+$pdf_mode = 5;
+
+# 🇬🇧 To use bibtex if a .bib file exists and it runs biber
+# 🇵🇹 Utilizar bibtex se existir um ficheiro em formato de .bib e este executar biber
+# 🇪🇸 Utilizar bibtex si existe un fichero en formato de .bib y este ejecutar biber
+$bibtex_use = 2;
+
+# 🇬🇧 To change default `biber` call, help catch errors faster or clearer. 
+# 🇵🇹 Alterar a chamada padrão de `biber`, ajuda a capturar erros mais rápido ou mais claro.
+# 🇪🇸 Cambiar la llamada por defecto de `biber`, ayuda a capturar errores más rápido o más claro.
+$biber = "biber --validate-datamodel %O %S";
+
+# 🇬🇧 To define command to compile with pdfsync support and nonstopmode
+# 🇵🇹 Definir comando para compilar com suporte a pdfsync e nonstopmode
+# 🇪🇸 Definir comando para compilar con soporte a pdfsync y nonstopmode
+$pdflatex = 'pdflatex -synctex=1 --interaction=nonstopmode -file-line-error';
+
+# 🇬🇧 To use default PDF viewer
+# 🇵🇹 Utilizar visualizador de PDF por defeito
+# 🇪🇸 Utilizar visor de PDF por defecto
+$pdf_previewer = 'open';
+
+# 🇬🇧 Also to remove pdfsync files on clean
+# 🇵🇹 Também remover ficheiros em formato de pdfsync ao limpar
+# 🇪🇸 También eliminar ficheros en formato de pdfsync al limpiar
+$clean_ext = 'pdfsync synctex.gz';
+
+# 🇬🇧 To treat undefined references and citations as well as multiply defined references as ERRORS instead of WARNINGS.
+# 🇵🇹 Tratar referências e citações indefinidas bem como referências definidas várias vezes como ERRORS em vez de WARNINGS.
+# 🇪🇸 Tratar referencias y citas indefinidas así como referencias definidas varias veces como ERRORS en vez de WARNINGS.
+$warnings_as_errors = 0;
+
+# 🇬🇧 To show used CPU time.
+# 🇵🇹 Mostrar tempo de CPU utilizado.
+# 🇪🇸 Mostrar tiempo de CPU utilizado.
+# 🇬🇧 Reference
+# 🇵🇹 Referência
+# 🇪🇸 Referencia
+# 🇬🇧 https://tex.stackexchange.com/a/312224/120853
+$show_time = 1;
+
+# 🇬🇧 Default is 5; we seem to need more owed to the complexity of the document. Actual documents probably don't need this many since they won't use all features, plus won't be compiling from cold each time.
+# 🇵🇹 O padrão é 5; parece que precisamos de mais devido à complexidade do documento. Documentos reais provavelmente não precisam de tantos, uma vez que não utilizen todos os recursos, além de não estarem a compilar a partir do zero cada vez.
+# 🇪🇸 El valor por defecto es 5; parece que necesitamos más debido a la complejidad del documento. Documentos reales probablemente no necesiten tantos, ya que no utilizen todos los recursos, además de no estar a compilar desde el frío cada vez.
+$max_repeat = 7;
+
+# 🇬🇧 --shell-escape option (execution of code outside of latex) is required for the 'svg' package. It converts raw SVG files to the PDF + PDF_TEX combo using Inkscape.
+# SyncTeX allows to jump between source (code) and output (PDF) in IDEs with support many have it). A value of `1` is enabled (gzipped), `-1` is enabled but uncompressed, `0` is off. Testing in VSCode with LaTeX Workshop only worked for the compressed version.
+# `set_tex_cmds` applies to all *latex commands (latex, lualatex, xelatex, ...), so no need to specify these each. This allows to simply change `$pdf_mode` to get a different engine. Check if this works with `latexmk --commands`.
+
+# 🇵🇹 A opção --shell-escape (execução de código fora do latex) é necessária para o pacote 'svg'. Converte ficheiros SVG para o PDF + PDF_TEX utilizando o Inkscape.
+# SyncTeX permite saltar entre o código e o PDF no IDE (muitos têm suporte). O valor `1` é ativado (gzipped), `-1` é ativado mas não comprimido, `0` é desativado. A testar no VSCode com o LaTeX Workshop, apenas funcionou para a versão comprimida.
+# `set_tex_cmds` aplica-se a todos os comandos *latex (latex, lualatex, xelatex, ...), por isso não é necessário especificar cada um. Isto permite simplesmente alterar `$pdf_mode` para obter um motor diferente. Verifique se isto funciona com `latexmk --commands`.
+
+# 🇪🇸 La opción --shell-escape (ejecución de código fuera de latex) es necesaria para el paquete 'svg'. Convierte ficheros SVG en PDF + PDF_TEX utilizando Inkscape.
+# SyncTeX permite saltar entre el código y el PDF en el IDE (muchos tienen soporte). El valor `1` está activado (gzipped), `-1` está activado pero no comprimido, `0` está desactivado. Probado en VSCode con LaTeX Workshop, solo funcionó para la versión comprimida.
+# `set_tex_cmds` se aplica a todos los comandos *latex (latex, lualatex, xelatex, ...), por lo que no es necesario especificar cada uno. Esto permite simplemente cambiar `$pdf_mode` para obtener un motor diferente. Compruebe si esto funciona con `latexmk --commands`.
+set_tex_cmds("--shell-escape --synctex=1 %O %S");
+
+# 🇬🇧 Setting the time zone to São Paulo
+# 🇵🇹 Definir o fuso horário para São Paulo
+# 🇪🇸 Definir la zona horaria para São Paulo
+$ENV{'TZ'}='America/Sao_Paulo';
