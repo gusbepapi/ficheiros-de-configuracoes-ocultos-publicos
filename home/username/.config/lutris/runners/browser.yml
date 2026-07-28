@@ -1,0 +1,4 @@
+browser: {}
+system:
+  game_path: ~/Applications/Windows
+  reset_desktop: true

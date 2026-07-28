@@ -1,0 +1,22 @@
+#!/usr/bin/sh
+
+# 🇬🇧 Default config for the mako notification daemon
+# 🇵🇹 Configuração padrão para o daemon de notificações de mako
+# 🇪🇸 Configuración por defecto para el daemon de notificaciones de mako
+
+actions = 1
+background-color = #141a1b
+border-color = #16a085
+border-size = 3
+default-timeout = 5000
+font = IBM Plex Sans 10
+height = 200
+icons = 1
+layer = overlay
+margin = 20
+markup = 1
+max-icon-size = 48X
+max-visible = 6
+padding = 20
+text-color = #eeeeee
+width = 400

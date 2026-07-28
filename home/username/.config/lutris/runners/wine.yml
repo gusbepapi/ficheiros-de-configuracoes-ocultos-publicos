@@ -1,0 +1,9 @@
+system:
+  disable_runtime: true
+  game_path: ~/Applications/Windows/
+  vk_icd: /usr/share/vulkan/icd.d/nvidia_icd.json
+wine:
+  Desktop: false
+  dxvk: true
+  esync: false
+  version: ge-protonified-nofshack-4.9-x86_64
