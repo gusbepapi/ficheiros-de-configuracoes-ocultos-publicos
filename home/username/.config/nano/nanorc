@@ -1,0 +1,279 @@
+#!/usr/bin/env bash
+
+## 🇬🇧 When soft line wrapping is enabled, make it wrap lines at blanks (tabs and spaces) instead of always at the edge of the screen.
+## 🇵🇹 Quando o ajuste de linha suave está ativado, faça-o ajustar as linhas em brancos (tabulações e espaços) em vez de sempre no limite da tela.
+## 🇪🇸 Cuando el ajuste de línea suave está activado, haz que ajuste las líneas en blancos (tabulaciones y espacios) en vez de siempre en el límite de la pantalla.
+# set atblanks
+
+## 🇬🇧 Using auto-indentation.
+## 🇵🇹 A utilizar auto-indentação.
+## 🇪🇸 Usando auto-indentación.
+set autoindent
+
+## 🇬🇧 Backing up files to the current filename plus a tilde.
+## 🇵🇹 A fazer backup dos ficheiros para o nome do ficheiro atual mais um til.
+## 🇪🇸 Haciendo copia de seguridad de los archivos al nombre del archivo actual más un til.
+set backup
+
+## 🇬🇧 A directory to put unique backup files in.
+## 🇵🇹 Um diretório para colocar ficheiros de backup únicos.
+## 🇪🇸 Un directorio para colocar archivos de copia de seguridad únicos.
+# set backupdir ""
+
+## 🇬🇧 Using a bold text instead of reverse video text.
+## 🇵🇹 Utilizar um texto em negrito em vez de um texto em vídeo inverso.
+## 🇪🇸 Usar un texto en negrita en vez de un texto en vídeo inverso.
+# set boldtext
+
+## 🇬🇧 The characters treated as closing brackets when justifying paragraphs. They can not contain blank characters. Only closing punctuation, optionally followed by closing brackets, can end sentences.
+## 🇵🇹 Os caracteres tratados como parênteses de fecho quando justificar parágrafos. Não podem conter caracteres em branco. Apenas pontuação de fecho, opcionalmente seguida de parênteses de fecho, pode terminar frases.
+## 🇪🇸 Los caracteres tratados como paréntesis de cierre cuando justificar párrafos. No pueden contener caracteres en blanco. Sólo puntuación de cierre, opcionalmente seguida de paréntesis de cierre, puede terminar frases.
+set brackets "\"')>]}"
+
+## 🇬🇧 Doing case-sensitive searches by default.
+## 🇵🇹 A fazer pesquisas sensíveis a maiúsculas e minúsculas por predefinição.
+## 🇪🇸 Haciendo búsquedas sensibles a mayúsculas y minúsculas por defecto.
+set casesensitive
+
+## 🇬🇧 Constantly displaying the cursor position in the status bar.  Note that this overrides "quickblank".
+## 🇵🇹 Exibir constantemente a posição do cursor na barra de estado. Note que isto substitui "quickblank".
+## 🇪🇸 Mostrar constantemente la posición del cursor en la barra de estado. Tenga en cuenta que esto sustituye a "quickblank".
+# set constantshow
+
+## 🇬🇧 Using cut-from-cursor-to-end-of-line by default.
+## 🇵🇹 A utilizar corte a partir do cursor até ao fim da linha por predefinição.
+## 🇪🇸 Usando corte desde el cursor hasta el final de la línea por defecto.
+# set cutfromcursor
+
+## 🇬🇧 Setting the line length for wrapping text and justifying paragraphs. If the value is 0 or less, the wrapping point will be the screen width less this number.
+## 🇵🇹 A definir o comprimento da linha para ajustar o texto e justificar parágrafos. Se o valor for 0 ou inferior, o ponto de ajuste será a largura do ecrã menos este número.
+## 🇪🇸 Definiendo la longitud de la línea para ajustar el texto y justificar párrafos. Si el valor es 0 o inferior, el punto de ajuste será el ancho de la pantalla menos este número.
+# set fill -8
+
+## 🇬🇧 Remembering the used search/replace strings for the next session.
+## 🇵🇹 Lembrar as cadeias de pesquisa/substituição utilizadas para a próxima sessão.
+## 🇪🇸 Recordar las cadenas de búsqueda/reemplazo utilizadas para la próxima sesión.
+set historylog
+
+## 🇬🇧 To display line numbers to the left of the text.
+## 🇵🇹 Exibir os números de linha à esquerda do texto.
+## 🇪🇸 Mostrar números de línea a la izquierda del texto.
+set linenumbers
+
+## 🇬🇧 Enabling Vim-style lock-files. This is just to let a Vim user know you are editing a file they are trying to edit and vice versa. There are no plans to implement vim-style undo state in these files.
+## 🇵🇹 Ativar ficheiros de bloqueio estilo de Vim. Isto é apenas para avisar um utilizador de Vim que está a editar um ficheiro que eles estão a tentar editar e vice-versa. Não há planos para implementar estado de desfazer estilo vim nestes ficheiros.
+## 🇪🇸 Habilitando archivos de bloqueo estilo de Vim. Esto es sólo para avisar a un usuario de Vim que está editando un archivo que están tratando de editar y viceversa. No hay planes para implementar el estado de deshacer estilo vim en estos archivos.
+# set locking
+
+## 🇬🇧 The opening and closing brackets that can be found by bracket searches. They can not contain blank characters. The former set must come before the latter set, and both must be in the same order.
+## 🇵🇹 Os parênteses de abertura e fecho que podem ser encontrados por pesquisas de parênteses. Não podem conter caracteres em branco. O conjunto anterior deve vir antes do conjunto posterior, e ambos devem estar na mesma ordem.
+## 🇪🇸 Los paréntesis de apertura y cierre que pueden ser encontrados por búsquedas de paréntesis. No pueden contener caracteres en blanco. El conjunto anterior debe venir antes del conjunto posterior, y ambos deben estar en el mismo orden.
+set matchbrackets "(<[{)>]}"
+
+## 🇬🇧 Using the blank line below the title bar as extra editing space.
+## 🇵🇹 A utilizar a linha em branco abaixo da barra de título como espaço extra de edição.
+## 🇪🇸 Usando la línea en blanco debajo de la barra de título como espacio extra de edición.
+# set morespace
+
+## 🇬🇧 Enabling the mouse support, if available for your system. When enabled, mouse clicks can be used to place the cursor, set the mark (with a double click), and execute shortcuts. The mouse will work in the X Window System, and on the console when gpm is running.
+## 🇵🇹 Ativar o suporte do rato, se disponível para o seu sistema. Quando ativado, os cliques do rato podem ser usados para colocar o cursor, definir a marca (com um duplo clique) e executar atalhos. O rato irá funcionar no X Window System, e na consola quando o gpm estiver a correr.
+## 🇪🇸 Habilitar el soporte del ratón, si está disponible para su sistema. Cuando está habilitado, los clics del ratón pueden ser usados para colocar el cursor, definir la marca (con un doble clic) y ejecutar atajos. El ratón funcionará en el X Window System, y en la consola cuando gpm está ejecutándose.
+set mouse
+
+## 🇬🇧 To switch on multiple file buffers (inserting a file will put it into a separate buffer).
+## 🇵🇹 Ligar vários buffers de ficheiros (inserir um ficheiro irá colocá-lo num buffer separado).
+## 🇪🇸 Encender múltiples buffers de archivos (insertar un archivo lo pondrá en un buffer separado).
+# set multibuffer
+
+## 🇬🇧 Don't convert files from DOS/macOS format.
+## 🇵🇹 Não converter ficheiros do formato de DOS/macOS.
+## 🇪🇸 No convertir archivos del formato de DOS/macOS.
+# set noconvert
+
+## 🇬🇧 Don't display the helpful shortcut lists at the bottom of the screen.
+## 🇵🇹 Não exibir as listas de atalhos úteis na parte inferior do ecrã.
+## 🇪🇸 No mostrar las listas de atajos útiles en la parte inferior de la pantalla.
+# set nohelp
+
+## 🇬🇧 Don't pause between warnings at startup. Which means that only the last one will be readable (when there are multiple ones).
+## 🇵🇹 Não pausar entre avisos ao iniciar. O que significa que apenas o último será legível (quando existem vários).
+## 🇪🇸 No pausar entre advertencias al iniciar. Lo que significa que sólo el último será legible (cuando hay varios).
+# set nopauses
+
+## 🇬🇧 Don't add newlines to the ends of files.
+## 🇵🇹 Não adicionar novas linhas ao fim dos ficheiros.
+## 🇪🇸 No añadir nuevas líneas al final de los archivos.
+set nonewlines
+
+## 🇬🇧 Don't wrap text at all.
+## 🇵🇹 Não quebrar o texto em tudo.
+## 🇪🇸 No romper el texto en absoluto.
+set nowrap
+
+## 🇬🇧 Setting operating directory. nano will not read or write files outside this directory and its subdirectories. Also, the current directory is changed to here, so any files are inserted from this dir. A blank string means the operating-directory feature is turned off.
+## 🇵🇹 Definir o diretório de operação. O nano não irá ler ou escrever ficheiros fora deste diretório e dos seus subdiretórios. Além disso, o diretório atual é alterado para aqui, de modo que qualquer ficheiro seja inserido a partir deste diretório. Uma string em branco significa que a funcionalidade de diretório de operação está desligada.
+## 🇪🇸 Establecer el directorio de operación. nano no leerá ni escribirá archivos fuera de este directorio y sus subdirectorios. Además, el directorio actual se cambia a aquí, de modo que cualquier archivo se inserta desde este directorio. Una cadena en blanco significa que la función de directorio de operación está apagada.
+# set operatingdir ""
+
+## 🇬🇧 To remember the cursor position in each file for the next editing session.
+## 🇵🇹 Para lembrar a posição do cursor em cada ficheiro para a próxima sessão de edição.
+## 🇪🇸 Para recordar la posición del cursor en cada archivo para la próxima sesión de edición.
+# set positionlog
+
+## 🇬🇧 To preserve the XON and XOFF keys (^Q and ^S).
+## 🇵🇹 Preservar as teclas XON e XOFF (^Q e ^S).
+## 🇪🇸 Preservar las teclas XON y XOFF (^Q y ^S).
+# set preserve
+
+## 🇬🇧 The characters treated as closing punctuation when justifying paragraphs. They can not contain blank characters. Only closing punctuation, optionally followed by closing brackets, can end sentences.
+## 🇵🇹 Os caracteres tratados como pontuação de fecho ao justificar parágrafos. Não podem conter caracteres em branco. Apenas pontuação de fecho, opcionalmente seguida de parênteses de fecho, pode terminar frases.
+## 🇪🇸 Los caracteres tratados como puntuación de cierre al justificar párrafos. No pueden contener caracteres en blanco. Sólo puntuación de cierre, opcionalmente seguida de paréntesis de cierre, puede terminar frases.
+# set punct "!.?"
+
+## To do quick status-bar blanking. Status-bar messages will disappear after 1 keystroke instead of 26. Note that "constantshow" overrides this.
+## 🇵🇹 Fazer um rápido esvaziamento da barra de estado. As mensagens da barra de estado desaparecerão após 1 tecla em vez de 26. Observe que "constantshow" anula isto.
+## 🇪🇸 Hacer un rápido vaciado de la barra de estado. Los mensajes de la barra de estado desaparecerán después de 1 tecla en lugar de 26. Tenga en cuenta que "constantshow" anula esto.
+# set quickblank
+
+## 🇬🇧 The email-quote string, used to justify email-quoted paragraphs. This is an extended regular expression if your system supports them, otherwise a literal string. If you have extended regular expression support, the default is:
+## 🇵🇹 A string de citação de correio eletrónico, utilizada para justificar os parágrafos citados por correio eletrónico. Esta é uma expressão regular estendida se o seu sistema as suportar, caso contrário uma string literal. Se tiver suporte para expressões regulares estendidas, o padrão é:
+## 🇪🇸 La cadena de cita de correo electrónico, utilizada para justificar los párrafos citados por correo electrónico. Esta es una expresión regular extendida si su sistema las admite, de lo contrario una cadena literal. Si tiene soporte para expresiones regulares extendidas, el valor predeterminado es:
+set quotestr "^([ 	]*[#:>\|}])+"
+## 🇬🇧 Otherwise:
+## 🇵🇹 Caso contrário:
+## 🇪🇸 De lo contrario:
+# set quotestr "> "
+
+## 🇬🇧 Fixing Backspace/Delete confusion problem.
+## 🇵🇹 Resolver o problema de confusão entre Backspace e Delete.
+## 🇪🇸 Resolver el problema de confusión entre Backspace y Delete.
+set rebinddelete
+
+## 🇬🇧 Fixing the numeric keypad key confusion problem.
+## 🇵🇹 Resolver o problema de confusão entre as teclas do teclado numérico.
+## 🇪🇸 Resolver el problema de confusión entre las teclas del teclado numérico.
+set rebindkeypad
+
+## 🇬🇧 To do the extended regular expression searches by default.
+## 🇵🇹 Fazer as pesquisas de expressões regulares estendidas por padrão.
+## 🇪🇸 Hacer las búsquedas de expresiones regulares extendidas por defecto.
+set regexp
+
+## 🇬🇧 Putting the cursor on the highlighted item in the file browser; useful for people who use a braille display.
+set showcursor
+
+## 🇬🇧 To make the home key smarter. When Home is pressed anywhere but at the very beginning of non-whitespace characters on a line, the cursor will jump to that beginning (either forwards or backwards). If the cursor is already at that position, it will jump to the true beginning of the line.
+## 🇵🇹 Fazer a tecla de home mais inteligente. Quando a tecla de home é pressionada em qualquer lugar, mas no início duma linha, o cursor irá saltar para este início (para a frente ou para trás). Se o cursor já estiver nessa posição, saltar-se-á para o verdadeiro início da linha.
+## 🇪🇸 Hacer la tecla de inicio más inteligente. Cuando la tecla de inicio se presiona en cualquier lugar, pero al principio de una línea, el cursor saltará a este principio (hacia adelante o hacia atrás). Si el cursor ya está en esa posición, saltará al verdadero principio de la línea.
+# set smarthome
+
+## 🇬🇧 Using the smooth scrolling as the default.
+## 🇵🇹 Utilizar o deslocamento suave como padrão.
+## 🇪🇸 Utilizar el desplazamiento suave como predeterminado.
+set smooth
+
+## 🇬🇧 Enabling the soft line wrapping (AKA full-line display).
+## 🇵🇹 Ativar o encolhimento de linhas suave (também conhecido como exibição de linha inteira).
+## 🇪🇸 Activar el encogimiento de líneas suave (también conocido como visualización de línea completa).
+# set softwrap
+
+## 🇬🇧 Using this spelling checker instead of the internal one. This option does not have a default value.
+## 🇵🇹 Utilizar este verificador ortográfico em vez do interno. Esta opção não tem um valor padrão.
+## 🇪🇸 Utilizar este corrector ortográfico en lugar del interno. Esta opción no tiene un valor predeterminado.
+set speller "aspell -x -c"
+
+## 🇬🇧 To allow nano to be suspended.
+## 🇵🇹 Permitir que o nano seja suspenso.
+## 🇪🇸 Permitir que nano se suspenda.
+# set suspend
+
+## 🇬🇧 To use this tab size instead of the default; it must be greater than 0.
+## 🇵🇹 Utilizar este tamanho de tabulação em vez do padrão; tem de ser maior que 0.
+## 🇪🇸 Utilizar este tamaño de tabulación en lugar del predeterminado; debe ser mayor que 0.
+set tabsize 2
+
+## 🇬🇧 To convert the typed tabs to spaces.
+## 🇵🇹 Converter as tabulações digitadas em espaços.
+## 🇪🇸 Convertir las tabulaciones digitadas en espacios.
+# set tabstospaces
+
+## 🇬🇧 To save automatically on exit; don't prompt.
+## 🇵🇹 Guardar automaticamente ao sair; não perguntar.
+## 🇪🇸 Guardar automáticamente al salir; no preguntar.
+# set tempfile
+
+## 🇬🇧 Snip whitespace at the end of lines when justifying or hard-wrapping.
+## 🇵🇹 Cortar os espaços em branco no fim das linhas ao justificar ou encolher.
+## 🇪🇸 Cortar los espacios en blanco al final de las líneas al justificar o encoger.
+set trimblanks
+
+## 🇬🇧 To disallow file modification.  Why would you want this in an rcfile? ;)
+## 🇵🇹 Não permitir a modificação de ficheiros. Porquê querer isto num ficheiro de configuração? ;)
+## 🇪🇸 No permitir la modificación de archivos. ¿Por qué querría esto en un archivo de configuración? ;)
+# set view
+
+## 🇬🇧 The two single-column characters used to display the first characters of tabs and spaces. 187 in ISO 8859-1 (0000BB in Unicode) and 183 in ISO-8859-1 (0000B7 in Unicode) seem to be good values for these.
+## 🇵🇹 Os dois caracteres duma coluna utilizados para exibir os primeiros caracteres das tabulações e espaços. 187 em ISO 8859-1 (0000BB em Unicode) e 183 em ISO-8859-1 (0000B7 em Unicode) parecem ser bons valores para estes.
+## 🇪🇸 Los dos caracteres de una columna utilizados para mostrar los primeros caracteres de las tabulaciones y espacios. 187 en ISO 8859-1 (0000BB en Unicode) y 183 en ISO-8859-1 (0000B7 en Unicode) parecen ser buenos valores para estos.
+
+## 🇬🇧 The default when in a UTF-8 locale:
+## 🇵🇹 O padrão quando num local UTF-8:
+## 🇪🇸 El predeterminado cuando está en un entorno UTF-8:
+# set whitespace "»·"
+
+## 🇬🇧 The default otherwise:
+## 🇵🇹 O padrão caso contrário:
+## 🇪🇸 El predeterminado en otro caso:
+# set whitespace ">."
+
+## 🇬🇧 Detecting the word boundaries differently by treating punctuation characters as parts of words.
+## 🇵🇹 Detectar os limites das palavras de forma diferente ao tratar os caracteres de pontuação como partes das palavras.
+## 🇪🇸 Detectar los límites de las palabras de forma diferente al tratar los caracteres de puntuación como partes de las palabras.
+# set wordbounds
+
+## 🇬🇧 The characters (besides alphanumeric ones) that shall be considered as parts of words. This option does not have a default value. When setting, it overrides option 'set wordbounds'.
+## 🇵🇹 Os caracteres (além dos alfanuméricos) que devem ser considerados como partes das palavras. Esta opção não tem um valor padrão. Ao definir, substitui a opção 'set wordbounds'.
+## 🇪🇸 Los caracteres (además de los alfanuméricos) que deben considerarse como partes de las palabras. Esta opción no tiene un valor predeterminado. Al definir, reemplaza la opción 'set wordbounds'.
+# set wordchars "<_>."
+
+## 🇬🇧 To paint the interface elements of nano. These are examples; by default there are no colours, except for errorcolor.
+## 🇵🇹 Pintar os elementos da interface do nano. Estes são exemplos; por padrão não há cores, excepto para errorcolor.
+## 🇪🇸 Pintar los elementos de la interfaz de nano. Estos son ejemplos; por defecto no hay colores, excepto para errorcolor.
+set errorcolor brightwhite,red
+set functioncolor green
+set keycolor cyan
+set numbercolor cyan
+set selectedcolor white,white
+set statuscolor white,green
+set titlecolor white,blue
+
+## 🇬🇧 In root's .nanorc file you might want to use:
+## 🇵🇹 No ficheiro .nanorc do root pode querer usar:
+## 🇪🇸 En el archivo .nanorc de root puede querer usar:
+set functioncolor white
+set keycolor brightwhite
+set numbercolor white
+set selectedcolor white,cyan
+set statuscolor brightwhite
+set titlecolor brightwhite
+
+include "/usr/share/nano-syntax-highlighting/*.nanorc"
+
+## 🇬🇧 Keybindings
+## 🇵🇹 Associações de teclas
+## 🇪🇸 Asignaciones de teclas
+
+## 🇬🇧 See nanorc(5) (section REBINDING KEYS) for more details on this.
+## 🇵🇹 Ver nanorc(5) (secção REBINDING KEYS) para mais detalhes sobre isto.
+## 🇪🇸 Ver nanorc(5) (sección REBINDING KEYS) para más detalles sobre esto.
+
+## 🇬🇧 The following two functions are not bound to any key by default. You may wish to choose other keys than the ones suggested here.
+## 🇵🇹 As duas funções seguintes não estão associadas a nenhuma tecla por padrão. Pode querer escolher outras teclas que as sugeridas aqui.
+## 🇪🇸 Las dos funciones siguientes no están asociadas a ninguna tecla por defecto. Puede querer elegir otras teclas que las sugeridas aquí.
+# bind M-B cutwordleft main
+# bind M-N cutwordright main
+
+## 🇬🇧 Set this if your Backspace key sends Del most of the time.
+## 🇵🇹 Defina isto se a tecla Backspace enviar Del na maioria das vezes.
+## 🇪🇸 Defina esto si la tecla Backspace envía Del en la mayoría de las veces.
+# bind Del backspace all
