@@ -1,0 +1,45 @@
+{
+  "python.jediEnabled": false,
+  "suggest.noselect": false,
+  "suggest.echodocSupport": true,
+  "suggest.maxCompleteItemCount": 20,
+  "coc.preferences.formatOnSaveFiletypes": 
+  [
+    "javascript",
+    "javascriptreact",
+    "json",
+    "typescript",
+    "typescriptreact",
+    "yaml"
+  ],
+  "prettier.singleQuote": false,
+  "diagnostic.errorSign": "•",
+  "diagnostic.warningSign": "•",
+  "diagnostic.infoSign": "•",
+  "suggest.snippetIndicator": "~",
+  "languageserver": 
+  {
+    "bash": 
+    {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
+    },
+    "xml": 
+    {
+      "command": "xml-language-server",
+      "args": ["start"],
+      "filetypes": ["xml"],
+      "ignoredRootPaths": ["~"]
+    }
+  },
+  "markdownlint.config": 
+  {
+    "rules": 
+    {
+      "default": true,
+      "line_length": false
+    }
+  }
+}
