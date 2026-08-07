@@ -1,0 +1,40 @@
+#bar 
+{
+    /* 🇬🇧 It affects top or bottom and left or right alignment */
+    /* 🇵🇹 Afeta alinhamento superior ou inferior e esquerdo ou direito */
+    /* 🇪🇸 Afecta alineación superior o inferior y izquierdo o derecho */
+    margin: 30px 
+}
+
+button, image 
+{
+    background: none;
+    border-style: none;
+    box-shadow: none;
+    color: #999
+}
+
+button 
+{
+    margin: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+button:hover 
+{
+    background-color: rgba (255, 255, 255, 0.1)
+}
+
+button:focus 
+{
+    box-shadow: 0 0 2px;
+}
+
+grid 
+{
+    /* 🇬🇧 For example for common background to all buttons */
+    /* 🇵🇹 Por exemplo, para um fundo comum a todos os botões */
+    /* 🇪🇸 Por ejemplo, para un fondo común a todos los botones */
+    background-color: unset
+}

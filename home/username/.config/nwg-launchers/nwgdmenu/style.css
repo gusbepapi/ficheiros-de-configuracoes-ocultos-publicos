@@ -1,0 +1,40 @@
+/* 🇬🇧 Don't delete it, just in case: the menu anchor is a button */
+/* 🇵🇹 Não apague, por precaução: o âncora do menu é um botão */
+/* 🇪🇸 No lo borre, por precaución: el ancla del menú es un botón */
+button 
+{
+    background: none;
+    border-style: none;
+    box-shadow: none;
+}
+
+box 
+{
+    /* 🇬🇧 Uncomment to set vertical margin */
+    /* 🇵🇹 Descomente para definir margem vertical */
+    /* 🇪🇸 Descomente para definir margen vertical */
+    color: inherit;
+    /* margin-top: 30px; */
+    /* margin-bottom: 30px; */
+}
+
+#searchbox 
+{
+    /* 🇬🇧 Adjust to your taste */
+    /* 🇵🇹 Ajuste ao seu gosto */
+    /* 🇪🇸 Ajuste a su gusto */
+    background-color: rgba (255, 255, 255, 0.1);
+    border-radius: 5px;
+    color: #999;
+    font-size: 14px;
+    margin: 10px;
+    padding: 5px;
+}
+
+/* 🇬🇧 Menu items */
+/* 🇵🇹 Itens do menu */
+/* 🇪🇸 Elementos del menú */
+label 
+{
+    padding-left: 5px
+}
