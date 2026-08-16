@@ -1,0 +1,35 @@
+{
+  "segments": 
+  [
+    "cwd",
+    "git",
+    "hg",
+    "hostname",
+    "jobs",
+    "root",
+    "ssh",
+    "svn",
+    "username",
+    "virtual_env"
+  ],
+  "cwd": 
+  {
+    "max_depth": 4
+  },
+  "theme": "default",
+  "time":
+  {
+    "format": "%DD-%MM-%YYY"
+  },
+  "vcs": 
+  {
+    "show_symbol": true
+  },
+  "patched":
+  {
+    "lock" : "\uE0A2",
+    "network" :"\uE0A2",
+    "separator" : "\uE0B8",
+    "separator_thin":"\uE0B9"
+  }
+}

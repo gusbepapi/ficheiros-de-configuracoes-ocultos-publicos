@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "poetry-instance"
+version = "2.4.1"
+description = ""
+authors = []
+license = ""
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "3.14.7"
+poetry = "2.4.1"
+
+[dependency-groups]
+additional = [
+    "pyyaml (>=6.0.3,<7.0.0)",
+    "colormath (>=3.0.0,<4.0.0)",
+    "pygments (>=2.20.0,<3.0.0)",
+    "fonttools (>=4.63.0,<5.0.0)",
+    "hyprconf2lua (>=1.4.0,<2.0.0)",
+    "ttx (>=1.0.0,<2.0.0)",
+    "weasyprint (>=69.0,<70.0)",
+    "krop @ git+https://github.com/arminstraub/krop",
+    "termdown (>=2.0.0,<3.0.0)",
+    "six (>=1.17.0,<2.0.0)",
+    "pdfminer-six (>=20260107,<20260108)",
+    "pytesseract (>=0.3.13,<0.4.0)"
+]
