@@ -1,0 +1,15 @@
+# Declaring the shared menubar content row as a component type
+MenuBarContent 1.0 MenuBarContent.qml
+
+# Declaring the content-agnostic ornamental frames, shared across dropdowns, popups and windows
+AlternativeFrames 1.0 AlternativeFrames.qml
+
+# Declaring the system information provider as a singleton, gathering the data once for every view
+singleton SystemInfo 1.0 SystemInfo.qml
+
+# Declaring the Apple icon (gear icon in my case) menu and its row, kept in the menubar subfolder
+AppleMenu 1.0 menubar/AppleMenu.qml
+AppleMenuItem 1.0 menubar/AppleMenuItem.qml
+
+# Declaring the about-this-system window, kept in the `applemenu` subfolder
+AboutWindow 1.0 menubar/applemenu/AboutWindow.qml

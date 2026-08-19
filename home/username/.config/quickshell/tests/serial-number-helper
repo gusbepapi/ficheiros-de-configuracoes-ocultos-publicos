@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+get_hardware_id() {
+    # 1. Try reading the system serial number first
+    local id=$(cat /sys/devices/virtual/dmi/id/product_serial 2>/dev/null | xargs)
+    
+    # 2. Check if the serial is empty or a generic placeholder
+    if [[ -z "$id" || "$id" == "None" || "$id" == "N/A" || "$id" == "Default String" ]]; then
+        # 3. Fallback to System UUID (Sudo-free method)
+        id=$(cat /sys/devices/virtual/dmi/id/product_uuid 2>/dev/null | xargs)
+    fi
+    
+    # 4. Final safety check if everything fails
+    if [[ -z "$id" ]]; then
+        echo "Unknown Hardware ID"
+    else
+        echo "$id"
+    fi
+}
+
+get_hardware_id

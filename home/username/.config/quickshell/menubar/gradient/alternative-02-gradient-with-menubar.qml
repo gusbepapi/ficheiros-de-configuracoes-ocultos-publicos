@@ -1,0 +1,200 @@
+// Importing the Quickshell core module, which provides the `PanelWindow` type
+import Quickshell
+// Importing the QtQuick module, which provides the `Rectangle` and `Text` types
+import QtQuick
+// Importing the QtQuick Shapes module, which provides the `Shape` and `ShapePath` types
+import QtQuick.Shapes
+// Importing the compatibility effects module, which provides `LinearGradient`
+import Qt5Compat.GraphicalEffects
+
+import components
+
+PanelWindow {
+  id: panel
+
+  // Defining the palette and geometry as tunable properties
+  readonly property color bodyColour: "#1A1A1A"
+  readonly property color goldColour: "#C8AA6E"
+  readonly property color testColour: "#8F8269"
+  readonly property int borderWidth: 2
+  readonly property int strokeWidth: 2
+  readonly property int barHeight: 50
+  readonly property int topGap: 16
+  readonly property int pendantDrop: 15
+  readonly property int pendantClearance: 16
+
+  // Defining the two ends of the single vertical gold gradient
+  readonly property color goldTop: "#E8D9A0"
+  readonly property color goldBottom: "#9A7634"
+
+  // Reading the preview switch from the environment
+  property bool preview: Quickshell.env("BAR_PREVIEW") === "1"
+  // Holding the magnification used while previewing
+  property real previewScale: 2.0
+  // Resolving to the real scale, which is 1.0 whenever preview is off
+  readonly property real effectiveScale: panel.preview ? panel.previewScale : 1.0
+
+  // Docking the panel to the top, left, and right edges
+  anchors {
+    top: true
+    left: true
+    right: true
+  }
+
+  // Offsetting the panel from the screen edges so that it floats
+  margins {
+    top: panel.topGap
+    left: 12
+    right: 12
+  }
+
+  // Growing the surface so the ornaments and the scaled preview are not clipped
+  implicitHeight: (panel.barHeight + panel.pendantDrop + panel.pendantClearance) * panel.effectiveScale
+
+  // Reserving only the height of the bar body, so that the pendant is free to overspill below it
+  exclusiveZone: (20 + panel.barHeight) * panel.effectiveScale
+
+  // Making the window transparent so that only the painted children are visible
+  color: "transparent"
+
+  // Staging the content at natural size, then scaling it uniformly from the top-left for previews
+  Item {
+    id: stage
+
+    anchors.top: parent.top
+    anchors.left: parent.left
+    // Dividing by the scale so that, once scaled, the bar lands exactly on the screen edge
+    width: parent.width / panel.effectiveScale
+    height: panel.barHeight + panel.pendantDrop + panel.pendantClearance
+
+    transformOrigin: Item.TopLeft
+    scale: panel.effectiveScale
+
+    // Pass one — drawing the solid black body, with no gold border, since the border now comes from the gradient
+    Rectangle {
+      id: body
+      antialiasing: true
+
+      anchors.top: parent.top
+      anchors.left: parent.left
+      anchors.right: parent.right
+      height: panel.barHeight
+
+      color: panel.bodyColour
+      radius: 0
+
+      MenuBarContent {
+        // Filling the body interior; the pendant hangs below as a sibling and never intrudes here
+        anchors.fill: parent
+        // Clearing only the body border, since this frame carries neither brackets nor tabs on the body
+        anchors.margins: panel.borderWidth
+
+        // Tinting the content with this frame's gold colour
+        accentColour: panel.goldColour
+        // Passing the free interior height, after the border inset on top and bottom
+        contentHeight: panel.barHeight - 2 * panel.borderWidth
+      }
+    }
+
+    // Pass two — gathering every gold outline into one hidden mask, white, since only its alpha is read
+    Item {
+      id: goldMask
+
+      anchors.fill: parent
+      visible: false
+
+      // Masking the body border
+      Rectangle {
+        id: maskBody
+
+        anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.right: parent.right
+        height: panel.barHeight
+
+        color: "transparent"
+        border.color: "white"
+        border.width: panel.borderWidth
+        antialiasing: true
+      }
+
+      // Masking the pendant, hanging from the centre of the body's bottom edge
+      Shape {
+        id: maskPendant
+        preferredRendererType: Shape.CurveRenderer
+        antialiasing: true
+
+        anchors.horizontalCenter: maskBody.horizontalCenter
+        anchors.top: maskBody.bottom
+
+        // Defining the pendant geometry in local coordinates
+        readonly property int shoulderY: 5
+        readonly property int chamfer: 6
+        readonly property int outerHalf: 100
+        readonly property int outerNeck: 8
+        readonly property int innerHalf: 20
+        readonly property int innerTipY: 24
+
+        // Sizing the shape from the outer half-width, so the chamfers are never clipped
+        width: maskPendant.outerHalf * 2 + 14
+        height: panel.pendantDrop + panel.pendantClearance
+        readonly property real cx: width / 2
+
+        // Drawing the outer chevron, with an angled end and a horizontal shoulder on each side
+        ShapePath {
+          strokeColor: "white"
+          strokeWidth: panel.strokeWidth
+          fillColor: "transparent"
+          capStyle: ShapePath.FlatCap
+          joinStyle: ShapePath.MiterJoin
+
+          startX: maskPendant.cx - maskPendant.outerHalf
+          startY: 0
+          // Slanting the left end down to the shoulder
+          PathLine { x: maskPendant.cx - maskPendant.outerHalf + maskPendant.chamfer; y: maskPendant.shoulderY }
+          // Running the left shoulder inward
+          PathLine { x: maskPendant.cx - maskPendant.outerNeck; y: maskPendant.shoulderY }
+          // Descending to the outer tip
+          PathLine { x: maskPendant.cx; y: panel.pendantDrop }
+          // Ascending to the right shoulder
+          PathLine { x: maskPendant.cx + maskPendant.outerNeck; y: maskPendant.shoulderY }
+          // Running the right shoulder outward
+          PathLine { x: maskPendant.cx + maskPendant.outerHalf - maskPendant.chamfer; y: maskPendant.shoulderY }
+          // Slanting the right end up to the bar edge
+          PathLine { x: maskPendant.cx + maskPendant.outerHalf; y: 0 }
+        }
+
+        // Drawing the inner chevron, attached to the bar edge and nested within the outer one
+        ShapePath {
+          strokeColor: "white"
+          strokeWidth: panel.strokeWidth
+          fillColor: "transparent"
+          capStyle: ShapePath.FlatCap
+          joinStyle: ShapePath.MiterJoin
+
+          // Attaching the left arm to the bar's bottom edge
+          startX: maskPendant.cx - maskPendant.innerHalf
+          startY: 0
+          // Descending to the inner tip
+          PathLine { x: maskPendant.cx; y: maskPendant.innerTipY }
+          // Ascending back to the bar's bottom edge
+          PathLine { x: maskPendant.cx + maskPendant.innerHalf; y: 0 }
+        }
+      }
+    }
+
+    // Pass three — showing one vertical gradient only where the gold mask is opaque
+    LinearGradient {
+      anchors.fill: goldMask
+      source: goldMask
+
+      start: Qt.point(0, 0)
+      end: Qt.point(0, goldMask.height)
+
+      gradient: Gradient {
+        GradientStop { position: 0.0; color: panel.goldTop }
+        GradientStop { position: 1.0; color: panel.goldBottom }
+      }
+    }
+  }
+}

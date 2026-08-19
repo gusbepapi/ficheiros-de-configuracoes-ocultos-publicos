@@ -1,0 +1,27 @@
+# ~/.config/quickshell/about-config.yaml
+
+# Custom distribution logo — accepts a file path (~ and $HOME supported) or an icon-theme name
+logo: "/usr/share/desktop-base/debian-logos/logo.svg"
+
+# Monitor name overrides — key is the EDID identifier `fastfetch` returns, value is the full name
+displays:
+  VG27AQL1A: "ASUS TUF Gaming VG27AQL1A"
+
+# Favourite tools
+tools:
+  shell:
+    name: "Bash"
+    version: "5.2.37"
+  terminal:
+    name: "Kitty"
+    version: "0.41.1"
+  editor:
+    - cli: "Micro"
+      version: "2.0.14"
+    - gui: "VSCodium Insiders"
+      version: "1.121"
+    - ide: "VSCodium Insiders"
+      version: "1.121"
+  browser:
+    name: "Firefox"
+    version: "152.0.2"
