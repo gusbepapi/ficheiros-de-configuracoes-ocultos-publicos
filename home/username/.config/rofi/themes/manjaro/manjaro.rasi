@@ -1,0 +1,174 @@
+/* 🇬🇧 Global settings and colour variables */
+/* 🇵🇹 Configurações globais e variáveis das cores */
+/* 🇪🇸 Configuraciones globales y variables de color */
+
+* 
+{
+    maincolor:        #00796B;
+    highlight:        @maincolour;
+    urgentcolor:      #FF5722;
+
+    fg:               #F8F8F2;
+    bg:               #141A1B;
+    select:           #16A085;
+    cyan:             #2EB298;
+
+    font: "Google Sans 12";
+    background-color: @bg;
+    icon-theme: "Papirus-Dark";
+    show-icons: true;
+    sidebar-mode: false;
+}
+
+window 
+{
+    background-color: @bg;
+    border:           1px;
+    border-color:     @cyan;
+    border-radius:    10px;
+    padding:          10px;
+    anchor:           north;
+    location:         north;
+    y-offset:         40%;
+    width:            850px;
+}
+
+mainbox 
+{
+    background-color: @bg;
+    spacing:          0px;
+    children: [inputbar, message, mode-switcher, listview];
+}
+
+message 
+{
+    background-color: @bg;
+    padding: 6px 10px;
+}
+
+textbox 
+{
+    background-color: @bg;
+    text-color: @cyan;
+}
+
+listview 
+{
+    background-color: @bg;
+    dynamic: true;
+    fixed-height: false;
+    margin: 0px 0px 1px 0px;
+    padding: 1px 0px 0px 0px;
+    scrollbar: true;
+    spacing: 0px;
+}
+
+element 
+{
+    padding: 2px 15px;
+}
+
+element normal.normal 
+{
+    background-color: @bg;
+    padding: 0px 15px;
+    text-color: @fg;
+}
+
+element normal.urgent 
+{
+    background-color: @bg;
+    text-color: @urgentcolor;
+}
+
+element normal.active 
+{
+    background-color: @bg;
+    text-color: @maincolor;
+}
+
+element selected.normal 
+{
+    background-color: @select;
+    text-color:       @fg;
+}
+
+element selected.urgent 
+{
+    background-color: @urgentcolor;
+    text-color:       @bg;
+}
+
+element selected.active 
+{
+    background-color: @maincolor;
+    text-color:       @bg;
+}
+
+element alternate.normal 
+{
+    background-color: @bg;
+    text-color:       @fg;
+}
+
+element alternate.urgent 
+{
+    background-color: @bg;
+    text-color:       @urgentcolor;
+}
+
+element alternate.active 
+{
+    background-color: @bg;
+    text-color:       @maincolor;
+}
+
+scrollbar 
+{
+    background-color: @bg;
+    handle-color: @cyan;
+    handle-width: 15px;
+}
+
+mode-switcher 
+{
+    background-color: @bg;
+}
+
+button 
+{
+    background-color: @bg;
+    text-color:       @cyan;
+}
+
+button selected 
+{
+    text-color:       @maincolor;
+}
+
+inputbar 
+{
+    background-color: @bg;
+    spacing: 0px;
+}
+
+prompt 
+{
+    background-color: @maincolor;
+    padding: 6px 9px;
+    text-color: @bg;
+}
+
+entry 
+{
+    background-color: @bg;
+    padding:6px 10px;
+    text-color: @fg;
+}
+
+case-indicator 
+{
+    background-color: @bg;
+    padding: 6px 10px;
+    text-color: @maincolor;
+}
