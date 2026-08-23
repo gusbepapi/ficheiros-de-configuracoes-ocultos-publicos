@@ -1,0 +1,2 @@
+// Running the post-processor after every `dpkg` transaction so that an Edge upgrade cannot restore the entry
+DPkg::Post-Invoke { "if [ -x /usr/local/bin/remove-edge-dev-desktop-entry ]; then /usr/local/bin/remove-edge-dev-desktop-entry --quiet || true; fi"; };

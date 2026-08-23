@@ -1,0 +1,4 @@
+// Aborting the installation when a package is on the font deny list
+// Exit status 127 means that the script is missing, which must never lock the package manager
+DPkg::Tools::Options::/usr/local/bin/block-the-unwanted-fonts::Version "3";
+DPkg::Pre-Install-Pkgs { "/usr/local/bin/block-the-unwanted-fonts --apt || test $? -eq 127"; };

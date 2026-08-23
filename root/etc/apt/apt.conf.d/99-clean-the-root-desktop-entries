@@ -1,0 +1,2 @@
+// Running the shared cleaner after every dpkg transaction, so that an upgrade cannot restore a removed entry
+DPkg::Post-Invoke { "if [ -x /usr/local/bin/clean-the-root-desktop-entries ]; then /usr/local/bin/clean-the-root-desktop-entries --quiet || true; fi"; };
