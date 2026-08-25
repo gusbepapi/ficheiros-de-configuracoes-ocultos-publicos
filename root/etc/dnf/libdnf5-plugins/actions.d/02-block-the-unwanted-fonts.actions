@@ -1,0 +1,3 @@
+# Aborting the transaction when it would install a font package from the deny list
+# The documentation says that raise_error=1 throws an exception on a failing command but does not say that it aborts the transaction, so this file is untested
+pre_transaction:*:in:raise_error=1:/usr/local/bin/block-the-unwanted-fonts --args ${pkg.name}

@@ -1,0 +1,12 @@
+# 🇬🇧 This file configures the keyboard
+# 🇵🇹 Este ficheiro configura o teclado
+# 🇪🇸 Este fichero configura el teclado
+
+# 🇬🇧 Consult the keyboard(5) manual page.
+# 🇵🇹 Consulte a página de manual keyboard(5).
+# 🇪🇸 Consulte la página de manual keyboard(5).
+
+XKBMODEL="macbook78"
+XKBLAYOUT="us"
+XKBVARIANT="mac"
+BACKSPACE="guess"

@@ -1,0 +1,3 @@
+# Cleaning the unwanted root desktop entries after every transaction
+# Requires the package libdnf5-plugin-actions, and it is untested
+post_transaction:::raise_error=0:/usr/local/bin/clean-the-root-desktop-entries --quiet
