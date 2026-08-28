@@ -1,0 +1,41 @@
+# Listing the package names, as shell globs, that block-the-unwanted-fonts refuses to install
+# Rendering one variant per distribution through the dotdrop delimiters, with «distro» as the variable
+{%@@ if distro == "arch" @@%}
+# Naming the Arch Linux packages, tested only on the owner's former system
+cantarell-fonts
+noto-fonts
+noto-fonts-emoji
+noto-fonts-extra
+tex-gyre-fonts
+ttf-dejavu
+ttf-liberation
+ttf-roboto
+{%@@ elif distro == "debian" @@%}
+# Naming the Debian packages, untested
+# Warning: many Debian packages depend on fonts-dejavu-core and fonts-liberation, so blocking them can refuse unrelated installations
+fonts-cantarell
+fonts-noto-core
+fonts-noto-color-emoji
+fonts-noto-extra
+fonts-texgyre
+fonts-dejavu-core
+fonts-dejavu-extra
+fonts-liberation
+fonts-roboto
+{%@@ elif distro == "fedora" @@%}
+# Naming the Fedora packages, untested and with unverified names
+abattis-cantarell-*fonts
+google-noto-*-fonts
+texlive-tex-gyre*
+dejavu-*-fonts
+liberation-*-fonts
+google-roboto-*-fonts
+{%@@ elif distro == "void" @@%}
+# Naming the Void Linux packages, untested and with unverified names
+cantarell-fonts*
+noto-fonts*
+tex-gyre-fonts*
+dejavu-fonts*
+liberation-fonts*
+font-roboto*
+{%@@ endif @@%}

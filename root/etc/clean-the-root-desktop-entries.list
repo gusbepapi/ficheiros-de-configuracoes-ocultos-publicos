@@ -1,0 +1,3 @@
+# Naming the desktop entries, one file name per line, that clean-the-root-desktop-entries removes from /usr/share/applications
+# Restoring by upgrade is the reason for running it after every transaction
+microsoft-edge-dev.desktop
