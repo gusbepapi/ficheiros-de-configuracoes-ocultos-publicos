@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<zone target="ACCEPT">
+  <short>Trusted</short>
+  <description>All network connections are accepted.</description>
+  <source address="172.16.0.0/12"/>
+  <forward/>
+</zone>
