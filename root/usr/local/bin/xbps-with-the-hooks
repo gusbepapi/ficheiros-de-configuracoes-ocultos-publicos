@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+
+# Running an xbps command with the personal transaction hooks, as a workaround
+# The released xbps documents no transaction hook, so this wrapper does what a hook would do
+#
+# Usage
+#   xbps-with-the-hooks install|remove|reconfigure|... ARGUMENTS
+#
+# The first argument selects the xbps-* command, for example «install» runs xbps-install
+
+set -u
+
+if [ "$#" -lt 1 ];
+then
+  printf 'Usage: %s COMMAND [ARGUMENTS...]\n' "${0##*/}" >&2
+  exit 2
+fi
+
+command_name="xbps-$1"
+shift
+
+if ! command -v "${command_name}" >/dev/null 2>&1;
+then
+  printf '%s: %s was not found\n' "${0##*/}" "${command_name}" >&2
+  exit 127
+fi
+
+# Checking the deny list before an installation, using only the arguments that are not options
+if [ "${command_name}" = "xbps-install" ];
+then
+  packages=()
+
+  for argument in "$@";
+  do
+    case "${argument}" in
+      -*) ;;
+      *) packages+=("${argument%%>*}") ;;
+    esac
+  done
+
+  if [ -x /usr/local/bin/block-the-unwanted-fonts ] && [ "${#packages[@]}" -gt 0 ];
+  then
+    /usr/local/bin/block-the-unwanted-fonts --args "${packages[@]}" || exit 1
+  fi
+fi
+
+"${command_name}" "$@"
+status=$?
+
+# Cleaning the desktop entries after the command, whatever its result
+if [ -x /usr/local/bin/clean-the-root-desktop-entries ];
+then
+  /usr/local/bin/clean-the-root-desktop-entries --quiet || true
+fi
+
+exit "${status}"
