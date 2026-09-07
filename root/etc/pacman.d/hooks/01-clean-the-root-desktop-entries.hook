@@ -1,0 +1,13 @@
+# Cleaning the unwanted root desktop entries after every transaction that touches a desktop entry
+# The logic lives in the shared script, which is installed as root:root 0755 at /usr/local/bin
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Type = Path
+Target = usr/share/applications/*.desktop
+
+[Action]
+Description = Cleaning the unwanted root desktop entries
+When = PostTransaction
+Exec = /usr/local/bin/clean-the-root-desktop-entries --quiet

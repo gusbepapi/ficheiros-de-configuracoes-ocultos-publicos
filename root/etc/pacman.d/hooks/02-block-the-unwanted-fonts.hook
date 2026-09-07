@@ -1,0 +1,14 @@
+# Aborting the transaction when it would install a font package from the deny list
+# AbortOnFail turns a non-zero exit into an abort, and NeedsTargets passes the package names on the standard input
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = *
+
+[Action]
+Description = Checking for unwanted font packages
+When = PreTransaction
+Exec = /usr/local/bin/block-the-unwanted-fonts --pacman
+AbortOnFail
+NeedsTargets
