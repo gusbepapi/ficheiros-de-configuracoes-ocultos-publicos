@@ -1,0 +1,14 @@
+{
+    "initial_working_directory": "~",
+    "graphics_antialiasing": "none",
+    "global_theme": "alternate",
+    "pdf_previewer": "none",
+    "posix_terminal_shell": "zsh",
+    "editor_theme": "Dracula",
+    "show_doc_outline_rmd": true,
+    "default_latex_program": "XeLaTeX",
+    "spelling_dictionary_language": "pt_PT",
+    "python_type": "system",
+    "python_version": "3.9.5",
+    "python_path": "/usr/bin/python"
+}

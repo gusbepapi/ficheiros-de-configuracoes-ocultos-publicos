@@ -1,0 +1,4 @@
+# 🇬🇧 Suspending the system when battery level drops to 5% or lower
+# 🇵🇹 Suspender o sistema quando o nível da bateria cair para 5% ou menos
+# 🇪🇸 Suspender el sistema cuando el nivel de la batería caiga a 5% o menos
+SUBSYSTEM=="power_supply", ATTR{status}=="Discharging", ATTR{capacity}=="[0-5]", RUN+="/usr/bin/systemctl hibernate"
