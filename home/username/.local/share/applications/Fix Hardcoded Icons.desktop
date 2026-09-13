@@ -1,0 +1,36 @@
+[Desktop Entry]
+Categories = GNOME; GTK; Security; Settings; X-GNOME-Settings-Panel; X-GNOME-SystemSettings; X-Unity-Settings-Panel; X-XFCE-SettingsDialog; X-XFCE-SystemSettings;
+Comment = Change all hardcoded icons
+Comment[ca] = Canvia totes les icones incrustades
+Comment[de] = Ändert alle eingebetteten Icons
+Comment[el] = Αλλάζει όλα τα ενσωματωμένα εικονίδια
+Comment[es] = Cambia todos los iconos incrustados
+Comment[fr] = Change tous les icônes incrustés
+Comment[it] = Cambia tutti gli iconi incollati
+Comment[ja] = 全ての埋め込みアイコンを変更します
+Comment[ka] = ყველა ჩამატებული ხატულას შეცვლა
+Comment[nl] = Verander alle ingebedde pictogrammen
+Comment[pt] = Altera todos os ícones embutidos
+Comment[ro] = Schimbă toate pictogramele încorporate
+Comment[uk] = Змінити всі вбудовані значки
+Exec = bash -c 'zenity --info --title = "Fixing all hardcoded path icons" --text = "An empty window means that all icons were already fixed.\n$(pkexec hardcode-fixer)" --width = 500 --height = 300' 
+# GenericName =
+Keywords = hardcode; hardcoded; icon; icons;
+Keywords[ca] = incrustat; icon; icons; icona; icones;
+Keywords[de] = eingebettet; Icon; Icons;
+Keywords[el] = hardcode; hardcoded; icon; icons; εικονίδια; εικονίδιο; ενσωματωμένο;
+Keywords[es] = incrustado; icon; icons; icono; iconos;
+Keywords[fr] = incrusté; icon; icons; icône; icônes;
+Keywords[it] = incollato; icon; icons; icona; icone;
+Keywords[ja] = アイコン; 埋め込み;
+Keywords[ka] = icon; icons; ჩამატებული; ხატულა; ხატულები;
+Keywords[nl] = ingebed; icon; icons; pictogram; pictogrammen;
+Keywords[pt] = embutido; icon; icons; ícone; ícones;
+Keywords[ro] = încorporat; icon; icons; pictogramă; pictograme;
+Keywords[uk] = icon; icons; значки; значок; іконка; іконки; іконок;
+Icon = apport
+MimeType = text/plain;
+Name = Fix Hardcoded Icons
+StartupNotify = true
+Type = Application
+Version = 1.1

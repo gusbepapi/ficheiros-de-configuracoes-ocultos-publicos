@@ -1,0 +1,77 @@
+[Desktop Entry]
+Categories = GNOME; GTK; DDE; Utility; System; TerminalEmulator; 
+Comment = Use the command line
+Comment[ca] = Useu la línia d'ordres
+Comment[de] = Kommandozeile benutzen
+Comment[el] = Χρήση της γραμμής εντολών
+Comment[es] = Usar la línea de comando
+Comment[fr] = Utiliser la ligne de commande
+Comment[it] = Usa linea di comando
+Comment[ja] = コマンドラインを使用する
+Comment[ka] = ბრძანების ხაზის გამოყენება
+Comment[nl] = De opdrachtregel gebruiken
+Comment[pt] = Utilize a linha de comandos
+Comment[pt_BR] = Use a linha de comando
+Comment[ro] = Utilizare linia de comandă
+Comment[uk] = Використовувати командний рядок
+Exec = deepin-terminal
+GenericName = Terminal
+Icon = deepin-terminal
+Keywords = cmd; command; commandline; prompt; shell; terminal;
+Keywords[ca] = cmd; command; commands; commandline; línia d'ordres; línies d'ordres; ordres; prompt; shell; terminal;
+Keywords[de] = Befehl; Befehlszeile; cmd; command; commandline; commands; Prompt; Shell; terminal; Terminal; Terminalprogramm;
+Keywords[el] = cmd; command; commandline; commands; prompt; shell; terminal; γραμμή εντολών; εντολές; τερματικό;
+Keywords[es] = cmd; comando; comandos; command; commandline; linea de comandos; prompt; shell; terminal;
+Keywords[fr] = cmd; command; commands; commande; commandes; commandline; ligne de commande; prompt; shell; terminal;
+Keywords[it] = cmd; comando; comando; di linea prompt; shell; terminale; terminal;
+Keywords[ja] = cmd; command; commandline; commands; prompt; shell; コマンド; コマンドライン; シェル; ターミナル; プロンプト;
+Keywords[ka] = cmd; command; commandline; commands; prompt; shell; terminal; ბრძანების ხაზი; სწრაფი; ტერმინალი; ჭურვი;
+Keywords[nl] = cmd; command; commands; commandline; opdracht; opdrachtprompt; opdrachtregel; opdrachtregels; prompt; shell; terminal; terminalvenster;
+Keywords[pt] = cmd; command; commandline; commands; comando; linha de comandos; prompt; shell; terminal;
+Keywords[pt_BR] = cmd; command; commandline; commands; comando; linha de comandos; prompt; shell; terminal;
+Keywords[ro] = cmd; comandă; command; commandline; commands; linie de comandă; prompt; shell; terminal;
+Keywords[uk] = cmd; command; commandline; commands; prompt; shell; terminal; командний рядок; командні рядки; термінал;
+Name = Deepin Terminal
+StartupNotify = true
+TryExec = deepin-terminal
+Type = Application
+Version = 1.1
+X-Deepin-Vendor = deepin
+
+[NewWindow Shortcut Group]
+Exec = deepin-terminal
+Name = New Window
+
+# Translations:
+# Do not manually modify!
+Name[ca] = Finestra nova
+Name[de] = Neues Fenster
+Name[el] = Νέο παράθυρο
+Name[es] = Nueva ventana
+Name[fr] = Nouvelle fenêtre
+Name[it] = Nuova finestra
+Name[ja] = 新しいウィンドウ
+Name[ka] = ახალი ფანჯარა
+Name[nl] = Nieuw venster
+Name[pt] = Nova Janela
+Name[ro] = Fereastră nouă
+Name[uk] = Нове вікно
+
+[Quake Shortcut Group]
+Exec = deepin-terminal --quake-mode
+Name = Quake Terminal
+
+# Translations:
+# Do not manually modify!
+Name[ca] = Terminal Quake
+Name[de] = Quake-Terminal
+Name[el] = Τερματικό Quake
+Name[es] = Terminal Quake
+Name[fr] = Terminal Quake
+Name[it] = Terminale in primo piano
+Name[ja] = クエイクターミナル
+Name[ka] = Quake ტერმინალი
+Name[nl] = Quake-terminal
+Name[pt] = Terminal Quake
+Name[ro] = Terminal Quake
+Name[uk] = Термінал Quake

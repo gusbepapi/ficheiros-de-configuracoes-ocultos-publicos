@@ -1,0 +1,17 @@
+[Desktop Entry]
+Name=Gravit Designer (3.5.41.4670)
+Comment=gravit-designer
+Exec=$HOME/Aplicativos/AppImages/GravitDesigner2020-1.2.1.AppImage
+Terminal=false
+Type=Application
+Icon=appimagekit_44514306d0336de2be9431332034dc08_gravit-designer
+StartupWMClass=GravitDesigner
+X-AppImage-Version=3.5.41.4670
+MimeType=x-scheme-handler/designer;
+Categories=Graphics;
+X-AppImage-BuildId=1br5hJ0WUP2rIQFhVEeoQwkZQIm
+
+TryExec=$HOME/Aplicativos/AppImages/GravitDesigner2020-1.2.1.AppImage
+X-AppImage-Old-Icon=gravit-designer
+X-AppImage-Old-Name=Gravit Designer
+X-AppImage-Identifier=44514306d0336de2be9431332034dc08

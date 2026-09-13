@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Google Chrome Developer
+Categories=Network
+# Exec=$HOME/.local/bin/sh -c 'rm -rf "$(dirname "$*")"/execute_this.sh; if [ `stat -c %%a:%%u:%%g "$(dirname "$*")"/data/chrome-sandbox` != 4755:0:0 ]; then echo '"'"'BASEDIR="$(dirname "$0")"\nsudo chown root:root $BASEDIR/data/chrome-sandbox\nsudo chmod 4755 $BASEDIR/data/chrome-sandbox\nrm -f $BASEDIR/execute_this.sh\nenv HOME=$BASEDIR/data/VHOME $BASEDIR/data/launcher >/dev/null 2>&1 &\n'"'"' > "$(dirname "$*")"/execute_this.sh; fi; env HOME="$(dirname "$*")"/data/VHOME "$(dirname "$*")"/data/launcher' dummy %k
+Exec=$HOME/.local/bin/google-chrome-unstable %U
+GenericName=Web Browser
+Icon=google-chrome-unstable
+MimeType=application/xml;image/webp;text/html;
+StartupNotify=true
+StartupWMClass=google-chrome-unstable
+Terminal=false
+Type=Application
+Version=1.0

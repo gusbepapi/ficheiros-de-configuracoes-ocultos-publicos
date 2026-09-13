@@ -1,0 +1,52 @@
+[Desktop Entry]
+Actions = Minimize; Pause;
+Categories = FileTransfer; GNOME; GTK; Internet; Network; P2P;
+Comment = Download and share files over BitTorrent
+Comment[ca] = Baixeu i compartiu fitxers mitjançant el BitTorrent
+Comment[de] = Dateien über BitTorrent herunterladen und verteilen
+Comment[el] = Λήψη και διαμοιρασμός των αρχείων μέσω του BitTorrent
+Comment[es] = Descargue y comparta archivos mediante BitTorrent
+Comment[fr] = Téléchargement et partage des fichiers via BitTorrent
+Comment[it] = Scarica e condivide file via BitTorrent
+Comment[ja] = BitTorrentでファイルをダウンロードおよび共有します
+Comment[ka] = BitTorrent-ის გამოყენებით ფაილების ჩამოტვირთვა და გაზიარება
+Comment[nl] = Bestanden binnenhalen en delen via BitTorrent
+Comment[pt_BR] = Baixar e compartilhar arquivos pelo BitTorrent
+Comment[pt] = Receber e partilhar ficheiros via bittorrent
+Comment[ro] = Descarcă și partajează fișiere prin BitTorrent
+Comment[ru] = Загружайте и обменивайтесь файлами в сети BitTorrent
+Comment[uk] = Завантажуйте та розповсюджуйте файли через BitTorrent
+Exec = transmission-gtk %U
+GenericName = BitTorrent Client
+GenericName[ca] = Client de BitTorrent
+GenericName[de] = BitTorrent-Programm
+GenericName[el] = Πελάτης BitTorrent
+GenericName[es] = Cliente de BitTorrent
+GenericName[fr] = Client BitTorrent
+GenericName[it] = Client BitTorrent
+GenericName[ja] = BitTorrent クライアント
+GenericName[ka] = BitTorrent კლიენტი
+GenericName[nl] = BitTorrent-client
+GenericName[pt] = Cliente BitTorrent
+GenericName[ro] = Client BitTorrent
+GenericName[ru] = Клиент BitTorrent
+GenericName[uk] = Клієнт BitTorrent
+Icon = transmission
+Keywords = bittorrent; p2p; peer; peer-to-peer; torrent; transmission; utorrent;
+MimeType = application/x-bittorrent; x-scheme-handler/magnet;
+Name = Transmission
+StartupNotify = true
+StartupWMClass = transmission-gtk
+Terminal = false
+TryExec = transmission-gtk
+Type = Application
+X-AppInstall-Keywords = torrent
+X-Bahnschrift-Gettext-Domain = transmission
+
+[Desktop Action Minimize]
+Exec = transmission-gtk --minimized
+Name = Start Transmission Minimized
+
+[Desktop Action Pause]
+Exec = transmission-gtk --paused
+Name = Start Transmission with All Torrents Paused

@@ -1,0 +1,26 @@
+[MIME Cache]
+application/pdf = Evince.desktop; Firefox Nightly.desktop; Microsoft Edge Developer.desktop;
+application/vnd.mozilla.xul+xml = Microsoft Edge Developer.desktop;
+application/x-desktop = Visual Studio Code.desktop; Visual Studio Code Insiders.desktop; 
+application/x-extension-iml = Visual Studio Code.desktop; Visual Studio Code Insiders.desktop; 
+application/x-shellscript = Visual Studio Code.desktop; Visual Studio Code Insiders.desktop;
+application/xml = Visual Studio Code.desktop; Visual Studio Code Insiders.desktop;
+image/gif = GWenView.desktop;
+image/jpeg = GWenView.desktop;
+image/png = GWenView.desktop;
+image/webp = GWenView.desktop;
+inode/directory = Dolphin.desktop;
+text/plain = Visual Studio Code.desktop; Visual Studio Code Insiders.desktop;
+text/x-c = Visual Studio Code.desktop; Visual Studio Code Insiders.desktop;
+text/x-c++ = Visual Studio Code.desktop; Visual Studio Code Insiders.desktop;
+text/x-c++hdr = Visual Studio Code.desktop; Visual Studio Code Insiders.desktop;
+text/x-c++src = Visual Studio Code.desktop; Visual Studio Code Insiders.desktop;
+text/x-chdr = Visual Studio Code.desktop; Visual Studio Code Insiders.desktop;
+text/x-csrc = Visual Studio Code.desktop; Visual Studio Code Insiders.desktop;
+text/x-java = Visual Studio Code.desktop; Visual Studio Code Insiders.desktop;
+text/x-makefile = Visual Studio Code.desktop; Visual Studio Code Insiders.desktop;
+text/x-moc = Visual Studio Code.desktop; Visual Studio Code Insiders.desktop;
+text/x-pascal = Visual Studio Code.desktop; Visual Studio Code Insiders.desktop;
+text/x-tcl = Visual Studio Code.desktop; Visual Studio Code Insiders.desktop;
+text/x-tex = Visual Studio Code.desktop; Visual Studio Code Insiders.desktop;
+x-scheme-handler/eclipse+command = Visual Studio Code.desktop; Visual Studio Code Insiders.desktop;

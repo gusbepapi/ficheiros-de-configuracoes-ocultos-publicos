@@ -1,0 +1,22 @@
+[Desktop Entry]
+Type=Application
+Name=Pick
+Comment=Pick is a colour picker
+Comment[en_US]=Pick is a color picker
+GenericName=Colour Picker
+GenericName[en_US]=Color Picker
+Icon=pick-colour-picker
+Exec=python -m $HOME/.local/lib/python3.10/site-packages/pick
+Terminal=false
+Actions=AboutDialog;PickFirst;
+Keywords=color;colour;picker;pick;chooser;palette;screen;selection;
+Categories=GTK;Graphics;
+
+[Desktop Action AboutDialog]
+Name=About Pick
+Exec=pick-colour-picker --about
+
+[Desktop Action PickFirst]
+Name=Pick a colour
+Name[en_US]=Pick a color
+Exec=pick-colour-picker --pick

@@ -1,0 +1,92 @@
+[Desktop Entry]
+Actions = new-window; new-session; preferences; 
+Categories = System; Terminal; TerminalEmulator; X-GNOME-Utilities; 
+Comment = A tiling terminal for Gnome
+Comment[ca] = Un terminal dividible per Gnome
+Comment[de] = Ein Terminal für GNOME mit Kacheldarstellung
+Comment[el] = Ένας τερματικός που χωρίζεται σε καμπύλες
+Comment[en] = A tiling terminal for Gnome
+Comment[es] = Una terminal divisible para Gnome
+Comment[fr] = Un terminal scindable pour Gnome
+Comment[it] = Un terminale a riquadri per Gnome
+Comment[ja] = GNOME 用のタイリングターミナル
+Comment[ka] = GNOME-ის ტერმინალი ტილინგით
+Comment[nl] = Een terminal voor Gnome met tegelmogelijkheid
+Comment[pt] = Um terminal em mosaico para o GNOME
+Comment[ro] = Un terminal cu ferestre împărțite pentru Gnome
+Comment[uk] = Мозаїчний термінал для Gnome
+Comment[zh_CN] = GNOME 的平铺终端模拟器
+DBusActivatable = true
+Exec = tilix
+Icon = com.gexperts.Tilix
+Keywords = cmd; command; commandline; prompt; shell; terminal;
+Keywords[ca] = cmd; command; commands; commandline; línia d'ordres; línies d'ordres; ordres; prompt; shell; terminal;
+Keywords[de] = Befehl; Befehlszeile; cmd; command; commandline; commands; Prompt; Shell; terminal; Terminal; Terminalprogramm;
+Keywords[el] = cmd; command; commandline; commands; prompt; shell; terminal; γραμμή εντολών; εντολές; τερματικό;
+Keywords[es] = cmd; comando; comandos; command; commandline; linea de comandos; prompt; shell; terminal;
+Keywords[fr] = cmd; command; commands; commande; commandes; commandline; ligne de commande; prompt; shell; terminal;
+Keywords[it] = cmd; comando; comando; di linea prompt; shell; terminale; terminal;
+Keywords[ja] = cmd; command; commandline; commands; prompt; shell; コマンド; コマンドライン; シェル; ターミナル; プロンプト;
+Keywords[ka] = cmd; command; commandline; commands; prompt; shell; terminal; ბრძანების ხაზი; სწრაფი; ტერმინალი; ჭურვი;
+Keywords[nl] = cmd; command; commands; commandline; opdracht; opdrachtprompt; opdrachtregel; opdrachtregels; prompt; shell; terminal; terminalvenster;
+Keywords[pt] = cmd; command; commandline; commands; comando; linha de comandos; prompt; shell; terminal;
+Keywords[pt_BR] = cmd; command; commandline; commands; comando; linha de comandos; prompt; shell; terminal;
+Keywords[ro] = cmd; comandă; command; commandline; commands; linie de comandă; prompt; shell; terminal;
+Keywords[uk] = cmd; command; commandline; commands; prompt; shell; terminal; командний рядок; командні рядки; термінал;
+Name = Tilix
+StartupNotify = true
+Terminal = false
+Type = Application
+Version = 1.1
+
+[Desktop Action new-window]
+Name[ca] = Finestra nova
+Name[de] = Neues Fenster
+Name[el] = Νέο παράθυρο
+Name[en] = New Window
+Name[es] = Ventana nueva
+Name[fr] = Nouvelle fenêtre
+Name[it] = Nuova finestra
+Name[ja] = 新しいウィンドウ
+Name[ka] = ახალი ფანჯარა
+Name[nl] = Nieuw venster
+Name[pl] = Nowe okno
+Name[pt] = Nova janela
+Name[ro] = Fereastră nouă
+Name[uk] = Створити вікно
+Name = New Window
+Exec = tilix --action = app-new-window
+
+[Desktop Action new-session]
+Name[ca] = Sessió nova
+Name[de] = Neue Sitzung
+Name[el] = Νέα συνεδρία
+Name[en] = New Session
+Name[es] = Sesión nueva
+Name[fr] = Nouvelle session
+Name[it] = Nuova sessione
+Name[ja] = 新しいセッション
+Name[ka] = ახალი სესია
+Name[nl] = Nieuwe sessie
+Name[pt] = Nova sessão
+Name[ro] = Sesiune nouă
+Name[uk] = Створити сеанс
+Name = New Session
+Exec = tilix --action = app-new-session
+
+[Desktop Action preferences]
+Name[ca] = Preferències
+Name[de] = Einstellungen
+Name[el] = Προτιμήσεις
+Name[en] = Preferences
+Name[es] = Preferencias
+Name[fr] = Préférences
+Name[it] = Preferenze
+Name[ja] = 設定
+Name[ka] = პარამეტრები
+Name[nl] = Voorkeuren
+Name[pt] = Preferências
+Name[ro] = Preferințe
+Name[uk] = Параметри
+Name = Preferences
+Exec = tilix --preferences

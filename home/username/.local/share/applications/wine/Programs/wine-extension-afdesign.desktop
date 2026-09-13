@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Affinity Designer
+MimeType=application/afdesign;
+Exec=env WINEPREFIX="$HOME/Applications/Windows" /usr/bin/wine start /ProgIDOpen Affinity.Designer %f
+NoDisplay=true
+StartupNotify=true
+Icon=C8D6_Designer.0

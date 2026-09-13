@@ -1,0 +1,24 @@
+[Desktop Entry]
+Categories = Development; Documentation; IDE; Java; Programming;
+Comment = Enjoy productive Kotlin and Java
+Comment[ca] = Gaudeix de Kotlin i Java productius
+Comment[de] = Genieße produktives Kotlin und Java
+Comment[eo] = Ĝuu produkteman Kotlin kaj Java
+Comment[es] = Disfruta de Kotlin y Java productivo
+Comment[eu] = Gozatu Kotlin eta Java produktiboekin
+Comment[fr] = Profitez de Kotlin et de Java productifs
+Comment[it] = Goditi Kotlin e Java produttivi
+Comment[nl] = Geniet van productieve Kotlin en Java
+Comment[pt] = Desfrute de usar Kotlin e Java produtivos
+Comment[ro] = Bucurați-vă de Kotlin și Java productivi
+Exec = $HOME/Applications/Sources/Intellij\\ IDEA/bin/idea.sh
+Icon = intellij-idea
+GenericName = IDE
+Keywords = development; ide; programming;
+MimeType = text/plain;
+Name = IntelliJ IDEA
+StartupNotify = true
+StartupWMClass = jetbrains-idea-ce
+Terminal = false
+Type = Application
+Version = 1.1

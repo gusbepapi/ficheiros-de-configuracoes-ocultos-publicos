@@ -1,0 +1,24 @@
+[MIME Cache]
+application/pdf=Krop.desktop;Microsoft Edge Developer.desktop;
+application/rdf+xml=Microsoft Edge Developer.desktop;
+application/rss+xml=Microsoft Edge Developer.desktop;
+application/x-shift-document=Shift Nightly.desktop;
+application/xhtml+xml=Microsoft Edge Developer.desktop;
+application/xhtml_xml=Microsoft Edge Developer.desktop;
+application/xml=Microsoft Edge Developer.desktop;
+image/gif=Microsoft Edge Developer.desktop;
+image/jpeg=Microsoft Edge Developer.desktop;
+image/png=Microsoft Edge Developer.desktop;
+image/webp=Microsoft Edge Developer.desktop;
+inode/directory=Cursor.desktop;VSCode Insiders.desktop;VSCode.desktop;VSCodium Insiders.desktop;VSCodium.desktop;
+text/html=Microsoft Edge Developer.desktop;
+text/plain=Cursor.desktop;VSCode Insiders.desktop;VSCode.desktop;VSCodium Insiders.desktop;VSCodium.desktop;
+text/xml=Microsoft Edge Developer.desktop;
+x-scheme-handler/cursor=Cursor URI Handler.desktop;
+x-scheme-handler/http=Microsoft Edge Developer.desktop;
+x-scheme-handler/https=Microsoft Edge Developer.desktop;
+x-scheme-handler/microsoft-edge=Microsoft Edge Developer.desktop;
+x-scheme-handler/vscode=VSCode URI Handler.desktop;
+x-scheme-handler/vscode-insiders=VSCode Insiders URI Handler.desktop;
+x-scheme-handler/vscodium=VSCodium URI Handler.desktop;
+x-scheme-handler/vscodium-insiders=VSCodium Insiders URI Handler.desktop;

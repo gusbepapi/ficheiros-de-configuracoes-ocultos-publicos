@@ -1,0 +1,20 @@
+[Desktop Entry]
+Exec = kde-geo-uri-handler --coordinate-template "https://www.google.com/maps/@<LAT>,<LON>,<Z>" --query-template "https://www.google.com/maps/search/<Q>" --fallback "https://www.google.com/maps/" %u
+Icon = maps
+MimeType = x-scheme-handler/geo; 
+Name = Google Maps
+Name[ca] = Google Maps
+Name[de] = Google Maps
+Name[en_GB] = Google Maps
+Name[es] = Google Maps
+Name[fr] = Google Maps
+Name[it] = Mappe di Google
+Name[ka] = Google Maps
+Name[nl] = Google Maps
+Name[pt_BR] = Google Maps
+Name[pt] = Google Maps
+Name[ro] = Hărți Google
+Name[uk] = Карти Google
+NoDisplay = true
+Terminal = false
+Type = Application

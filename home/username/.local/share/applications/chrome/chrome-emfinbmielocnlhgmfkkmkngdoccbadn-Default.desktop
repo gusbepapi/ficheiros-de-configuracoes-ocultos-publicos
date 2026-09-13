@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Categories = Applications; Development; Programming; Software;
+Comment = Unpack APK file, compile and open it with ARC Welder
+Exec = /usr/bin/chromium-browser --profile-directory = Default --app-id = emfinbmielocnlhgmfkkmkngdoccbadn
+GenericName = APK Emulator
+Icon = chrome-emfinbmielocnlhgmfkkmkngdoccbadn-Default
+Keywords = Android; apk; app; apps; emulator; software;
+Name = ARC Welder
+StartupWMClass = crx_emfinbmielocnlhgmfkkmkngdoccbadn
+Terminal = false
+Type = Application
+Version = 1.1

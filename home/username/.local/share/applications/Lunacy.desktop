@@ -1,0 +1,12 @@
+[Desktop Entry]
+Categories = Editors; Graphics;
+Encoding = UTF-8
+Exec = $HOME/.local/bin/lunacy %u
+GenericName = Lunacy Graphic Editor
+Icon = lunacy
+MimeType = x-scheme-handler/i8-lunacy;
+Name = Lunacy
+StartupWMClass = Lunacy
+Terminal = false
+Type = Application
+Version = 9.0.0

@@ -1,0 +1,23 @@
+[Desktop Entry]
+Actions = AboutDialog; PickFirst;
+Categories = Graphics; GTK;
+Comment[en_US] = Pick is a color picker
+Comment = Pick is a colour picker
+Exec = python -m $HOME/.local/share/pypoetry/venv/lib/python3.11/site-packages/pick
+GenericName[en_US] = Color Picker
+GenericName = Colour Picker
+Icon = pick-colour-picker
+Keywords = chooser; color; colour; palette; pick; picker; screen; selection;
+Name = Pick
+NoDisplay = true
+Terminal = false
+Type = Application
+
+[Desktop Action AboutDialog]
+Name = About Pick
+Exec = pick-colour-picker --about
+
+[Desktop Action PickFirst]
+Name = Pick a colour
+Name[en_US] = Pick a color
+Exec = pick-colour-picker --pick

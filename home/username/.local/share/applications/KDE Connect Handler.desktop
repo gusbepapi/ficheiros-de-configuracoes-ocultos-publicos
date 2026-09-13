@@ -1,0 +1,20 @@
+[Desktop Entry]
+Exec = kdeconnect-handler %U
+Icon = kdeconnect
+MimeType = x-scheme-handler/tel; x-scheme-handler/sms
+Name = KDE Connect URL Handler
+Name[ca] = Gestor d'URL del KDE Connect
+Name[de] = KDE Connect-SMS-Dienstprogramm für URLs (Adressen)
+Name[el] = Χειριστής URL του KDE Connect
+Name[en_GB] = KDE Connect URL Handler
+Name[es] = Controlador de URL de KDE Connect
+Name[fr] = Gestionnaire d'URL de KDE Connect
+Name[it] = Gestore URL di KDE Connect
+Name[ja] = KDE Connect URL ハンドラ
+Name[nl] = URL behandelaar van KDE-Connect
+Name[pt_BR] = Tratamento de URLs do KDE Connect
+Name[pt] = Tratamento de URL's do KDE Connect
+Name[ro] = Manipulant de URL KDE Connect
+Name[uk] = Обробник адрес KDE Connect
+NoDisplay = true
+Type = Application

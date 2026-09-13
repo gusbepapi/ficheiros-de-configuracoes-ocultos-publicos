@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=winebrowser
+MimeType=application/xhtml+xml;
+Exec=env WINEPREFIX="$HOME/Applications/Windows" wine start /ProgIDOpen htmlfile %f
+NoDisplay=true
+StartupNotify=true
+Icon=7765_winebrowser.0

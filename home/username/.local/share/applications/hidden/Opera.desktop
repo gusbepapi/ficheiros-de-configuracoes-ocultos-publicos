@@ -1,0 +1,13 @@
+[Desktop Entry]
+Categories = Network
+Exec = $HOME/.local/bin/opera %U
+GenericName = Web Browser
+Icon = opera
+MimeType = application/xml; image/webp; text/html;
+Name = Opera Browser
+NoDisplay = true
+StartupNotify = true
+StartupWMClass = opera
+Terminal = false
+Type = Application
+Version = 1.0

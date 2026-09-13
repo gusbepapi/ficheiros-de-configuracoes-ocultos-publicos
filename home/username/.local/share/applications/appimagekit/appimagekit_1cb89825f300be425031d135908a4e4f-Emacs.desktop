@@ -1,0 +1,37 @@
+[Desktop Entry]
+Name=Emacs (26.2.glibc2.17)
+GenericName=Text Editor
+Comment=Edit text
+MimeType=text/english;text/plain;text/x-makefile;text/x-c++hdr;text/x-c++src;text/x-chdr;text/x-csrc;text/x-java;text/x-moc;text/x-pascal;text/x-tcl;text/x-tex;application/x-shellscript;text/x-c;text/x-c++;
+Exec=$HOME/Aplicativos/AppImages/Emacs.AppImage %F
+Icon=appimagekit_1cb89825f300be425031d135908a4e4f_emacs
+Type=Application
+Terminal=false
+Categories=Development;TextEditor;
+StartupWMClass=Emacs
+Keywords=Text;Editor;
+X-AppImage-Version=26.2.glibc2.17
+
+TryExec=$HOME/Aplicativos/AppImages/Emacs.AppImage
+X-AppImage-Old-Icon=emacs
+X-AppImage-Old-Name=Emacs
+X-AppImage-Identifier=1cb89825f300be425031d135908a4e4f
+Actions=Remove;
+X-AppImageLauncher-Version=2.1.4 (git commit 7cb4d70), built on 2020-08-30 17:38:03 UTC
+
+[Desktop Action Remove]
+Name=Remove AppImage from system
+Icon=AppImageLauncher
+Exec=/usr/lib/appimagelauncher/remove "$HOME/Aplicativos/AppImages/Emacs.AppImage"
+Name[ast]=Desaniciar AppImage del sistema
+Name[de]=AppImage vom System entfernen
+Name[en]=Remove AppImage from system
+Name[es]=Eliminar Appimage del Sistema
+Name[fr]=Supprimer l'AppImage du système
+Name[it]=Rimuovi AppImage dal sistema
+Name[nl]=AppImage deïnstalleren
+Name[pl]=Usuń AppImage z systemu
+Name[pt]=Remover AppImage do sistema
+Name[pt_PT]=Remover AppImage do sistema
+Name[ru]=Удалить AppImage из системы
+Name[zh_Hans]=从系统中移除 AppImage

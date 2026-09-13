@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories = Monitor; System; Utility;
+Exec = conky --daemonize --pause = 1
+Icon = conky-logomark-violet
+Name = Conky
+NoDisplay = true
+StartupNotify = false
+Terminal = false
+Type = Application
+Version = 1.1

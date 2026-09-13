@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=System;Emulator;
+Comment = Fedora Minimal Virtual Machine from QEMU
+Exec = sh -c "$HOME/QEMU/Fedora/fedora"
+Icon = fedora
+Name = Fedora QEMU
+StartupWMClass = FedoraVM
+Terminal = false
+Type = Application
+Version = 1.0

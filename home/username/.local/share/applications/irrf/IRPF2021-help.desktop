@@ -1,0 +1,6 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Ajuda do IRPF2021
+Exec="$HOME/Aplicativos/Compilações/IRRF 2021/xdg-open" $HOME/Aplicativos/Compilações/IRRF 2021/help/AjudaIRPF.pdf
+Icon=$HOME/Aplicativos/Compilações/IRRF 2021/RFB.png

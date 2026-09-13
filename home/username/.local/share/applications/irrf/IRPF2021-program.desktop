@@ -1,0 +1,6 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=IRPF2021 - Declaração de Ajuste Anual, Final de Espólio e Saída Definitiva do País
+Exec="$HOME/Aplicativos/Compilações/IRRF 2021/java-runtime/bin/java" -Xms128M -Xmx512M -jar $HOME/Aplicativos/Compilações/IRRF 2021/irpf.jar
+Icon=$HOME/Aplicativos/Compilações/IRRF 2021/RFB.png

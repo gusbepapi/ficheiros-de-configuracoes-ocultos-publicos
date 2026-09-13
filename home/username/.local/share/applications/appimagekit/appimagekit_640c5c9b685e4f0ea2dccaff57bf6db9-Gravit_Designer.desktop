@@ -1,0 +1,17 @@
+[Desktop Entry]
+Name=Gravit Designer (3.5.6.2893)
+Comment=gravit-designer
+Exec=$HOME/Aplicativos/AppImages/GravitDesigner3.5.6.AppImage
+Terminal=false
+Type=Application
+Icon=appimagekit_640c5c9b685e4f0ea2dccaff57bf6db9_gravit-designer
+StartupWMClass=Gravit Designer
+X-AppImage-Version=3.5.6.2893
+MimeType=x-scheme-handler/designer;
+Categories=Graphics;
+X-AppImage-BuildId=1DhTXVWG6um18L87HmdT90s42nF
+
+TryExec=$HOME/Aplicativos/AppImages/GravitDesigner3.5.6.AppImage
+X-AppImage-Old-Icon=gravit-designer
+X-AppImage-Old-Name=Gravit Designer
+X-AppImage-Identifier=640c5c9b685e4f0ea2dccaff57bf6db9

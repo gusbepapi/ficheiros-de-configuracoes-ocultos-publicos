@@ -1,0 +1,34 @@
+[Desktop Entry]
+Name=FreeMAN (0.9.0.92)
+Comment=A free, extensible, cross-platform file manager for power users
+Exec=$HOME/Aplicativos/AppImages/freeman.AppImage
+Terminal=false
+Type=Application
+Icon=appimagekit_f738267095061c844ca1a4fe63f799ec_freeman
+X-AppImage-Version=0.9.0.92
+X-AppImage-BuildId=e5dfd9e0-f4b9-11a8-16d5-9d469e7ecf26
+Categories=System;
+
+TryExec=$HOME/Aplicativos/AppImages/freeman.AppImage
+X-AppImage-Old-Icon=freeman
+X-AppImage-Old-Name=FreeMAN
+X-AppImage-Identifier=f738267095061c844ca1a4fe63f799ec
+Actions=Remove;
+X-AppImageLauncher-Version=2.1.4 (git commit 7cb4d70), built on 2020-08-30 17:38:03 UTC
+
+[Desktop Action Remove]
+Name=Remove AppImage from system
+Icon=AppImageLauncher
+Exec=/usr/lib/appimagelauncher/remove "$HOME/Aplicativos/AppImages/freeman.AppImage"
+Name[ast]=Desaniciar AppImage del sistema
+Name[de]=AppImage vom System entfernen
+Name[en]=Remove AppImage from system
+Name[es]=Eliminar Appimage del Sistema
+Name[fr]=Supprimer l'AppImage du système
+Name[it]=Rimuovi AppImage dal sistema
+Name[nl]=AppImage deïnstalleren
+Name[pl]=Usuń AppImage z systemu
+Name[pt]=Remover AppImage do sistema
+Name[pt_PT]=Remover AppImage do sistema
+Name[ru]=Удалить AppImage из системы
+Name[zh_Hans]=从系统中移除 AppImage
