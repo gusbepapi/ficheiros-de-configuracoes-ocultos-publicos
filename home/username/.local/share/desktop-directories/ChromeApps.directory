@@ -1,0 +1,18 @@
+[Desktop Entry]
+# English, Catalan, German, Greek, Spanish, French, Italian, Japanese, Goergian, Dutch, Portuguese, Romanian, Ukrainian
+Icon = google-chrome
+Name = Chrome Apps
+Name[ca] = Aplicacions de Chrome
+Name[de] = Chrome Apps
+Name[el] = Εφαρμογές Chrome
+Name[es] = Aplicaciones de Chrome
+Name[fr] = Applications de Chrome
+Name[it] = Applicazioni di Chrome
+Name[ja] = Chrome アプリ
+Name[ka] = Chrome აპლიკაციები
+Name[nl] = Chrome-Apps
+Name[pt] = Aplicativos do Chrome
+Name[ro] = Aplicații Chrome
+Name[uk] = Програми Chrome
+Type = Directory
+Version = 1.0

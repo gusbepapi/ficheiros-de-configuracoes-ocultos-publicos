@@ -1,0 +1,31 @@
+[Desktop Entry]
+# English, Catalan, German, Greek, Spanish, French, Italian, Japanese, Goergian, Dutch, Portuguese, Romanian, Ukrainian
+Comment = IDE and text editors for debugging, development and programming
+Comment[ca] = IDE i editors de text per depurar, desenvolupar i programar
+Comment[de] = IDEs und Texteditoren zum Debuggen, Entwickeln und Programmieren
+Comment[el] = Περιβάλλοντα ανάπτυξης και επεξεργαστές κειμένου για αποσφαλμάτωση, ανάπτυξη και προγραμματισμό
+Comment[es] = IDEs y editores de texto para depurar, desarrollar y programar
+Comment[fr] = IDEs et éditeurs de texte pour déboguer, développer et programmer
+Comment[it] = IDE e editor di testo per il debug, lo sviluppo e la programmazione
+Comment[ja] = デバッグ、開発、プログラミングのためのIDEとテキストエディタ
+Comment[ka] = დებაგინგი, დეველოპმენტი და პროგრამირებათათვის IDE და ტექსტური რედაქტორები
+Comment[nl] = IDE’s en tekstverwerkers voor het debuggen, ontwikkelen en programmeren
+Comment[pt] = IDEs e editores de texto para depurar, desenvolver e programar
+Comment[ro] = IDE-uri și editoare de text pentru depanare, dezvoltare și programare
+Comment[uk] = IDE та текстові редактори для налагодження, розробки та програмування
+Icon = applications-development
+Name = Programming
+Name[ca] = Programació
+Name[de] = Programmierung
+Name[el] = Προγραμματισμός
+Name[es] = Programación
+Name[fr] = Programmation
+Name[it] = Programmazione
+Name[ja] = プログラミング
+Name[ka] = პროგრამირება
+Name[nl] = Programmeren
+Name[pt] = Programação
+Name[ro] = Programare
+Name[uk] = Програмування
+Type = Directory
+Version = 1.1

@@ -1,0 +1,31 @@
+[Desktop Entry]
+# English, Catalan, German, Greek, Spanish, French, Italian, Japanese, Goergian, Dutch, Portuguese, Romanian, Ukrainian
+Comment = Fonts editors and viewers
+Comment[ca] = Editors i visors de fonts
+Comment[de] = Schriftarten-Editoren und -Betrachter
+Comment[el] = Επεξεργαστές και προβολείς γραμματοσειρών
+Comment[es] = Editores y visores de fuentes
+Comment[fr] = Éditeurs et visionneurs de polices
+Comment[it] = Editori e visualizzatori di font
+Comment[ja] = フォントエディタとビューア
+Comment[ka] = ფონტების რედაქტორები და ნახვები
+Comment[nl] = Lettertype-editors en -bekijkers
+Comment[pt] = Editores e visualizadores de fontes
+Comment[ro] = Editoare și vizualizatoare de fonturi
+Comment[uk] = Редактори та переглядачі шрифтів
+Icon = applications-fonts
+Name = Typography
+Name[ca] = Tipografia
+Name[de] = Schriftarten
+Name[el] = Γραμματοσειρές
+Name[es] = Tipografía
+Name[fr] = Polices
+Name[it] = Tipografia
+Name[ja] = フォント
+Name[ka] = ფონტები
+Name[nl] = Lettertypen
+Name[pt] = Tipografia
+Name[ro] = Tipografie
+Name[uk] = Шрифти
+Type = Directory
+Version = 1.1

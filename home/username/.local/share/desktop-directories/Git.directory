@@ -1,0 +1,19 @@
+[Desktop Entry]
+# English, Catalan, German, Greek, Spanish, French, Italian, Japanese, Goergian, Dutch, Portuguese, Romanian, Ukrainian
+Comment = Apps for Git client to pull, push and merge
+Comment[ca] = Aplicacions per al client Git per a fer pull, push i merge
+Comment[de] = Anwendungen für Git-Client zum Pullen, Pushen und Mergen
+Comment[el] = Εφαρμογές για τον πελάτη Git για pull, push και merge
+Comment[es] = Aplicaciones para el cliente Git para pull, push y merge
+Comment[fr] = Applications pour le client Git pour pull, push et merge
+Comment[it] = Applicazioni per il client Git per pull, push e merge
+Comment[ja] = pull、push、mergeのためのGitクライアント
+Comment[ka] = pull, push და merge-ისთვის Git კლიენტის აპლიკაციები
+Comment[nl] = Apps voor Git-client om te trekken, duwen en samenvoegen
+Comment[pt] = Aplicações para o cliente Git para pull, push e merge
+Comment[ro] = Aplicații pentru clientul Git pentru pull, push și merge
+Comment[uk] = Застосунки для клієнта Git для pull, push та merge
+Icon = git
+Name = Git
+Type = Directory
+Version = 1.1

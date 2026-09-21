@@ -1,0 +1,31 @@
+[Desktop Entry]
+# English, Catalan, German, Greek, Spanish, French, Italian, Japanese, Goergian, Dutch, Portuguese, Romanian, Ukrainian
+Comment = Windows programs on Linux
+Comment[ca] = Programas de Windows en Linux
+Comment[de] = Windows-Programme unter Linux
+Comment[el] = Προγράμματα Windows στο Linux
+Comment[es] = Programas de Windows en Linux
+Comment[fr] = Programmes Windows sous Linux
+Comment[it] = Programmi Windows su Linux
+Comment[ja] = Linux上のWindowsプログラム
+Comment[ka] = Windows პროგრამები Linux-ზე
+Comment[nl] = Windows-programma’s op Linux
+Comment[pt] = Programas do Windows no Linux
+Comment[ro] = Programe Windows pe Linux
+Comment[uk] = Програми Windows на Linux
+Icon = folder
+Name = Wine Programs
+Name[ca] = Programes de Wine
+Name[de] = Wine-Programme
+Name[el] = Προγράμματα Wine
+Name[es] = Programas de Wine
+Name[fr] = Programmes de Wine
+Name[it] = Programmi Wine
+Name[ja] = Wineプログラム
+Name[ka] = Wine პროგრამები
+Name[nl] = Wine-programma’s
+Name[pt] = Programas do Wine
+Name[ro] = Programe Wine
+Name[uk] = Програми Wine
+Type = Directory
+Version = 1.0

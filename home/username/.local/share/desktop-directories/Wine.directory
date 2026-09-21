@@ -1,0 +1,19 @@
+[Desktop Entry]
+# English, Catalan, German, Greek, Spanish, French, Italian, Japanese, Goergian, Dutch, Portuguese, Romanian, Ukrainian
+Comment = Windows applications
+Comment[ca] = Aplicacions de Windows
+Comment[de] = Windows-Anwendungen
+Comment[el] = Εφαρμογές Windows
+Comment[es] = Aplicaciones de Windows
+Comment[fr] = Applications de Windows
+Comment[it] = Applicazioni di Windows
+Comment[ja] = Windows アプリケーション
+Comment[ka] = Windows აპლიკაციები
+Comment[nl] = Windows-programma’s
+Comment[pt] = Aplicações do Windows
+Comment[ro] = Aplicații Windows
+Comment[uk] = Програми Windows
+Icon = wine
+Name = Wine
+Type = Directory
+Version = 1.0
