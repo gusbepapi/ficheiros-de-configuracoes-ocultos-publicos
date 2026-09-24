@@ -1,0 +1,4 @@
+com.github.finefindus.eyedropper  io.github.nate_xyz.Paleta  org.gabmus.swatch
+com.vixalien.sticky               io.posidon.Paper           org.gnome.design.Contrast
+io.github.cudatext.CudaText-Qt    nl.hjdskes.gcolor3
+io.github.lainsce.Emulsion        org.birdfont.BirdFont

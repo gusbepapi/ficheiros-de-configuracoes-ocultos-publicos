@@ -1,0 +1,31 @@
+# 🇬🇧 Append images vertically and save to the same directory or /tmp if access denied
+# 🇵🇹 Juntar imagens verticalmente e guardar no mesmo directório ou /tmp se acesso negado
+# 🇪🇸 Juntar imágenes verticalmente y guardar en el mismo directorio o /tmp si acceso denegado
+#
+# 🇬🇧 Dependencies:
+# 🇵🇹 Dependências:
+# 🇪🇸 Dependencias:
+# * imagemagick
+
+[Desktop Entry]
+Actions = appendImagesQuick;
+MimeType = image/png; image/jpeg;
+Type = Service
+X-KDE-ServiceTypes = KonqPopupMenu/Plugin
+
+[Desktop Action appendImagesQuick]
+Exec = /bin/bash -c 'convert -append "${@}" appended-$(date +%s).jpg | convert -append "${@}" /tmp/appended-$(date +%s)' bash %F
+Icon = view-split-top-bottom
+Name = Append images (quick)
+Name[ca] = Afegeix imatges (ràpid)
+Name[de] = Bilder anfügen (schnell)
+Name[el] = Επισύναψη εικόνων (γρήγορα)
+Name[es] = Añadir imágenes (rápido)
+Name[fr] = Ajouter des images (rapide)
+Name[it] = Aggiungi immagini (veloce)
+Name[ja] = 画像を追加 (クイック)
+Name[ka] = სურათების დამატება (სწრაფი)
+Name[nl] = Oriëntatie aanpassen (snel)
+Name[pt] = Juntar imagens (rápido)
+Name[ro] = Adăugare imagini (rapid)
+Name[uk] = Додати зображення (швидко)

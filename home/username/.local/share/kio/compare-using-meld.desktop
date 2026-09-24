@@ -1,0 +1,116 @@
+# Version 1.0
+# https://www.opencode.net/ashark/compare-using-meld_dolphin-service-menu
+
+[Desktop Entry]
+Actions = _SEPARATOR_; diff; diffsudo; selected; selectedsudo; setArg1;
+Icon = org.gnome.meld
+MimeType = application/octet-stream; inode/directory;
+ServiceTypes = KonqPopupMenu/Plugin
+Type = Service
+X-KDE-StartupNotify = false
+X-KDE-Submenu = Compare using Meld
+X-KDE-Submenu[ca] = Compara usant Meld
+X-KDE-Submenu[de] = Vergleichen mit Meld
+X-KDE-Submenu[el] = Σύγκριση με το Meld
+X-KDE-Submenu[es] = Comparar usando Meld
+X-KDE-Submenu[fr] = Comparer avec Meld
+X-KDE-Submenu[it] = Confronta usando Meld
+X-KDE-Submenu[ja] = Meld で比較
+X-KDE-Submenu[ka] = Meld-ით შედარება
+X-KDE-Submenu[nl] = Vergelijken met Meld
+X-KDE-Submenu[pt] = Comparar utilizando Meld
+X-KDE-Submenu[ro] = Comparați folosind Meld
+X-KDE-Submenu[ru] = Сравнить используя Meld
+X-KDE-Submenu[uk] = Порівняти за допомогою Meld
+
+[Desktop Action setArg1]
+Exec = echo "%U" > /tmp/meld-menu-arg1
+Icon = document-compareleft
+Name = Mark for use in left column
+Name[ca] = Marca per a utilitzar a la columna esquerra
+Name[de] = Für Verwendung in der linken Spalte markieren
+Name[el] = Σημείωση για χρήση στην αριστερή στήλη
+Name[es] = Marcar para usar en la columna izquierda
+Name[fr] = Marquer pour utilisation dans la colonne de gauche
+Name[it] = Segna per l'uso nella colonna di sinistra
+Name[ja] = 左の列に使用するためにマーク
+Name[ka] = მარცხენა სვეტში გამოყენებისთვის მონიშვნა
+Name[nl] = Markeren voor gebruik in de linkerkolom
+Name[pt] = Marcar para utilizar na coluna esquerda
+Name[ro] = Marcați pentru utilizare în coloana din stânga
+Name[ru] = Пометить для использования в левой колонке
+Name[uk] = Позначити для використання в лівій колонці
+
+[Desktop Action diff]
+Exec = ARG1 = $(cat /tmp/meld-menu-arg1);meld "$ARG1" %U; rm /tmp/meld-menu-arg1;
+Icon = document-compareright
+Name = Use in right column and compare
+Name[ca] = Utilitza a la columna dreta i compara
+Name[de] = In der rechten Spalte verwenden und vergleichen
+Name[el] = Χρήση στην δεξιά στήλη και σύγκριση
+Name[es] = Utilizar en la columna derecha y comparar
+Name[fr] = Utiliser dans la colonne de droite et comparer
+Name[it] = Utilizzare nella colonna di destra e confrontare
+Name[ja] = 右の列に使用して比較
+Name[ka] = მარჯვენა სვეტში გამოყენება და შედარება
+Name[nl] = Gebruiken in de rechterkolom en vergelijken
+Name[pt] = Utilizar na coluna direita e comparar
+Name[ro] = Utilizați în coloana din dreapta și comparați
+Name[ru] = Использовать в правой колонке и сравнить
+Name[uk] = Використовувати в правій колонці та порівняти
+
+[Desktop Action diffsudo]
+Exec = ARG1 = $(cat /tmp/meld-menu-arg1); rm /tmp/meld-menu-arg1; if [ "$XDG_SESSION_TYPE"  =  "wayland" ]; then xhost +si:localuser:root && pkexec env DISPLAY = $DISPLAY XAUTHORITY = $XAUTHORITY KDE_SESSION_VERSION = 5 KDE_FULL_SESSION = true dbus-launch meld "$ARG1" %U && xhost -si:localuser:root ; else pkexec env DISPLAY = $DISPLAY XAUTHORITY = $XAUTHORITY KDE_SESSION_VERSION = 5 KDE_FULL_SESSION = true meld "$ARG1" %U; fi;
+Icon = document-compareright
+Name = Use in right column and compare as root
+Name[ca] = Utilitza a la columna dreta i compara com a root
+Name[de] = In der rechten Spalte verwenden und als root vergleichen
+Name[el] = Χρήση στην δεξιά στήλη και σύγκριση ως root
+Name[es] = Utilizar en la columna derecha y comparar como root
+Name[fr] = Utiliser dans la colonne de droite et comparer en tant que root
+Name[it] = Utilizzare nella colonna di destra e confrontare come root
+Name[ja] = 右の列に使用して比較 (root として)
+Name[ka] = მარჯვენა სვეტში გამოყენება და შედარება როგორც root
+Name[nl] = Gebruiken in de rechterkolom en vergelijken als root
+Name[pt] = Utilizar na coluna direita e comparar como root
+Name[ro] = Utilizați în coloana din dreapta și comparați ca root
+Name[ru] = Использовать в правой колонке и сравнить как root
+Name[uk] = Використовувати в правій колонці та порівняти як root
+
+[Desktop Action selected]
+Exec = meld %U; rm /tmp/meld-menu-arg1;
+Icon = kr_comparedirs
+Name = Compare selected (highlighted) files/folders
+Name[ca] = Compara els fitxers/carpetes seleccionats (ressaltats)
+Name[de] = Ausgewählte (hervorgehobene) Dateien/Ordner vergleichen
+Name[el] = Σύγκριση επιλεγμένων (επισημασμένων) αρχείων/φακέλων
+Name[es] = Comparar archivos/carpetas seleccionados (resaltados)
+Name[fr] = Comparer les fichiers/dossiers sélectionnés (mis en évidence)
+Name[it] = Confronta i file/cartelle selezionati (evidenziati)
+Name[ja] = 選択した (ハイライトされた) ファイル/フォルダを比較
+Name[ka] = არჩეული (მიმართულებული) ფაილების/ფოლდერების შედარება
+Name[nl] = Geselecteerde (gemarkeerde) bestanden/mappen vergelijken
+Name[pt] = Comparar ficheiros/directórios selecionados (destacados)
+Name[pt_BR] = Comparar arquivos/pastas selecionados (destacados)
+Name[ro] = Comparați fișierele/dosarele selectate (evidențiate)
+Name[ru] = Сравнить выделенные (подсвеченные) файлы/папки
+Name[uk] = Порівняти виділені (підсвічені) файли/папки
+
+[Desktop Action selectedsudo]
+Exec = if [ "$XDG_SESSION_TYPE"  =  "wayland" ]; then xhost +si:localuser:root && pkexec env DISPLAY = $DISPLAY XAUTHORITY = $XAUTHORITY KDE_SESSION_VERSION = 5 KDE_FULL_SESSION = true dbus-launch meld %U && xhost -si:localuser:root ; else pkexec env DISPLAY = $DISPLAY XAUTHORITY = $XAUTHORITY KDE_SESSION_VERSION = 5 KDE_FULL_SESSION = true meld %U; fi;
+Icon = kr_comparedirs
+Name = Compare selected (highlighted) files/folders as root
+Name[ca] = Compara els fitxers/carpetes seleccionats (ressaltats) com a root
+Name[de] = Ausgewählte (hervorgehobene) Dateien/Ordner als root vergleichen
+Name[el] = Σύγκριση επιλεγμένων (επισημασμένων) αρχείων/φακέλων ως root
+Name[es] = Comparar archivos/carpetas seleccionados (resaltados) como root
+Name[fr] = Comparer les fichiers/dossiers sélectionnés (mis en évidence) en tant que root
+Name[it] = Confronta i file/cartelle selezionati (evidenziati) come root
+Name[ja] = 選択した (ハイライトされた) ファイル/フォルダを root として比較
+Name[ka] = არჩეული (მიმართულებული) ფაილების/ფოლდერების შედარება როგორც root
+Name[nl] = Geselecteerde (gemarkeerde) bestanden/mappen vergelijken als root
+Name[pt] = Comparar ficheiros/directórios selecionados (destacados) como root
+Name[pt_BR] = Comparar arquivos/pastas selecionados (destacados) como root
+Name[ro] = Comparați fișierele/dosarele selectate (evidențiate) ca root
+Name[ru] = Сравнить выделенные (подсвеченные) файлы/папки как root
+Name[uk] = Порівняти виділені (підсвічені) файли/папки як root

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE khotnewstuff3>
+<hotnewstuffregistry>
+ <stuff category="101">
+  <name>Nordic darker sddm</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>eliverlara</author>
+  <homepage>https://store.kde.org/p/1839347</homepage>
+  <licence></licence>
+  <version></version>
+  <rating>50</rating>
+  <downloads>19029</downloads>
+  <installedfile>/tmp/Nordic-darker.tar.xz</installedfile>
+  <id>1839347</id>
+  <releasedate>2022-09-13</releasedate>
+  <summary>Nordic darker sddm is a dark theme created using the awesome &lt;a href="https://github.com/arcticicestudio/nord" target="_blank" rel="nofollow">Nord&lt;/a> color palette.&lt;br />
+&lt;br />
+Suggested settings: &lt;br />
+&lt;br />
+&lt;a href="https://www.pling.com/p/1633675/" target="_blank" rel="nofollow"> Nordic global theme &lt;/a>&lt;br />
+&lt;br />
+&lt;a href="https://www.pling.com/p/1633673v/" target="_blank" rel="nofollow"> Nordic darker Plasma theme &lt;/a>&lt;br />
+&lt;br />
+&lt;a href="https://store.kde.org/p/1326272/" target="_blank" rel="nofollow">Nordic darker Kvantum theme&lt;/a>&lt;br />
+&lt;br />
+&lt;a href="https://store.kde.org/p/1326274/" target="_blank" rel="nofollow">Nordic Aurorae theme &lt;/a>&lt;br />
+&lt;br />
+&lt;a href="https://store.kde.org/p/1629062/" target="_blank" rel="nofollow">Nordic darker color scheme&lt;/a>&lt;br />
+&lt;br />
+&lt;a href="https://www.pling.com/p/1733012/" target="_blank" rel="nofollow"> Folders &lt;/a>&lt;br />
+&lt;br />
+Wallpaper in screenshot &lt;a href="https://vsthemes.org/uploads/posts/2020-04/1586853771_daniel-leone-v7datklzzaw-unsplash-modded.jpg" target="_blank" rel="nofollow"> here &lt;/a></summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/36/61/48/1839347/preview.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/36/61/48/1839347/preview.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2NjMxMDYxMDQiLCJvIjoiMSIsInMiOiJlOTIzOWEzNTI5OGYwNzQyYTIxZDYzNzRjZjc2OGY1NzczOGE2NzMwNWQ4NjFlNjNhNTRkNzI1ZmY5NTIxMDQxNzE5YWQyMWYyZTdhOGI5YTdkNmEyNmNhYjVlODI3YzliYWQ2NWVmZDMxYjFhNTIwYzdjMTg3ZmQzMGY0ZDNiYSIsInQiOjE2NzE4NDc1NjcsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMjExLjEwNS4xOTMifQ.JY6Cn8Gz6kGyr55XMC6EYhM9cmsJxNcVxMWi5Pf96Hw/Nordic-darker.tar.xz</payload>
+  <tags>original-product,unix,gplv3,linux</tags>
+  <status>installed</status>
+ </stuff>
+ <stuff category="101">
+  <name>Gently-Color-SDDM</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>l4k1</author>
+  <homepage>https://store.kde.org/p/1934120</homepage>
+  <licence></licence>
+  <version></version>
+  <rating>58</rating>
+  <downloads>5754</downloads>
+  <installedfile>/tmp/Gently-Color-SDDM.tar.gz</installedfile>
+  <id>1934120</id>
+  <releasedate>2022-11-07</releasedate>
+  <summary>SDDM Login Theme&lt;br />
+&lt;br />
+-Plasma Theme &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Color-Plasma&lt;/strong> &lt;/span>, which you can download: &lt;a href="https://www.pling.com/p/1934172/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+(Follows Color Scheme, Round,  Transparent and Blur,  Enabled Blurred Widgets and Adaptive Transparency)&lt;br />
+-----------------------&lt;br />
+&lt;br />
+-Wallpaper &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Color-Wallpapers&lt;/strong> &lt;/span> : &lt;a href="https://store.kde.org/p/1934109" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a></summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/49/90/47/1934120/virtualbox-opensuse-04-11-2022-17-00-34.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/49/90/47/1934120/virtualbox-opensuse-04-11-2022-17-00-34.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2Njc4MjA5OTMiLCJvIjoiMSIsInMiOiJlMjI0YmEzZjEyMzc5YjNkOTY0MTFjMmRmOGEyZThiZmY0NzhjYzYyMTQ3NzhkZDdkNzIyMGU2OTliYmVjZGQ0NGM2OTMwODk3MzNhZGFkMWE0MDY5YzcxNTdiOGUwMDllZmI2ZGZjMDY1M2Y0Zjc5ZjU0YmQ4ZDRmODhlZWMxYyIsInQiOjE2NzE4NDc4NDIsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMjExLjEwNS4xOTMifQ.F7L160cZBwFuhh9RxZZn7RaBPbsRveaWxktjvwRe50o/Gently-Color-SDDM.tar.gz</payload>
+  <tags>linux,gplv3,unix</tags>
+  <status>installed</status>
+ </stuff>
+</hotnewstuffregistry>
