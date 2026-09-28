@@ -1,0 +1,21 @@
+[Desktop Entry]
+Charset = UTF-8
+Hidden = false
+Icon = dictionary
+Keys = merriamt
+Name = Merriam-Webster Thesaurus
+Name[ca] = Diccionari de sinònims de Merriam-Webster
+Name[de] = Merriam-Webster Synonymwörterbuch
+Name[el] = Συνώνυμο λεξικό Merriam-Webster
+Name[es] = Diccionario de sinónimos de Merriam-Webster
+Name[fr] = Dictionnaire des synonymes de Merriam-Webster
+Name[it] = Dizionario dei sinonimi di Merriam-Webster
+Name[ja] = Merriam-Webster シソーラス
+Name[ka] = Merriam-Webster სინონიმების ლექსიკონი
+Name[nl] = Synoniemenwoordenboek van Merriam-Webster
+Name[pt] = Dicionário de sinônimos de Merriam-Webster
+Name[ro] = Dicționar de sinonime Merriam-Webster
+Name[uk] = Синонімний словник Merriam-Webster
+Query = http://www.m-w.com/cgi-bin/thesaurus?book=Thesaurus&va=\\{@}
+Type = Service
+X-KDE-ServiceTypes = SearchProvider

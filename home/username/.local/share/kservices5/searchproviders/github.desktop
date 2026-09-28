@@ -1,0 +1,8 @@
+[Desktop Entry]
+Charset = UTF-8
+Hidden = false
+Icon = github
+Keys = ghub
+Name = GitHub
+Query = https://github.com/search?q=\\{@}&x=0&y=0
+Type = Service

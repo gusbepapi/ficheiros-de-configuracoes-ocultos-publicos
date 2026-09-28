@@ -1,0 +1,55 @@
+[Desktop Entry]
+Actions = mogrify; png
+Icon = image-jpeg
+MimeType = image/jpeg;
+ServiceTypes = KonqPopupMenu/Plugin
+Type = Service
+X-KDE-Priority = TopLevel
+X-KDE-StartupNotify = false
+X-KDE-Submenu = Convert to
+X-KDE-Submenu[ca] = Convertir a
+X-KDE-Submenu[de] = Konvertiere zu
+X-KDE-Submenu[el] = Μετατροπή σε
+X-KDE-Submenu[es] = Convertir a
+X-KDE-Submenu[fr] = Convertir en
+X-KDE-Submenu[it] = Converti in
+X-KDE-Submenu[ja] = 変換
+X-KDE-Submenu[ka] = გადაყვანა
+X-KDE-Submenu[nl] = Converteren naar
+X-KDE-Submenu[pt] = Convirta em
+X-KDE-Submenu[ro] = Converteste la
+X-KDE-Submenu[uk] = Конвертувати в
+
+[Desktop Action png]
+Exec = filename=%f; convert %f ${filename%.*}.png
+Icon = image-png
+Name = PNG image
+Name[ca] = Imatge PNG
+Name[de] = PNG Bild
+Name[el] = Εικόνα PNG
+Name[es] = Imagen PNG
+Name[fr] = Image PNG
+Name[it] = Immagine PNG
+Name[ja] = PNG画像
+Name[ka] = PNG სურათი
+Name[nl] = PNG afbeelding
+Name[pt] = Imagem PNG
+Name[ro] = Imagine PNG
+Name[uk] = Зображення PNG
+
+[Desktop Action mogrify]
+Exec = mogrify -format png %f.jpg
+Icon = image-png
+Name = PNG image with Mogrify
+Name[ca] = Imatge PNG amb Mogrify
+Name[de] = PNG Bild mit Mogrify
+Name[el] = Εικόνα PNG με Mogrify
+Name[es] = Imagen PNG con Mogrify
+Name[fr] = Image PNG avec Mogrify
+Name[it] = Immagine PNG con Mogrify
+Name[ja] = Mogrifyを使ったPNG画像
+Name[ka] = Mogrify-ის გამო PNG სურათი
+Name[nl] = PNG afbeelding met Mogrify
+Name[pt] = Imagem PNG com Mogrify
+Name[ro] = Imagine PNG cu Mogrify
+Name[uk] = Зображення PNG з використанням Mogrify

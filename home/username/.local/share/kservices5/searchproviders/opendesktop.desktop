@@ -1,0 +1,8 @@
+[Desktop Entry]
+Charset = UTF-8
+Hidden = false
+Icon = opendesktop
+Keys = opendesktop
+Name = OpenDesktop
+Query = https://www.opendesktop.org/content/search.php?search=Search&Name=\\{@}
+Type = Service

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Charset = UTF-8
+Hidden = false
+Icon = wolfram
+Keys = wolfram
+Name = Wolfram Alpha
+Query = https://www.wolframalpha.com/input/?i=\\{@}
+Type = Service

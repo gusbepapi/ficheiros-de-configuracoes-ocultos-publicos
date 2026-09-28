@@ -1,0 +1,10 @@
+[Desktop Entry]
+Charset = UTF-8
+Hidden = false
+Icon = google-maps
+Keys = ggmaps
+Name = Google Maps
+Name[it] = Mappe di Google
+Name[uk] = Карти Google
+Query = https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
+Type = Service

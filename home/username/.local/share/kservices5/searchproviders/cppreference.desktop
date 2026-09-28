@@ -1,0 +1,20 @@
+[Desktop Entry]
+Charset = UTF-8
+Hidden = false
+Icon = cpplus
+Keys = cppref
+Name = "C++ Reference"
+Name[ca] = "Referència de C++"
+Name[de] = "C++ Referenz"
+Name[el] = "Αναφορά C++"
+Name[es] = "Referencia de C++"
+Name[fr] = "Référence de C++"
+Name[it] = "Riferimento di C++"
+Name[ja] = "C++リファレンス"
+Name[ka] = "C++ რეფერენცია"
+Name[nl] = "C++ Referentie"
+Name[pt] = "Referência de C++"
+Name[ro] = "Referință C++"
+Name[uk] = "Довідник C++"
+Query = https://cppreference.com/w/?search=\\{@}
+Type = Service

@@ -1,0 +1,45 @@
+[Desktop Entry]
+Actions = me; cp; 
+Icon = application-x-shellscript
+MimeType = application/x-shellscript; application/x-ruby; text/x-python; application/x-executable
+ServiceTypes = KonqPopupMenu/Plugin
+Type = Service
+X-KDE-Priority = TopLevel
+X-KDE-StartupNotify = false
+X-KDE-Submenu = Script
+X-KDE-Submenu[it] = Script
+
+[Desktop Action me]
+Exec = chmod au+x "%f"
+Icon = system-run
+Name = Making it executable
+Name[ca] = Fer-lo executable
+Name[de] = Ausführbar machen
+Name[el] = Κάντε το εκτελέσιμο
+Name[es] = Hacerlo ejecutable
+Name[fr] = Rendre exécutable
+Name[it] = Rendirlo eseguibile
+Name[ja] = 実行可能にする
+Name[ka] = გაშვებადი გახსნა
+Name[nl] = Uitvoerbaar maken
+Name[pt] = Torná-lo executável
+Name[ro] = Faceți-l executabil
+Name[uk] = Зробити виконуваним
+
+[Desktop Action cp]
+Exec = kdesu -d --noignorebutton -c 'sudo cp "%f" /usr/bin/'
+Icon = password-copy
+Name = Copying to /usr/bin
+Name[ca] = Copiant a /usr/bin
+Name[de] = In /usr/bin kopieren
+Name[el] = Αντιγραφή στο /usr/bin
+Name[es] = Copiar a /usr/bin
+Name[fr] = Copier dans /usr/bin
+Name[it] = Copiare in /usr/bin
+Name[ja] = /usr/bin にコピー
+Name[ka] = /usr/bin ში კოპირება
+Name[nl] = Kopiëren naar /usr/bin
+Name[pt] = Copiar na /usr/bin
+Name[ro] = Copiere în /usr/bin
+Name[uk] = Копіювати до /usr/bin
+

@@ -1,0 +1,21 @@
+[Desktop Entry]
+Charset = UTF-8
+Hidden = false
+Icon = priberam
+Keys = priberam
+Name = Priberam Dictionary of the Portuguese Language
+Name[ca] = Diccionari Priberam de la Llengua Portuguesa
+Name[de] = Priberam Wörterbuch der portugiesischen Sprache
+Name[el] = Λεξικό Priberam της Πορτογαλικής Γλώσσας
+Name[es] = Diccionario Priberam de la Lengua Portuguesa
+Name[fr] = Dictionnaire Priberam de la langue portugaise
+Name[it] = Dizionario Priberam della lingua portoghese
+Name[ja] = Priberam ポルトガル語辞書
+Name[ka] = პორტუგალიური ენის პრიბერამის ლექსიკონი
+Name[nl] = Priberam Woordenboek van de Portugese Taal
+Name[pt] = Dicionário Priberam da Língua Portuguesa
+Name[ro] = Dicționarul Priberam al limbii portugheze
+Name[uk] = Пріберамський словник португальської мови
+Query = http://www.priberam.pt/dlpo/\\{@}
+Type = Service
+X-KDE-ServiceTypes = SearchProvider

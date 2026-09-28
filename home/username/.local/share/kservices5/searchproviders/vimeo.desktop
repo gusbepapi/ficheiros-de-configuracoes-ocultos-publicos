@@ -1,0 +1,8 @@
+[Desktop Entry]
+Charset = UTF-8
+Hidden = false
+Icon = vimeo
+Keys = vimeo
+Name = Vimeo
+Query = https://vimeo.com/search?q=\\{@}
+Type = Service

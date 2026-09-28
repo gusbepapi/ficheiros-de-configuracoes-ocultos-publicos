@@ -1,0 +1,8 @@
+[Desktop Entry]
+Charset = UTF-8
+Hidden = false
+Icon = amazon
+Keys = amz
+Name = Amazon
+Query = https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
+Type = Service

@@ -1,0 +1,19 @@
+[Desktop Entry]
+Charset = UTF-8
+Hidden = false
+Icon = python
+Keys = pyref
+Name = Python Reference Manual
+Name[ca] = Manual de Referència de Python
+Name[de] = Python Handbuch
+Name[el] = Εγχειρίδιο Αναφοράς Python
+Name[es] = Manual de Referencia de Python
+Name[fr] = Manuel de Référence de Python
+Name[it] = Manuale di Riferimento di Python
+Name[ja] = Python リファレンスマニュアル
+Name[ka] = Python-ის სახელმძღვანელო
+Name[nl] = Python Referentie Handleiding
+Name[pt] = Manual de Referência do Python
+Name[uk] = Довідник з Python
+Query = https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
+Type = Service

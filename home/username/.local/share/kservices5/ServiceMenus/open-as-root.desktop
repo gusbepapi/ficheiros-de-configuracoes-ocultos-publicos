@@ -1,0 +1,22 @@
+[Desktop Entry]
+Actions = OpenAsRootKDE5
+Icon = system-file-manager
+ServiceTypes = KonqPopupMenu/Plugin; inode/directory; inode/directory-locked
+Type = Service
+
+[Desktop Action OpenAsRootKDE5]
+Exec = pkexec env DISPLAY = $DISPLAY XAUTHORITY = $XAUTHORITY KDE_SESSION_VERSION = 5 KDE_FULL_SESSION = true dolphin %U
+Icon = system-file-manager
+Name = Open as Root
+Name[ca] = Obre com a dreta
+Name[de] = Als Root öffnen
+Name[el] = Άνοιγμα ως διαχειριστής
+Name[es] = Abrir como root
+Name[fr] = Ouvrir en tant que root
+Name[it] = Aprire come root
+Name[ja] = ルートとして開く
+Name[ka] = რუტის როგორც მიმდინარე
+Name[nl] = Openen als root
+Name[pt] = Abrir como root
+Name[ro] = Deschide ca root
+Name[uk] = Відкрити папку з правами рут

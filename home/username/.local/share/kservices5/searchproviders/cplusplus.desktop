@@ -1,0 +1,20 @@
+[Desktop Entry]
+Charset = UTF-8
+Hidden = false
+Icon = cpplus
+Keys = cplus
+Name = "C++ Plus Reference"
+Name[ca] = "Referència de C++ Plus"
+Name[de] = "C++ Plus Referenz"
+Name[el] = "Αναφορά C++ Plus"
+Name[es] = "Referencia de C++ Plus"
+Name[fr] = "Référence de C++ Plus"
+Name[it] = "Riferimento di C++ Plus"
+Name[ja] = "C++ Plusリファレンス"
+Name[ka] = "C++ Plus რეფერენცია"
+Name[nl] = "C++ Plus Referentie"
+Name[pt] = "Referência de C++ Plus"
+Name[ro] = "Referință C++ Plus"
+Name[uk] = "Довідник C++ Plus"
+Query = http://cplusplus.com/search.do?q=\\{@}
+Type = Service

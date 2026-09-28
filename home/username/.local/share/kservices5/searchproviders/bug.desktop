@@ -1,0 +1,14 @@
+[Desktop Entry]
+Charset = UTF-8
+Hidden = false
+Icon = bug
+Keys = kdebugs
+Name = KDE Bugs
+Name[fr] = Bogues de KDE
+Name[it] = Bug di KDE
+Name[ka] = KDE შეცდომები
+Name[pt] = Erros do KDE
+Name[pt_BR] = Erros do KDE
+Name[uk] = Вади KDE
+Query = https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
+Type = Service

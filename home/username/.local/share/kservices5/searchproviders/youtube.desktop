@@ -1,0 +1,8 @@
+[Desktop Entry]
+Charset = UTF-8
+Hidden = false
+Icon = youtube
+Keys = yt
+Name = YouTube
+Query = https://www.youtube.com/results?search_Query=\\{@}&search_type=&aq=f
+Type = Service

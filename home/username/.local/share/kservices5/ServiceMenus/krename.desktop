@@ -1,0 +1,25 @@
+[Desktop Entry]
+Actions = rename;
+Icon = krename
+MimeType = all/all
+ServiceTypes = KonqPopupMenu/Plugin
+Type = Service
+X-KDE-Priority = TopLevel
+X-KDE-StartupNotify = false
+
+[Desktop Action rename]
+Exec = krename %F
+Icon = edit-rename
+Name = Advanced rename options
+Name[ca] = Opcions avançades de renombrament
+Name[de] = Erweiterte Umbenennungsoptionen
+Name[el] = Προχωρημένες επιλογές μετονομασίας
+Name[es] = Opciones avanzadas de renombrado
+Name[fr] = Options de renommage avancées
+Name[it] = Rinomina: opzioni avanzate
+Name[ja] = 高度なリネームオプション
+Name[ka] = გაფართოებული გადარქმევის პარამეტრები
+Name[nl] = Geavanceerde hernoemopties
+Name[pt] = Opções avançadas de renomear
+Name[ro] = Opțiuni avansate de redenumire
+Name[uk] = Розширені параметри перейменування

@@ -1,0 +1,21 @@
+[Desktop Entry]
+Charset = UTF-8
+Hidden = false
+Icon = dictionary
+Keys = foldoc
+Name = Free Online Dictionary of Computing
+Name[ca] = Diccionari lliure d'informàtica en línia
+Name[de] = Freies Online-Wörterbuch der Informatik
+Name[el] = Ελεύθερο διαδικτυακό λεξικό υπολογιστών
+Name[es] = Diccionario de Computación En Línea y Gratuito
+Name[fr] = Dictionnaire Gratuit et en Ligne de l'Informatique
+Name[it] = Dizionario Informatico Libero in Rete
+Name[ja] = 無料オンラインコンピュータ用辞書
+Name[ka] = გამოთვლითი ტექნიკის უფასო ონლაინ ლექსიკონი
+Name[nl] = Gratis Online Woordenboek van Informatica
+Name[pt] = Dicionário Livre de Computação em Linha
+Name[pt_BR] = Dicionário de Computação Online Gratuito
+Name[ro] = Dicționar Online Gratuit despre Calculatoare
+Name[uk] = Вільний Словник з Інформатики в Мережі
+Query = https://foldoc.org/\\{@}
+Type = Service

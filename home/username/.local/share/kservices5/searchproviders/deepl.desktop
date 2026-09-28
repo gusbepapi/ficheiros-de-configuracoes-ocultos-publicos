@@ -1,0 +1,8 @@
+[Desktop Entry]
+Charset = UTF-8UTF-8
+Hidden = false
+Icon = deepl
+Keys = deepl
+Name = DeepL
+Query = https://www.deepl.com/translator#any/any/\\{@}
+Type = Service

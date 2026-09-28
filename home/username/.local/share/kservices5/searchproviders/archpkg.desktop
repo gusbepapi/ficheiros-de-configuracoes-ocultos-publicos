@@ -1,0 +1,21 @@
+[Desktop Entry]
+Charset = UTF-8
+Hidden = false
+Icon = archlinux
+Keys = apkg
+Name = Arch Linux Package Search
+Name[ca] = Cerca de paquets d'Arch Linux
+Name[de] = Arch Linux Paketsuche
+Name[el] = Αναζήτηση πακέτων Arch Linux
+Name[es] = Búsqueda de paquetes de Arch Linux
+Name[fr] = Recherche de paquets d’Arch Linux
+Name[it] = Ricerca pacchetti di Arch Linux
+Name[ja] = Arch Linux パッケージ検索
+Name[ka] = Arch Linux-ის პაკეტების ძებნა
+Name[nl] = Arch Linux pakket zoeken
+Name[pt] = Procura de Pacotes do Arch Linux
+Name[pt_BR] = Pesquisa de pacotes Arch Linux
+Name[ro] = Căutare pachete Arch Linux
+Name[uk] = Пошук пакунків для Arch Linux
+Query = https://www.archlinux.org/packages/?q=\\{@}
+Type = Service

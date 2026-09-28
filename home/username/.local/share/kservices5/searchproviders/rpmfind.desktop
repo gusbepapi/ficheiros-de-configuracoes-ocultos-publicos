@@ -1,0 +1,20 @@
+[Desktop Entry]
+Charset = UTF-8
+Hidden = false
+Icon = redhat
+Keys = rpmfind
+Name = RPM Find
+Name[ca] = Busca de paquets de RPM
+Name[de] = RPM Suche
+Name[el] = RPM Αναζήτηση
+Name[es] = Búsqueda de paquetes de RPM
+Name[fr] = Recherche de paquets RPM
+Name[it] = Ricerca di RPM
+Name[ja] = RPM パッケージ検索
+Name[ka] = RPM პაკეტების ძიება
+Name[nl] = RPM Zoeken
+Name[pt] = Pesquisa de Pacotes de RPM
+Name[ro] = Căutare Pachete RPM
+Name[uk] = Пошук Пакетів RPM
+Query = https://www.rpmfind.net/linux/rpm2html/search.php?Query=\\{@}
+Type = Service

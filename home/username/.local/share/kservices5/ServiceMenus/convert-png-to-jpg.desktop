@@ -1,0 +1,38 @@
+[Desktop Entry]
+Actions = jpg
+Icon = image-png
+MimeType = image/png;
+ServiceTypes = KonqPopupMenu/Plugin
+Type = Service
+X-KDE-Priority = TopLevel
+X-KDE-StartupNotify = false
+X-KDE-Submenu = Convert to
+X-KDE-Submenu[ca] = Convertir a
+X-KDE-Submenu[de] = Konvertiere zu
+X-KDE-Submenu[el] = Μετατροπή σε
+X-KDE-Submenu[es] = Convertir a
+X-KDE-Submenu[fr] = Convertir en
+X-KDE-Submenu[it] = Converti in
+X-KDE-Submenu[ja] = 変換
+X-KDE-Submenu[ka] = გადაყვანა
+X-KDE-Submenu[nl] = Converteren naar
+X-KDE-Submenu[pt] = Convirta em
+X-KDE-Submenu[ro] = Converteste la
+X-KDE-Submenu[uk] = Конвертувати в
+
+[Desktop Action jpg]
+Exec = filename=%f; convert %f ${filename%.*}.jpg
+Icon = image-jpg
+Name[ca] = Imatge JPG
+Name[de] = JPG Bild
+Name[el] = Εικόνα JPG
+Name[es] = Imagen JPG
+Name[fr] = Image JPG
+Name[it] = Immagine JPG
+Name[ja] = JPG 画像
+Name[ka] = JPG სურათი
+Name[nl] = JPG afbeelding
+Name[pt] = Imagem JPG
+Name[ro] = Imagine JPG
+Name[uk] = Зображення JPG
+

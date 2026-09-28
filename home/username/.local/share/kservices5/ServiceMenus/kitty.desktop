@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=KonqPopupMenu/Plugin,inode/directory
+Actions=openQTerminalHere;
+X-KDE-AuthorizeAction=shell_access
+
+[Desktop Action openQTerminalHere]
+Name=Open Kitty here
+Icon=utilities-terminal
+Exec=/usr/bin/Kitty --workdir %f

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Charset = UTF-8
+Hidden = false
+Icon = flickr
+Keys = flickrcc
+Name = Flickr Creative Commons
+Query = https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
+Type = Service

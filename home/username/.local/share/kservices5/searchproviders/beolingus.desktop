@@ -1,0 +1,20 @@
+[Desktop Entry]
+Charset = UTF-8
+Hidden = false
+Icon = beolingus
+Keys = beo
+Name = Beolingus Online Dictionary
+Name[ca] = Diccionari Online Beolingus
+Name[de] = Beolingus Online Wörterbuch
+Name[el] = Εγχειρίδιο Λεξικού Beolingus
+Name[es] = Diccionario Online Beolingus
+Name[fr] = Dictionnaire Online Beolingus
+Name[it] = Dizionario Online Beolingus
+Name[ja] = Beolingusオンライン辞書
+Name[ka] = Beolingus ონლაინ ლექსიკონი
+Name[nl] = Beolingus Online Woordenboek
+Name[pt] = Dicionário Online Beolingus
+Name[ro] = Dicționar Online Beolingus
+Name[uk] = Beolingus Online Словник
+Query = https://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&Query=\\{@}&iservice=&comment=&email
+Type = Service

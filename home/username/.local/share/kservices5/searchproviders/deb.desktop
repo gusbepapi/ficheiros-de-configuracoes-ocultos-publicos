@@ -1,0 +1,20 @@
+[Desktop Entry]
+Charset = UTF-8
+Hidden = false
+Icon = debian
+Keys = deb
+Name = Debian Package Search
+Name[ca] = Cerca de paquets de Debian
+Name[de] = Debian-Paket-Suche
+Name[el] = Αναζήτηση πακέτων Debian
+Name[es] = Búsqueda de paquetes de Debian
+Name[fr] = Recherche de paquets de Debian
+Name[it] = Ricerca di pacchetti di Debian
+Name[ja] = Debian パッケージ検索
+Name[ka] = Debian პაკეტების ძებნა
+Name[nl] = Debian pakket zoeken
+Name[pt] = Pesquisa de pacotes de Debian
+Name[ro] = Căutare pachete Debian
+Name[uk] = Пошук пакетів Debian
+Query = https://packages.debian.org/\\{@}
+Type = Service

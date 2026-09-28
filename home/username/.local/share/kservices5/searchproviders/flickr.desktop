@@ -1,0 +1,8 @@
+[Desktop Entry]
+Charset = UTF-8
+Hidden = false
+Icon = flickr
+Keys = flickr
+Name = Flickr
+Query = https://www.flickr.com/search/?q=\\{@}
+Type = Service

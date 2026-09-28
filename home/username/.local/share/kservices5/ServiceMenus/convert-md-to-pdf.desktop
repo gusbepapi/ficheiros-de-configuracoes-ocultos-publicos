@@ -1,0 +1,79 @@
+[Desktop Entry]
+Actions = A4; smartphone; eReader; default
+Icon = text-markdown
+MimeType = text/markdown
+ServiceTypes = KonqPopupMenu/Plugin
+Type = Service
+X-KDE-Priority = TopLevel
+X-KDE-StartupNotify = false
+X-KDE-Submenu = Export as
+X-KDE-Submenu[it] = Esporta come
+X-KDE-Submenu[pt] = Exporta como
+
+[Desktop Action A4]
+Exec = filename=%f; pandoc -V geometry:margin=0.95in -o "${filename%.*}.pdf" %f
+Icon = application-pdf
+Name = PDF document (A4)
+Name[ca] = Document PDF (A4)
+Name[de] = PDF Dokument (A4)
+Name[el] = Έγγραφο PDF (A4)
+Name[es] = Documento PDF (A4)
+Name[fr] = Document PDF (A4)
+Name[it] = Documento PDF (A4)
+Name[ja] = PDF ドキュメント (A4)
+Name[ka] = PDF დოკუმენტი (A4)
+Name[nl] = PDF document (A4)
+Name[pt] = Documento PDF (A4)
+Name[ro] = Document PDF (A4)
+Name[uk] = PDF документ (A4)
+
+[Desktop Action smartphone]
+Exec = filename=%f; pandoc -V geometry:margin=0.2in -V geometry:paperwidth=270pt -V geometry:paperheight=480pt -V fontsize=8pt -o "${filename%.*}.pdf" %f
+Icon = application-pdf
+Name = PDF document (for smartphone)
+Name[ca] = Document PDF (per a smartphone)
+Name[de] = PDF Dokument (für Smartphone)
+Name[el] = Έγγραφο PDF (για smartphone)
+Name[es] = Documento PDF (para smartphone)
+Name[fr] = Document PDF (pour smartphone)
+Name[it] = Documento PDF (per smartphone)
+Name[ja] = PDF ドキュメント (スマートフォン用)
+Name[ka] = PDF დოკუმენტი (სმარტფონისთვის)
+Name[nl] = PDF document (voor smartphone)
+Name[pt] = Documento PDF (para smartphone)
+Name[ro] = Document PDF (pentru smartphone)
+Name[uk] = PDF документ (для смартфону)
+
+[Desktop Action eReader]
+Exec = filename=%f; pandoc -V geometry:margin=0.2in -V geometry:paperwidth=320pt -V geometry:paperheight=400pt -V fontsize=8pt -o "${filename%.*}.pdf" %f
+Icon = application-pdf
+Name = PDF document (for eReader)
+Name[ca] = Document PDF (per a eReader)
+Name[de] = PDF Dokument (für eReader)
+Name[el] = Έγγραφο PDF (για eReader)
+Name[es] = Documento PDF (para eReader)
+Name[fr] = Document PDF (pour eReader)
+Name[it] = Documento PDF (per eReader)
+Name[ja] = PDF ドキュメント (eReader用)
+Name[ka] = PDF დოკუმენტი (eReader-ისთვის)
+Name[nl] = PDF document (voor eReader)
+Name[pt] = Documento PDF (para eReader)
+Name[ro] = Document PDF (pentru eReader)
+Name[uk] = PDF документ (для eReader)
+
+[Desktop Action default]
+Exec = filename=%f; pandoc -o "${filename%.*}.pdf" %f
+Icon = application-pdf
+Name = PDF document (default)
+Name[ca] = Document PDF (per defecte)
+Name[de] = PDF Dokument (Standard)
+Name[el] = Έγγραφο PDF (προεπιλογή)
+Name[es] = Documento PDF (predeterminado)
+Name[fr] = Document PDF (par défaut)
+Name[it] = Documento PDF (default)
+Name[ja] = PDF ドキュメント (デフォルト)
+Name[ka] = PDF დოკუმენტი (ნაგულისხმევი)
+Name[nl] = PDF document (standaard)
+Name[pt] = Documento PDF (padrão)
+Name[ro] = Document PDF (implicit)
+Name[uk] = PDF документ (за замовчуванням)

@@ -1,0 +1,18 @@
+[Desktop Entry]
+Charset = UTF-8
+Hidden = false
+Icon = citeseer
+Keys = cite
+Name = CiteSeer: Scientific Literature Digital Library
+Name[ca] = CiteSeer: Biblioteca digital de literatura científica
+Name[el] = CiteSeer: Ψηφιακή Βιβλιοθήκη Επιστημονικής Βιβλιογραφίας
+Name[es] = CiteSeer: Biblioteca Digital de Literatura Científica
+Name[fr] = CiteSeer : Bibliothèque Numérique de Littérature Scientifique
+Name[it] = CiteSeer: Biblioteca Digitale di Letteratura Scientifica
+Name[ja] = CiteSeer: 科学文献デジタルライブラリ
+Name[ka] = CiteSeer: სცენარული ლიტერატური დიგიტალური ბიბლიოთეკა
+Name[nl] = CiteSeer: Scientific Literature Digital Library
+Name[pt] = CiteSeer: Biblioteca Digital de Literatura Científica
+Name[uk] = CiteSeer: Цифрова Бібліотека Наукової Літератури
+Query = https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
+Type = Service

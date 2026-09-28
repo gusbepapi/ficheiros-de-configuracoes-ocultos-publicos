@@ -1,0 +1,21 @@
+[Desktop Entry]
+Charset = UTF-8
+Hidden = false
+Icon = dictionary
+Keys = merriam
+Name = Merriam-Webster Dictionary
+Name[ca] = Diccionari Merriam-Webster
+Name[de] = Merriam-Webster Wörterbuch
+Name[el] = Λεξικό Merriam-Webster
+Name[es] = Diccionario Merriam-Webster
+Name[fr] = Dictionnaire Merriam-Webster
+Name[it] = Dizionario Merriam-Webster
+Name[ja] = メリアム・ウェブスター辞書
+Name[ka] = მერიამ-ვებსტერის ლექსიკონი
+Name[nl] = Woordenboek Merriam-Webster
+Name[pt] = Dicionário Merriam-Webster
+Name[ro] = Dicționar Merriam-Webster
+Name[uk] = Словник Merriam-Webster
+Query = http://www.m-w.com/cgi-bin/dictionary?book=Dictionary&va=\\{@}
+Type = Service
+X-KDE-ServiceTypes = SearchProvider

@@ -1,0 +1,21 @@
+[Desktop Entry]
+Charset = UTF-8
+Hidden = false
+Icon = wiktionary
+Keys = wikten
+Name = Wiktionary English
+Name[ca] = Wikcionari Anglès
+Name[de] = Wiktionary Englisch
+Name[el] = Βικιλεξικό Αγγλικά
+Name[es] = Wikcionario Inglés
+Name[fr] = Wiktionnaire Anglais
+Name[it] = Wikizionario Inglese
+Name[ja] = ウィクショナリー英語
+Name[ka] = ინგლისური ვიქტონარი
+Name[nl] = Wiktionary Engels
+Name[pt] = Wikcionário Inglês
+Name[ro] = Wikționar Englez
+Name[uk] = Вікісловник англійською
+Query = http://en.wiktionary.org/wiki/\\{@}
+Type = Service
+X-KDE-ServiceTypes = SearchProvider

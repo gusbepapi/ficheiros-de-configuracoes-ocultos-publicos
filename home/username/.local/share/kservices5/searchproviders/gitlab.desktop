@@ -1,0 +1,8 @@
+[Desktop Entry]
+Charset = UTF-8
+Hidden = false
+Icon = gitlab
+Keys = glab
+Name = GitLab
+Query = https://gitlab.com/search?search=\\{@}
+Type = Service

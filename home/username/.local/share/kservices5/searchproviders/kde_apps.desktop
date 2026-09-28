@@ -1,0 +1,19 @@
+[Desktop Entry]
+Charset = UTF-8
+Hidden = false
+Icon = kde-apps
+Keys = kdeapps
+Name = KDE App Search
+Name[ca] = Cerca d'Aplicacions di KDE
+Name[de] = KDE Programmsuche
+Name[el] = Αναζήτηση Εφαρμογών του KDE
+Name[es] = Búsqueda de Aplicaciones de KDE
+Name[fr] = Chercher dans les Applications de KDE
+Name[it] = Ricerca di Applicazioni per KDE
+Name[ka] = KDE App ძებნა
+Name[nl] = KDE-programma's zoeken
+Name[pt] = Pesquisa de Aplicações do KDE
+Name[pt_BR] = Pesquisa por Aplicativos do KDE
+Name[uk] = Пошук Програм KDE
+Query = https://www.kde-apps.org/content/search.php?search=Search&Name=\\{@}
+Type = Service

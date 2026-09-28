@@ -1,0 +1,31 @@
+[Desktop Entry]
+Actions = combine
+Icon = application-pdf
+MimeType = application/pdf;
+ServiceTypes = KonqPopupMenu/Plugin
+Type = Service
+X-KDE-Priority = TopLevel
+X-KDE-RequiredNumberOfUrls = 2, 3, 4, 5, 6, 7, 8, 9, 10
+X-KDE-StartupNotify = false
+X-KDE-Submenu[de] = Aktionen
+X-KDE-Submenu[pt] = Ações
+X-KDE-Submenu = Actions
+
+[Desktop Action combine]
+Exec = gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=combined.pdf %U
+Icon = application-pdf
+Name = Combine *.pdf documents
+Name[ca] = Combinar documents *.pdf
+Name[de] = Kombiniere *.pdf Dokumente
+Name[el] = Συνδυασμός *.pdf εγγράφων
+Name[es] = Combinar documentos *.pdf
+Name[fr] = Combiner des documents *.pdf
+Name[it] = Unire i documenti *.pdf
+Name[ja] = *.pdf ドキュメントを結合
+Name[ka] = შეერთეთ *.pdf დოკუმენტები
+Name[nl] = *.pdf documenten combineren
+Name[pt] = Combinar *.pdf Documents
+Name[ro] = Combinăre documente *.pdf
+Name[uk] = Об'єднати *.pdf документи
+TryExec = gs
+

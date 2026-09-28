@@ -1,0 +1,21 @@
+[Desktop Entry]
+Charset = UTF-8
+Hidden = false
+Icon = google-shopping
+Keys = ggshop
+Name = Google Shopping
+Name[ca] = Compres de Google
+Name[de] = Google Shopping
+Name[el] = Google Αγορές
+Name[es] = Compras de Google
+Name[fr] = Boutique « Google »
+Name[it] = Acquisti di Google
+Name[ja] = Google ショッピング
+Name[ka] = Google საყიდლები
+Name[nl] = Google Shopping
+Name[pt] = Compras do Google
+Name[pt_BR] = Google Shopping
+Name[ro] = Cumpărături Google
+Name[uk] = Google Shopping
+Query = https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
+Type = Service

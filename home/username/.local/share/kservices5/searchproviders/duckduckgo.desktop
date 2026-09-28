@@ -1,0 +1,8 @@
+[Desktop Entry]
+Charset = UTF-8
+Hidden = false
+Icon = duckduckgo
+Keys = ddg
+Name = DuckDuckGo
+Query = https://duckduckgo.com/?q=\\{@}&t=kde
+Type = Service

@@ -1,0 +1,39 @@
+[Desktop Entry]
+Actions = openTerminalHere;
+MimeType = inode/directory;
+Type = Service
+X-KDE-AuthorizeAction = shell_access
+X-KDE-ServiceTypes = KonqPopupMenu/Plugin
+
+[Desktop Action openTerminalHere]
+Comment = Opens a terminal at the current folder
+Comment[ca] = Obre un terminal en la carpeta actual
+Comment[de] = Öffnet ein Terminal in dem aktuellen Ordner
+Comment[el] = Ανοίγει τερματικό στον τρέχοντα φάκελο
+Comment[es] = Abre una terminal en la carpeta actual
+Comment[eu] = Terminal bat irekitzen du uneko karpetan
+Comment[fr] = Ouvre un terminal dans le dossier courant
+Comment[it] = Apre un terminale alla cartella attuale
+Comment[ja] = 現在のフォルダでターミナルを開く
+Comment[ka] = ამ ფოლდერში ტერმინალის გახსნა
+Comment[nl] = Opent een terminal in de huidige map
+Comment[pt_BR] = Abre um terminal na pasta atual
+Comment[pt] = Abre um terminal na pasta actual
+Comment[uk] = Відкрити термінал у поточній теці
+Exec = tilix -w %f
+Icon = utilities-terminal
+Name[ca] = Obre un terminal aquí
+Name[de] = Terminal hier öffnen
+Name[el] = Άνοιγμα τερματικού εδώ
+Name[es] = Abrir terminal aquí
+Name[fr] = Ouvrir un terminal ici
+Name[it] = Apri terminale qui
+Name[ja] = ここでターミナルを開く
+Name[ka] = ტერმინალის აქ გახსნა
+Name[nl] = Terminal openen
+Name[pt_BR] = Abrir o terminal aqui
+Name[pt] = Abrir um terminal Aqui
+Name[ro] = Deschide un terminal aici
+Name[uk] = Відкрити термінал
+Name = Open the terminal here
+TryExec = tilix

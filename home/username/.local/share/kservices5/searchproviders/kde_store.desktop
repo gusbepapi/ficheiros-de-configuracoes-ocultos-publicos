@@ -1,0 +1,13 @@
+[Desktop Entry]
+Charset = UTF-8
+Hidden = false
+Icon = kde-apps
+Keys = kdestore
+Name = KDE Store
+Name[fr] = Boutique de KDE
+Name[pt] = Loja do KDE
+Name[pt_BR] = KDE Store
+Name[ro] = Magazin KDE
+Name[uk] = Крамниця KDE
+Query = https://store.kde.org/content/search.php?search=Search&Name=\\{@}
+Type = Service

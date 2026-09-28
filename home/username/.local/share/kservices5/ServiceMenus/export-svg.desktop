@@ -1,0 +1,87 @@
+[Desktop Entry]
+Actions = svg2pngInkscape; svg2pdfInkscape; svg2pngR; svg2pdfR;
+Icon = image-svg+xml
+MimeType = image/svg+xml;image/svg+xml-compressed;
+ServiceTypes = KonqPopupMenu/Plugin
+Type = Service
+X-KDE-Priority = TopLevel
+X-KDE-StartupNotify = false
+X-KDE-Submenu = Export as
+X-KDE-Submenu[ca] = Exportar com
+X-KDE-Submenu[de] = Als exportieren
+X-KDE-Submenu[el] = Εξαγωγή ως
+X-KDE-Submenu[es] = Exportar como
+X-KDE-Submenu[fr] = Exporter comme
+X-KDE-Submenu[it] = Esportare come
+X-KDE-Submenu[ja] = としてエクスポート
+X-KDE-Submenu[ka] = ექსპორტი როგორც
+X-KDE-Submenu[nl] = Exporteren als
+X-KDE-Submenu[pt] = Exportare como
+X-KDE-Submenu[ro] = Exportă ca
+X-KDE-Submenu[uk] = Експортувати як
+
+[Desktop Action svg2pngInkscape]
+Exec = filename=%f; inkscape -z -e="${filename%.*}.png" %f
+Icon = image-png
+Name = PNG image with Inkscape (more accurate)
+Name[ca] = Imatge PNG amb Inkscape (més precís)
+Name[de] = PNG-Bild mit Inkscape (genauer)
+Name[el] = Εικόνα PNG με το Inkscape (πιο ακριβής)
+Name[es] = Imagen PNG con Inkscape (más preciso)
+Name[fr] = Image PNG avec Inkscape (plus précis)
+Name[it] = Immagine PNG con Inkscape (più accurato)
+Name[ja] = Inkscape で PNG 画像 (より正確)
+Name[ka] = PNG სურათი Inkscape-ით (უფრო დამატებითი)
+Name[nl] = PNG-afbeelding met Inkscape (meer nauwkeurig)
+Name[pt] = Imagem PNG com Inkscape (mais precioso)
+Name[ro] = Imagine PNG cu Inkscape (mai precis)
+Name[uk] = PNG зображення з Inkscape (більш точно)
+
+[Desktop Action svg2pdfInkscape]
+Exec = filename=%f; inkscape -z -A="${filename%.*}.pdf" %f
+Icon = application-pdf
+Name = PDF document with Inkscape (more accurate)
+Name[ca] = Document PDF amb Inkscape (més precís)
+Name[de] = PDF-Dokument mit Inkscape (genauer)
+Name[el] = Έγγραφο PDF με το Inkscape (πιο ακριβής)
+Name[es] = Documento PDF con Inkscape (más preciso)
+Name[fr] = Document PDF avec Inkscape (plus précis)
+Name[it] = Documento PDF con Inkscape (più accurato)
+Name[ja] = Inkscape で PDF ドキュメント (より正確)
+Name[ka] = PDF დოკუმენტი Inkscape-ით (უფრო დამატებითი)
+Name[nl] = PDF-document met Inkscape (meer nauwkeurig)
+Name[pt] = Documento PDF com Inkscape (mais precioso)
+Name[ro] = Document PDF cu Inkscape (mai precis)
+Name[uk] = PDF документ з Inkscape (більш точно)
+
+[Desktop Action svg2pngR]
+Exec = filename=%f; rsvg-convert %f -o "${filename%.*}.png"
+Icon = image-png
+Name = PNG image with GNOME's rsvg (faster)
+Name[ca] = Imatge PNG amb rsvg de GNOME (més ràpid)
+Name[de] = PNG-Bild mit GNOME's rsvg (schneller)
+Name[el] = Εικόνα PNG με το GNOME's rsvg (γρηγορότερη)
+Name[es] = Imagen PNG con rsvg de GNOME (más rápido)
+Name[fr] = Image PNG avec rsvg de GNOME (plus rapide)
+Name[it] = Immagine PNG con rsvg di GNOME (più veloce)
+Name[ja] = GNOME の rsvg で PNG 画像 (より速い)
+Name[ka] = PNG სურათი GNOME-ის rsvg-ით (უფრო სწრაფი)
+Name[pt] = Imagem PNG com rsvg do GNOME (mais rápido)
+Name[ro] = Imagine PNG cu rsvg de GNOME (mai rapid)
+Name[uk] = PNG зображення з GNOME's rsvg (швидше)
+
+[Desktop Action svg2pdfR]
+Exec = filename=%f; rsvg-convert -f pdf %f -o "${filename%.*}.pdf"
+Icon = application-pdf
+Name = PDF document with GNOME's rsvg (faster)
+Name[ca] = Document PDF amb rsvg de GNOME (més ràpid)
+Name[de] = PDF-Dokument mit GNOME's rsvg (schneller)
+Name[el] = Έγγραφο PDF με το GNOME's rsvg (γρηγορότερη)
+Name[es] = Documento PDF con rsvg de GNOME (más rápido)
+Name[fr] = Document PDF avec rsvg de GNOME (plus rapide)
+Name[it] = Documento PDF con rsvg di GNOME (più veloce)
+Name[ja] = GNOME の rsvg で PDF ドキュメント (より速い)
+Name[ka] = PDF დოკუმენტი GNOME-ის rsvg-ით (უფრო სწრაფი)
+Name[pt] = Documento PDF com rsvg do GNOME (mais rápido)
+Name[ro] = Document PDF cu rsvg de GNOME (mai rapid)
+Name[uk] = PDF документ з GNOME's rsvg (швидше)

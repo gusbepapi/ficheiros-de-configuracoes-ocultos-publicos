@@ -1,0 +1,9 @@
+[Desktop Entry]
+Charset = UTF-8UTF-8
+Hidden = false
+Icon = im-google
+Keys = gg
+Name = Google
+Query = https://www.google.com/search?q=\\{@}&ie=UTF-8
+Query[ca] = https://www.google.cat/search?q=\\{@}&ie=UTF-8
+Type = Service

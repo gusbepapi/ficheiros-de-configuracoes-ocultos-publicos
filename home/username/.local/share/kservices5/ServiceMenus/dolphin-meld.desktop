@@ -1,0 +1,70 @@
+[Desktop Entry]
+Actions = meldCompareEachOther; meldSaveForCompare; meldCompareTo;
+MimeType = all/all;
+ServiceTypes = KonqPopupMenu/Plugin
+Type = Service
+X-KDE-Priority = TopLevel
+X-KDE-StartupNotify = false
+X-KDE-Submenu = Compare
+X-KDE-Submenu[ca] = Comparar
+X-KDE-Submenu[de] = Vergleichen
+X-KDE-Submenu[el] = Σύγκριση
+X-KDE-Submenu[es] = Comparar
+X-KDE-Submenu[fr] = Comparer
+X-KDE-Submenu[it] = Confrontare
+X-KDE-Submenu[ja] = 比較
+X-KDE-Submenu[ka] = შედარება
+X-KDE-submenu[nl] = Vergelijken
+X-KDE-submenu[pt] = Comparar
+X-KDE-Submenu[ro] = Comparare
+X-KDE-Submenu[uk] = Порівняти
+
+[Desktop Action meldCompareEachOther]
+Exec = meld %U; rm /tmp/meld_file.tmp;
+Icon = document-preview
+Name = Compare each other (Meld)
+Name[ca] = Comparar entre ells (Meld)
+Name[de] = Miteinander vergleichen (Meld)
+Name[el] = Σύγκριση μεταξύ τους (Meld)
+Name[es] = Comparar entre sí (Meld)
+Name[fr] = Comparer entre eux (Meld)
+Name[it] = Confronta l'uno con l'altro (Meld)
+Name[ja] = お互いを比較 (Meld)
+Name[ka] = შედარება ერთმანეთს (Meld)
+Name[nl] = Beide vergelijken (Meld)
+Name[pt] = Comparar um ao outro (Meld)
+Name[ro] = Comparare între ele (Meld)
+Name[uk] = Порівняти між собою (Meld)
+
+[Desktop Action meldSaveForCompare]
+Exec = echo "%U" > /tmp/meld_file.tmp
+Icon = bookmark-new
+Name = Select for compare (Meld)
+Name[ca] = Seleccionar per comparar (Meld)
+Name[de] = Zum Vergleich auswählen (Meld)
+Name[el] = Επιλογή για σύγκριση (Meld)
+Name[es] = Seleccionar para comparar (Meld)
+Name[fr] = Sélectionner pour comparer (Meld)
+Name[it] = Salva per il confronto (Meld)
+Name[ja] = 比較するファイルを選択 (Meld)
+Name[ka] = შედარებისთვის არჩევა (Meld)
+Name[nl] = Selecteer om te vergelijken (Meld)
+Name[pt] = Selecionar para comparar (Meld)
+Name[ro] = Selectați pentru a compara (Meld)
+Name[uk] = Вибрати для порівняння (Meld)
+
+[Desktop Action meldCompareTo]
+Exec = meld `cat /tmp/meld_file.tmp` "%U"; rm /tmp/meld_file.tmp;
+Icon = dialog-ok-apply
+Name = Compare (Meld)
+Name[de] = Vergleichen (Meld)
+Name[el] = Σύγκριση (Meld)
+Name[es] = Comparar (Meld)
+Name[fr] = Comparer (Meld)
+Name[it] = Confrontare (Meld)
+Name[ja] = 比較 (Meld)
+Name[ka] = შედარება (Meld)
+Name[nl] = Vergelijken (Meld)
+Name[pt] = Comparar (Meld)
+Name[ro] = Comparare (Meld)
+Name[uk] = Порівняти (Meld)

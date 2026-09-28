@@ -1,0 +1,21 @@
+[Desktop Entry]
+Charset = UTF-8UTF-8
+Hidden = false
+Icon = google-news
+Keys = ggnews
+Name = Google News
+Name[ca] = Notícies de Google
+Name[de] = Google Nachrichten
+Name[el] = Google Νέα
+Name[es] = Noticias de Google
+Name[fr] = Actualités « Google »
+Name[it] = Notizie di Google
+Name[ja] = Google ニュース
+Name[ka] = Google სიახლეები
+Name[nl] = Google Nieuws
+Name[pt] = Notícias Google
+Name[pt_BR] = Google Notícias
+Name[ro] = Știri Google
+Name[uk] = Новини Google
+Query = https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
+Type = Service

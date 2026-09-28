@@ -1,0 +1,21 @@
+[Desktop Entry]
+Charset = UTF-8
+Hidden = false
+Icon = dictionary
+Keys = ende
+Name = dict.cc Translation: English to German
+Name[ca] = dict.cc Traducció: Anglès a Alemany
+Name[de] = dict.cc Übersetzung: Englisch nach Deutsch
+Name[el] = dict.cc Μετάφραση: Αγγλικά σε Γερμανικά
+Name[es] = dict.cc Traducción: Inglés a Alemán
+Name[fr] = dict.cc Traduction: Anglais vers Allemand
+Name[it] = dict.cc Traduzione: Inglese in Tedesco
+Name[ja] = dict.cc 翻訳: 英語からドイツ語
+Name[ka] = dict.cc თარგმანი: ინგლისური ქართულად
+Name[nl] = dict.cc Vertaling: Engels naar Duits
+Name[pt] = dict.cc Tradução: Inglês para Alemão
+Name[ro] = dict.cc Traducere: Engleză în Germană
+Name[uk] = dict.cc Переклад: Англійська на Німецьку
+Query = http://www.dict.cc/?s=\\{@}
+Type = Service
+X-KDE-ServiceTypes = SearchProvider

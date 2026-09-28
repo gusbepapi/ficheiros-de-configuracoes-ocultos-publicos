@@ -1,0 +1,8 @@
+[Desktop Entry]
+Charset = UTF-8
+Hidden = false
+Icon = archlinux
+Keys = archwiki
+Name = Arch Wiki
+Query = https://wiki.archlinux.org/index.php?search=\\{@}
+Type = Service

@@ -1,0 +1,20 @@
+[Desktop Entry]
+Charset = UTF-8
+Hidden = false
+Keys = acro
+Name = Acronym Database
+Name[ca] = Base de dades d'acrònims
+Name[de] = Akronym-Datenbank
+Name[el] = Βάση δεδομένων αρκτικόλεξου
+Name[es] = Base de datos Acronym
+Name[et] = Akronüümide andmebaas
+Name[fr] = Base de données d'acronymes
+Name[it] = Banche dati di acronimi
+Name[ja] = アクロニムデータベース
+Name[ka] = აკრონიმების ბაზა
+Name[nl] = Acroniemen database
+Name[pt] = Base de Dados de Acrónimos
+Name[pt_BR] = Banco de dados de acrônimos
+Name[uk] = База даних акронімів
+Query = https://www.abbreviations.com/\\{@}
+Type = Service

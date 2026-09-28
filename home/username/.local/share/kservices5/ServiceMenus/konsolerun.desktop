@@ -1,0 +1,37 @@
+[Desktop Entry]
+Actions = runInKonsole;
+MimeType = application/x-executable;
+Type = Service
+X-KDE-AuthorizeAction = shell_access
+X-KDE-ServiceTypes = KonqPopupMenu/Plugin
+
+[Desktop Action runInKonsole]
+Comment = Run within terminal
+Comment[ca] = Executa al Tilix
+Comment[de] = In Tilix ausführen
+Comment[el] = Εκτέλεση από την Tilix
+Comment[es] = Ejecutar en Tilix
+Comment[fr] = Exécuter dans Tilix
+Comment[it] = Esegui in Tilix
+Comment[ja] = Tilix で実行
+Comment[ka] = Tilix-ში გაშვება
+Comment[nl] = In Tilix uitvoeren
+Comment[pt] = Executar no Tilix
+Comment[ro] = Rulează în Tilix
+Comment[uk] = Запустити у Tilix
+Exec = tilix -w %f
+Icon = utilities-terminal
+Name = Run with Tilix
+Name[ca] = Executa en el Tilix
+Name[de] = In Tilix ausführen
+Name[el] = Εκτέλεση στο Tilix
+Name[es] = Ejecutar en Tilix
+Name[fr] = Lancer dans Tilix
+Name[it] = Esegui in Tilix
+Name[ja] = Tilix で実行
+Name[ka] = Tilix-ში გაშვება
+Name[nl] = In Tilix uitvoeren
+Name[pt] = Executar no Tilix
+Name[ro] = Rulează în Konsolă
+Name[uk] = Запустити у Tilix
+TryExec = tilix

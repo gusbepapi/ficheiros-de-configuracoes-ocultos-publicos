@@ -1,0 +1,26 @@
+ 
+[Desktop Entry]
+Actions = copy-path
+Encoding = UTF-8
+MimeType = all/all
+ServiceTypes = KonqPopupMenu/Plugin
+Type = Service
+X-KDE-Priority = TopLevel
+
+[Desktop Action copy-path]
+Exec = echo "%U" | tr -d '\n' | xclip -selection clipboard
+Icon = klipper
+MimeType = all/all
+Name = Copy path
+Name[ca] = Copiar el camí
+Name[de] = Pfad kopieren
+Name[el] = Αντιγραφή της διαδρομής
+Name[es] = Copiar la ruta
+Name[fr] = Copier le chemin
+Name[it] = Copiare il percorso
+Name[ja] = パスをコピー
+Name[ka] = გზის კოპირება
+Name[nl] = Pad kopiëren
+Name[pt] = Copiar o caminho
+Name[ro] = Copiază calea
+Name[uk] = Скопіювати шлях

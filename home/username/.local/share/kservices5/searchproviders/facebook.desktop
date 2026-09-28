@@ -1,0 +1,8 @@
+[Desktop Entry]
+Charset = UTF-8
+Hidden = false
+Icon = facebook
+Keys = fb
+Name = Facebook
+Query = https://www.facebook.com/search/?q=\\{@}&init=quick
+Type = Service
