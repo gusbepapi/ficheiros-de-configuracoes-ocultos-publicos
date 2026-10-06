@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-wine-extension-lfp">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>IPRO LFP File</comment>
+  <comment xml:lang="ca">Fitxer IPRO LFP</comment>
+  <comment xml:lang="de">IPRO LFP Datei</comment>
+  <comment xml:lang="el">Αρχείο IPRO LFP</comment>
+  <comment xml:lang="en_GB">IPRO LFP File</comment>
+  <comment xml:lang="es">Archivo IPRO LFP</comment>
+  <comment xml:lang="fr">Fichier IPRO LFP</comment>
+  <comment xml:lang="it">File IPRO LFP</comment>
+  <comment xml:lang="ja">IPRO LFP ファイル</comment>
+  <comment xml:lang="ka">IPRO LFP ფაილი</comment>
+  <comment xml:lang="nl">IPRO LFP Bestand</comment>
+  <comment xml:lang="pt_BR">Arquivo IPRO LFP</comment>
+  <comment xml:lang="pt">Ficheiro IPRO LFP</comment>
+  <comment xml:lang="ro">Fișier IPRO LFP</comment>
+  <comment xml:lang="uk">Файл IPRO LFP</comment>
+  <icon name="application-x-wine-extension-lfp"/>
+  <glob-deleteall/>
+  <glob pattern="*.lfp"/>
+  <alias type="application/x-wine-extension-lfp"/>
+</mime-type>

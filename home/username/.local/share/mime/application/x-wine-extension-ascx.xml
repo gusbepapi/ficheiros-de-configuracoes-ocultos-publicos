@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-wine-extension-ascx">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>ASP.NET User Control</comment>
+  <comment xml:lang="ca">Control d'Usuari d'ASP.NET</comment>
+  <comment xml:lang="de">ASP.NET Benutzersteuerung</comment>
+  <comment xml:lang="el">Έλεγχος Χρήστη ASP.NET</comment>
+  <comment xml:lang="en_GB">ASP.NET User Control</comment>
+  <comment xml:lang="es">Control de Usuario de ASP.NET</comment>
+  <comment xml:lang="fr">Contrôle d'Utilisateur d'ASP.NET</comment>
+  <comment xml:lang="it">Controllo di Utente di ASP.NET</comment>
+  <comment xml:lang="ja">ASP.NET ユーザー コントロール</comment>
+  <comment xml:lang="ka">ASP.NET მომხმარებელი კონტროლი</comment>
+  <comment xml:lang="nl">ASP.NET Gebruikerscontrole</comment>
+  <comment xml:lang="pt_BR">Controle de Usuário de ASP.NET</comment>
+  <comment xml:lang="pt">Controlo de Utilizazdor de ASP.NET</comment>
+  <comment xml:lang="ro">Control Utilizator ASP.NET</comment>
+  <comment xml:lang="uk">Керування Користувачем ASP.NET</comment>
+  <icon name="application-x-wine-extension-ascx"/>
+  <glob-deleteall/>
+  <glob pattern="*.ascx"/>
+  <alias type="application/x-wine-extension-ascx"/>
+</mime-type>

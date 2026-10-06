@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-wine-extension-cpl">
+    <comment>Control Panel Item</comment>
+    <comment xml:lang="ca">Element de panell de control</comment>
+    <comment xml:lang="de">Steuerungselement</comment>
+    <comment xml:lang="el">Στοιχείο Πίνακα Ελέγχου</comment>
+    <comment xml:lang="en_GB">Control Panel Item</comment>
+    <comment xml:lang="es">Elemento del Panel de Control</comment>
+    <comment xml:lang="fr">Élément du Panneau de configuration</comment>
+    <comment xml:lang="it">Elemento del Pannello di controllo</comment>
+    <comment xml:lang="ja">コントロール パネル アイテム</comment>
+    <comment xml:lang="ka">კონტროლის პანელის ელემენტი</comment>
+    <comment xml:lang="nl">Controlepaneelitem</comment>
+    <comment xml:lang="pt_BR">Item do Painel de Controle</comment>
+    <comment xml:lang="pt">Item do Painel de Controle</comment>
+    <comment xml:lang="ro">Element de panou de control</comment>
+    <comment xml:lang="uk">Елемент панелі керування</comment>
+    <icon name="application-x-wine-extension-cpl"/>
+    <glob pattern="*.cpl"/>
+  </mime-type>
+</mime-info>

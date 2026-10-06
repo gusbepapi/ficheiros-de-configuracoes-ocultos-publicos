@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-wine-extension-ari">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>Adobe Photoshop ABR Info</comment>
+  <comment xml:lang="ca">Informació d'Adobe Photoshop ABR</comment>
+  <comment xml:lang="de">Adobe Photoshop ABR Info</comment>
+  <comment xml:lang="el">Πληροφορίες Adobe Photoshop ABR</comment>
+  <comment xml:lang="en_GB">Adobe Photoshop ABR Info</comment>
+  <comment xml:lang="es">Información de Adobe Photoshop ABR</comment>
+  <comment xml:lang="fr">Informations d'Adobe Photoshop ABR</comment>
+  <comment xml:lang="it">Informazioni di Adobe Photoshop ABR</comment>
+  <comment xml:lang="ja">Adobe Photoshop ABR 情報</comment>
+  <comment xml:lang="ka">Adobe Photoshop ABR ინფორმაცია</comment>
+  <comment xml:lang="nl">Adobe Photoshop ABR Info</comment>
+  <comment xml:lang="pt_BR">Informações do Adobe Photoshop ABR</comment>
+  <comment xml:lang="pt">Informações do Adobe Photoshop ABR</comment>
+  <comment xml:lang="ro">Informații Adobe Photoshop ABR</comment>
+  <comment xml:lang="uk">Інформація Adobe Photoshop ABR</comment>
+  <icon name="application-x-wine-extension-ari"/>
+  <glob-deleteall/>
+  <glob pattern="*.ari"/>
+  <alias type="application/x-wine-extension-ari"/>
+</mime-type>

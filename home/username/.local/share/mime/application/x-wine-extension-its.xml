@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-wine-extension-its">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>Internet Document Set</comment>
+  <comment xml:lang="ca">Conjunt de Documents d'Internet</comment>
+  <comment xml:lang="de">Internet Dokumentensatz</comment>
+  <comment xml:lang="el">Σύνολο Εγγράφων Διαδικτύου</comment>
+  <comment xml:lang="en_GB">Internet Document Set</comment>
+  <comment xml:lang="es">Conjunto de Documentos de Internet</comment>
+  <comment xml:lang="fr">Ensemble de Documents d'Internet</comment>
+  <comment xml:lang="it">Set di Documenti di Internet</comment>
+  <comment xml:lang="ja">インターネット ドキュメント セット</comment>
+  <comment xml:lang="ka">ინტერნეტ დოკუმენტების სეტი</comment>
+  <comment xml:lang="nl">Internet Documentenset</comment>
+  <comment xml:lang="pt_BR">Conjunto de Documentos da Internet</comment>
+  <comment xml:lang="pt">Conjunto de Documentos da Internet</comment>
+  <comment xml:lang="ro">Set de Documente Internet</comment>
+  <comment xml:lang="uk">Набір Документів Інтернету</comment>
+  <icon name="application-x-wine-extension-its"/>
+  <glob-deleteall/>
+  <glob pattern="*.its"/>
+  <alias type="application/x-wine-extension-its"/>
+</mime-type>

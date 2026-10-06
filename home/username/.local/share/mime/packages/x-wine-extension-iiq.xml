@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-wine-extension-iiq">
+    <comment>Phase One RAW Image</comment>
+    <comment xml:lang="ca">Imatge RAW de Phase One</comment>
+    <comment xml:lang="de">Phase One RAW Bild</comment>
+    <comment xml:lang="el">Εικόνα RAW Phase One</comment>
+    <comment xml:lang="en_GB">Phase One RAW Image</comment>
+    <comment xml:lang="es">Imagen RAW de Phase One</comment>
+    <comment xml:lang="fr">Image RAW Phase One</comment>
+    <comment xml:lang="it">Immagine RAW Phase One</comment>
+    <comment xml:lang="ja">Phase One RAW 画像</comment>
+    <comment xml:lang="ka">Phase One RAW სურათი</comment>
+    <comment xml:lang="nl">Phase One RAW Afbeelding</comment>
+    <comment xml:lang="pt_BR">Imagem RAW Phase One</comment>
+    <comment xml:lang="pt">Imagem RAW Phase One</comment>
+    <comment xml:lang="ro">Imagine RAW Phase One</comment>
+    <comment xml:lang="uk">Зображення RAW Phase One</comment>
+    <icon name="application-x-wine-extension-iiq"/>
+    <glob pattern="*.iiq"/>
+  </mime-type>
+</mime-info>

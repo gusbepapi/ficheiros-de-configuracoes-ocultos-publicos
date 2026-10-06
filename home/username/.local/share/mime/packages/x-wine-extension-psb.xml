@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-wine-extension-psb">
+    <comment>Adobe Photoshop Large Document Format</comment>
+    <comment xml:lang="ca">Format de Document Gran d'Adobe Photoshop</comment>
+    <comment xml:lang="de">Großes Dokumentformat von Adobe Photoshop</comment>
+    <comment xml:lang="el">Μεγάλη μορφή εγγράφου του Adobe Photoshop</comment>
+    <comment xml:lang="en_GB">Adobe Photoshop Large Document Format</comment>
+    <comment xml:lang="es">Formato de Documento Grande de Adobe Photoshop</comment>
+    <comment xml:lang="fr">Format de Document d'Adobe Photoshop Large</comment>
+    <comment xml:lang="it">Formato di Documento Grande di Adobe Photoshop</comment>
+    <comment xml:lang="ja">Adobe Photoshop 大きなドキュメント形式</comment>
+    <comment xml:lang="ka">Adobe Photoshop დიდი დოკუმენტის ფორმატი</comment>
+    <comment xml:lang="nl">Groot Documentformaat van Adobe Photoshop</comment>
+    <comment xml:lang="pt_BR">Formato de Documento Grande do Adobe Photoshop</comment>
+    <comment xml:lang="pt">Formato de Documento Grande do Adobe Photoshop</comment>
+    <comment xml:lang="ro">Format de Document Mare Adobe Photoshop</comment>
+    <comment xml:lang="uk">Формат Великого Документа Adobe Photoshop</comment>
+    <icon name="application-x-wine-extension-psb"/>
+    <glob pattern="*.psb"/>
+  </mime-type>
+</mime-info>

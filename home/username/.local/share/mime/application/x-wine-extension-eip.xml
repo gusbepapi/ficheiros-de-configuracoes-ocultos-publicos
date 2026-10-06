@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-wine-extension-eip">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>Enhanced Image Package File</comment>
+  <comment xml:lang="ca">Fitxer de Paquet d'Imatge Millorat</comment>
+  <comment xml:lang="de">Verbessertes Bildpaket</comment>
+  <comment xml:lang="el">Βελτιωμένο Αρχείο Εικόνας</comment>
+  <comment xml:lang="en_GB">Enhanced Image Package File</comment>
+  <comment xml:lang="es">Archivo de Paquete de Imagen Mejorado</comment>
+  <comment xml:lang="fr">Fichier de Paquet d'Image Amélioré</comment>
+  <comment xml:lang="it">File di Pacchetto Immagine Migliorato</comment>
+  <comment xml:lang="ja">拡張イメージパッケージ ファイル</comment>
+  <comment xml:lang="ka">გაფართოებული სურათის პაკეტის ფაილი</comment>
+  <comment xml:lang="nl">Verbeterd Afbeeldingspakket Bestand</comment>
+  <comment xml:lang="pt_BR">Arquivo de Pacote de Imagem Melhorado</comment>
+  <comment xml:lang="pt">Ficheiro de Pacote de Imagem Melhorado</comment>
+  <comment xml:lang="ro">Fișier de Pachet de Imagini Îmbunătățit</comment>
+  <comment xml:lang="uk">Файл Пакету Покращеної Картинки</comment>
+  <icon name="application-x-wine-extension-eip"/>
+  <glob-deleteall/>
+  <glob pattern="*.eip"/>
+  <alias type="application/x-wine-extension-eip"/>
+</mime-type>

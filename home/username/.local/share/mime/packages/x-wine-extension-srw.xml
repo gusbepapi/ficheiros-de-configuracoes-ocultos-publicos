@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-wine-extension-srw">
+    <comment>Samsung RAW Image</comment>
+    <comment xml:lang="ca">Imatge RAW de Samsung</comment>
+    <comment xml:lang="de">Samsung RAW Bild</comment>
+    <comment xml:lang="el">Εικόνα RAW Samsung</comment>
+    <comment xml:lang="en_GB">Samsung RAW Image</comment>
+    <comment xml:lang="es">Imagen RAW de Samsung</comment>
+    <comment xml:lang="fr">Image RAW de Samsung</comment>
+    <comment xml:lang="it">Immagine RAW di Samsung</comment>
+    <comment xml:lang="ja">Samsung RAW 画像</comment>
+    <comment xml:lang="ka">Samsung RAW სურათი</comment>
+    <comment xml:lang="nl">Samsung RAW Afbeelding</comment>
+    <comment xml:lang="pt_BR">Imagem RAW de Samsung</comment>
+    <comment xml:lang="pt">Imagem RAW de Samsung</comment>
+    <comment xml:lang="ro">Imagine RAW Samsung</comment>
+    <comment xml:lang="uk">Зображення RAW Samsung</comment>
+    <icon name="application-x-wine-extension-srw"/>
+    <glob pattern="*.srw"/>
+  </mime-type>
+</mime-info>

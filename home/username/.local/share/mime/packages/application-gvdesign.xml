@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+    <mime-type type="application/gvdesign">
+        <comment>Gravit Designer File</comment>
+        <comment xml:lang="ca">Fitxer de Gravit Designer</comment>
+        <comment xml:lang="de">Gravit Designer Datei</comment>
+        <comment xml:lang="el">Αρχείο Gravit Designer</comment>
+        <comment xml:lang="en_GB">Gravit Designer File</comment>
+        <comment xml:lang="es">Archivo de Gravit Designer</comment>
+        <comment xml:lang="fr">Fichier de Gravit Designer</comment>
+        <comment xml:lang="it">File di Gravit Designer</comment>
+        <comment xml:lang="ja">Gravit Designer ファイル</comment>
+        <comment xml:lang="ka">Gravit Designer ფაილი</comment>
+        <comment xml:lang="nl">Gravit Designer Bestand</comment>
+        <comment xml:lang="pt_BR">Arquivo do Gravit Designer</comment>
+        <comment xml:lang="pt">Ficheiro do Gravit Designer</comment>
+        <comment xml:lang="ro">Fișier Gravit Designer</comment>
+        <comment xml:lang="uk">Файл Gravit Designer</comment>
+        <icon name="application-gvdesign"/>
+        <glob-deleteall/>
+        <glob pattern="*.gvdesign"/>
+    </mime-type>
+</mime-info>

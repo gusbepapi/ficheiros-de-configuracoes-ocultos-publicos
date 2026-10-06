@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-wine-extension-aspx">
+    <comment>ASP.NET Web Page</comment>
+    <comment xml:lang="ca">Pàgina web ASP.NET</comment>
+    <comment xml:lang="de">ASP.NET Webseite</comment>
+    <comment xml:lang="el">Ιστοσελίδα ASP.NET</comment>
+    <comment xml:lang="en_GB">ASP.NET Web Page</comment>
+    <comment xml:lang="es">Página web ASP.NET</comment>
+    <comment xml:lang="fr">Page Web ASP.NET</comment>
+    <comment xml:lang="it">Pagina Web ASP.NET</comment>
+    <comment xml:lang="ja">ASP.NET Web ページ</comment>
+    <comment xml:lang="ka">ASP.NET ვებ გვერდი</comment>
+    <comment xml:lang="nl">ASP.NET Webpagina</comment>
+    <comment xml:lang="pt_BR">Página de site ASP.NET</comment>
+    <comment xml:lang="pt">Página de sítio ASP.NET</comment>
+    <comment xml:lang="ro">Pagină web ASP.NET</comment>
+    <comment xml:lang="uk">Веб-сторінка ASP.NET</comment>
+    <icon name="application-x-wine-extension-aspx"/>
+    <glob pattern="*.aspx"/>
+  </mime-type>
+</mime-info>

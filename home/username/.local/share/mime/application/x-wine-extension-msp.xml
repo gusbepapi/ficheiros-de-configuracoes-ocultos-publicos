@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-wine-extension-msp">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>Windows Installer Patch</comment>
+  <comment xml:lang="ca">Parche d'Instal·lador de Windows</comment>
+  <comment xml:lang="de">Windows-Installer-Patch</comment>
+  <comment xml:lang="el">Ενημέρωση Windows Installer</comment>
+  <comment xml:lang="en_GB">Windows Installer Patch</comment>
+  <comment xml:lang="es">Parche de Instalador de Windows</comment>
+  <comment xml:lang="fr">Patch d'Installation de Windows</comment>
+  <comment xml:lang="it">Patch di Installazione di Windows</comment>
+  <comment xml:lang="ja">Windows インストーラ パッチ</comment>
+  <comment xml:lang="ka">Windows ინსტალატორის განახლება</comment>
+  <comment xml:lang="nl">Windows Installer Patch</comment>
+  <comment xml:lang="pt_BR">Pacote de Instalação do Windows</comment>
+  <comment xml:lang="pt">Pacote de Instalação do Windows</comment>
+  <comment xml:lang="ro">Pachet d'Instalare Windows</comment>
+  <comment xml:lang="uk">Патч Windows Installer</comment>
+  <icon name="application-x-wine-extension-msp"/>
+  <glob-deleteall/>
+  <glob pattern="*.msp"/>
+  <alias type="application/x-wine-extension-msp"/>
+</mime-type>

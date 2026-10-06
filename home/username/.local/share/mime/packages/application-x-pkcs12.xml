@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+    <mime-type type="application/x-pkcs12">
+        <comment>PKCS#12 Certificate Package</comment>
+        <comment xml:lang="ca">Paquet de Certificats PKCS#12</comment>
+        <comment xml:lang="de">PKCS#12 Zertifikatspaket</comment>
+        <comment xml:lang="el">Πακέτο Πιστοποιητικών PKCS#12</comment>
+        <comment xml:lang="en_GB">PKCS#12 Certificate Package</comment>
+        <comment xml:lang="es">Paquete de Certificados PKCS#12</comment>
+        <comment xml:lang="fr">Paquet de certificats PKCS#12</comment>
+        <comment xml:lang="it">Pacchetto di certificati PKCS#12</comment>
+        <comment xml:lang="ja">PKCS#12 証明書パッケージ</comment>
+        <comment xml:lang="ka">PKCS#12 სერტიფიკატის პაკეტი</comment>
+        <comment xml:lang="nl">PKCS#12 Certificaatpakket</comment>
+        <comment xml:lang="pt_BR">Pacote de Certificados PKCS#12</comment>
+        <comment xml:lang="pt">Pacote de Certificados PKCS#12</comment>
+        <comment xml:lang="ro">Pachet de certificat PKCS#12</comment>
+        <comment xml:lang="uk">Пакунок Сертифікатів PKCS#12</comment>
+        <icon name="application-x-pkcs12"/>
+        <glob-deleteall/>
+        <glob pattern="*.p12"/>
+        <glob pattern="*.pfx"/>
+    </mime-type>
+</mime-info>

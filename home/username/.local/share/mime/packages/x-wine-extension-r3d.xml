@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-wine-extension-r3d">
+    <comment>REDCODE Video File</comment>
+    <comment xml:lang="ca">Fitxer de Vídeo REDCODE</comment>
+    <comment xml:lang="de">REDCODE Video Datei</comment>
+    <comment xml:lang="el">Αρχείο Βίντεο REDCODE</comment>
+    <comment xml:lang="en_GB">REDCODE Video File</comment>
+    <comment xml:lang="es">Archivo de Vídeo REDCODE</comment>
+    <comment xml:lang="fr">Fichier Vidéo REDCODE</comment>
+    <comment xml:lang="it">File Video REDCODE</comment>
+    <comment xml:lang="ja">REDCODE ビデオ ファイル</comment>
+    <comment xml:lang="ka">REDCODE ვიდეო ფაილი</comment>
+    <comment xml:lang="nl">REDCODE Video Bestand</comment>
+    <comment xml:lang="pt_BR">Arquivo de Vídeo REDCODE</comment>
+    <comment xml:lang="pt">Ficheiro de Vídeo REDCODE</comment>
+    <comment xml:lang="ro">Fișier Video REDCODE</comment>
+    <comment xml:lang="uk">Файл Відео REDCODE</comment>
+    <icon name="application-x-wine-extension-r3d"/>
+    <glob pattern="*.r3d"/>
+  </mime-type>
+</mime-info>

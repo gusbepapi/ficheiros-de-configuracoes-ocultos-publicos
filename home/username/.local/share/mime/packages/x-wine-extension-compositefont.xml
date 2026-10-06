@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-wine-extension-compositefont">
+    <glob pattern="*.compositefont"/>
+    <comment>Composite Font File</comment>
+    <comment xml:lang="ca">Fitxer de Tipus de Lletra compost</comment>
+    <comment xml:lang="de">Komposit Schriftart Datei</comment>
+    <comment xml:lang="el">Αρχείο Συνδυασμένης Γραμματοσειράς</comment>
+    <comment xml:lang="en_GB">Composite Font File</comment>
+    <comment xml:lang="es">Archivo de Fuente Compuesta</comment>
+    <comment xml:lang="fr">Fichier de Police Composite</comment>
+    <comment xml:lang="it">File di Font Composti</comment>
+    <comment xml:lang="ja">複合フォント ファイル</comment>
+    <comment xml:lang="ka">კომპოზიტური ფონტის ფაილი</comment>
+    <comment xml:lang="nl">Composiet Lettertype Bestand</comment>
+    <comment xml:lang="pt_BR">Arquivo de Fonte Composta</comment>
+    <comment xml:lang="pt">Ficheiro de Fonte Composta</comment>
+    <comment xml:lang="ro">Fișier de Font Compozit</comment>
+    <comment xml:lang="uk">Файл Складного Шрифту</comment>
+    <icon name="application-x-wine-extension-compositefont"/>
+  </mime-type>
+</mime-info>

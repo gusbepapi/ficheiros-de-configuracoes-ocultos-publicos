@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-x509-ca-cert">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>X.509 Certificate Encoded with DER/PEM/Netscape</comment>
+  <comment xml:lang="ca">Certificat X.509 codificat amb DER/PEM/Netscape</comment>
+  <comment xml:lang="de">X.509 Zertifikat (DER/PEM/Netscape)</comment>
+  <comment xml:lang="el">Πιστοποιητικό X.509 με κωδικοποίηση DER/PEM/Netscape</comment>
+  <comment xml:lang="en_GB">X.509 Certificate Encoded with DER/PEM/Netscape</comment>
+  <comment xml:lang="es">Certificado X.509 Codificado con DER/PEM/Netscape</comment>
+  <comment xml:lang="fr">Certificat X.509 Encodé avec DER/PEM/Netscape</comment>
+  <comment xml:lang="it">Certificato X.509 Codificato con DER/PEM/Netscape</comment>
+  <comment xml:lang="ja">X.509 証明書 (DER/PEM/Netscape)</comment>
+  <comment xml:lang="ka">X.509 სერტიფიკატი DER/PEM/Netscape-ით დაკოდირებული</comment>
+  <comment xml:lang="nl">X.509 Certificaat Gecodeerd met DER/PEM/Netscape</comment>
+  <comment xml:lang="pt_BR">Certificado X.509 Codificado com DER/PEM/Netscape</comment>
+  <comment xml:lang="pt">Certificado X.509 Codificado com DER/PEM/Netscape</comment>
+  <comment xml:lang="ro">Certificat X.509 Codificat cu DER/PEM/Netscape</comment>
+  <comment xml:lang="uk">X.509 сертифікат (DER/PEM/Netscape)</comment>
+  <icon name="application-x-x509-ca-cert"/>
+  <glob-deleteall/>
+  <glob pattern="*.cert"/>
+  <glob pattern="*.crt"/>
+  <glob pattern="*.der"/>
+  <glob pattern="*.pem"/>
+  <alias type="application/x-x509-ca-cert"/>
+</mime-type>

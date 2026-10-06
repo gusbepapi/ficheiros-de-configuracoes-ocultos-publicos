@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="font/otf">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>OpenType Font</comment>
+  <comment xml:lang="ca">Tipus de lletra OpenType</comment>
+  <comment xml:lang="de">OpenType Schriftart</comment>
+  <comment xml:lang="el">Γραμματοσειρά OpenType</comment>
+  <comment xml:lang="en_GB">OpenType Font</comment>
+  <comment xml:lang="es">Fuente OpenType</comment>
+  <comment xml:lang="fr">Police OpenType</comment>
+  <comment xml:lang="it">Carattere OpenType</comment>
+  <comment xml:lang="ja">OpenType フォント</comment>
+  <comment xml:lang="ka">OpenType ფონტი</comment>
+  <comment xml:lang="nl">OpenType Lettertype</comment>
+  <comment xml:lang="pt_BR">Fonte OpenType</comment>
+  <comment xml:lang="pt">Tipo de Letra OpenType</comment>
+  <comment xml:lang="ro">Font OpenType</comment>
+  <comment xml:lang="uk">Шрифт OpenType</comment>
+  <icon name="font-otf"/>
+  <glob-deleteall/>
+  <glob pattern="*.otf"/>
+  <alias type="font/otf"/>
+</mime-type>

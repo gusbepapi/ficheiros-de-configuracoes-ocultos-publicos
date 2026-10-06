@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-wine-extension-dct">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>Adobe Illustrator Spelling Dictionary</comment>
+  <comment xml:lang="ca">Diccionari d'Ortografia d'Adobe Illustrator</comment>
+  <comment xml:lang="de">Adobe Illustrator Rechtschreibwörterbuch</comment>
+  <comment xml:lang="el">Λεξικό Ορθογραφίας του Adobe Illustrator</comment>
+  <comment xml:lang="en_GB">Adobe Illustrator Spelling Dictionary</comment>
+  <comment xml:lang="es">Diccionario de Ortografía de Adobe Illustrator</comment>
+  <comment xml:lang="fr">Dictionnaire d'Orthographe d'Adobe Illustrator</comment>
+  <comment xml:lang="it">Dizionario Ortografico di Adobe Illustrator</comment>
+  <comment xml:lang="ja">Adobe Illustrator スペル チェック辞書</comment>
+  <comment xml:lang="ka">Adobe Illustrator სიტყვის მისამართების ლექსიკონი</comment>
+  <comment xml:lang="nl">Adobe Illustrator Spellingwoordenboek</comment> 
+  <comment xml:lang="pt_BR">Dicionário de Ortografia do Adobe Illustrator</comment>
+  <comment xml:lang="pt">Dicionário de Ortografia do Adobe Illustrator</comment>
+  <comment xml:lang="ro">Dicționar de Ortografie Adobe Illustrator</comment>
+  <comment xml:lang="uk">Орфографічний Словник Adobe Illustrator</comment>
+  <icon name="application-x-wine-extension-dct"/>
+  <glob-deleteall/>
+  <glob pattern="*.dct"/>
+  <alias type="application/x-wine-extension-dct"/>
+</mime-type>

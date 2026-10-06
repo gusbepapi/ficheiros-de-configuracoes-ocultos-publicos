@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/afdesign">
+    <comment>Affinity Designer File</comment>
+    <comment xml:lang="ca">Fitxer d'Affinity Designer</comment>
+    <comment xml:lang="de">Affinity Designer Datei</comment>
+    <comment xml:lang="el">Αρχείο Affinity Designer</comment>
+    <comment xml:lang="en_GB">Affinity Designer File</comment>
+    <comment xml:lang="es">Archivo de Affinity Designer</comment>
+    <comment xml:lang="fr">Fichier d'Affinity Designer</comment>
+    <comment xml:lang="it">File d'Affinity Designer</comment>
+    <comment xml:lang="ja">Affinity Designer ファイル</comment>
+    <comment xml:lang="ka">Affinity Designer ფაილი</comment>
+    <comment xml:lang="nl">Affinity Designer Bestand</comment>
+    <comment xml:lang="pt_BR">Arquivo do Affinity Designer</comment>
+    <comment xml:lang="pt">Ficheiro do Affinity Designer</comment>
+    <comment xml:lang="ro">Fișier Affinity Designer</comment>
+    <comment xml:lang="uk">Файл Affinity Designer</comment>
+    <icon name="application-afdesign"/>
+    <glob pattern="*.afdesign"/>
+  </mime-type>
+</mime-info>

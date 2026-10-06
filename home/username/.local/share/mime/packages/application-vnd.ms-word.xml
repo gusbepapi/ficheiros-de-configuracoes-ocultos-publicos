@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+    <mime-type type="application/vnd.ms-word">
+        <comment>Microsoft Word Document</comment>
+        <comment xml:lang="ca">Document Microsoft Word</comment>
+        <comment xml:lang="de">Microsoft Word-Dokument</comment>
+        <comment xml:lang="el">Έγγραφο Microsoft Word</comment>
+        <comment xml:lang="en_GB">Microsoft Word Document</comment>
+        <comment xml:lang="es">Documento de Microsoft Word</comment>
+        <comment xml:lang="fr">Document Microsoft Word</comment>
+        <comment xml:lang="it">Documento Microsoft Word</comment>
+        <comment xml:lang="ja">Microsoft Word ドキュメント</comment>
+        <comment xml:lang="nl">Microsoft Word document</comment>
+        <comment xml:lang="pt_BR">Documento do Microsoft Word</comment>
+        <comment xml:lang="pt">Documento do Microsoft Word</comment>
+        <comment xml:lang="ro">Document Microsoft Word</comment>
+        <comment xml:lang="uk">Документ Microsoft Word</comment>
+        <icon name="application-vnd.ms-word"/>
+        <glob-deleteall/>
+        <glob pattern="*.doc"/>
+        <glob pattern="*.docx"/>
+    </mime-type>
+</mime-info>

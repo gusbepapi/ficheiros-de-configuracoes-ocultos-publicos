@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-wine-extension-acb">
+    <glob pattern="*.acb"/>
+    <comment>Adobe Color Book File</comment>
+    <comment xml:lang="ca">Fitxer de Llibre de Colors d'Adobe</comment>
+    <comment xml:lang="de">Adobe Farbbuch Datei</comment>
+    <comment xml:lang="el">Αρχείο Βιβλίου Χρωμάτων της Adobe</comment>
+    <comment xml:lang="en_GB">Adobe Colour Book File</comment>
+    <comment xml:lang="es">Archivo de Libro de Colores de Adobe</comment>
+    <comment xml:lang="fr">Fichier de livre de couleurs Adobe</comment>
+    <comment xml:lang="it">File Libro Colori Adobe</comment>
+    <comment xml:lang="ja">Adobe カラーブック ファイル</comment>
+    <comment xml:lang="ka">Adobe ფერთა წიგნის ფაილი</comment>
+    <comment xml:lang="nl">Adobe Kleurenboek Bestand</comment>
+    <comment xml:lang="pt_BR">Arquivo de Livro de Cores da Adobe</comment>
+    <comment xml:lang="pt">Ficheiro de Livro de Cores da Adobe</comment>
+    <comment xml:lang="ro">Fișier Adobe Colour Book</comment>
+    <comment xml:lang="uk">Файл кольорової книги Adobe</comment>
+    <icon name="application-x-wine-extension-acb"/>
+  </mime-type>
+</mime-info>

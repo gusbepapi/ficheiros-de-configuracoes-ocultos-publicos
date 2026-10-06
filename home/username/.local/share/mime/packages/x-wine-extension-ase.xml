@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-wine-extension-ase">
+    <comment>Adobe Illustrator Swatch Exchange File</comment>
+    <comment xml:lang="ca">Fitxer d'Intercanvi de Mostres d'Adobe Illustrator</comment>
+    <comment xml:lang="de">Adobe Illustrator Swatch Exchange Datei</comment>
+    <comment xml:lang="el">Αρχείο Ανταλλαγής Δειγμάτων Adobe Illustrator</comment>
+    <comment xml:lang="en_GB">Adobe Illustrator Swatch Exchange File</comment>
+    <comment xml:lang="es">Archivo de Intercambio de Muestras de Adobe Illustrator</comment>
+    <comment xml:lang="fr">Fichier d'Échange de Nuanciers d'Adobe Illustrator</comment>
+    <comment xml:lang="it">File di Scambio Campioni di Adobe Illustrator</comment>
+    <comment xml:lang="ja">Adobe Illustrator スウォッチ エクスチェンジ ファイル</comment>
+    <comment xml:lang="ka">Adobe Illustrator ფერების გაცვლის ფაილი</comment>
+    <comment xml:lang="nl">Adobe Illustrator Swatch Exchange Bestand</comment>
+    <comment xml:lang="pt_BR">Arquivo de Intercâmbio de Cores do Adobe Illustrator</comment>
+    <comment xml:lang="pt">Ficheiro de Intercâmbio de Cores do Adobe Illustrator</comment>
+    <comment xml:lang="ro">Fișier de Schimb de Mostre Adobe Illustrator</comment>
+    <comment xml:lang="uk">Файл обміну кольорами Adobe Illustrator</comment>
+    <icon name="application-x-wine-extension-ase"/>
+    <glob pattern="*.ase"/>
+  </mime-type>
+</mime-info>

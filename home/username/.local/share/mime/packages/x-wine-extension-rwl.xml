@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-wine-extension-rwl">
+    <comment>Leica RAW Image</comment>
+    <comment xml:lang="ca">Imatge RAW de Leica</comment>
+    <comment xml:lang="de">Leica RAW Bild</comment>
+    <comment xml:lang="el">Εικόνα RAW Leica</comment>
+    <comment xml:lang="en_GB">Leica RAW Image</comment>
+    <comment xml:lang="es">Imagen RAW de Leica</comment>
+    <comment xml:lang="fr">Image RAW de Leica</comment>
+    <comment xml:lang="it">Immagine RAW di Leica</comment>
+    <comment xml:lang="ja">Leica RAW 画像</comment>
+    <comment xml:lang="ka">Leica RAW სურათი</comment>
+    <comment xml:lang="nl">Leica RAW Afbeelding</comment>
+    <comment xml:lang="pt_BR">Imagem RAW de Leica</comment>
+    <comment xml:lang="pt">Imagem RAW de Leica</comment>
+    <comment xml:lang="ro">Imagine RAW Leica</comment>
+    <comment xml:lang="uk">Зображення RAW Leica</comment>
+    <icon name="application-x-wine-extension-rwl"/>
+    <glob pattern="*.rwl"/>
+  </mime-type>
+</mime-info>

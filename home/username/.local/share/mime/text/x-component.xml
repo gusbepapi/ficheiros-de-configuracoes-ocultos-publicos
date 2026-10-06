@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="text/x-component">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>HTML Component File</comment>
+  <comment xml:lang="ca">Fitxer de Component HTML</comment>
+  <comment xml:lang="de">HTML Komponentendatei</comment>
+  <comment xml:lang="el">Αρχείο Συστατικού HTML</comment>
+  <comment xml:lang="en_GB">HTML Component File</comment>
+  <comment xml:lang="es">Archivo de Componente HTML</comment>
+  <comment xml:lang="fr">Fichier de Composant HTML</comment>
+  <comment xml:lang="it">File Componente HTML</comment>
+  <comment xml:lang="ja">HTML コンポーネント ファイル</comment>
+  <comment xml:lang="nl">HTMLComponentbestand</comment>
+  <comment xml:lang="pt_BR">Arquivo de Componente HTML</comment>
+  <comment xml:lang="pt">Ficheiro de Componente HTML</comment>
+  <comment xml:lang="ro">Fișier Componentă HTML</comment>
+  <comment xml:lang="uk">Файл Компонента HTML</comment>
+  <icon name="text-x-component"/>
+  <glob pattern="*.htc"/>
+</mime-type>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+    <mime-type type="text/code-workspace">
+        <comment>VSCode Workspace Document</comment>
+        <comment xml:lang="ca">Document de l'espai de treball de VSCode</comment>
+        <comment xml:lang="de">VSCode Arbeitsbereichsdokument</comment>
+        <comment xml:lang="el">Έγγραφο χώρου εργασίας VSCode</comment>
+        <comment xml:lang="en_GB">VSCode Workspace Document</comment>
+        <comment xml:lang="es">Documento de espacio de trabajo de VSCode</comment>
+        <comment xml:lang="fr">Document d'espace de travail VSCode</comment>
+        <comment xml:lang="it">Documento dello spazio di lavoro di VSCode</comment>
+        <comment xml:lang="ja">VSCode ワークスペース ドキュメント</comment>
+        <comment xml:lang="nl">VSCode-werkruimtedocument</comment>
+        <comment xml:lang="pt_BR">Documento de espaço de trabalho do VSCode</comment>
+        <comment xml:lang="pt">Documento de espaço de trabalho do VSCode</comment>
+        <comment xml:lang="ro">Document de spațiu de lucru VSCode</comment>
+        <comment xml:lang="uk">Документ робочого простору VSCode</comment>
+        <icon name="text-code-workspace"/>
+        <glob-deleteall/>
+        <glob pattern="*.code-workspace"/>
+    </mime-type>
+</mime-info>

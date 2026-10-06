@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-wine-extension-sbx">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>Adobe Illustrator Tsume File</comment>
+  <comment xml:lang="ca">Fitxer Tsume d'Adobe Illustrator</comment>
+  <comment xml:lang="de">Adobe Illustrator Tsume Datei</comment>
+  <comment xml:lang="el">Αρχείο Tsume του Adobe Illustrator</comment>
+  <comment xml:lang="en_GB">Adobe Illustrator Tsume File</comment>
+  <comment xml:lang="es">Archivo Tsume de Adobe Illustrator</comment>
+  <comment xml:lang="fr">Fichier Tsume d'Adobe Illustrator</comment>
+  <comment xml:lang="it">File Tsume di Adobe Illustrator</comment>
+  <comment xml:lang="ja">Adobe Illustrator Tsume ファイル</comment>
+  <comment xml:lang="ka">Adobe Illustrator Tsume ფაილი</comment>
+  <comment xml:lang="nl">Adobe Illustrator Tsume Bestand</comment>
+  <comment xml:lang="pt_BR">Arquivo Tsume do Adobe Illustrator</comment>
+  <comment xml:lang="pt">Ficheiro Tsume do Adobe Illustrator</comment>
+  <comment xml:lang="ro">Fișier Tsume Adobe Illustrator</comment>
+  <comment xml:lang="uk">Файл Tsume Adobe Illustrator</comment>
+  <icon name="application-x-wine-extension-sbx"/>
+  <glob-deleteall/>
+  <glob pattern="*.sbx"/>
+  <alias type="application/x-wine-extension-sbx"/>
+</mime-type>

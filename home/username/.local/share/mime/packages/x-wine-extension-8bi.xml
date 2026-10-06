@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-wine-extension-8bi">
+    <glob pattern="*.8bi"/>
+    <comment>Adobe Photoshop Plugin</comment>
+    <comment xml:lang="ca">Connector d'Adobe Photoshop</comment>
+    <comment xml:lang="de">Adobe Photoshop Plugin</comment>
+    <comment xml:lang="el">Πρόσθετο Adobe Photoshop</comment>
+    <comment xml:lang="en_GB">Adobe Photoshop Plugin</comment>
+    <comment xml:lang="es">Complemento de Adobe Photoshop</comment>
+    <comment xml:lang="fr">Plugin d'Adobe Photoshop</comment>
+    <comment xml:lang="it">Plugin di Adobe Photoshop</comment>
+    <comment xml:lang="ja">Adobe Photoshop プラグイン</comment>
+    <comment xml:lang="ka">Adobe Photoshop პლაგინი</comment>
+    <comment xml:lang="nl">Adobe Photoshop Plug-in</comment>
+    <comment xml:lang="pt_BR">Plugin do Adobe Photoshop</comment>
+    <comment xml:lang="pt">Plugin do Adobe Photoshop</comment>
+    <comment xml:lang="ro">Plugin Adobe Photoshop</comment>
+    <comment xml:lang="uk">Плагін Adobe Photoshop</comment>
+    <icon name="application-x-wine-extension-8bi"/>
+  </mime-type>
+</mime-info>

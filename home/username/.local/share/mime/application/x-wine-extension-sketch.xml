@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-wine-extension-sketch">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>Sketch File for Lunacy and Sketch</comment>
+  <comment xml:lang="ca">Fitxer Sketch per Lunacy i Sketch</comment>
+  <comment xml:lang="de">Sketch-Datei für Lunacy und Sketch</comment>
+  <comment xml:lang="el">Αρχείο Sketch για Lunacy και Sketch</comment>
+  <comment xml:lang="en_GB">Sketch File for Lunacy and Sketch</comment>
+  <comment xml:lang="es">Archivo Sketch para Lunacy y Sketch</comment>
+  <comment xml:lang="fr">Fichier Sketch pour Lunacy et Sketch</comment>
+  <comment xml:lang="it">File Sketch per Lunacy e Sketch</comment>
+  <comment xml:lang="ja">Lunacy および Sketch の Sketch ファイル</comment>
+  <comment xml:lang="ka">Lunacy და Sketch-ის Sketch ფაილი</comment>
+  <comment xml:lang="nl">Sketch bestand voor Lunacy en Sketch</comment>
+  <comment xml:lang="pt_BR">Arquivo Sketch para Lunacy e Sketch</comment>
+  <comment xml:lang="pt">Ficheiro Sketch para Lunacy e Sketch</comment>
+  <comment xml:lang="ro">Fișier Sketch pentru Lunacy și Sketch</comment>
+  <comment xml:lang="uk">Файл Sketch для Lunacy та Sketch</comment>
+  <icon name="application-x-wine-extension-sketch"/>
+  <glob pattern="*.sketch"/>
+  <alias type="application/x-wine-extension-sketch"/>
+</mime-type>

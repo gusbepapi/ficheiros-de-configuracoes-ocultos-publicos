@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-wine-extension-jpegxr">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>JPEG Extended Range Image</comment>
+  <comment xml:lang="ca">Imatge JPEG de Gamma Ampliada</comment>
+  <comment xml:lang="de">JPEG Bild mit Erweitertem Bereich</comment>
+  <comment xml:lang="el">Εικόνα JPEG με Εκτεταμένη Εύρος</comment>
+  <comment xml:lang="en_GB">JPEG Extended Range Image</comment>
+  <comment xml:lang="es">Imagen JPEG con Rango Extendido</comment>
+  <comment xml:lang="fr">Image JPEG avec Gamme Étendue</comment>
+  <comment xml:lang="it">Immagine JPEG con Gamma Estesa</comment>
+  <comment xml:lang="ja">JPEG エクステンデッドレンジ画像</comment>
+  <comment xml:lang="ka">JPEG გაფართოებული მინიმალური მნიშვნელობის სურათი</comment>
+  <comment xml:lang="nl">JPEG Afbeelding met Uitgebreid Bereik</comment>
+  <comment xml:lang="pt_BR">Imagem JPEG com Alcance Estendido</comment>
+  <comment xml:lang="pt">Imagem JPEG com Alcance Estendido</comment>
+  <comment xml:lang="ro">Imagine JPEG cu Gamma Extinsă</comment>
+  <comment xml:lang="uk">Зображення JPEG з Розширеним Діапазоном</comment>
+  <icon name="application-x-wine-extension-jpegxr"/>
+  <glob pattern="*.jpegxr"/>
+  <glob pattern="*.jxr"/>
+  <alias type="application/x-wine-extension-jpegxr"/>
+</mime-type>

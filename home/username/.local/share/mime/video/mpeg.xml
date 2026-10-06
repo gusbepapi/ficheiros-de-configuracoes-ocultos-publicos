@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="video/mpeg">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>MPEG video</comment>
+  <comment xml:lang="ca">Vídeo MPEG</comment>
+  <comment xml:lang="de">MPEG-Video</comment>
+  <comment xml:lang="el">Βίντεο MPEG</comment>
+  <comment xml:lang="en_GB">MPEG video</comment>
+  <comment xml:lang="es">Vídeo MPEG</comment>
+  <comment xml:lang="fr">Vidéo MPEG</comment>
+  <comment xml:lang="it">Video MPEG</comment>
+  <comment xml:lang="ja">MPEG ビデオ</comment>
+  <comment xml:lang="ka">MPEG ვიდეო</comment>
+  <comment xml:lang="nl">MPEG video</comment>
+  <comment xml:lang="pt_BR">Vídeo MPEG</comment>
+  <comment xml:lang="pt">Vídeo MPEG</comment>
+  <comment xml:lang="ro">Video MPEG</comment>
+  <comment xml:lang="uk">Відео MPEG</comment>
+  <icon name="video-mpeg"/>
+  <glob pattern="*.mpeg"/>
+  <glob pattern="*.mpg"/>
+  <glob pattern="*.mp2"/>
+  <glob pattern="*.mpe"/>
+  <glob pattern="*.vob"/>
+  <glob pattern="[0-9][0-9][0-9].vdr"/>
+  <glob pattern="*.ts"/>
+  <glob pattern="*.m2v"/>
+  <alias type="video/mpeg"/>
+</mime-type>

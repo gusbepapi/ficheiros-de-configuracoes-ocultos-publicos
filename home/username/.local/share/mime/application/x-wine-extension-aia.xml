@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-wine-extension-aia">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>Adobe Illustrator Action File</comment>
+  <comment xml:lang="ca">Fitxer d'acció d'Adobe Illustrator</comment>
+  <comment xml:lang="de">Adobe Illustrator Aktion</comment>
+  <comment xml:lang="el">Αρχείο ενεργειών του Adobe Illustrator</comment>
+  <comment xml:lang="en_GB">Adobe Illustrator Action File</comment>
+  <comment xml:lang="es">Archivo de acción de Adobe Illustrator</comment>
+  <comment xml:lang="fr">Fichier d'action d'Adobe Illustrator</comment>
+  <comment xml:lang="it">File di azione di Adobe Illustrator</comment>
+  <comment xml:lang="ja">Adobe Illustrator アクション ファイル</comment>
+  <comment xml:lang="ka">Adobe Illustrator მოქმედების ფაილი</comment>
+  <comment xml:lang="nl">Adobe Illustrator Actiebestand</comment>
+  <comment xml:lang="pt_BR">Arquivo de ação do Adobe Illustrator</comment>
+  <comment xml:lang="pt">Ficheiro de ação do Adobe Illustrator</comment>
+  <comment xml:lang="ro">Fișier de acțiune Adobe Illustrator</comment>
+  <comment xml:lang="uk">Файл дій Adobe Illustrator</comment>
+  <icon name="application-x-wine-extension-aia"/>
+  <glob-deleteall/>
+  <glob pattern="*.aia"/>
+  <alias type="application/x-wine-extension-aia"/>
+</mime-type>

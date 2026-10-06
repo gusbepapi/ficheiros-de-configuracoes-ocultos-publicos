@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-wine-extension-fh10">
+    <comment>FreeHand 10 Drawing File</comment>
+    <comment xml:lang="ca">Fitxer de Dibuix FreeHand 10</comment>
+    <comment xml:lang="de">FreeHand 10 Zeichnungsdatei</comment>
+    <comment xml:lang="el">Αρχείο Σχεδίασης FreeHand 10</comment>
+    <comment xml:lang="en_GB">FreeHand 10 Drawing File</comment>
+    <comment xml:lang="es">Archivo de Dibujo FreeHand 10</comment>
+    <comment xml:lang="fr">Fichier de Dessin FreeHand 10</comment>
+    <comment xml:lang="it">File di Disegno FreeHand 10</comment>
+    <comment xml:lang="ja">FreeHand 10 ドローイング ファイル</comment>
+    <comment xml:lang="ka">FreeHand 10 ხატვის ფაილი</comment>
+    <comment xml:lang="nl">FreeHand 10 Tekening Bestand</comment>
+    <comment xml:lang="pt_BR">Arquivo de Desenho FreeHand 10</comment>
+    <comment xml:lang="pt">Ficheiro de Desenho FreeHand 10</comment>
+    <comment xml:lang="ro">Fișier de Desen FreeHand 10</comment>
+    <comment xml:lang="uk">Файл Малюнку FreeHand 10</comment>
+    <icon name="application-x-wine-extension-fh10"/>
+    <glob pattern="*.fh10"/>
+  </mime-type>
+</mime-info>

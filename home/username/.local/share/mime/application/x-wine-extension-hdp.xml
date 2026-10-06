@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-wine-extension-hdp">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>HD Photo File</comment>
+  <comment xml:lang="ca">Fitxer de HD Photo</comment>
+  <comment xml:lang="de">HD Photo Datei</comment>
+  <comment xml:lang="el">Αρχείο HD Photo</comment>
+  <comment xml:lang="en_GB">HD Photo File</comment>
+  <comment xml:lang="es">Archivo de HD Photo</comment>
+  <comment xml:lang="fr">Fichier HD Photo</comment>
+  <comment xml:lang="it">File di HD Photo</comment>
+  <comment xml:lang="ja">HD Photo ファイル</comment>
+  <comment xml:lang="ka">HD Photo ფაილი</comment>
+  <comment xml:lang="nl">HD Photo Bestand</comment>
+  <comment xml:lang="pt_BR">Arquivo de HD Photo</comment>
+  <comment xml:lang="pt">Ficheiro de HD Photo</comment>
+  <comment xml:lang="ro">Fișier HD Photo</comment>
+  <comment xml:lang="uk">Файл HD Photo</comment>
+  <icon name="application-x-wine-extension-hdp"/>
+  <glob deleteall="true"/>
+  <glob pattern="*.hdp"/>
+  <alias type="application/x-wine-extension-hdp"/>
+</mime-type>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-wine-extension-drf">
+    <comment>Discreet Render Format</comment>
+    <comment xml:lang="ca">Format de Renderització Discret</comment>
+    <comment xml:lang="de">Discreet Render Format</comment>
+    <comment xml:lang="el">Διακριτή Μορφή Απόδοσης</comment>
+    <comment xml:lang="en_GB">Discreet Render Format</comment>
+    <comment xml:lang="es">Formato de Renderización Discreta</comment>
+    <comment xml:lang="fr">Format de Rendu Discret</comment>
+    <comment xml:lang="it">Formato di Renderizzazione Discreta</comment>
+    <comment xml:lang="ja">Discreet レンダリング フォーマット</comment>
+    <comment xml:lang="ka">ფრთხილი რენდერის ფორმატი</comment>
+    <comment xml:lang="nl">Discreet Weergaveformaat</comment>
+    <comment xml:lang="pt_BR">Formato de Renderização Discreta</comment>
+    <comment xml:lang="pt">Formato de Renderização Discreta</comment>
+    <comment xml:lang="ro">Format de Renderizare Discret</comment>
+    <comment xml:lang="uk">Формат Дискретного Рендерингу</comment>
+    <icon name="application-x-wine-extension-drf"/>
+    <glob pattern="*.drf"/>
+  </mime-type>
+</mime-info>

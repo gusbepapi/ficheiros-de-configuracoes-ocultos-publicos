@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
+  <mime-type type="application/x-010script">
+    <comment>010 Editor Script</comment>
+    <comment xml:lang="ca">Script 010 Editor</comment>
+    <comment xml:lang="de">010 Editor Skript</comment>
+    <comment xml:lang="el">Σενάριο 010 Editor</comment>
+    <comment xml:lang="en_GB">010 Editor Script</comment>
+    <comment xml:lang="es">Script 010 Editor</comment>
+    <comment xml:lang="fr">Script 010 Editor</comment>
+    <comment xml:lang="it">Script 010 Editor</comment>
+    <comment xml:lang="ja">010 Editor スクリプト</comment>
+    <comment xml:lang="ka">010 Editor სკრიპტი</comment>
+    <comment xml:lang="nl">010 Editor Script</comment>
+    <comment xml:lang="pt_BR">Script 010 Editor</comment>
+    <comment xml:lang="pt">Script 010 Editor</comment>
+    <comment xml:lang="ro">Script 010 Editor</comment>
+    <comment xml:lang="uk">Сценарій 010 Editor</comment>
+    <icon name="application-x-010script"/>
+    <glob pattern="*.1sc"/>
+  </mime-type>
+</mime-info>

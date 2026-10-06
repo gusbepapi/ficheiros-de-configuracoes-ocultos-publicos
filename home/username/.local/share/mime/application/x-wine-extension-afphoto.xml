@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-wine-extension-afphoto">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>Affinity Photo Document</comment>
+  <comment xml:lang="ca">Document d'Affinity Photo</comment>
+  <comment xml:lang="de">Affinity Photo Dokument</comment>
+  <comment xml:lang="el">Έγγραφο Affinity Photo</comment>
+  <comment xml:lang="en_GB">Affinity Photo Document</comment>
+  <comment xml:lang="es">Documento de Affinity Photo</comment>
+  <comment xml:lang="fr">Document d'Affinity Photo</comment>
+  <comment xml:lang="it">Documento di Affinity Photo</comment>
+  <comment xml:lang="ja">Affinity Photo ドキュメント</comment>
+  <comment xml:lang="ka">Affinity Photo დოკუმენტი</comment>
+  <comment xml:lang="nl">Affinity Photo Document</comment>
+  <comment xml:lang="pt_BR">Documento de Affinity Photo</comment>
+  <comment xml:lang="pt">Documento de Affinity Photo</comment>
+  <comment xml:lang="ro">Document Affinity Photo</comment>
+  <comment xml:lang="uk">Документ Affinity Photo</comment>
+  <icon name="application-x-wine-extension-afphoto"/>
+  <glob-deleteall/>
+  <glob pattern="*.afphoto"/>
+  <alias type="application/x-wine-extension-afphoto"/>
+</mime-type>

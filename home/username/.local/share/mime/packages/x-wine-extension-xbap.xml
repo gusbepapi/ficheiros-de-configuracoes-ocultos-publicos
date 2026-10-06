@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-ms-xbap">
+    <comment>XAML Browser Application</comment>
+    <comment xml:lang="ca">Aplicació de Navegador XAML</comment>
+    <comment xml:lang="de">XAML Browseranwendung</comment>
+    <comment xml:lang="el">Εφαρμογή Περιηγητή XAML</comment>
+    <comment xml:lang="en_GB">XAML Browser Application</comment>
+    <comment xml:lang="es">Aplicación de Navegador XAML</comment>
+    <comment xml:lang="fr">Application Navigateur XAML</comment>
+    <comment xml:lang="it">Applicazione Browser XAML</comment>
+    <comment xml:lang="ja">XAML ブラウザ アプリケーション</comment>
+    <comment xml:lang="ka">XAML ბრაუზერის აპლიკაცია</comment>
+    <comment xml:lang="nl">XAML Browser Applicatie</comment>
+    <comment xml:lang="pt_BR">Aplicativo de Navegador XAML</comment>
+    <comment xml:lang="pt">Aplicação de Navegador XAML</comment>
+    <comment xml:lang="ro">Aplicație de Navigare XAML</comment>
+    <comment xml:lang="uk">Застосунок XAML Browser</comment>
+    <icon name="application-x-ms-xbap"/>
+    <glob pattern="*.xbap"/>
+  </mime-type>
+</mime-info>

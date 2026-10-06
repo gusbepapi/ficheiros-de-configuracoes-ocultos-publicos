@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+    <mime-type type="text/x-sw">
+        <comment>Star Wars Language File</comment>
+        <comment xml:lang="ca">Fitxer de Llenguatge Star Wars</comment>
+        <comment xml:lang="de">Star Wars Sprachdatei</comment>
+        <comment xml:lang="el">Αρχείο γλώσσας Star Wars</comment>
+        <comment xml:lang="en_GB">Star Wars Language File</comment>
+        <comment xml:lang="es">Archivo de Idioma de Star Wars</comment>
+        <comment xml:lang="fr">Fichier de Langue de Star Wars</comment>
+        <comment xml:lang="it">File di lingua di Star Wars</comment>
+        <comment xml:lang="ja">スター・ウォーズ言語ファイル</comment>
+        <comment xml:lang="ka">სტარი ვარსის ენის ფაილი</comment>
+        <comment xml:lang="nl">Star Wars Taalbestand</comment>
+        <comment xml:lang="pt_BR">Arquivo de Idioma de Star Wars</comment>
+        <comment xml:lang="pt">Ficheiro de Idioma de Star Wars</comment>
+        <comment xml:lang="ro">Fișier de limbă Star Wars</comment>
+        <comment xml:lang="uk">Файл мови Star Wars</comment>
+        <icon name="text-x-sw"/>
+        <glob-deleteall/>
+        <glob pattern="*.sw"/>
+    </mime-type>
+</mime-info>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-wine-extension-aip">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>Adobe Illustrator Plugin</comment>
+  <comment xml:lang="ca">Connector d'Adobe Illustrator</comment>
+  <comment xml:lang="de">Adobe Illustrator Plugin</comment>
+  <comment xml:lang="el">Πρόσθετο Adobe Illustrator</comment>
+  <comment xml:lang="en_GB">Adobe Illustrator Plugin</comment>
+  <comment xml:lang="es">Complemento de Adobe Illustrator</comment>
+  <comment xml:lang="fr">Plugin d'Adobe Illustrator</comment>
+  <comment xml:lang="it">Plugin di Adobe Illustrator</comment>
+  <comment xml:lang="ja">Adobe Illustrator プラグイン</comment>
+  <comment xml:lang="ka">Adobe Illustrator პლაგინი</comment>
+  <comment xml:lang="nl">Adobe Illustrator Plug-in</comment>
+  <comment xml:lang="pt_BR">Plugin do Adobe Illustrator</comment>
+  <comment xml:lang="pt">Plugin do Adobe Illustrator</comment>
+  <comment xml:lang="ro">Plugin Adobe Illustrator</comment>
+  <comment xml:lang="uk">Плагін Adobe Illustrator</comment>
+  <icon name="application-x-wine-extension-aip"/>
+  <glob-deleteall/>
+  <glob pattern="*.aip"/>
+  <alias type="application/x-wine-extension-aip"/>
+</mime-type>

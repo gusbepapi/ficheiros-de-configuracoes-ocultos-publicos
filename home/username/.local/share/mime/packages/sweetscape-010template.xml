@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
+  <mime-type type="application/x-010template">
+    <comment>010 Editor Template</comment>
+    <comment xml:lang="ca">Plantilla 010 Editor</comment>
+    <comment xml:lang="de">010 Editor Vorlage</comment>
+    <comment xml:lang="el">Πρότυπο 010 Editor</comment>
+    <comment xml:lang="en_GB">010 Editor Template</comment>
+    <comment xml:lang="es">Plantilla 010 Editor</comment>
+    <comment xml:lang="fr">Modèle 010 Editor</comment>
+    <comment xml:lang="it">Modello 010 Editor</comment>
+    <comment xml:lang="ja">010 Editor テンプレート</comment>
+    <comment xml:lang="ka">010 Editor თარგი</comment>
+    <comment xml:lang="nl">010 Editor Sjabloon</comment>
+    <comment xml:lang="pt_BR">Modelo 010 Editor</comment>
+    <comment xml:lang="pt">Modelo 010 Editor</comment>
+    <comment xml:lang="ro">Șablon 010 Editor</comment>
+    <comment xml:lang="uk">Шаблон 010 Editor</comment>
+    <icon name="application-x-010template"/>
+    <glob pattern="*.bt"/>
+  </mime-type>
+</mime-info>

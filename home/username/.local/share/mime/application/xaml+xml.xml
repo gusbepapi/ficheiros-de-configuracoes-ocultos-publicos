@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/xaml+xml">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>Windows Markup File</comment>
+  <comment xml:lang="ca">Fitxer de Marcació de Windows</comment>
+  <comment xml:lang="de">Windows Markup Datei</comment>
+  <comment xml:lang="el">Αρχείο Σήμανσης Windows</comment>
+  <comment xml:lang="en_GB">Windows Markup File</comment>
+  <comment xml:lang="es">Archivo de Marcado de Windows</comment>
+  <comment xml:lang="fr">Fichier de Balisage de Windows</comment>
+  <comment xml:lang="it">File di Markup di Windows</comment>
+  <comment xml:lang="ja">Windows マークアップ ファイル</comment>
+  <comment xml:lang="ka">Windows Markup ფაილი</comment>
+  <comment xml:lang="nl">Windows Markup Bestand</comment>
+  <comment xml:lang="pt_BR">Arquivo de Marcação do Windows</comment>
+  <comment xml:lang="pt">Ficheiro de Marcação do Windows</comment>
+  <comment xml:lang="ro">Fișier de Marcare Windows</comment>
+  <comment xml:lang="uk">Файл позначення Windows</comment>
+  <icon name="application-xaml+xml"/>
+  <glob pattern="*.xaml"/>
+  <alias type="application/xaml+xml"/>
+</mime-type>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-wine-extension-3fr">
+    <comment>Raw Image File</comment>
+    <comment xml:lang="ca">Fitxer d'imatge brut</comment>
+    <comment xml:lang="de">Unbearbeitetes Bild</comment>
+    <comment xml:lang="el">Ακατέργαστη εικόνα</comment>
+    <comment xml:lang="en_GB">Raw Image File</comment>
+    <comment xml:lang="es">Archivo de imagen sin procesar</comment>
+    <comment xml:lang="fr">Fichier image brut</comment>
+    <comment xml:lang="it">File immagine grezza</comment>
+    <comment xml:lang="ja">RAW 画像ファイル</comment>
+    <comment xml:lang="ka">წარმოქმნილი სურათის ფაილი</comment>
+    <comment xml:lang="nl">Onbewerkt beeldbestand</comment>
+    <comment xml:lang="pt_BR">Arquivo de imagem não processada</comment>
+    <comment xml:lang="pt">Ficheiro de imagem não processada</comment>
+    <comment xml:lang="ro">Fișier imagine brută</comment>
+    <comment xml:lang="uk">Файл необробленого зображення</comment>
+    <icon name="application-x-wine-extension-3fr"/>
+    <glob pattern="*.3fr"/>
+  </mime-type>
+</mime-info>

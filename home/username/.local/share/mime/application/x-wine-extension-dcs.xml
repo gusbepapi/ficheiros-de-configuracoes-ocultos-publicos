@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-wine-extension-dcs">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>Desktop Color Separation File</comment>
+  <comment xml:lang="ca">Fitxer de Separació de Color d'Escriptori</comment>
+  <comment xml:lang="de">Desktop Farbseparation</comment>
+  <comment xml:lang="el">Αρχείο Διαχωρισμού Χρωμάτων Επιφάνειας Εργασίας</comment>
+  <comment xml:lang="en_GB">Desktop Colour Separation File</comment>
+  <comment xml:lang="es">Archivo de Separación de Color de Escritorio</comment>
+  <comment xml:lang="fr">Fichier de Séparation des Couleurs du Bureau</comment>
+  <comment xml:lang="it">File di Separazione dei Colori del Desktop</comment>
+  <comment xml:lang="ja">デスクトップ カラー セパレーション ファイル</comment>
+  <comment xml:lang="ka">დესკტოპის ფერის გამოყოფის ფაილი</comment>
+  <comment xml:lang="nl">Desktop Kleurseparatiebestand</comment>
+  <comment xml:lang="pt_BR">Arquivo de Separação de Cores do Desktop</comment>
+  <comment xml:lang="pt">Ficheiro de Separação de Cores do Desktop</comment>
+  <comment xml:lang="ro">Fișier de Separare a Culorilor Desktop</comment>
+  <comment xml:lang="uk">Файл Розділення Кольорів Робочого Столу</comment>
+  <icon name="application-x-wine-extension-dcs"/>
+  <glob-deleteall/>
+  <glob pattern="*.dcs"/>
+  <alias type="application/x-wine-extension-dcs"/>
+</mime-type>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="text/x-elm">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>ELM Programming Language Source Code File</comment>
+  <comment xml:lang="ca">Fitxer de Codi Font de Llenguatge de Programació ELM</comment>
+  <comment xml:lang="de">ELM Programmiersprache Quellcode Datei</comment>
+  <comment xml:lang="el">Αρχείο Πηγαίου Κώδικα για την Προγραμματιστική Γλώσσα ELM</comment>
+  <comment xml:lang="en_GB">ELM Programming Language Source Code File</comment>
+  <comment xml:lang="es">Archivo de Código Fuente de Lenguaje de Programación ELM</comment>
+  <comment xml:lang="fr">Fichier de Code Source de Langage de Programmation ELM</comment>
+  <comment xml:lang="it">File di Codice Sorgente del Linguaggio di Programmazione ELM</comment>
+  <comment xml:lang="ja">ELM プログラミング言語 ソースコード ファイル</comment>
+  <comment xml:lang="nl">ELM Programmeertaal Broncodebestand</comment>
+  <comment xml:lang="pt_BR">Arquivo de Código Fonte de Linguagem de Programação ELM</comment>
+  <comment xml:lang="pt">Ficheiro de Código Fonte de Linguagem de Programação ELM</comment>
+  <comment xml:lang="ro">Fișier de Cod Sursă al Limbajului de Programare ELM</comment>
+  <comment xml:lang="uk">Файл Вихідного Коду Мови Програмування ELM</comment>
+  <icon name="text-x-elm"/>
+  <glob-deleteall/>
+  <glob pattern="*.elm"/>
+</mime-type>

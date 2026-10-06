@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="image/jpeg">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>JPEG File Interchange Format Image</comment>
+  <comment xml:lang="ca">Imatge de Format de Canvi de Fitxers JPEG</comment>
+  <comment xml:lang="de">JPEG Datei Wechsel Format Bild</comment>
+  <comment xml:lang="el">Εικόνα Μορφής Αλλαγής Αρχείου JPEG</comment>
+  <comment xml:lang="en_GB">JPEG File Interchange Format Image</comment>
+  <comment xml:lang="es">Imagen de Formato de Intercambio de Archivos JPEG</comment>
+  <comment xml:lang="fr">Image de Format d'Échange de Fichier JPEG</comment>
+  <comment xml:lang="it">Immagine di Formato di Intercambio di File JPEG</comment>
+  <comment xml:lang="ja">JPEG ファイル インターチェンジ フォーマット 画像</comment>
+  <comment xml:lang="ka">JPEG ფაილი გაცვლის ფორმატის სურათი</comment>
+  <comment xml:lang="nl">JPEG Bestandsuitwisselingsformaat Afbeelding</comment>
+  <comment xml:lang="pt_BR">Imagem de Formato de Intercâmbio de Arquivo JPEG</comment>
+  <comment xml:lang="pt">Imagem de Formato de Intercâmbio de Ficheiro JPEG</comment>
+  <comment xml:lang="ro">Imagine de Format de Schimb de Fișier JPEG</comment>
+  <comment xml:lang="uk">Зображення формату обміну файлів JPEG</comment>
+  <icon name="image-jpeg"/>
+  <glob deleteall="true"/>
+  <glob pattern="*.jfif"/>
+  <alias name="image/jpeg"/>
+</mime-type>

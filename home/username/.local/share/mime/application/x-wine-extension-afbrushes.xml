@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-wine-extension-afbrushes">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>Affinity Designer Brush</comment>
+  <comment xml:lang="ca">Pinzell d'Affinity Designer</comment>
+  <comment xml:lang="de">Affinity Designer Pinsel</comment>
+  <comment xml:lang="el">Πινέλο Affinity Designer</comment>
+  <comment xml:lang="en_GB">Affinity Designer Brush</comment>
+  <comment xml:lang="es">Pincel de Affinity Designer</comment>
+  <comment xml:lang="fr">Pinceau d'Affinity Designer</comment>
+  <comment xml:lang="it">Pennello di Affinity Designer</comment>
+  <comment xml:lang="ja">Affinity Designer ブラシ</comment>
+  <comment xml:lang="ka">Affinity Designer ბრუში</comment>
+  <comment xml:lang="nl">Affinity Designer Kwast</comment>
+  <comment xml:lang="pt_BR">Pincel do Affinity Designer</comment>
+  <comment xml:lang="pt">Pincel do Affinity Designer</comment>
+  <comment xml:lang="ro">Pensula Affinity Designer</comment>
+  <comment xml:lang="uk">Пензель Affinity Designer</comment>
+  <icon name="application-x-wine-extension-afbrushes"/>
+  <glob-deleteall/>
+  <glob pattern="*.afbrushes"/>
+  <alias type="application/x-wine-extension-afbrushes"/>
+</mime-type>

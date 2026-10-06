@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-wine-extension-vfc">
+    <comment>FontLab VI File</comment>
+    <comment xml:lang="ca">Fitxer de FontLab VI</comment>
+    <comment xml:lang="de">FontLab VI Datei</comment>
+    <comment xml:lang="el">Αρχείο FontLab VI</comment>
+    <comment xml:lang="en_GB">FontLab VI File</comment>
+    <comment xml:lang="es">Archivo de FontLab VI</comment>
+    <comment xml:lang="fr">Fichier de FontLab VI</comment>
+    <comment xml:lang="it">File di FontLab VI</comment>
+    <comment xml:lang="ja">FontLab VI ファイル</comment>
+    <comment xml:lang="ka">FontLab VI ფაილი</comment>
+    <comment xml:lang="nl">FontLab VI Bestand</comment>
+    <comment xml:lang="pt_BR">Arquivo do FontLab VI</comment>
+    <comment xml:lang="pt">Ficheiro do FontLab VI</comment>
+    <comment xml:lang="ro">Fișier FontLab VI</comment>
+    <comment xml:lang="uk">Файл FontLab VI</comment>
+    <icon name="application-x-wine-extension-vfc"/>
+    <glob pattern="*.vfc"/>
+  </mime-type>
+</mime-info>

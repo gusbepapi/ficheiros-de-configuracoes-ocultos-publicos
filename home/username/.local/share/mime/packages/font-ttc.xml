@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+    <mime-type type="font/ttf">
+        <comment>TrueType Font Collection</comment>
+        <comment xml:lang="ca">Col·lecció de Tipus de Lletra TrueType</comment>
+        <comment xml:lang="de">TrueType Schriftartensammlung</comment>
+        <comment xml:lang="el">Συλλογή Γραμματοσειρών TrueType</comment>
+        <comment xml:lang="en_GB">TrueType Font Collection</comment>
+        <comment xml:lang="es">Colección de fuentes TrueType</comment>
+        <comment xml:lang="fr">Collection de polices TrueType</comment>
+        <comment xml:lang="it">Collezione di caratteri TrueType</comment>
+        <comment xml:lang="ja">TrueType フォントコレクション</comment>
+        <comment xml:lang="ka">TrueType ფონტის კოლექცია</comment>
+        <comment xml:lang="nl">TrueType Lettertypeverzameling</comment>
+        <comment xml:lang="pt_BR">Coleção de Fontes TrueType</comment>
+        <comment xml:lang="pt">Coleção de Tipos de Letra TrueType</comment>
+        <comment xml:lang="ro">Colectie Fonturi TrueType</comment>
+        <comment xml:lang="uk">Колекція шрифтів TrueType</comment>
+        <icon name="font-ttc"/>
+        <glob-deleteall/>
+        <glob pattern="*.ttf"/>
+    </mime-type>
+</mime-info>

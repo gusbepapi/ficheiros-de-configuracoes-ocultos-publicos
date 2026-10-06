@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-wine-extension-hyp">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>Adobe Illustrator Hyphenation Dictionary</comment>
+  <comment xml:lang="ca">Diccionari d'Hifènació d'Adobe Illustrator</comment>
+  <comment xml:lang="de">Adobe Illustrator Silbentrennungswoerterbuch</comment>
+  <comment xml:lang="el">Λεξικό Ενωτίκευσης του Adobe Illustrator</comment>
+  <comment xml:lang="en_GB">Adobe Illustrator Hyphenation Dictionary</comment>
+  <comment xml:lang="es">Diccionario de Silabación de Adobe Illustrator</comment>
+  <comment xml:lang="fr">Dictionnaire de Césure d'Adobe Illustrator</comment>
+  <comment xml:lang="it">Dizionario di Sillabazione di Adobe Illustrator</comment>
+  <comment xml:lang="ja">Adobe Illustrator ハイフネーション辞書</comment>
+  <comment xml:lang="ka">Adobe Illustrator სილაბაციის ლექსიკონი</comment>
+  <comment xml:lang="nl">Adobe Illustrator Woordenboek voor Woordafbreking</comment>
+  <comment xml:lang="pt_BR">Dicionário de Hifenização do Adobe Illustrator</comment>
+  <comment xml:lang="pt">Dicionário de Hifenização do Adobe Illustrator</comment>
+  <comment xml:lang="ro">Dicționar de Hifenare Adobe Illustrator</comment>
+  <comment xml:lang="uk">Словник Розбиття Слів Adobe Illustrator</comment>
+  <icon name="application-x-wine-extension-hyp"/>
+  <glob-deleteall/>
+  <glob pattern="*.hyp"/>
+  <alias type="application/x-wine-extension-hyp"/>
+</mime-type>

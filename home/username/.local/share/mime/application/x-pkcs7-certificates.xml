@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-pkcs7-certificates">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>PKCS#7 Certificate Package</comment>
+  <comment xml:lang="ca">Paquet de Certificats PKCS#7</comment>
+  <comment xml:lang="de">PKCS#7 Zertifikatspaket</comment>
+  <comment xml:lang="el">Πακέτο Πιστοποιητικών PKCS#7</comment>
+  <comment xml:lang="en_GB">PKCS#7 Certificate Package</comment>
+  <comment xml:lang="es">Paquete de Certificados PKCS#7</comment>
+  <comment xml:lang="fr">Paquet de certificats PKCS#7</comment>
+  <comment xml:lang="it">Pacchetto di certificati PKCS#7</comment>
+  <comment xml:lang="ja">PKCS#7 証明書パッケージ</comment>
+  <comment xml:lang="ka">PKCS#7 სერტიფიკატის პაკეტი</comment>
+  <comment xml:lang="nl">PKCS#7 Certificaatpakket</comment>
+  <comment xml:lang="pt_BR">Pacote de Certificação PKCS#7</comment>
+  <comment xml:lang="pt">Pacote de Certificação PKCS#7</comment>
+  <comment xml:lang="ro">Pachet de certificat PKCS#7</comment>
+  <comment xml:lang="uk">Пакунок Сертифікатів PKCS#7</comment>
+  <icon name="application-x-pkcs7-certificates"/>
+  <glob-deleteall/>
+  <glob pattern="*.p7b"/>
+  <glob pattern="*.spc"/>
+  <alias type="application/x-pkcs7-certificates"/>
+</mime-type>

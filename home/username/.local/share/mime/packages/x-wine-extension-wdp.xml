@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-wine-extension-wdp">
+    <comment>Windows Media Photo File</comment>
+    <comment xml:lang="ca">Fitxer de Foto de Windows Media</comment>
+    <comment xml:lang="de">Windows Media Foto Datei</comment>
+    <comment xml:lang="el">Αρχείο Φωτογραφίας Windows Media</comment>
+    <comment xml:lang="en_GB">Windows Media Photo File</comment>
+    <comment xml:lang="es">Archivo de Foto de Windows Media</comment>
+    <comment xml:lang="fr">Fichier de Photo de Windows Media</comment>
+    <comment xml:lang="it">File di Foto di Windows Media</comment>
+    <comment xml:lang="ja">Windows Media フォト ファイル</comment>
+    <comment xml:lang="ka">Windows Media ფოტო ფაილი</comment>
+    <comment xml:lang="nl">Windows Media Foto Bestand</comment>
+    <comment xml:lang="pt_BR">Arquivo de Foto do Windows Media</comment>
+    <comment xml:lang="pt">Ficheiro de Foto do Windows Media</comment>
+    <comment xml:lang="ro">Fișier Foto Windows Media</comment>
+    <comment xml:lang="uk">Файл Фото Windows Media</comment>
+    <icon name="application-x-wine-extension-wdp"/>
+    <glob pattern="*.wdp"/>
+  </mime-type>
+</mime-info>

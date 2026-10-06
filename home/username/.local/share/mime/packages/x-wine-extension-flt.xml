@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-wine-extension-flt">
+    <comment>Adobe Illustrator Filter</comment>
+    <comment xml:lang="ca">Filtre d'Adobe Illustrator</comment>
+    <comment xml:lang="de">Adobe Illustrator Filter</comment>
+    <comment xml:lang="el">Φίλτρο Adobe Illustrator</comment>
+    <comment xml:lang="en_GB">Adobe Illustrator Filter</comment>
+    <comment xml:lang="es">Filtro de Adobe Illustrator</comment>
+    <comment xml:lang="fr">Filtre d'Adobe Illustrator</comment>
+    <comment xml:lang="it">Filtro di Adobe Illustrator</comment>
+    <comment xml:lang="ja">Adobe Illustrator フィルタ</comment>
+    <comment xml:lang="ka">Adobe Illustrator ფილტრი</comment>
+    <comment xml:lang="nl">Adobe Illustrator Filter</comment>
+    <comment xml:lang="pt_BR">Filtro di Adobe Illustrator</comment>
+    <comment xml:lang="pt">Filtro di Adobe Illustrator</comment>
+    <comment xml:lang="ro">Filtru Adobe Illustrator</comment>
+    <comment xml:lang="uk">Фільтр Adobe Illustrator</comment>
+    <icon name="application-x-wine-extension-flt"/>
+    <glob pattern="*.flt"/>
+  </mime-type>
+</mime-info>

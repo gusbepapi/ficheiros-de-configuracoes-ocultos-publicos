@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-wine-extension-mef">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>Mamiya RAW Image</comment>
+  <comment xml:lang="ca">Imatge RAW de Mamiya</comment>
+  <comment xml:lang="de">Mamiya RAW-Bild</comment>
+  <comment xml:lang="el">Εικόνα RAW Mamiya</comment>
+  <comment xml:lang="en_GB">Mamiya RAW Image</comment>
+  <comment xml:lang="es">Imagen RAW de Mamiya</comment>
+  <comment xml:lang="fr">Image RAW de Mamiya</comment>
+  <comment xml:lang="it">Immagine RAW di Mamiya</comment>
+  <comment xml:lang="ja">Mamiya RAW 画像</comment>
+  <comment xml:lang="ka">Mamiya RAW სურათი</comment>
+  <comment xml:lang="nl">Mamiya RAW Afbeelding</comment>
+  <comment xml:lang="pt_BR">Imagem RAW de Mamiya</comment>
+  <comment xml:lang="pt">Imagem RAW de Mamiya</comment>
+  <comment xml:lang="ro">Imagine RAW Mamiya</comment>
+  <comment xml:lang="uk">Зображення RAW Mamiya</comment>
+  <icon name="application-x-wine-extension-mef"/>
+  <glob deleteall="true"/>
+  <glob pattern="*.mef"/>
+  <alias type="application/x-wine-extension-mef"/>
+</mime-type>

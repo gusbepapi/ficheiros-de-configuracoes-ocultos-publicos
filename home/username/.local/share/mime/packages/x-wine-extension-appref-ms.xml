@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-wine-extension-appref-ms">
+    <comment>Application Reference</comment>
+    <comment xml:lang="ca">Referència d'Aplicació</comment>
+    <comment xml:lang="de">Anwendungsreferenz</comment>
+    <comment xml:lang="el">Αναφορά Εφαρμογής</comment>
+    <comment xml:lang="en_GB">Application Reference</comment>
+    <comment xml:lang="es">Referencia de Aplicación</comment>
+    <comment xml:lang="fr">Référence d'Application</comment>
+    <comment xml:lang="it">Riferimento dell'Applicazione</comment>
+    <comment xml:lang="ja">アプリケーション参照</comment>
+    <comment xml:lang="ka">აპლიკაციის მიმართულება</comment>
+    <comment xml:lang="nl">Toepassingsverwijzing</comment>
+    <comment xml:lang="pt_BR">Referência de Aplicativo</comment>
+    <comment xml:lang="pt">Referência de Aplicação</comment>
+    <comment xml:lang="ro">Referință Aplicație</comment>
+    <comment xml:lang="uk">Посилання на Програму</comment>
+    <icon name="application-x-wine-extension-appref-ms"/>
+    <glob pattern="*.appref-ms"/>
+  </mime-type>
+</mime-info>

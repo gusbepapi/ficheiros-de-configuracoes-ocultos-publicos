@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-wine-extension-nrw">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>Nikon RAW Image</comment>
+  <comment xml:lang="ca">Imatge RAW Nikon</comment>
+  <comment xml:lang="de">Nikon RAW Bild</comment>
+  <comment xml:lang="el">Εικόνα RAW Nikon</comment>
+  <comment xml:lang="en_GB">Nikon RAW Image</comment>
+  <comment xml:lang="es">Imagen RAW de Nikon</comment>
+  <comment xml:lang="fr">Image RAW de Nikon</comment>
+  <comment xml:lang="it">Immagine RAW di Nikon</comment>
+  <comment xml:lang="ja">Nikon RAW 画像</comment>
+  <comment xml:lang="ka">Nikon RAW სურათი</comment>
+  <comment xml:lang="nl">Nikon RAW Afbeelding</comment>
+  <comment xml:lang="pt_BR">Imagem RAW de Nikon</comment>
+  <comment xml:lang="pt">Imagem RAW de Nikon</comment>
+  <comment xml:lang="ro">Imagine RAW Nikon</comment>
+  <comment xml:lang="uk">Зображення RAW Nikon</comment>
+  <icon name="application-x-wine-extension-nrw"/>
+  <glob-deleteall/>
+  <glob pattern="*.nrw"/>
+  <alias type="application/x-wine-extension-nrw"/>
+</mime-type>

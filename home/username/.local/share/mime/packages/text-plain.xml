@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+    <mime-type type="text/plain">
+        <comment>Simple Text Document</comment>
+        <comment xml:lang="ca">Document de Text Simple</comment>
+        <comment xml:lang="de">Einfaches Textdokument</comment>
+        <comment xml:lang="el">Απλό Έγγραφο Κειμένου</comment>
+        <comment xml:lang="en_GB">Simple Text Document</comment>
+        <comment xml:lang="es">Documento de Texto Simple</comment>
+        <comment xml:lang="fr">Document de Texte Simple</comment>
+        <comment xml:lang="it">Documento di Testo Semplice</comment>
+        <comment xml:lang="ja">シンプルなテキスト ドキュメント</comment>
+        <comment xml:lang="nl">Eenvoudig Tekstdocument</comment>
+        <comment xml:lang="pt_BR">Documento de Texto Simples</comment>
+        <comment xml:lang="pt">Documento de Texto Simples</comment>
+        <comment xml:lang="ro">Document Text Simplu</comment>
+        <comment xml:lang="uk">Простий Текстовий документ</comment>
+        <icon name="text-plain"/>
+        <glob-deleteall/>
+        <glob pattern="*.pyw"/>
+        <glob pattern="*.txt"/>
+    </mime-type>
+</mime-info>

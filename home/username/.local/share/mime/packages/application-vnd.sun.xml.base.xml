@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+    <mime-type type="application/vnd.sun.xml.base">
+        <comment>OpenOffice.org 1.0 Base Database</comment>
+        <comment xml:lang="ca">Base de dades OpenOffice.org 1.0</comment>
+        <comment xml:lang="de">OpenOffice.org 1.0 Datenbank</comment>
+        <comment xml:lang="el">Βάση Δεδομένων OpenOffice.org 1.0</comment>
+        <comment xml:lang="en_GB">OpenOffice.org 1.0 Base Database</comment>
+        <comment xml:lang="es">Base de datos OpenOffice.org 1.0</comment>
+        <comment xml:lang="fr">Base de données OpenOffice.org 1.0</comment>
+        <comment xml:lang="it">Database OpenOffice.org 1.0</comment>
+        <comment xml:lang="ja">OpenOffice.org 1.0 データベース</comment>
+        <comment xml:lang="ka">OpenOffice.org 1.0 ბაზა</comment>
+        <comment xml:lang="nl">OpenOffice.org 1.0 Basisdatabase</comment>
+        <comment xml:lang="pt_BR">Banco de dados OpenOffice.org 1.0</comment>
+        <comment xml:lang="pt">Base de dados OpenOffice.org 1.0</comment>
+        <comment xml:lang="ro">Bază de date OpenOffice.org 1.0</comment>
+        <comment xml:lang="uk">База даних OpenOffice.org 1.0</comment>
+        <icon name="application-vnd.sun.xml.base"/>
+        <glob-deleteall/>
+        <glob pattern="*.odb"/>
+    </mime-type>
+</mime-info>

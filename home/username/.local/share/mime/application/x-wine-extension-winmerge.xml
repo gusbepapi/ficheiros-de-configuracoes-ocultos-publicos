@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/x-wine-extension-winmerge">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>WinMerge Patch File</comment>
+  <comment xml:lang="ca">Fitxer de Correció di WinMerge</comment>
+  <comment xml:lang="de">WinMerge Patch Datei</comment>
+  <comment xml:lang="el">Αρχείο Διόρθωσης WinMerge</comment>
+  <comment xml:lang="en_GB">WinMerge Patch File</comment>
+  <comment xml:lang="es">Archivo de Corrección de WinMerge</comment>
+  <comment xml:lang="fr">Fichier de Correction de WinMerge</comment>
+  <comment xml:lang="it">File di Correzione di WinMerge</comment>
+  <comment xml:lang="ja">WinMerge パッチ ファイル</comment>
+  <comment xml:lang="ka">WinMerge გამოსწორების ფაილი</comment>
+  <comment xml:lang="nl">WinMerge Correctiebestand</comment>
+  <comment xml:lang="pt_BR">Arquivo de Correção do WinMerge</comment>
+  <comment xml:lang="pt">Ficheiro de Correcção do WinMerge</comment>
+  <comment xml:lang="ro">Fișier de Corecție WinMerge</comment>
+  <comment xml:lang="uk">Файл Патчу WinMerge</comment>
+  <icon name="application-x-wine-extension-winmerge"/>
+  <glob-deleteall/>
+  <glob pattern="*.winmerge"/>
+  <alias type="application/x-wine-extension-winmerge"/>
+</mime-type>

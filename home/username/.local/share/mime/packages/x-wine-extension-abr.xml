@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-wine-extension-abr">
+    <comment>Adobe Photoshop Brush</comment>
+    <comment xml:lang="ca">Pinzell d'Adobe Photoshop</comment>
+    <comment xml:lang="de">Adobe Photoshop Pinsel</comment>
+    <comment xml:lang="el">Πινέλο Adobe Photoshop</comment>
+    <comment xml:lang="en_GB">Adobe Photoshop Brush</comment>
+    <comment xml:lang="es">Pincel de Adobe Photoshop</comment>
+    <comment xml:lang="fr">Pinceau d'Adobe Photoshop</comment>
+    <comment xml:lang="it">Pennello di Adobe Photoshop</comment>
+    <comment xml:lang="ja">Adobe Photoshop ブラシ</comment>
+    <comment xml:lang="ka">Adobe Photoshop ბრუში</comment>
+    <comment xml:lang="nl">Adobe Photoshop Kwast</comment>
+    <comment xml:lang="pt_BR">Pincel do Adobe Photoshop</comment>
+    <comment xml:lang="pt">Pincel do Adobe Photoshop</comment>
+    <comment xml:lang="ro">Pensula Adobe Photoshop</comment>
+    <comment xml:lang="uk">Пензель Adobe Photoshop</comment>
+    <icon name="application-x-wine-extension-abr"/>
+    <glob pattern="*.abr"/>
+  </mime-type>
+</mime-info>

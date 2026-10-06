@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mime-type xmlns="http://www.freedesktop.org/standards/shared-mime-info" type="application/flatimage_dialog">
+  <!--Created automatically by update-mime-database. DO NOT EDIT!-->
+  <comment>FlatImage Application</comment>
+  <glob pattern="dialog"/>
+  <sub-class-of type="application/x-executable"/>
+  <generic-icon name="application-x-executable"/>
+</mime-type>
