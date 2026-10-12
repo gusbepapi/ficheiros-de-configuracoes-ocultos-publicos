@@ -1,0 +1,51 @@
+{
+    "name": "microg-unofficial-installer",
+    "description": "It installs microG on Android.",
+    "version": "v1.3.2.48-alpha",
+    "path": "microg/microg-unofficial-installer/v1.3.2.48-alpha-gac955c5f",
+    "files": [
+        "EXTENSION"
+    ],
+    "provides": [
+        "microg"
+    ],
+    "conflicts": [
+        "gapps",
+        "microg"
+    ],
+    "source": [
+        "microg-unofficial-installer-v1.3.2.48-alpha.zip::https://github.com/micro5k/microg-unofficial-installer/releases/download/nightly/microg-unofficial-installer-v1.3.2.48-alpha-gac955c5f-oss-by-ale5000-signed.zip"
+    ],
+    "sha256sums": [
+        "ebb97bee9ec04f1e5e7bb4fe89d9afae12387b62b2212da7fe40bb5573d2cc9c"
+    ],
+    "installed_files": [
+        "system/etc/microg.xml",
+        "system/etc/sysconfig/google.xml",
+        "system/etc/sysconfig/features.xml",
+        "system/etc/permissions/com.google.android.maps.xml",
+        "system/etc/permissions/privapp-permissions-FDroidPrivilegedExtension.xml",
+        "system/etc/permissions/privapp-permissions-GmsCore.xml",
+        "system/etc/permissions/privapp-permissions-Phonesky.xml",
+        "system/etc/org.fdroid.fdroid/additional_repos.xml",
+        "system/etc/default-permissions/default-permissions-MyLocation.xml",
+        "system/etc/default-permissions/default-permissions-GmsCore.xml",
+        "system/etc/default-permissions/default-permissions-Phonesky.xml",
+        "system/etc/zips/microg-unofficial-installer.prop",
+        "system/bin/minutil",
+        "system/app/NewPipe/NewPipe.apk",
+        "system/app/NewPipe/lib/libandroidx.graphics.path.so",
+        "system/app/MyLocation/MyLocation.apk",
+        "system/priv-app/FDroidPrivilegedExtension/FDroidPrivilegedExtension.apk",
+        "system/priv-app/GoogleServicesFramework/GoogleServicesFramework.apk",
+        "system/priv-app/Phonesky/Phonesky.apk",
+        "system/priv-app/GmsCore/GmsCore.apk",
+        "system/priv-app/GmsCore/lib/libimage_processing_util_jni.so",
+        "system/priv-app/GmsCore/lib/libconscrypt_gmscore_jni.so",
+        "system/priv-app/GmsCore/lib/libmapbox-gl.so",
+        "system/priv-app/GmsCore/lib/libc++_shared.so",
+        "system/priv-app/GmsCore/lib/libcronet.102.0.5005.125.so",
+        "system/priv-app/GmsCore/lib/libopencv_java4.so",
+        "system/framework/com.google.android.maps.jar"
+    ]
+}
