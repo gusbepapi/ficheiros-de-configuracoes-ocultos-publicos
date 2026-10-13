@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+# Sourcing the aliases that Bash and ZSH share, since they run unchanged in both shells
+if [ -f "$HOME/.config/shells/bash/03-aliases" ];
+then
+  source "$HOME/.config/shells/bash/03-aliases"
+fi

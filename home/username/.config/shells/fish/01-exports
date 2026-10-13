@@ -1,0 +1,113 @@
+#!/usr/bin/env fish
+
+##================##
+## Exports
+##================##
+
+# Setting the Wayland/GTK portal preference, since this session runs exclusively on Hyprland
+set -gx GTK_USE_PORTAL 1
+
+# Setting the Qt6 platform theme
+set -gx QT_QPA_PLATFORMTHEME qt6ct
+
+# Overriding the ROCm architecture target for the RDNA-1 RX 5700 XT
+set -gx HSA_OVERRIDE_GFX_VERSION 10.3.0
+
+# Setting the path, so it includes the user’s private «bin» folder if it exists
+if test -d $HOME/.local/bin
+  fish_add_path --global --prepend --move $HOME/.local/bin
+
+  if test -d $HOME/.local/bin/official-executables
+    fish_add_path --global --prepend --move $HOME/.local/bin/official-executables
+  end
+
+  if test -d $HOME/.local/bin/personal-executables
+    fish_add_path --global --prepend --move $HOME/.local/bin/personal-executables
+  end
+
+  # MiKTeX, using its custom, non-default link-target directory
+  if test -d $HOME/.local/bin/miktex
+    fish_add_path --global --prepend --move $HOME/.local/bin/miktex
+  end
+end
+
+# Bun
+if test -d $HOME/.bun
+  set -gx BUN_INSTALL $HOME/.bun
+  fish_add_path --global --prepend --move $BUN_INSTALL/bin
+end
+
+# Cargo
+if test -f $HOME/.cargo/env.fish
+  source $HOME/.cargo/env.fish
+end
+
+# Deno
+if test -d $HOME/.deno
+  set -gx DENO_INSTALL $HOME/.deno
+  fish_add_path --global --prepend --move $DENO_INSTALL/bin
+end
+
+# Mise, a polyglot tool version manager, replacing NVM, PNPM’s installer, etc
+if command -q mise
+  mise activate fish | source
+
+  # Golang, when provisioned through Mise
+  if test -d $HOME/.local/share/mise/installs/go
+    set -gx GOPATH $HOME/.local/share/mise/installs/go/pkgs
+  end
+end
+
+# Poetry, exported rather than installed via `pip`
+set -gx POETRY_HOME $HOME/.local/bin/python-executables/poetry
+
+if test -d $POETRY_HOME/bin
+  fish_add_path --global --prepend --move $POETRY_HOME/bin
+end
+
+# Poetry's internal venv
+if test -d $HOME/.local/bin/python-executables/poetry/venv/bin
+  fish_add_path --global --append $HOME/.local/bin/python-executables/poetry/venv/bin
+end
+
+# Qt6 tooling
+if test -d /usr/lib/qt6/bin
+  fish_add_path --global --prepend --move /usr/lib/qt6/bin
+end
+
+##================##
+## Environment secrets
+##================##
+
+# Loading a file of «KEY=value» lines, since Fish cannot source the POSIX syntax
+# Supporting «export KEY=value», single and double quotes, comments and empty lines, but no variable expansion
+function _load_env_file
+  set -l file $argv[1]
+
+  if not test -f $file
+    return 0
+  end
+
+  for line in (string trim -- (cat $file))
+    if test -z "$line"; or string match -q -r '^#' -- $line
+      continue
+    end
+
+    set -l pair (string replace -r '^export\s+' '' -- $line)
+    set -l key (string replace -r '=.*$' '' -- $pair)
+    set -l value (string replace -r '^[^=]*=' '' -- $pair)
+
+    if string match -q -r '^".*"$' -- $value; or string match -q -r "^'.*'\$" -- $value
+      set value (string sub --start 2 --end -1 -- $value)
+    end
+
+    if string match -q -r '^[A-Za-z_][A-Za-z0-9_]*$' -- $key
+      set -gx $key $value
+    end
+  end
+end
+
+# Loading the public, private and secret environment variables
+_load_env_file $HOME/.env
+_load_env_file $HOME/.env.private
+_load_env_file $HOME/.env.secrets

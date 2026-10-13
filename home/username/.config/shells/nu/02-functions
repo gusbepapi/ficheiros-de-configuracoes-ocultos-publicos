@@ -1,0 +1,236 @@
+#!/usr/bin/env nu
+
+# Rendering the distribution variants with the dotdrop delimiters and the variable «distro», which is arch, debian, fedora or void
+# Every variant except Debian is untested, because only Ubuntu was available when it was written
+
+##================##
+## Functions
+##================##
+
+# Clearing the terminal before each command execution
+def --env cb4 [] {
+  $env.config.hooks.pre_execution = ($env.config.hooks.pre_execution | default [] | append {|| clear })
+}
+
+# Displaying files with `cat`, deferring to `nvimpager` when the output is a terminal
+def catt [...files: string] {
+  if (is-terminal --stdout) and (which nvimpager | is-not-empty) {
+    ^nvimpager -c ...$files
+  } else {
+    ^cat ...$files
+  }
+}
+
+# Displaying files with `bat`, deferring to `nvimpager` when the output is a terminal
+# Debian names the executable `batcat`, so both names are tried
+def batt [...files: string] {
+  if (is-terminal --stdout) and (which nvimpager | is-not-empty) {
+    ^nvimpager -c ...$files
+  } else if (which bat | is-not-empty) {
+    ^bat ...$files
+  } else {
+    ^batcat ...$files
+  }
+}
+
+# Encrypting files in tar format with zstd compression
+def cgpgtar [file: string] {
+  ^tar cf - --zstd $file | ^gpg -e -z 0 | save --raw --force $"($file).tar.zst.gpg"
+}
+
+# Decrypting files in tar format with zstd compression
+def xgpgtar [file: string] {
+  ^gpg -d $file | ^tar x --zstd
+}
+
+# Picking a colour under the cursor, exclusively on Wayland
+def cpick [] {
+  let region = (^slurp -p | str trim)
+  ^grim -g $region -t ppm - | ^magick convert - -format "%[pixel:p{0,0}]" txt:-
+}
+
+# Reporting the CPU frequency once, rather than continuously watching it
+def cpufreq [] {
+  ^grep MHz /proc/cpuinfo
+}
+
+# Extracting the video dimensions using `ffprobe` (bundled with `ffmpeg`)
+# Usage: get_video_dimension <video_file>
+def get_video_dimension [file: string] {
+  let stream = (^ffprobe -v quiet -print_format json -show_format -show_streams $file | from json | get streams.0)
+  $"($stream.width)x($stream.height)"
+}
+
+# Stopping the network time service before the clock is moved back
+def _ntp_stop [] {
+{%@@ if distro == "void" @@%}
+  ^sudo sv stop ntpd
+{%@@ elif distro == "fedora" @@%}
+  ^sudo systemctl stop chronyd
+{%@@ elif distro == "debian" @@%}
+  let result = (^sudo systemctl stop ntpd | complete)
+  if $result.exit_code != 0 {
+    ^sudo systemctl stop systemd-timesyncd
+  }
+{%@@ else @@%}
+  ^sudo systemctl stop ntpd
+{%@@ endif @@%}
+}
+
+# Starting the network time service again, once the clock has been resynchronised
+def _ntp_start [] {
+{%@@ if distro == "void" @@%}
+  ^sudo sv start ntpd
+{%@@ elif distro == "fedora" @@%}
+  ^sudo systemctl restart chronyd
+{%@@ elif distro == "debian" @@%}
+  let result = (^sudo systemctl restart ntpd | complete)
+  if $result.exit_code != 0 {
+    ^sudo systemctl restart systemd-timesyncd
+  }
+{%@@ else @@%}
+  ^sudo systemctl restart ntpd
+{%@@ endif @@%}
+}
+
+# Resetting the system clock from the date header of a web server
+def _clock_from_web [] {
+  let headers = (^wget --method=HEAD -qSO- --max-redirect=0 google.com | complete | get stderr)
+  let date = ($headers | lines | where {|line| $line =~ '^\s*Date:' } | first | str replace --regex '^\s*Date:\s*' '')
+  ^sudo date -s $date
+}
+
+# Backdating a file’s creation timestamp, then resynchronising the system clock via NTP
+# Usage: modifying_file_creation_date <timestamp> <file>
+def modifying_file_creation_date [timestamp: string, file: string] {
+  _ntp_stop
+  ^sudo date +"%Y-%m-%d %T" -s $timestamp
+  ^touch $file
+  _clock_from_web
+  _ntp_start
+}
+
+# Backdating a folder’s creation timestamp, then resynchronising the system clock via NTP
+# Usage: modifying_folder_creation_date <timestamp> <folder>
+def modifying_folder_creation_date [timestamp: string, folder: string] {
+  _ntp_stop
+  ^sudo date +"%Y-%m-%d %T" -s $timestamp
+  ^mkdir -p $folder
+  _clock_from_web
+  _ntp_start
+}
+
+# Backdating a copy’s creation timestamp, then resynchronising the system clock via NTP
+# Usage: modifying_copying_creation_date <timestamp> <source> <destination>
+def modifying_copying_creation_date [timestamp: string, source: string, destination: string] {
+  _ntp_stop
+  ^sudo date +"%Y-%m-%d %T" -s $timestamp
+  ^cp -rf $source $destination
+  _clock_from_web
+  _ntp_start
+}
+
+# Converting a Unix timestamp into the São Paulo time zone, in ISO 8601 format
+def unix2br [timestamp: any] {
+  let whole = ($timestamp | into string | split row "." | first)
+  ^env TZ=America/Sao_Paulo date -d $"@($whole)" +"%Y-%m-%dT%H:%M:%S%:z"
+}
+
+# Decoding JSON escape sequences into UTF-8 text
+def json2utf8 [text: string] {
+  $"\"($text)\"" | from json
+}
+
+# Searching the `title` and extracting the `create_time` from a JSON file
+# Usage: find_title_time <file> <query> [exact|contains]
+def find_title_time [file: string, query: string, mode: string = "exact"] {
+  if not ($file | path exists) {
+    error make --unspanned { msg: $"The file «($file)» does not exist" }
+  }
+
+  if ($query | is-empty) {
+    error make --unspanned { msg: "The search query is empty" }
+  }
+
+  let filter = match $mode {
+    "contains" => '(if type == "array" then .[] else (.. | objects) end) | select((.title? | type) == "string") | select((.create_time? | type) == "number") | select(.title | contains($q)) | [.title, .create_time] | @tsv',
+    "exact" => '(if type == "array" then .[] else (.. | objects) end) | select(.title? == $q) | select((.create_time? | type) == "number") | [.title, .create_time] | @tsv',
+    _ => { error make --unspanned { msg: $"The mode «($mode)» is not supported, use «exact» or «contains»" } }
+  }
+
+  let results = (^jq -r --arg q $query $filter $file | lines)
+
+  if ($results | is-empty) {
+    error make --unspanned { msg: $"No entry matching «($query)» was found in «($file)»" }
+  }
+
+  $results | each {|row|
+    let parts = ($row | split row (char tab))
+    $"«($parts.0)» → (unix2br $parts.1)"
+  }
+}
+
+# Searching the installed packages by name, retaining coloured output
+def pkgsearch-installed [term: string] {
+{%@@ if distro == "arch" @@%}
+  ^pacman -Qs --color always -- $term
+{%@@ elif distro == "fedora" @@%}
+  ^dnf list --installed $"*($term)*"
+{%@@ elif distro == "void" @@%}
+  ^xbps-query -s $term
+{%@@ else @@%}
+  (^apt search $term | complete | get stdout)
+  | lines
+  | where {|line| $line =~ '\[installed' }
+  | each {|line|
+      let fields = ($line | parse --regex '^(?<name>[^/]+)/(?<rest>\S+)\s+(?<version>.+)\s+\[installed[^\]]*\]$')
+      if ($fields | is-empty) {
+        $line
+      } else {
+        let row = ($fields | first)
+        $"(ansi cyan_bold)($row.name)/(ansi green_bold)($row.rest)(ansi reset) (ansi white_bold)($row.version)(ansi reset) (ansi yellow_bold)installed(ansi reset)"
+      }
+    }
+{%@@ endif @@%}
+}
+
+# Touching files verbosely
+def touchv [...files: string] {
+  mut result = 0
+
+  for file in $files {
+    let outcome = (^touch -- $file | complete)
+
+    if $outcome.exit_code == 0 {
+      print $"touch: created file '($file)'"
+    } else {
+      print --stderr $"touch: cannot touch '($file)'"
+      $result = 1
+    }
+  }
+
+  if $result != 0 {
+    error make --unspanned { msg: "touch failed for at least one file" }
+  }
+}
+
+# Downloading audio with subtitles embedded, in Brazilian Portuguese
+def yt-dlp-pro [video_url: string, custom_title?: string] {
+  mut args = [
+    --write-auto-subs
+    --sub-langs pt
+    -x
+    --audio-format m4a
+    -f best
+    -k
+    --no-mtime
+    --embed-metadata
+    --no-overwrites
+  ]
+
+  if ($custom_title | is-not-empty) {
+    $args = ($args | append [-o $"($custom_title).%(ext)s"])
+  }
+
+  ^yt-dlp ...$args $video_url
+}

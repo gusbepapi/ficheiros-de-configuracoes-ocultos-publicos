@@ -1,0 +1,267 @@
+#!/usr/bin/env fish
+
+# Rendering the distribution variants with the dotdrop delimiters and the variable «distro», which is arch, debian, fedora or void
+# Every variant except Debian is untested, because only Ubuntu was available when it was written
+
+##================##
+## Functions
+##================##
+
+# Clearing the terminal before each command execution
+function cb4
+  function __cb4_clear --on-event fish_preexec
+    clear
+  end
+end
+
+# Displaying files with `cat`, deferring to `nvimpager` when the output is a terminal
+function catt
+  if isatty stdout; and command -q nvimpager
+    nvimpager -c $argv
+  else
+    command cat $argv
+  end
+end
+
+# Displaying files with `bat`, deferring to `nvimpager` when the output is a terminal
+# Debian names the executable `batcat`, so both names are tried
+function batt
+  if isatty stdout; and command -q nvimpager
+    nvimpager -c $argv
+  else if command -q bat
+    command bat $argv
+  else
+    command batcat $argv
+  end
+end
+
+# Encrypting or decrypting files in tar format with zstd compression
+function cgpgtar
+  tar cf - --zstd $argv[1] | gpg -e -z 0 > $argv[1].tar.zst.gpg
+end
+
+function xgpgtar
+  gpg -d $argv[1] | tar x --zstd
+end
+
+# Picking a colour under the cursor, exclusively on Wayland
+function cpick
+  grim -g (slurp -p) -t ppm - | magick convert - -format "%[pixel:p{0,0}]" txt:-
+end
+
+# Reporting the CPU frequency once, rather than continuously watching it
+function cpufreq
+  grep MHz /proc/cpuinfo
+end
+
+# Extracting the video dimensions using `ffprobe` (bundled with `ffmpeg`) and `jq`
+# Usage: get_video_dimension <video_file>
+function get_video_dimension
+  ffprobe -v quiet -print_format json -show_format -show_streams $argv[1] | \
+    jq -r '.streams[0] | (.width|tostring) + "x" + (.height|tostring)'
+end
+
+# Stopping the network time service before the clock is moved back
+function _ntp_stop
+{%@@ if distro == "void" @@%}
+  sudo sv stop ntpd
+{%@@ elif distro == "fedora" @@%}
+  sudo systemctl stop chronyd
+{%@@ elif distro == "debian" @@%}
+  sudo systemctl stop ntpd 2>/dev/null; or sudo systemctl stop systemd-timesyncd
+{%@@ else @@%}
+  sudo systemctl stop ntpd
+{%@@ endif @@%}
+end
+
+# Starting the network time service again, once the clock has been resynchronised
+function _ntp_start
+{%@@ if distro == "void" @@%}
+  sudo sv start ntpd
+{%@@ elif distro == "fedora" @@%}
+  sudo systemctl restart chronyd
+{%@@ elif distro == "debian" @@%}
+  sudo systemctl restart ntpd 2>/dev/null; or sudo systemctl restart systemd-timesyncd
+{%@@ else @@%}
+  sudo systemctl restart ntpd
+{%@@ endif @@%}
+end
+
+# Resetting the system clock from the date header of a web server
+function _clock_from_web
+  sudo date -s (wget --method=HEAD -qSO- --max-redirect=0 google.com 2>&1 | sed -n 's/^ *Date: *//p')
+end
+
+# Backdating a file’s creation timestamp, then resynchronising the system clock via NTP
+# Usage: modifying_file_creation_date <timestamp> <file>
+function modifying_file_creation_date
+  _ntp_stop
+  sudo date +"%Y-%m-%d %T" -s $argv[1]
+  touch $argv[2]
+  _clock_from_web
+  _ntp_start
+end
+
+# Backdating a folder’s creation timestamp, then resynchronising the system clock via NTP
+# Usage: modifying_folder_creation_date <timestamp> <folder>
+function modifying_folder_creation_date
+  _ntp_stop
+  sudo date +"%Y-%m-%d %T" -s $argv[1]
+  mkdir -p $argv[2]
+  _clock_from_web
+  _ntp_start
+end
+
+# Backdating a copy’s creation timestamp, then resynchronising the system clock via NTP
+# Usage: modifying_copying_creation_date <timestamp> <source> <destination>
+function modifying_copying_creation_date
+  _ntp_stop
+  sudo date +"%Y-%m-%d %T" -s $argv[1]
+  cp -rf $argv[2] $argv[3]
+  _clock_from_web
+  _ntp_start
+end
+
+# Converting a Unix timestamp into the São Paulo time zone, in ISO 8601 format
+function unix2br
+  set -l ts (string replace -r '\..*$' '' -- $argv[1])
+  env TZ=America/Sao_Paulo date -d "@$ts" +"%Y-%m-%dT%H:%M:%S%:z"
+end
+
+# Decoding JSON escape sequences into UTF-8 text
+function json2utf8
+  printf '"%s"' $argv[1] | jq -r '.'
+end
+
+# Searching the `title` and extracting the `create_time` from a JSON file
+# Usage: find_title_time <file> <query> [exact|contains]
+function find_title_time
+  set -l file $argv[1]
+  set -l query $argv[2]
+  set -l mode exact
+
+  if test (count $argv) -ge 3
+    set mode $argv[3]
+  end
+
+  if not test -f $file
+    printf "The file «%s» does not exist\n" $file >&2
+    return 1
+  end
+
+  if test -z "$query"
+    printf "The search query is empty\n" >&2
+    return 2
+  end
+
+  set -l filter
+
+  switch $mode
+    case contains
+      set filter '
+        (if type == "array" then .[] else (.. | objects) end)
+        | select((.title? | type) == "string")
+        | select((.create_time? | type) == "number")
+        | select(.title | contains($q))
+        | [.title, .create_time] | @tsv
+      '
+    case exact
+      set filter '
+        (if type == "array" then .[] else (.. | objects) end)
+        | select(.title? == $q)
+        | select((.create_time? | type) == "number")
+        | [.title, .create_time] | @tsv
+      '
+    case '*'
+      printf "The mode «%s» is not supported, use «exact» or «contains»\n" $mode >&2
+      return 4
+  end
+
+  set -l results (jq -r --arg q $query $filter $file)
+
+  if test -z "$results"
+    printf "No entry matching «%s» was found in «%s»\n" $query $file >&2
+    return 3
+  end
+
+  for row in $results
+    set -l parts (string split \t -- $row)
+    printf "«%s» → %s\n" $parts[1] (unix2br $parts[2])
+  end
+end
+
+# Searching the installed packages by name, retaining coloured output
+function pkgsearch-installed
+  if test (count $argv) -eq 0
+    set_color --bold red
+    printf 'Usage: pkgsearch-installed <search-term>\n'
+    set_color normal
+    return 1
+  end
+
+  set -l search_term $argv[1]
+
+{%@@ if distro == "arch" @@%}
+  pacman -Qs --color always -- $search_term
+{%@@ elif distro == "fedora" @@%}
+  dnf list --installed "*$search_term*"
+{%@@ elif distro == "void" @@%}
+  xbps-query -s $search_term
+{%@@ else @@%}
+  apt search $search_term 2>/dev/null | grep '\[installed' | while read -l line
+    set -l fields (string match -r -- '^([^/]+)/(\S+)\s+(.+)\s+\[installed[^\]]*\]$' $line)
+
+    if test (count $fields) -eq 4
+      set_color --bold cyan
+      printf '%s/' $fields[2]
+      set_color --bold green
+      printf '%s' $fields[3]
+      set_color normal
+      printf ' '
+      set_color --bold white
+      printf '%s' $fields[4]
+      set_color normal
+      printf ' '
+      set_color --bold yellow
+      printf 'installed\n'
+      set_color normal
+    else
+      printf '%s\n' $line
+    end
+  end
+{%@@ endif @@%}
+end
+
+# Touching files verbosely
+function touchv
+  set -l result 0
+
+  for file in $argv
+    if command touch -- $file
+      printf "touch: created file '%s'\n" $file
+    else
+      printf "touch: cannot touch '%s'\n" $file >&2
+      set result 1
+    end
+  end
+
+  return $result
+end
+
+# Downloading audio with subtitles embedded, in Brazilian Portuguese
+function yt-dlp-pro
+  if test (count $argv) -lt 1
+    printf 'Usage: yt-dlp-pro <video_url> [custom_title]\n' >&2
+    return 1
+  end
+
+  set -l video_url $argv[1]
+  set -l cmd yt-dlp --write-auto-subs --sub-langs pt -x --audio-format m4a -f best -k --no-mtime --embed-metadata --no-overwrites
+
+  if test (count $argv) -ge 2; and test -n "$argv[2]"
+    set -a cmd -o "$argv[2].%(ext)s"
+  end
+
+  set -a cmd $video_url
+  $cmd <&-
+end

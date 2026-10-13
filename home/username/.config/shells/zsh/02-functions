@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+# Sourcing the functions that Bash and ZSH share, since they run unchanged in both shells
+if [ -f "$HOME/.config/shells/bash/02-functions" ];
+then
+  source "$HOME/.config/shells/bash/02-functions"
+fi

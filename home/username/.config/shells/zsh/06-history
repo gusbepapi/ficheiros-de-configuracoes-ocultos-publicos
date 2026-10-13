@@ -1,0 +1,76 @@
+#!/usr/bin/env zsh
+
+# Configuring the history of ZSH, with the same behaviour as the Bash history file
+
+HISTFOLDER="$HOME/.zsh_histories"
+HISTFILEEXT="history"
+
+# Retaining every command without ceiling
+HISTSIZE=1000000000
+SAVEHIST=1000000000
+
+# Recording a timestamp against each entry, so an archive kept indefinitely stays legible
+setopt EXTENDED_HISTORY
+
+# Skipping consecutive duplicates, as `ignoredups` does in Bash
+setopt HIST_IGNORE_DUPS
+
+# Appending after every command, so nothing is lost to an abrupt termination
+setopt INC_APPEND_HISTORY
+
+mkdir -p "$HISTFOLDER"
+
+# Writing one file per session, so concurrent shells never overwrite one another
+HISTFILE="$HISTFOLDER/$(date +%Y-%m-%d_%H-%M-%S_%N).$HISTFILEEXT"
+
+# Loading the most recent session file into this shell
+histfile_latest=$(find "$HISTFOLDER" -name "*.$HISTFILEEXT" -type f -printf '%T@ %p\n' 2>/dev/null | sort -rn | head -n 1 | cut -d' ' -f2-)
+
+if [ -n "$histfile_latest" ] && [ -f "$histfile_latest" ];
+then
+  fc -R "$histfile_latest"
+fi
+
+unset histfile_latest
+
+# Searching the complete history archive on disk, across every session ever recorded
+# Usage: histsearch <pattern>
+function histsearch()
+{
+  local folder="${HISTFOLDER:-$HOME/.zsh_histories}"
+  local pattern="${1:?Usage: histsearch <pattern>}"
+
+  if [ ! -d "${folder}" ];
+  then
+    printf 'The history archive «%s» does not exist\n' "${folder}" >&2
+    return 1
+  fi
+
+  grep -rh --color=never -- "${pattern}" "${folder}" 2>/dev/null | sort -u
+}
+
+# Reporting which session file each match came from, the filename carrying the date
+# Usage: histwhen <pattern>
+function histwhen()
+{
+  local folder="${HISTFOLDER:-$HOME/.zsh_histories}"
+  local pattern="${1:?Usage: histwhen <pattern>}"
+
+  grep -r --color=never -- "${pattern}" "${folder}" 2>/dev/null | sed "s|^${folder}/||"
+}
+
+# Loading the entire archive into the current shell, on demand rather than at start-up
+function histload()
+{
+  local folder="${HISTFOLDER:-$HOME/.zsh_histories}"
+  local file
+  local count=0
+
+  while IFS= read -r file;
+  do
+    fc -R "${file}"
+    count=$(( count + 1 ))
+  done < <(find "${folder}" -name "*.history" -type f -printf '%T@ %p\n' 2>/dev/null | sort -n | cut -d' ' -f2-)
+
+  printf 'Loaded %d session files into this shell\n' "${count}"
+}

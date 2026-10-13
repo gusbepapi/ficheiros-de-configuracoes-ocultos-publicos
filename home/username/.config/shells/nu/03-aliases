@@ -1,0 +1,13 @@
+#!/usr/bin/env nu
+
+##================##
+## Aliases
+##================##
+
+# Coreutils courtesies
+# Skipping `ls`, because the internal command of Nushell is coloured already
+alias grep = ^grep --color=auto
+alias shutdown = ^sudo shutdown
+
+# Replacing «exit» with «:q»
+alias ":q" = exit

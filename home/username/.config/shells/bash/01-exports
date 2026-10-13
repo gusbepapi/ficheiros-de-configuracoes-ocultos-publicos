@@ -1,0 +1,126 @@
+#!/usr/bin/env bash
+
+# shellcheck source=/dev/null
+
+# Sourcing this file from ZSH as well, so every line below must run unchanged in both shells
+
+##================##
+## Exports
+##================##
+
+# Setting the Wayland/GTK portal preference, since this session runs exclusively on Hyprland
+export GTK_USE_PORTAL=1
+
+# Setting the Qt6 platform theme
+export QT_QPA_PLATFORMTHEME="qt6ct"
+
+# Overriding the ROCm architecture target for the RDNA-1 RX 5700 XT
+export HSA_OVERRIDE_GFX_VERSION=10.3.0
+
+# Setting the path, so it includes the user’s private «bin» folder if it exists
+if [ -d "$HOME/.local/bin" ];
+then
+  export PATH="$HOME/.local/bin:$PATH"
+
+  if [ -d "$HOME/.local/bin/official-executables" ];
+  then
+    export PATH="$HOME/.local/bin/official-executables:$PATH"
+  fi
+
+  if [ -d "$HOME/.local/bin/personal-executables" ];
+  then
+    export PATH="$HOME/.local/bin/personal-executables:$PATH"
+  fi
+
+  # MiKTeX, using its custom, non-default link-target directory
+  if [ -d "$HOME/.local/bin/miktex" ];
+  then
+    export PATH="$HOME/.local/bin/miktex:$PATH"
+  fi
+fi
+
+# Bun
+if [ -d "$HOME/.bun" ];
+then
+  export BUN_INSTALL="$HOME/.bun"
+  export PATH="$BUN_INSTALL/bin:$PATH"
+fi
+
+# Cargo
+if [ -f "$HOME/.cargo/env" ];
+then
+  source "$HOME/.cargo/env"
+fi
+
+# Deno
+if [ -d "$HOME/.deno" ];
+then
+  export DENO_INSTALL="$HOME/.deno"
+  export PATH="$DENO_INSTALL/bin:$PATH"
+
+  # Loading the Bash completions only in Bash
+  if [ -n "$BASH_VERSION" ] && [ -f "$HOME/.local/share/bash-completion/completions/deno.bash" ];
+  then
+    source "$HOME/.local/share/bash-completion/completions/deno.bash"
+  fi
+fi
+
+# Mise, a polyglot tool version manager, replacing NVM, PNPM’s installer, etc
+if command -v mise &>/dev/null;
+then
+  # Activating Mise for the running shell, since ZSH sources this file as well
+  if [ -n "$ZSH_VERSION" ];
+  then
+    eval "$(mise activate zsh)"
+  else
+    eval "$(mise activate bash)"
+  fi
+
+  # Golang, when provisioned through Mise
+  if [ -d "$HOME/.local/share/mise/installs/go" ];
+  then
+    export GOPATH="$HOME/.local/share/mise/installs/go/pkgs"
+  fi
+fi
+
+# Poetry, exported rather than installed via `pip`
+export POETRY_HOME="$HOME/.local/bin/python-executables/poetry"
+
+if [ -d "$POETRY_HOME/bin" ];
+then
+  export PATH="$POETRY_HOME/bin:$PATH"
+fi
+
+# Poetry's internal venv
+if [ -d "$HOME/.local/bin/python-executables/poetry/venv/bin" ];
+then
+  export PATH="$PATH:$HOME/.local/bin/python-executables/poetry/venv/bin"
+fi
+
+# Qt6 tooling
+if [ -d "/usr/lib/qt6/bin" ];
+then
+  export PATH="/usr/lib/qt6/bin:$PATH"
+fi
+
+##================##
+## Environment secrets
+##================##
+
+# Sourcing the public environment variables
+if [ -f "$HOME/.env" ];
+then
+  source "$HOME/.env"
+fi
+
+# Sourcing the private environment variables
+if [ -f "$HOME/.env.private" ];
+then
+  source "$HOME/.env.private"
+fi
+
+# Sourcing the secret environment variables
+if [ -f "$HOME/.env.secrets" ];
+then
+  source "$HOME/.env.secrets"
+fi

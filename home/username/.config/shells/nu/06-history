@@ -1,0 +1,22 @@
+#!/usr/bin/env nu
+
+# Configuring the history of Nushell, with the closest equivalent of the Bash history file
+# The SQLite format keeps a timestamp, the directory and the duration of each command, and all sessions share one database
+
+# Retaining every command without ceiling, as far as the format allows, and flushing after every command
+$env.config.history.file_format = "sqlite"
+$env.config.history.max_size = 1_000_000_000
+$env.config.history.sync_on_enter = true
+$env.config.history.isolation = false
+
+# Searching the complete history archive on disk, across every session ever recorded
+# Usage: histsearch <pattern>
+def histsearch [pattern: string] {
+  history | where command =~ $pattern | get command | uniq | sort
+}
+
+# Reporting when each match was run, the timestamp carrying the date
+# Usage: histwhen <pattern>
+def histwhen [pattern: string] {
+  history | where command =~ $pattern | select start_timestamp command
+}

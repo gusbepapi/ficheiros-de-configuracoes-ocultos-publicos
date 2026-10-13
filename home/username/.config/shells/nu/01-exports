@@ -1,0 +1,111 @@
+#!/usr/bin/env nu
+
+##================##
+## Exports
+##================##
+
+# Adding a directory to the front of the path, once
+use std/util "path add"
+
+# Setting the Wayland/GTK portal preference, since this session runs exclusively on Hyprland
+$env.GTK_USE_PORTAL = "1"
+
+# Setting the Qt6 platform theme
+$env.QT_QPA_PLATFORMTHEME = "qt6ct"
+
+# Overriding the ROCm architecture target for the RDNA-1 RX 5700 XT
+$env.HSA_OVERRIDE_GFX_VERSION = "10.3.0"
+
+# Setting the path, so it includes the user’s private «bin» folder if it exists
+if ($env.HOME | path join ".local" "bin" | path exists) {
+  path add ($env.HOME | path join ".local" "bin")
+
+  if ($env.HOME | path join ".local" "bin" "official-executables" | path exists) {
+    path add ($env.HOME | path join ".local" "bin" "official-executables")
+  }
+
+  if ($env.HOME | path join ".local" "bin" "personal-executables" | path exists) {
+    path add ($env.HOME | path join ".local" "bin" "personal-executables")
+  }
+
+  # MiKTeX, using its custom, non-default link-target directory
+  if ($env.HOME | path join ".local" "bin" "miktex" | path exists) {
+    path add ($env.HOME | path join ".local" "bin" "miktex")
+  }
+}
+
+# Bun
+if ($env.HOME | path join ".bun" | path exists) {
+  $env.BUN_INSTALL = ($env.HOME | path join ".bun")
+  path add ($env.BUN_INSTALL | path join "bin")
+}
+
+# Cargo
+if ($env.HOME | path join ".cargo" "bin" | path exists) {
+  path add ($env.HOME | path join ".cargo" "bin")
+}
+
+# Deno
+if ($env.HOME | path join ".deno" | path exists) {
+  $env.DENO_INSTALL = ($env.HOME | path join ".deno")
+  path add ($env.DENO_INSTALL | path join "bin")
+}
+
+# Mise, a polyglot tool version manager, replacing NVM, PNPM’s installer, etc
+# Nushell cannot source a generated script at run time, so the activation is written to the autoload folder and applies from the next start
+if (which mise | is-not-empty) {
+  let target = ($nu.data-dir | path join "vendor" "autoload" "mise.nu")
+  mkdir ($target | path dirname)
+  ^mise activate nu | save --force $target
+
+  # Golang, when provisioned through Mise
+  if ($env.HOME | path join ".local" "share" "mise" "installs" "go" | path exists) {
+    $env.GOPATH = ($env.HOME | path join ".local" "share" "mise" "installs" "go" "pkgs")
+  }
+}
+
+# Poetry, exported rather than installed via `pip`
+$env.POETRY_HOME = ($env.HOME | path join ".local" "bin" "python-executables" "poetry")
+
+if ($env.POETRY_HOME | path join "bin" | path exists) {
+  path add ($env.POETRY_HOME | path join "bin")
+}
+
+# Poetry's internal venv
+if ($env.POETRY_HOME | path join "venv" "bin" | path exists) {
+  path add --append ($env.POETRY_HOME | path join "venv" "bin")
+}
+
+# Qt6 tooling
+if ("/usr/lib/qt6/bin" | path exists) {
+  path add "/usr/lib/qt6/bin"
+}
+
+##================##
+## Environment secrets
+##================##
+
+# Loading a file of «KEY=value» lines, since Nushell cannot source the POSIX syntax
+# Supporting «export KEY=value», single and double quotes, comments and empty lines, but no variable expansion
+def --env load-env-file [file: path] {
+  if not ($file | path exists) {
+    return
+  }
+
+  let pairs = (
+    open --raw $file
+    | lines
+    | str trim
+    | where {|line| ($line | is-not-empty) and not ($line | str starts-with "#") }
+    | each {|line| $line | str replace --regex '^export\s+' '' }
+    | parse --regex '^(?<key>[A-Za-z_][A-Za-z0-9_]*)=(?<value>.*)$'
+    | update value {|row| $row.value | str replace --regex '^"(.*)"$' '$1' | str replace --regex "^'(.*)'$" '$1' }
+  )
+
+  $pairs | reduce --fold {} {|row, acc| $acc | insert $row.key $row.value } | load-env
+}
+
+# Loading the public, private and secret environment variables
+load-env-file ($env.HOME | path join ".env")
+load-env-file ($env.HOME | path join ".env.private")
+load-env-file ($env.HOME | path join ".env.secrets")

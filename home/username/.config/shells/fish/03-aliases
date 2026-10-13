@@ -1,0 +1,13 @@
+#!/usr/bin/env fish
+
+##================##
+## Aliases
+##================##
+
+# Coreutils courtesies
+alias ls 'ls --color=auto'
+alias grep 'grep --color=auto'
+alias shutdown 'sudo shutdown'
+
+# Replacing «exit» with «:q»
+alias :q exit

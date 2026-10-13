@@ -1,0 +1,39 @@
+#!/usr/bin/env fish
+
+# Configuring the history of Fish, with the closest equivalent of the Bash history file
+# Fish keeps at most 256 000 entries per history file, so the unlimited retention of Bash is approximated by one file per session
+
+# Writing one file per session, so concurrent shells never overwrite one another
+# Fish stores each session in `~/.local/share/fish/<name>_history`, and the name must be a valid variable name, so it starts with «session_»
+set -g fish_history (date +session_%Y_%m_%d_%H_%M_%S_%N)
+
+# Searching the complete history archive on disk, across every session ever recorded
+# Usage: histsearch <pattern>
+function histsearch
+  if test (count $argv) -lt 1
+    printf 'Usage: histsearch <pattern>\n' >&2
+    return 1
+  end
+
+  set -l folder $HOME/.local/share/fish
+
+  if not test -d $folder
+    printf 'The history archive «%s» does not exist\n' $folder >&2
+    return 1
+  end
+
+  find $folder -maxdepth 1 -name '*_history' -type f -print0 | xargs -0 -r grep -h --color=never -- $argv[1] 2>/dev/null | sort -u
+end
+
+# Reporting which session file each match came from, the filename carrying the date
+# Usage: histwhen <pattern>
+function histwhen
+  if test (count $argv) -lt 1
+    printf 'Usage: histwhen <pattern>\n' >&2
+    return 1
+  end
+
+  set -l folder $HOME/.local/share/fish
+
+  find $folder -maxdepth 1 -name '*_history' -type f -print0 | xargs -0 -r grep -H --color=never -- $argv[1] 2>/dev/null | string replace "$folder/" ''
+end
