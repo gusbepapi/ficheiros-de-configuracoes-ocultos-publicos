@@ -1,0 +1,14 @@
+[Unit]
+# 🇬🇧 Adjusts the color temperature of your screen according to your surroundings
+# 🇧🇷 Ajusta a temperatura da cor da tela de acordo com o ambiente
+# 🇵🇹 Ajusta a temperatura da cor da ecrã de acordo com o ambiente
+# 🇪🇸 Ajusta la temperatura de color de tu pantalla según tu entorno
+Description=Adjusts the color temperature of your screen according to your surroundings
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/redshift-gtk -m wayland
+
+[Install]
+WantedBy=sway-session.target

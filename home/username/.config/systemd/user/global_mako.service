@@ -1,0 +1,14 @@
+[Unit]
+# 🇬🇧 A lightweight Wayland notification daemon
+# 🇵🇹 Um daemon de notificação leve do Wayland
+# 🇪🇸 Un ligero daemon de notificaciones para Wayland
+Description=A lightweight Wayland notification daemon
+Documentation=man:mako(1)
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/mako
+
+[Install]
+WantedBy=i3-session.target,sway-session.target

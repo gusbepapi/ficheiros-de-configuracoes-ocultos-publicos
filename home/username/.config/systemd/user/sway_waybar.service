@@ -1,0 +1,14 @@
+[Unit]
+# 🇬🇧 Highly customizable Wayland bar for Sway and Wlroots based compositors
+# 🇵🇹 Barra altamente personalizável do Wayland para compositores baseados em Sway e Wlroots
+# 🇪🇸 Barra personalizable de Wayland para compositores basados en Sway y Wlroots
+Description=Highly customizable Wayland bar for Sway and Wlroots based compositors.
+Documentation=https://github.com/Alexays/Waybar/wiki/
+# PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/waybar
+
+[Install]
+WantedBy=sway-session.target

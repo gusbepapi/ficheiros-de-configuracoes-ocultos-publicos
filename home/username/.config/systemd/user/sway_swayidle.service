@@ -1,0 +1,15 @@
+[Unit]
+# 🇬🇧 Idle manager for Wayland
+# 🇵🇹 Gestor inactivo para Wayland
+# 🇧🇷 Gerenciador inativo para Wayland
+# 🇪🇸 Gestor inactivo para Wayland
+Description=Idle manager for Wayland
+Documentation=man:swayidle(1)
+# PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/Scripts/swayidle.sh
+
+[Install]
+WantedBy=sway-session.target

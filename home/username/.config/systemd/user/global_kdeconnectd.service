@@ -1,0 +1,13 @@
+[Unit]
+# 🇬🇧 KDE Connect daemon
+# 🇵🇹 Daemon de KDE Connect
+# 🇪🇸 Daemon de KDE Connect
+Description=KDE Connect daemon
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/lib/kdeconnectd
+
+[Install]
+WantedBy=i3-session.target,sway-session.target

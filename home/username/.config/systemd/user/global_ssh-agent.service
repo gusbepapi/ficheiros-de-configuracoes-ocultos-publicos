@@ -1,0 +1,13 @@
+[Unit]
+# 🇬🇧 SSH key agent
+# 🇵🇹 Agente de chaves SSH
+# 🇪🇸 Agente de claves SSH
+Description=SSH key agent
+
+[Service]
+Type=simple
+Environment=SSH_AUTH_SOCK=%t/ssh-agent.socket
+ExecStart=/usr/bin/ssh-agent -D -a $SSH_AUTH_SOCK
+
+[Install]
+WantedBy=default.target

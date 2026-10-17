@@ -1,0 +1,14 @@
+[Unit]
+# 🇬🇧 Script for automatically rotating screen
+# 🇧🇷 Script para rotação automática da tela
+# 🇵🇹 Executável para rotação automática do ecrã
+# 🇪🇸 Script para rotar la pantalla automáticamente
+Description=Script for automatically rotating screen
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/.config/global/scripts/autorotate
+
+[Install]
+WantedBy=sway-session.target
