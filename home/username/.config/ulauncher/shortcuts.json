@@ -1,0 +1,39 @@
+{
+    "9bc8eda5-76da-4f3d-b82d-72d397cce76b": {
+        "added": 1563190634.804366,
+        "name": "Stack Overflow",
+        "keyword": "so",
+        "cmd": "http://stackoverflow.com/search?q=%s",
+        "is_default_search": true,
+        "id": "9bc8eda5-76da-4f3d-b82d-72d397cce76b",
+        "icon": "/usr/share/ulauncher/media/stackoverflow-icon.svg"
+    },
+    "1882c1d4-27a3-4a97-9c66-7d5da3b460e6": {
+        "added": 1563190634.804401,
+        "name": "Wikipedia",
+        "keyword": "wiki",
+        "cmd": "https://en.wikipedia.org/wiki/%s",
+        "is_default_search": true,
+        "id": "1882c1d4-27a3-4a97-9c66-7d5da3b460e6",
+        "icon": "/usr/share/ulauncher/media/wikipedia-icon.png"
+    },
+    "3e445459-6a5a-4509-afbb-da7b282db8e0": {
+        "added": 1563190634.804326,
+        "name": "Google Search",
+        "keyword": "g",
+        "cmd": "https://google.com/search?q=%s",
+        "is_default_search": true,
+        "id": "3e445459-6a5a-4509-afbb-da7b282db8e0",
+        "icon": "/usr/share/ulauncher/media/google-search-icon.png"
+    },
+    "081d9ed7-fc05-4b8e-818d-932cfebe3fcb": {
+        "id": "081d9ed7-fc05-4b8e-818d-932cfebe3fcb",
+        "name": "Wiktionary English",
+        "keyword": "wkten",
+        "cmd": "https://en.wiktionary.org/wiki/%s",
+        "icon": null,
+        "is_default_search": false,
+        "run_without_argument": false,
+        "added": 1563335876.3737905
+    }
+}

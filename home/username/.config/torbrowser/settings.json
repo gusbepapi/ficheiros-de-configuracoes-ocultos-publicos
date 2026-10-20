@@ -1,0 +1,8 @@
+{
+  "download_over_tor": false,
+  "force_en-US": false,
+  "installed": false,
+  "mirror": "https://dist.torproject.org/",
+  "tbl_version": "0.3.3",
+  "tor_socks_address": "127.0.0.1:9050"
+}
