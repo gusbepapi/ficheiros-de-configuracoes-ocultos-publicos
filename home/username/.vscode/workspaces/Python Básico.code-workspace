@@ -1,0 +1,38 @@
+{
+	"extensions": 
+	{
+		"recommendations": 
+		[
+			"ban.spellright",
+			"donjayamanne.python-environment-manager",
+			"kevinrose.vsc-python-indent",
+			"mechatroner.rainbow-csv",
+			"ms-python.black-formatter",
+			"ms-python.isort",
+			"ms-python.pylint",
+			"ms-python.python",
+			"ms-python.vscode-pylance",
+			"njpwerner.autodocstring",
+			"sonarsource.sonarlint-vscode",
+		]
+	},
+	"folders": [],
+	"settings": 
+	{
+		"[python]": 
+		{
+				"editor.defaultFormatter": "ms-python.python",
+				"editor.parameterHints.enabled": false,
+				"editor.quickSuggestions": 
+				{
+						"comments": "off",
+						"strings": "off",
+						"other": "off"
+				}
+		},
+		"python.analysis.completeFunctionParens": true,
+		"python.languageServer": "Pylance",
+		"python.terminal.activateEnvInCurrentTerminal": true,
+		"pythonIndent.useTabOnHangingIndent": true
+	}
+}

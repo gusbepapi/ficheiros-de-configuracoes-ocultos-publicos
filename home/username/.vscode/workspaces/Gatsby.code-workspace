@@ -1,0 +1,138 @@
+{
+	"folders": [],
+	"extensions": 
+	{
+		"recommendations": 
+		[
+			"alperg.markdown-vscode",
+			"anderseandersen.html-class-suggestions",
+			"ban.spellright",
+			"bierner.markdown-checkbox",
+			"bierner.markdown-footnotes",
+			"bierner.markdown-image-size",
+			"bierner.markdown-mermaid",
+			"bpruitt-goddard.mermaid-markdown-syntax-highlighting",
+			"catonif.markdown-collapsible",
+			"christian-kohler.npm-intellisense",
+			"cmstead.js-codeformer",
+			"ecmel.vscode-html-css",
+			"espresso3389.insert-file",
+			"evondev.generate-css-class",
+			"fcrespo82.markdown-table-formatter",
+			"grantbartlett.scss-allman-formatter",
+			"graphql.vscode-graphql",
+			"houkanshan.vscode-markdown-footnote",
+			"hwencc.html-tag-wrapper",
+			"jakewilson.vscode-picture",
+			"jebbs.markdown-extended",
+			"jjaakko.markdown-kbd",
+			"joffreykern.markdown-toc",
+			"kisstkondoros.vscode-gutter-preview",
+			"kumar-harsh.graphql-for-vscode",
+			"liamhammett.inline-parameters",
+			"mathiassoeholm.markdown-link-updater",
+			"mrmlnc.vscode-attrs-sorter",
+			"mrmlnc.vscode-scss",
+			"ms-vscode.vscode-typescript-next",
+			"naumovs.color-highlight",
+			"pkief.markdown-checkbox",
+			"redhat.vscode-xml",
+			"redhat.vscode-yaml",
+			"shd101wyy.markdown-preview-enhanced",
+			"silvenon.mdx",
+			"skn0tt.markdown-link-expander",
+			"solnurkarim.html-to-css-autocompletion",
+			"svsool.markdown-memo",
+			"syler.sass-indented",
+			"telesoho.vscode-markdown-paste-image",
+			"tock.vscode-css-custom-properties",
+			"tsutsu3.markdown-named-codeblocks",
+			"vayan.haml",
+			"vincaslt.highlight-matching-tag",
+			"vstirbu.vscode-mermaid-preview",
+			"xabikos.javascriptsnippets",
+			"xyc.vscode-mdx-preview",
+			"yzhang.markdown-all-in-one",
+		]
+	},
+	"settings": 
+	{
+		"[css]": 
+		{
+			"editor.suggest.insertMode": "replace",
+			"files.encoding": "utf8",
+			"gitlens.codeLens.scopes": 
+			[
+				"document"
+			]
+		},
+		"[html]": 
+    {
+        "editor.defaultFormatter": "vscode.html-language-features",
+    },
+    "[javascript]": 
+    {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[markdown]": 
+    {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    },
+		"[mdx]": 
+    {
+            "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    },
+		"color-highlight.languages": 
+		[
+				"*"
+		],
+		"color-highlight.markerType": "underline",
+		"csscomb.preset": "~/.vscode-insiders/settings/csscomb.json",
+		"csscomb.supportEmbeddedStyles": true,
+		"css.validate": false,
+		"html-css-class-completion.enableEmmetSupport": true,
+		"html.format.indentInnerHtml": true,
+		"html.format.wrapAttributes": "preserve",
+		"html.format.wrapLineLength": 0,
+		"html.suggest.html5": true,
+		"javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+		// MARKDOWN CHECKBOX
+		"markdown-checkbox.dateWhenChecked": false,
+		"markdown-checkbox.strikeThroughWhenChecked": false,
+		// MARKDOWN ALL IN ONE
+		"markdown.extension.print.absoluteImgPath": false,
+		"markdown.extension.print.imgToBase64": true,
+		"markdown.extension.print.includeVscodeStylesheets": false,
+		"markdown.extension.print.onFileSave": false,
+		"markdown.extension.toc.plaintext": false,
+		"markdown.extension.toc.updateOnSave": false,
+    // MAKRODWN PASTE 
+    "MarkdownPaste.rules": 
+    [
+        {
+            "regex": "^(?:https?://)?(?:(?:(?:www\\.?)?youtube\\.com(?:/(?:(?:watch\\?.*?v=([^&\\s]+).*)|))?))",
+            "options": "g",
+            "replace": "[![](https://img.youtube.com/vi/$1/0.jpg)](https://www.youtube.com/watch?v=$1)"
+        },
+        {
+            "regex": "^(https?://.*)",
+            "options": "ig",
+            "replace": "[]($1)"
+        }
+    ],
+    "MarkdownPaste.enableImgTag": true,
+		// MICROSOFT MARKDOWN LANGUAGE FEATURES
+		"markdown.preview.breaks": true,
+
+		// MDX Preview
+		"mdx-preview.preview.security": "disabled",
+		"scss.validate": false,
+		"spellright.documentTypes": 
+    [
+        "jupyter",
+        "latex",
+        "md"
+    ],
+    "spellright.language": [],
+	}
+}

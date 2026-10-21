@@ -1,0 +1,30 @@
+body 
+{
+  font-family: 'PF Din Text Universal', 'Bahnschrift', 'IBM Plex Sans', 'M++ Nerd Font', 'OpenMoji Color Regular', 'Twemoji', 'JoyPixels', 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif;
+  font-variant-ligatures: initial;
+  font-feature-settings: "liga" on, "calt" on;
+}
+
+.foo 
+{
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+  border: 1px solid rgba(0, 0, 0, .2);
+}
+
+.blue 
+{
+  background: #13b4ff;
+}
+
+.purple 
+{
+  background: #ab3fdd;
+}
+
+.wine 
+{
+  background: #ae163e;
+}

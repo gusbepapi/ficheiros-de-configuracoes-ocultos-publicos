@@ -1,0 +1,10 @@
+{
+  "customizeUI.listRowHeight": 26,
+  "customizeUI.stylesheet": 
+  {
+    ".actions-container[aria-label='Editor actions'] .action-item .action-label:not([title='More Actions...'])": "display: none !important;",
+    ".explorer-viewlet": "font-size: 16px !important; overflow: auto; border-left: none !important",
+    ".monaco-icon-label:before": "background-size: 20px; height: 32px; width: 20px;",
+    ".monaco-tl-twistie": "padding-top: 6px"
+  }
+}

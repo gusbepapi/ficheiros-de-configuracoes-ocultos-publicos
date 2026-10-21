@@ -1,0 +1,20 @@
+{
+	"folders": [],
+	"extensions": 
+	{
+		"recommendations": 
+		[
+			"espresso3389.insert-file",
+			"naumovs.color-highlight",
+			"rickvansloten.bbcode",
+		]
+	},
+	"settings": 
+	{
+		"color-highlight.languages": 
+		[
+				"*"
+		],
+		"color-highlight.markerType": "underline"
+	}
+}

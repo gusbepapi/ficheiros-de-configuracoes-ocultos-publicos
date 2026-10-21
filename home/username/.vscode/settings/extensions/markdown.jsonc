@@ -1,0 +1,94 @@
+{
+    "[markdown]": 
+    {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    },
+    "[mdx]": 
+    {
+            "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    },
+
+    // MARKDOWN CHECKBOX
+    "markdown-checkbox.dateWhenChecked": false,
+    "markdown-checkbox.strikeThroughWhenChecked": false,
+
+    // MARKDOWN ALL IN ONE
+    "markdown.extension.print.absoluteImgPath": false,
+    "markdown.extension.print.imgToBase64": true,
+    "markdown.extension.print.includeVscodeStylesheets": false,
+    "markdown.extension.print.onFileSave": false,
+    "markdown.extension.toc.plaintext": false,
+    "markdown.extension.toc.updateOnSave": false,
+
+    // MAKRODWN PASTE 
+    "MarkdownPaste.rules": 
+    [
+        {
+            "regex": "^(?:https?://)?(?:(?:(?:www\\.?)?youtube\\.com(?:/(?:(?:watch\\?.*?v=([^&\\s]+).*)|))?))",
+            "options": "g",
+            "replace": "[![](https://img.youtube.com/vi/$1/0.jpg)](https://www.youtube.com/watch?v=$1)"
+        },
+        {
+            "regex": "^(https?://.*)",
+            "options": "ig",
+            "replace": "[]($1)"
+        }
+    ],
+    "MarkdownPaste.enableImgTag": true,
+
+    // MARKDOWN LINT
+    "markdownlint.config": 
+    {
+        "line-length": false,
+        "AM001": false,
+        "AM009": false,
+        "AM011": false,
+        "MD009": false,
+        "MD012": false,
+        "MD014": false,
+        "MD024": false,
+        "MD025": 
+        {
+            "front_matter_title": ""
+        },
+        "MD026": false,
+        "MD027": false,
+        "MD028": false,
+        "MD030": false,
+        "MD036": false,
+        "MD038": false,
+        "MD039": false,
+        "MD040": false,
+        "MD045": false
+    },
+    "markdownlint.customRules": 
+    [
+        "{adobeexl.adobe-markdown-authoring}/markdownlint-custom-rules/rules.js"
+    ],
+
+	// MAKRODWN PREVIEW ENHANCED
+    "markdown.preview.markEditorSelection": false,
+    "markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": true,
+    "markdown-preview-enhanced.codeBlockTheme": "one-dark.css",
+    "markdown-preview-enhanced.enableCriticMarkupSyntax": true,
+    "markdown-preview-enhanced.enableEmojiSyntax": true,
+    "markdown-preview-enhanced.enableExtendedTableSyntax": true,
+    "markdown-preview-enhanced.enableHTML5Embed": true,
+    "markdown-preview-enhanced.enableScriptExecution": true,
+    "markdown-preview-enhanced.frontMatterRenderingOption": "table",
+    "markdown-preview-enhanced.HTML5EmbedIsAllowedHttp": true,
+    "markdown-preview-enhanced.HTML5EmbedUseImageSyntax": true,
+    "markdown-preview-enhanced.HTML5EmbedUseLinkSyntax": true,
+    "markdown-preview-enhanced.previewTheme": "github-dark.css",
+    "markdown-preview-enhanced.mermaidTheme": "dark",
+
+	// MICROSOFT MARKDOWN LANGUAGE FEATURES
+	"markdown.preview.breaks": true,
+	"markdown.preview.fontFamily": "'Red Hat Display', sans-serif",
+
+    // MDX Preview
+    "mdx-preview.preview.security": "disabled",
+
+    // MyST Markdown
+    "myst.preview.enable": true
+}

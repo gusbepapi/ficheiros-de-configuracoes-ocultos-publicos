@@ -1,0 +1,171 @@
+{
+	"extensions": 
+	{
+		"recommendations": 
+		[
+			"axetroy.vscode-markdown-script",
+			"bpruitt-goddard.mermaid-markdown-syntax-highlighting",
+			"codebook.codebook",
+			"colinfang.markdown-julia",
+			"donjayamanne.python-environment-manager",
+			"formulahendry.dotnet",
+			"fuji-nakahara.markdown-ruby",
+			"jebbs.markdown-extended",
+			"kamikillerto.vscode-colorize",
+			"mechatroner.rainbow-csv",
+			"mikhail-arkhipov.r",
+			"ms-dotnettools.dotnet-interactive-vscode",
+			"ms-dotnettools.vscode-dotnet-runtime",
+			"ms-python.pylint",
+			"ms-python.python",
+			"ms-python.vscode-pylance",
+			"ms-toolsai.jupyter-keymap",
+			"ms-toolsai.jupyter-renderers",
+			"ms-toolsai.jupyter",
+			"ms-toolsai.vscode-jupyter-powertoys",
+			"ms-vscode.vscode-markdown-notebook",
+			"neuron.neuron-ipe",
+			"reditorsupport.r",
+			"telesoho.vscode-markdown-paste-image",
+			"tianyishi.rmarkdown",
+			"vstirbu.vscode-mermaid-preview",
+			"yzhang.markdown-all-in-one",
+		]
+	},
+	"folders": [],
+	"settings": 
+	{
+		"[jupyter]": 
+    {
+        "editor.parameterHints.enabled": false,
+        "editor.quickSuggestions": 
+        {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+        }
+    },
+    "[markdown]": 
+    {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    },
+		"[python]": 
+		{
+				"editor.defaultFormatter": "ms-python.python",
+				"editor.parameterHints.enabled": false,
+				"editor.quickSuggestions": 
+				{
+						"comments": "off",
+						"strings": "off",
+						"other": "off"
+				}
+		},
+		"[r]": 
+		{
+				"editor.wordSeparators": "`~!@#%$^&*()-=+[{]}\\|;:'\",<>/?"
+		},
+    "colorize.decoration_type": "underline",
+    "colorize.colorized_colors": 
+    [
+        "HEXA",
+        "HSL",
+        "RGB"
+    ],
+    "colorize.colorized_variables": 
+    [
+        "CSS",
+        "LESS",
+        "SASS"
+    ],
+    "colorize.enable_search_variables": true,
+    "colorize.include": 
+    [
+        // Absolute files
+        "~/.config/kitty/kitty.conf",
+        // Relative extensions
+        ".bbcode",
+        ".conf",
+        ".ipynb",
+        ".json",
+        ".txt",
+        ".zsh"
+    ],
+    "colorize.languages": 
+    [
+        "apacheconf",
+        "bbcode",
+        "css",
+        "html",
+        "jupyter",
+        "javascript",
+        "json",
+        "jsonc",
+        "json5",
+        "less",
+        "plaintext",
+        "postcss",
+        "python",
+        "sass",
+        "scss",
+        "shellscript",
+        "stylus",
+        "svg",
+        "xml"
+    ],
+    "jupyter.allowUnauthorizedRemoteConnection": true,
+    "jupyter.exportWithOutputEnabled": true,
+    "jupyter.magicCommandsAsComments": true,
+    "jupyter.themeMatplotlibPlots": true,
+    // MARKDOWN ALL IN ONE
+    "markdown.extension.print.absoluteImgPath": false,
+    "markdown.extension.print.imgToBase64": true,
+    "markdown.extension.print.includeVscodeStylesheets": false,
+    "markdown.extension.print.onFileSave": false,
+    "markdown.extension.toc.plaintext": false,
+    "markdown.extension.toc.updateOnSave": false,
+    // MAKRODWN PASTE 
+    "MarkdownPaste.rules": 
+    [
+        {
+            "regex": "^(?:https?://)?(?:(?:(?:www\\.?)?youtube\\.com(?:/(?:(?:watch\\?.*?v=([^&\\s]+).*)|))?))",
+            "options": "g",
+            "replace": "[![](https://img.youtube.com/vi/$1/0.jpg)](https://www.youtube.com/watch?v=$1)"
+        },
+        {
+            "regex": "^(https?://.*)",
+            "options": "ig",
+            "replace": "[]($1)"
+        }
+    ],
+    "MarkdownPaste.enableImgTag": true,
+		// MICROSOFT MARKDOWN LANGUAGE FEATURES
+		"markdown.preview.breaks": true,
+    "notebook.cellToolbarLocation": 
+    {
+        "default": "right",
+        "jupyter-notebook": "left",
+        "markdown-notebook": "left"
+    },
+    "notebook.lineNumbers": "on",
+		"python.analysis.completeFunctionParens": true,
+		"python.languageServer": "Pylance",
+		"python.terminal.activateEnvInCurrentTerminal": true,
+		"pythonIndent.useTabOnHangingIndent": true,
+		"rainbow_csv.autodetect_separators": 
+		[
+				",",
+				";"
+		],
+		"r.alwaysUseActiveTerminal": true,
+		"r.bracketedPaste": true,
+		"r.liveShare.defaults.commandForward": true,
+		"r.liveShare.defaults.shareBrowser": true,
+		"r.rmarkdown.chunkBackgroundColor": "rgba(128, 128, 128, 0.1)",
+		"r.rmarkdown.enableCodeLens": true,
+		"r.rmarkdown.codeLensCommands": 
+		[
+				"r.runCurrentChunk",
+				"r.runAboveChunks"
+		]
+	}
+}

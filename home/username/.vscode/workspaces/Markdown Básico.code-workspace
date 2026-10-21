@@ -1,0 +1,66 @@
+{
+	"extensions": 
+	{
+		"recommendations": 
+		[
+			"ban.spellright",
+			"bierner.markdown-checkbox",
+			"fcrespo82.markdown-table-formatter",
+			"jebbs.markdown-extended",
+			"jjaakko.markdown-kbd",
+			"jock.svg",
+			"naumovs.color-highlight",
+			"pkief.markdown-checkbox",
+			"telesoho.vscode-markdown-paste-image",
+			"yzhang.dictionary-completion",
+			"yzhang.markdown-all-in-one",
+		]
+	},
+	"folders": [],
+	"settings": 
+	{
+		"[markdown]": 
+    {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    },
+		"color-highlight.languages": 
+		[
+				"*"
+		],
+		"color-highlight.markerType": "underline",
+    // MARKDOWN CHECKBOX
+    "markdown-checkbox.dateWhenChecked": false,
+    "markdown-checkbox.strikeThroughWhenChecked": false,
+    // MARKDOWN ALL IN ONE
+    "markdown.extension.print.absoluteImgPath": false,
+    "markdown.extension.print.imgToBase64": true,
+    "markdown.extension.print.includeVscodeStylesheets": false,
+    "markdown.extension.print.onFileSave": false,
+    "markdown.extension.toc.plaintext": false,
+    "markdown.extension.toc.updateOnSave": false,
+    // MAKRODWN PASTE 
+    "MarkdownPaste.rules": 
+    [
+        {
+            "regex": "^(?:https?://)?(?:(?:(?:www\\.?)?youtube\\.com(?:/(?:(?:watch\\?.*?v=([^&\\s]+).*)|))?))",
+            "options": "g",
+            "replace": "[![](https://img.youtube.com/vi/$1/0.jpg)](https://www.youtube.com/watch?v=$1)"
+        },
+        {
+            "regex": "^(https?://.*)",
+            "options": "ig",
+            "replace": "[]($1)"
+        }
+    ],
+    "MarkdownPaste.enableImgTag": true,
+		// MICROSOFT MARKDOWN LANGUAGE FEATURES
+		"markdown.preview.breaks": true,
+		"spellright.documentTypes": 
+		[
+				"jupyter",
+				"latex",
+				"md"
+		],
+		"spellright.language": []
+	},
+}

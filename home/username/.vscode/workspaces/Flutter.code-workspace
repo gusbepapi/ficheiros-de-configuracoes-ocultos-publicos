@@ -1,0 +1,66 @@
+{
+	"folders": 
+	[
+		{
+			"path": "../../Testes/Dart Test"
+		}
+	],
+	"settings": 
+	{
+		"[dart]": 
+		{
+				"editor.formatOnSave": true,
+				"editor.formatOnType": true,
+				"editor.rulers": 
+				[
+						80
+				],
+				"editor.selectionHighlight": false,
+				"editor.suggest.snippetsPreventQuickSuggestions": false,
+				"editor.suggestSelection": "first",
+				"editor.tabCompletion": "onlySnippets",
+				"editor.wordBasedSuggestions": false
+		},
+		"dart.enableSdkFormatter": false,
+    "dart.flutterCustomEmulators": 
+    [
+        {
+            "id": "Pixel_2_API_29",
+            "name": "Pixel 2 API 29",
+            "executable": "~/Android/SDK/emulator/emulator",
+            "args": 
+            [
+                "-avd",
+                "@Pixel_2_API_29"
+            ],
+            "env": 
+            {
+                "QT_QPA_PLATFORM": "xcb",
+                "_JAVA_AWT_WM_NONREPARENTING": "1"
+            }
+        }
+    ],
+    "dart.flutterSdkPath": "~/Aplicativos/Fontes/Flutter",
+		"git.ignoreLimitWarning": true
+	},
+	"extensions": 
+	{
+		"recommendations": 
+		[
+			"apin.flutter-internationalize",
+			"circlecodesolution.ccs-flutter-color",
+			"dart-code.dart-code",
+			"dart-code.flutter",
+			"esskar.vscode-flutter-i18n-json",
+			"hirantha.json-to-dart",
+			"mariomatheu.syntax-project-pbxproj",
+			"mhcpnl.xcodestrings",
+			"naco-siren.gradle-language",
+			"nash.awesome-flutter-snippets",
+			"PratheeshRussell.flutter-commands",
+			"redhat.vscode-xml",
+			"redhat.vscode-yaml",
+			"zaraclaj.dart-extensions-snippets",
+		]
+	}
+}

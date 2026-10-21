@@ -1,0 +1,43 @@
+{
+  "extensions": {
+    "recommendations": [
+      "brapifra.phpserver",
+      "eiminsasete.apacheconf-snippets",
+      "ikappas.composer",
+      "junstyle.php-cs-fixer",
+      "mrmlnc.vscode-apache",
+      "mrmlnc.vscode-attrs-sorter",
+      "mrmlnc.vscode-csscomb",
+      "nadim-vscode.html-meta-tags-hero",
+      "naumovs.color-highlight",
+      "vincaslt.highlight-matching-tag",
+      "yandeu.five-server",
+    ]
+  },
+  "folders": [],
+  "settings": 
+  {
+    "[javascript]": 
+    {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "color-highlight.languages": 
+    [
+        "*"
+    ],
+    "color-highlight.markerType": "underline",
+    "csscomb.preset": "~/.vscode-insiders/settings/csscomb.json",
+    "csscomb.supportEmbeddedStyles": true,
+    "html.format.indentInnerHtml": true,
+    "html.format.wrapAttributes": "preserve",
+    "html.format.wrapLineLength": 0,
+    "html.suggest.html5": true,
+    "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+    "phpserver.browser": "firefox",
+    "phpserver.port": 1984,
+    "php-cs-fixer.autoFixByBracket": true,
+    "php-cs-fixer.formatHtml": true,
+    "php.suggest.basic": false,
+    "php.validate.enable": false
+  }
+}

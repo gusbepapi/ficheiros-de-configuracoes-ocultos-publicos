@@ -1,0 +1,107 @@
+{
+    "latex-workshop.hover.preview.cursor.color": "blue",
+    "latex-workshop.latex.autoBuild.run": "never",
+    "latex-workshop.latex.autoClean.run": "onBuilt",
+    "latex-workshop.latex.clean.fileTypes": 
+    [
+        "*.acn",
+        "*.acr",
+        "*.alg",
+        "*.aux",
+        "*.bcf",
+        "*.bbl",
+        "*.blg",
+        ".DS_Store",
+        "*.fdb_latexmk",
+        "*.fls",
+        "*.glg",
+        "*.glo",
+        "*.gls",
+        "*.idx",
+        "*.ind",
+        "*.ist",
+        "*.lof",
+        "*.log",
+        "*.lol",
+        "*.lot",
+        "*.out",
+        "*.run.xml",
+        "*.toc",
+        "*/*.aux",
+        "*/.DS_Store"
+    ],
+    "latex-workshop.latex.recipes": 
+    [
+        {
+            "name": "xelatex",
+            "tools": 
+            [
+                "xelatex"
+            ]
+        },
+        {
+            "name": "xelatex -> biber -> xelatex*2",
+            "tools": 
+            [
+                "xelatex",
+                "biber",
+                "xelatex",
+                "xelatex"
+            ]
+        },
+        {
+            "name": "xelatex -> -> makeglossaries > biber -> xelatex*2",
+            "tools": 
+            [
+                "xelatex",
+                "makeglossaries",
+                "biber",
+                "xelatex",
+                "xelatex"
+            ]
+        }
+    ],
+    "latex-workshop.latex.tools": 
+    [
+        {
+            "name": "xelatex",
+            "command": "xelatex",
+            "args": 
+            [
+                "-synctex=1",
+                "-halt-on-error",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-shell-escape",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "biber",
+            "command": "biber",
+            "args": 
+            [
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "makeglossaries",
+            "command": "makeglossaries",
+            "args":
+            [
+                "%DOCFILE%"
+            ]
+        }
+    ],
+    "latex-workshop.view.outline.sections": 
+    [
+        "chapter",
+        "section",
+        "subsection",
+        "subsubsection",
+        "subsubsubsection",
+        "subsubsubsubsection"
+    ],
+    "latex-workshop.view.pdf.viewer": "browser"
+}

@@ -1,0 +1,22 @@
+{
+    "dart.enableSdkFormatter": false,
+    "dart.flutterCustomEmulators": 
+    [
+        {
+            "id": "Pixel_2_API_29",
+            "name": "Pixel 2 API 29",
+            "executable": "~/Android/SDK/emulator/emulator",
+            "args": 
+            [
+                "-avd",
+                "@Pixel_2_API_29"
+            ],
+            "env": 
+            {
+                "QT_QPA_PLATFORM": "xcb",
+                "_JAVA_AWT_WM_NONREPARENTING": "1"
+            }
+        }
+    ],
+    "dart.flutterSdkPath": "~/Aplicativos/Fontes/Flutter"
+}

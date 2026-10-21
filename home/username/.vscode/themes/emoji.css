@@ -1,0 +1,60 @@
+/* "
+
+Fonts:
+Fontes:
+
+- D-DIN" 
+
+*/
+
+.monaco-shell 
+{
+  font-family: 'M++ Nerd Font', 'OpenMoji Color Regular', 'Twemoji', 'JoyPixels', 'Apple Color Emoji', 'Segoe UI Emoji', monospace;
+  font-feature-settings: "liga" on, "calt" on;
+}
+
+.monaco-workbench
+{
+    font-family: 'PF Din Text Universal', 'Bahnschrift', 'IBM Plex Sans', 'M++ Nerd Font', 'OpenMoji Color Regular', 'Twemoji', 'JoyPixels', 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif;
+    font-variant-ligatures: initial;
+    font-feature-settings: "liga" on, "calt" on;
+}
+
+.monaco-workbench .panel.integrated-terminal 
+{
+    font-family: 'M++ Nerd Font', 'OpenMoji Color Regular', 'Twemoji', 'JoyPixels', 'Apple Color Emoji', 'Segoe UI Emoji', monospace;
+    font-variant-ligatures: initial;
+    font-feature-settings: "liga" on, "calt" on;
+}
+
+.xterm 
+{
+    font-family: 'M++ Nerd Font', 'OpenMoji Color Regular', 'Twemoji', 'JoyPixels', 'Apple Color Emoji', 'Segoe UI Emoji', monospace;
+    font-variant-ligatures: initial;
+    font-feature-settings: "liga" on, "calt" on;
+}
+
+.explorer-viewlet 
+{ 
+    font-family: 'PF Din Text Universal', 'Bahnschrift', 'IBM Plex Sans', sans-serif; 
+    font-size: 18px;
+}
+
+.monaco-tree .monaco-tree-rows > .monaco-tree-row 
+{
+    min-height: 30px;
+}  
+
+.monaco-tree-row.has-children 
+{
+    font-weight: 500;
+    margin: 10px;
+    font-size: 16px;
+}
+    
+.monaco-tree-row 
+{
+    font-weight: 300;
+    margin: 7px;
+    font-size: 14px
+}

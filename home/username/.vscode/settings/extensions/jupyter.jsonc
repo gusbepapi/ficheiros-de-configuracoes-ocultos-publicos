@@ -1,0 +1,23 @@
+{
+    "[jupyter]": 
+    {
+        "editor.parameterHints.enabled": false,
+        "editor.quickSuggestions": 
+        {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+        }
+    },
+    "jupyter.allowUnauthorizedRemoteConnection": true,
+    "jupyter.exportWithOutputEnabled": true,
+    "jupyter.magicCommandsAsComments": true,
+    "jupyter.themeMatplotlibPlots": true,
+    "notebook.cellToolbarLocation": 
+    {
+        "default": "right",
+        "jupyter-notebook": "left",
+        "markdown-notebook": "left"
+    },
+    "notebook.lineNumbers": "on"
+}

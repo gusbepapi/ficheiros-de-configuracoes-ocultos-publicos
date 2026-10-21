@@ -1,0 +1,76 @@
+{
+  "colorize.include": 
+  [
+    "*.txt"
+  ],
+  "colorize.colorized_colors": 
+  [
+    "HEXA",
+    "RGB"
+  ],
+  "colorize.colorized_variables": 
+  [
+    "LESS"
+  ],
+  "csscomb.preset": ".vscode/settings/csscomb.json",
+  "csscomb.supportEmbeddedStyles": true,
+  "customizeUI.activityBar": "bottom",
+  "customizeUI.listRowHeight": 26,
+  "customizeUI.stylesheet": 
+  {
+    ".explorer-viewlet": "font-size: 16px !important; overflow: auto; border-left: none !important",
+    ".monaco-icon-label:before": "background-size: 20px; height: 32px; width: 20px;",
+    ".monaco-tl-twistie": "padding-top: 6px"
+  },
+  "editor.tokenColorCustomizations": 
+  {
+    "textMateRules": 
+    [
+      {
+        "scope": 
+        [
+            "comment",
+            "log.error"
+        ],
+        "settings": 
+        {
+          "fontStyle": "bold"
+        }
+      },
+      {
+        "scope": "log.warning",
+        "settings": 
+        {
+          "foreground": "#f4ad42",
+          "fontStyle": ""
+        }
+      }
+    ]
+  },
+  "git.ignoreLimitWarning": true,
+  "liveServer.settings.CustomBrowser": "firefox",
+  "liveServer.settings.port": 1990,
+  "material-icon-theme.folders.color": "#ef5350",
+  "python.formatting.provider": "black",
+  "python.pythonPath": "./.env/bin/python",
+  "search.exclude": 
+  {
+    "public/**": true,
+    "node_modules/**": true
+  },
+  "spellright.language": 
+  [
+    "en_GB-large",
+    "en_med_glut",
+    "pt_PT"
+  ],
+  "spellright.documentTypes": 
+  [
+    "css",
+    "html",
+    "php",
+    "python",
+    "md",
+    "txt"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+    "colorize.decoration_type": "underline",
+    "colorize.colorized_colors": 
+    [
+        "HEXA",
+        "HSL",
+        "RGB"
+    ],
+    "colorize.colorized_variables": 
+    [
+        "CSS",
+        "LESS",
+        "SASS"
+    ],
+    "colorize.enable_search_variables": true,
+    "colorize.include": 
+    [
+        // Absolute files
+        "~/.config/kitty/kitty.conf",
+        // Relative extensions
+        ".bbcode",
+        ".conf",
+        ".ipynb",
+        ".json",
+        ".txt",
+        ".zsh"
+    ],
+    "colorize.languages": 
+    [
+        "apacheconf",
+        "bbcode",
+        "css",
+        "html",
+        "jupyter",
+        "javascript",
+        "json",
+        "jsonc",
+        "json5",
+        "less",
+        "plaintext",
+        "postcss",
+        "python",
+        "sass",
+        "scss",
+        "shellscript",
+        "stylus",
+        "svg",
+        "xml"
+    ]
+}

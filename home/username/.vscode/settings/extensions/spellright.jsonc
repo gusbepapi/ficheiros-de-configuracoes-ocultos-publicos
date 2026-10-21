@@ -1,0 +1,9 @@
+{
+  "spellright.documentTypes": 
+  [
+      "jupyter",
+      "latex",
+      "md"
+  ],
+  "spellright.language": []
+} 

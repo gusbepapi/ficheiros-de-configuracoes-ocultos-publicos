@@ -1,0 +1,18 @@
+{
+  // FIVE SERVER
+  "fiveServer.browser": ["microsoft-edge-dev --inprivate"],
+  "fiveServer.port": 1984,
+  
+  // LIVE SERVER (DEPRECIATED)
+  "liveServer.settings.donotVerifyTags": true,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "liveServer.settings.port": 1984,
+  "liveServer.settings.CustomBrowser": "microsoft-edge-dev",
+  "liveServer.settings.https": 
+  {
+      "enable": true,
+      "cert": "~/.local/share/certificates/localhost+4.pem",
+      "key": "~/.local/share/certificates/localhost+4-key.pem",
+      "passphrase": ""
+  }
+}

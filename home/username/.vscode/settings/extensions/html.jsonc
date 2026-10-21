@@ -1,0 +1,11 @@
+{
+  "[html]": 
+  {
+      "editor.defaultFormatter": "vscode.html-language-features",
+  },
+  "html-css-class-completion.enableEmmetSupport": true,
+  "html.format.indentInnerHtml": true,
+  "html.format.wrapAttributes": "preserve",
+  "html.format.wrapLineLength": 0,
+  "html.suggest.html5": true
+}

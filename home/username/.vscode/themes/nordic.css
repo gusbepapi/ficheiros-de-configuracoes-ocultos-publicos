@@ -1,0 +1,11 @@
+@import url("./emoji.css");
+
+.monaco-editor .margin 
+{
+    background-color: rgb(36, 41, 53);
+}
+
+.monaco-workbench > .part.activitybar 
+{
+    background-color: rgb(36, 41, 53) !important;
+}

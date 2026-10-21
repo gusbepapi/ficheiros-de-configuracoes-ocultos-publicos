@@ -1,0 +1,145 @@
+{
+	"extensions": 
+	{
+		"recommendations": 
+		[
+			"adpyke.vscode-sql-formatter",
+			"agutierrezr.emmet-keybindings",
+			"amiralizadeh9480.laravel-extra-intellisense",
+			"anderseandersen.html-class-suggestions",
+			"attilabuti.vscode-mjml",
+			"ban.spellright",
+			"brapifra.phpserver",
+			"dbaeumer.vscode-eslint",
+			"deepkolos.change-color",
+			"doggy8088.quicktype-refresh",
+			"ecmel.vscode-html-css",
+			"editorconfig.editorconfig",
+			"eiminsasete.apacheconf-snippets",
+			"evondev.generate-css-class",
+			"grantbartlett.scss-allman-formatter",
+			"guillaumedoutriaux.name-that-color",
+			"hwencc.html-tag-wrapper",
+			"ikappas.composer",
+			"jakewilson.vscode-picture",
+			"junstyle.php-cs-fixer",
+			"kamikillerto.vscode-colorize",
+			"katjanakosic.vscode-json5",
+			"kisstkondoros.vscode-gutter-preview",
+			"kiteco.kite",
+			"kvnol.mjml-snippets",
+			"liamhammett.inline-parameters",
+			"mblode.twig-language-2",
+			"mrmlnc.vscode-apache",
+			"mrmlnc.vscode-attrs-sorter",
+			"mrmlnc.vscode-csscomb",
+			"mrmlnc.vscode-scss",
+			"ms-vscode-remote.remote-ssh-edit",
+			"ms-vscode-remote.remote-ssh",
+			"ms-vscode.vscode-typescript-next",
+			"mtxr.sqltools-driver-mysql",
+			"mtxr.sqltools-driver-pg",
+			"mtxr.sqltools-driver-sqlite",
+			"mtxr.sqltools",
+			"ohansemmanuel.css-grid-snippets",
+			"onecentlin.laravel5-snippets",
+			"phiter.phpstorm-snippets",
+			"pranaygp.vscode-css-peek",
+			"ryannaddy.laravel-artisan",
+			"solnurkarim.html-to-css-autocompletion",
+			"sonarsource.sonarlint-vscode",
+			"syler.sass-indented",
+			"sysoev.language-stylus",
+			"tock.vscode-css-custom-properties",
+			"vincaslt.highlight-matching-tag",
+			"whatwedo.twig",
+			"wmaurer.change-case",
+			"yandeu.five-server",
+			"ysemeniuk.emmet-live",
+			"zignd.html-css-class-completion",
+		]
+	},
+	"folders": 
+	[],
+	"settings": 
+	{
+		"[javascript]": 
+		{
+				"editor.defaultFormatter": "vscode.typescript-language-features"
+		},
+    "colorize.decoration_type": "underline",
+    "colorize.colorized_colors": 
+    [
+        "HEXA",
+        "HSL",
+        "RGB"
+    ],
+    "colorize.colorized_variables": 
+    [
+        "CSS",
+        "LESS",
+        "SASS"
+    ],
+    "colorize.enable_search_variables": true,
+    "colorize.include": 
+    [
+        // Absolute files
+        "~/.config/kitty/kitty.conf",
+        // Relative extensions
+        ".bbcode",
+        ".conf",
+        ".ipynb",
+        ".json",
+        ".txt",
+        ".zsh"
+    ],
+    "colorize.languages": 
+    [
+        "apacheconf",
+        "bbcode",
+        "css",
+        "html",
+        "jupyter",
+        "javascript",
+        "json",
+        "jsonc",
+        "json5",
+        "less",
+        "plaintext",
+        "postcss",
+        "python",
+        "sass",
+        "scss",
+        "shellscript",
+        "stylus",
+        "svg",
+        "xml"
+    ],
+		"csscomb.preset": "~/.vscode-insiders/settings/csscomb.json",
+		"csscomb.supportEmbeddedStyles": true,
+		"css.validate": false,
+		"git.ignoreLimitWarning": true,
+		"html-css-class-completion.enableEmmetSupport": true,
+		"html.format.indentInnerHtml": true,
+		"html.format.wrapAttributes": "preserve",
+		"html.format.wrapLineLength": 0,
+		"html.suggest.html5": true,
+		"javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+		"phpserver.browser": "firefox",
+		"phpserver.port": 1984,
+		"php-cs-fixer.autoFixByBracket": true,
+		"php-cs-fixer.formatHtml": true,
+		"php.suggest.basic": false,
+		"php.validate.enable": false,
+		"scss.validate": false,
+		"spellright.documentTypes": 
+		[
+			"css",
+			"html",
+			"php",
+			"scss",
+		],
+		"spellright.language": [],
+		"workbench.colorTheme": "Steam Punk"
+	},
+}

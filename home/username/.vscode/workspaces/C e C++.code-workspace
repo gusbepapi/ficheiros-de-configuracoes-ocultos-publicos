@@ -1,0 +1,20 @@
+{
+	"folders": [],
+	"extensions": 
+	{
+		"recommendations": 
+		[
+			"hyeon.c-math-viewer",
+			"ms-vscode.cpptools",
+			"ms-vscode.makefile-tools"
+		]
+	},
+	"settings": 
+	{
+		"C_Cpp.commentContinuationPatterns": 
+		[
+				"/**",
+				"//'"
+		]
+	}
+}

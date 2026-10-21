@@ -1,0 +1,172 @@
+{
+	"folders": [],
+	"settings": 
+	{
+		"[html]": 
+		{
+				"editor.defaultFormatter": "vscode.html-language-features",
+		},
+		"[javascript]": 
+		{
+				"editor.defaultFormatter": "vscode.typescript-language-features"
+		},
+    "[markdown]": 
+    {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    },
+    "colorize.decoration_type": "underline",
+    "colorize.colorized_colors": 
+    [
+        "HEXA",
+        "HSL",
+        "RGB"
+    ],
+    "colorize.colorized_variables": 
+    [
+        "CSS",
+        "LESS",
+        "SASS"
+    ],
+    "colorize.enable_search_variables": true,
+    "colorize.include": 
+    [
+        // Absolute files
+        "~/.config/kitty/kitty.conf",
+        // Relative extensions
+        ".bbcode",
+        ".conf",
+        ".ipynb",
+        ".json",
+        ".txt",
+        ".zsh"
+    ],
+    "colorize.languages": 
+    [
+        "apacheconf",
+        "bbcode",
+        "css",
+        "html",
+        "jupyter",
+        "javascript",
+        "json",
+        "jsonc",
+        "json5",
+        "less",
+        "plaintext",
+        "postcss",
+        "python",
+        "sass",
+        "scss",
+        "shellscript",
+        "stylus",
+        "svg",
+        "xml"
+    ],
+		"csscomb.preset": "~/.vscode-insiders/settings/formatters/csscomb.json",
+		"csscomb.supportEmbeddedStyles": true,
+		"css.validate": false,
+		"html-css-class-completion.enableEmmetSupport": true,
+		"html.format.indentInnerHtml": true,
+		"html.format.wrapAttributes": "preserve",
+		"html.format.wrapLineLength": 0,
+		"html.suggest.html5": true,
+		"javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+    // MARKDOWN CHECKBOX
+    "markdown-checkbox.dateWhenChecked": false,
+    "markdown-checkbox.strikeThroughWhenChecked": false,
+    // MARKDOWN ALL IN ONE
+    "markdown.extension.print.absoluteImgPath": false,
+    "markdown.extension.print.imgToBase64": true,
+    "markdown.extension.print.includeVscodeStylesheets": false,
+    "markdown.extension.print.onFileSave": false,
+    "markdown.extension.toc.plaintext": false,
+    "markdown.extension.toc.updateOnSave": false,
+    // MAKRODWN PASTE 
+    "MarkdownPaste.rules": 
+    [
+        {
+            "regex": "^(?:https?://)?(?:(?:(?:www\\.?)?youtube\\.com(?:/(?:(?:watch\\?.*?v=([^&\\s]+).*)|))?))",
+            "options": "g",
+            "replace": "[![](https://img.youtube.com/vi/$1/0.jpg)](https://www.youtube.com/watch?v=$1)"
+        },
+        {
+            "regex": "^(https?://.*)",
+            "options": "ig",
+            "replace": "[]($1)"
+        }
+    ],
+    "MarkdownPaste.enableImgTag": true,
+		// MICROSOFT MARKDOWN LANGUAGE FEATURES
+		"markdown.preview.breaks": true,
+		"scss.validate": false,
+		"stylelint.validate": 
+		[
+				"css"
+		],
+		"workbench.colorTheme": "Steam Punk"
+	},
+	"extensions": 
+	{
+		"recommendations": 
+		[
+			"ahebrank.yaml2json",
+			"anderseandersen.html-class-suggestions",
+			"asciidoctor.asciidoctor-vscode",
+			"axetroy.vscode-markdown-script",
+			"bierner.markdown-checkbox",
+			"bierner.markdown-footnotes",
+			"bierner.markdown-image-size",
+			"bierner.markdown-mermaid",
+			"budparr.language-hugo-vscode",
+			"bungcip.better-toml",
+			"catonif.markdown-collapsible",
+			"christopherstyles.html-entities",
+			"deepkolos.change-color",
+			"ecmel.vscode-html-css",
+			"eiminsasete.apacheconf-snippets",
+			"espresso3389.insert-file",
+			"fcrespo82.markdown-table-formatter",
+			"fivethree.vscode-hugo-snippets",
+			"golang.go",
+			"grantbartlett.scss-allman-formatter",
+			"guillaumedoutriaux.name-that-color",
+			"houkanshan.vscode-markdown-footnote",
+			"huang-an-sheng.youtube-embed-snippets",
+			"hwencc.html-tag-wrapper",
+			"jakewilson.vscode-picture",
+			"jebbs.markdown-extended",
+			"jjaakko.markdown-kbd",
+			"kaellarkin.hugo-shortcode-syntax",
+			"kamikillerto.vscode-colorize",
+			"kisstkondoros.vscode-gutter-preview",
+			"mathiassoeholm.markdown-link-updater",
+			"mgmcdermott.vscode-language-babel",
+			"mrmlnc.vscode-apache",
+			"mrmlnc.vscode-attrs-sorter",
+			"mrmlnc.vscode-csscomb",
+			"mrmlnc.vscode-scss",
+			"ms-vscode.vscode-typescript-next",
+			"nadim-vscode.html-meta-tags-hero",
+			"ohansemmanuel.css-grid-snippets",
+			"pascalreitermann93.vscode-yaml-sort",
+			"pkief.markdown-checkbox",
+			"pranaygp.vscode-css-peek",
+			"redhat.vscode-xml",
+			"redhat.vscode-yaml",
+			"rusnasonov.vscode-hugo",
+			"skn0tt.markdown-link-expander",
+			"solnurkarim.html-to-css-autocompletion",
+			"stylelint.vscode-stylelint",
+			"svsool.markdown-memo",
+			"syler.sass-indented",
+			"tamasfe.even-better-toml",
+			"telesoho.vscode-markdown-paste-image",
+			"tock.vscode-css-custom-properties",
+			"tsutsu3.markdown-named-codeblocks",
+			"unional.vscode-sort-package-json",
+			"vincaslt.highlight-matching-tag",
+			"yzhang.markdown-all-in-one",
+			"zignd.html-css-class-completion",
+		]
+	}
+}

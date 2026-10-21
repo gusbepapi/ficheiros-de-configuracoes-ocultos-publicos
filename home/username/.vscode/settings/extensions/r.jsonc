@@ -1,0 +1,17 @@
+{
+  "[r]": 
+  {
+      "editor.wordSeparators": "`~!@#%$^&*()-=+[{]}\\|;:'\",<>/?"
+  },
+  "r.alwaysUseActiveTerminal": true,
+  "r.bracketedPaste": true,
+  "r.liveShare.defaults.commandForward": true,
+  "r.liveShare.defaults.shareBrowser": true,
+  "r.rmarkdown.chunkBackgroundColor": "rgba(128, 128, 128, 0.1)",
+  "r.rmarkdown.enableCodeLens": true,
+  "r.rmarkdown.codeLensCommands": 
+  [
+      "r.runCurrentChunk",
+      "r.runAboveChunks"
+  ]
+}

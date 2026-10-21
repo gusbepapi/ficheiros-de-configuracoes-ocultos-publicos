@@ -1,0 +1,11 @@
+{
+  "phpserver.browser": "firefox",
+  "phpserver.port": 1984,
+  "php-cs-fixer.autoFixByBracket": true,
+  "php-cs-fixer.config": "./../settings/php_cs.php",
+  "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
+  "php-cs-fixer.formatHtml": true,
+  "php-cs-fixer.lastDownload": 1649204117336,
+  "php.suggest.basic": false,
+  "php.validate.enable": false
+} 

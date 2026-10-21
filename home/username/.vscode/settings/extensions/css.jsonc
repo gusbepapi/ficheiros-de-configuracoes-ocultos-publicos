@@ -1,0 +1,9 @@
+{
+  "csscomb.preset": "~/.vscode-insiders/settings/csscomb.json",
+  "csscomb.supportEmbeddedStyles": true,
+  "css.validate": false,
+  "stylelint.validate": 
+  [
+      "css"
+  ]
+}
