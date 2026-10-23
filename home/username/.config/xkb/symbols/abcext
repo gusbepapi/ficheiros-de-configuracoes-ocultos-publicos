@@ -1,0 +1,127 @@
+// Apple «ABC Extended» layouts for XKB
+
+partial alphanumeric_keys
+xkb_symbols "abcext" {
+
+    name[Group1] = "English (ABC Extended)";
+
+    // Reproducing the Option and Option+Shift planes of Apple's «ABC Extended» layout
+    // Composing dead keys through the accompanying XCompose file, which also serves the
+    // borrowed «dead_semivoiced_sound» (numero) and «dead_voiced_sound» (hook) keysyms
+
+    key <TLDE> { type = "FOUR_LEVEL", [ grave, asciitilde, dead_grave, U0300 ] };
+    key <AE01> { type = "FOUR_LEVEL", [ 1, exclam, U00A1, U2044 ] };
+    key <AE02> { type = "FOUR_LEVEL", [ 2, at, U2122, U20AC ] };
+    key <AE03> { type = "FOUR_LEVEL", [ 3, numbersign, U00A3, U2039 ] };
+    key <AE04> { type = "FOUR_LEVEL", [ 4, dollar, U00A2, U203A ] };
+    key <AE05> { type = "FOUR_LEVEL", [ 5, percent, U00A7, U2020 ] };
+    key <AE06> { type = "FOUR_LEVEL", [ 6, asciicircum, dead_circumflex, U0302 ] };
+    key <AE07> { type = "FOUR_LEVEL", [ 7, ampersand, U00B6, U2021 ] };
+    key <AE08> { type = "FOUR_LEVEL", [ 8, asterisk, U2022, U00B0 ] };
+    key <AE09> { type = "FOUR_LEVEL", [ 9, parenleft, U00AA, U00B7 ] };
+    key <AE10> { type = "FOUR_LEVEL", [ 0, parenright, U00BA, U201A ] };
+    key <AE11> { type = "FOUR_LEVEL", [ minus, underscore, U2013, U2014 ] };
+    key <AE12> { type = "FOUR_LEVEL", [ equal, plus, U2260, U00B1 ] };
+    key <AD01> { type = "FOUR_LEVEL_ALPHABETIC", [ q, Q, U0153, U0152 ] };
+    key <AD02> { type = "FOUR_LEVEL_ALPHABETIC", [ w, W, dead_abovedot, U0307 ] };
+    key <AD03> { type = "FOUR_LEVEL_ALPHABETIC", [ e, E, dead_acute, U0301 ] };
+    key <AD04> { type = "FOUR_LEVEL_ALPHABETIC", [ r, R, U00AE, U2030 ] };
+    key <AD05> { type = "FOUR_LEVEL_ALPHABETIC", [ t, T, U00FE, U00DE ] };
+    key <AD06> { type = "FOUR_LEVEL_ALPHABETIC", [ y, Y, U00A5, dead_doublegrave ] };
+    key <AD07> { type = "FOUR_LEVEL_ALPHABETIC", [ u, U, dead_diaeresis, U0308 ] };
+    key <AD08> { type = "FOUR_LEVEL_ALPHABETIC", [ i, I, dead_horn, U031B ] };
+    key <AD09> { type = "FOUR_LEVEL_ALPHABETIC", [ o, O, U00F8, U00D8 ] };
+    key <AD10> { type = "FOUR_LEVEL_ALPHABETIC", [ p, P, dead_belowcomma, U0326 ] };
+    key <AD11> { type = "FOUR_LEVEL", [ bracketleft, braceleft, U201C, U201D ] };
+    key <AD12> { type = "FOUR_LEVEL", [ bracketright, braceright, U2018, U2019 ] };
+    key <BKSL> { type = "FOUR_LEVEL", [ backslash, bar, U00AB, U00BB ] };
+    key <AC01> { type = "FOUR_LEVEL_ALPHABETIC", [ a, A, dead_macron, U0304 ] };
+    key <AC02> { type = "FOUR_LEVEL_ALPHABETIC", [ s, S, U00DF, dead_invertedbreve ] };
+    key <AC03> { type = "FOUR_LEVEL_ALPHABETIC", [ d, D, U00F0, U00D0 ] };
+    key <AC04> { type = "FOUR_LEVEL_ALPHABETIC", [ f, F, U0192, dead_belowtilde ] };
+    key <AC05> { type = "FOUR_LEVEL_ALPHABETIC", [ g, G, U00A9, dead_belowcircumflex ] };
+    key <AC06> { type = "FOUR_LEVEL_ALPHABETIC", [ h, H, dead_belowmacron, U0331 ] };
+    key <AC07> { type = "FOUR_LEVEL_ALPHABETIC", [ j, J, dead_doubleacute, U030B ] };
+    key <AC08> { type = "FOUR_LEVEL_ALPHABETIC", [ k, K, dead_abovering, U030A ] };
+    key <AC09> { type = "FOUR_LEVEL_ALPHABETIC", [ l, L, dead_stroke, U0335 ] };
+    key <AC10> { type = "FOUR_LEVEL", [ semicolon, colon, U2026, dead_semivoiced_sound ] };
+    key <AC11> { type = "FOUR_LEVEL", [ apostrophe, quotedbl, U00E6, U00C6 ] };
+    key <AB01> { type = "FOUR_LEVEL_ALPHABETIC", [ z, Z, dead_hook, U0309 ] };
+    key <AB02> { type = "FOUR_LEVEL_ALPHABETIC", [ x, X, dead_belowdot, U0323 ] };
+    key <AB03> { type = "FOUR_LEVEL_ALPHABETIC", [ c, C, dead_cedilla, U0327 ] };
+    key <AB04> { type = "FOUR_LEVEL_ALPHABETIC", [ v, V, dead_caron, U030C ] };
+    key <AB05> { type = "FOUR_LEVEL_ALPHABETIC", [ b, B, dead_breve, U0306 ] };
+    key <AB06> { type = "FOUR_LEVEL_ALPHABETIC", [ n, N, dead_tilde, U0303 ] };
+    key <AB07> { type = "FOUR_LEVEL_ALPHABETIC", [ m, M, dead_ogonek, U0328 ] };
+    key <AB08> { type = "FOUR_LEVEL", [ comma, less, U2264, U201E ] };
+    key <AB09> { type = "FOUR_LEVEL", [ period, greater, U2265, dead_voiced_sound ] };
+    key <AB10> { type = "FOUR_LEVEL", [ slash, question, U00F7, U00BF ] };
+    key <LSGT> { type = "FOUR_LEVEL", [ U00A7, U00B1, U00A7, U00B1 ] };
+
+    // Treating the right Alt key as Option; substituting «level3(lalt_switch)» or
+    // «level3(alt_switch)» selects the left key or both keys instead
+    include "level3(ralt_switch)"
+};
+
+partial alphanumeric_keys
+xkb_symbols "gb_abcext" {
+
+    name[Group1] = "English (British ABC Extended)";
+
+    // Reproducing the Option and Option+Shift planes of Apple's «ABC Extended» layout
+    // Composing dead keys through the accompanying XCompose file, which also serves the
+    // borrowed «dead_semivoiced_sound» (numero) and «dead_voiced_sound» (hook) keysyms
+
+    key <TLDE> { type = "FOUR_LEVEL", [ grave, asciitilde, dead_grave, U0300 ] };
+    key <AE01> { type = "FOUR_LEVEL", [ 1, exclam, U00A1, U2044 ] };
+    key <AE02> { type = "FOUR_LEVEL", [ 2, at, U20AC, U2122 ] };
+    key <AE03> { type = "FOUR_LEVEL", [ 3, U00A3, numbersign, U2039 ] };
+    key <AE04> { type = "FOUR_LEVEL", [ 4, dollar, U00A2, U203A ] };
+    key <AE05> { type = "FOUR_LEVEL", [ 5, percent, U00A7, U2020 ] };
+    key <AE06> { type = "FOUR_LEVEL", [ 6, asciicircum, dead_circumflex, U0302 ] };
+    key <AE07> { type = "FOUR_LEVEL", [ 7, ampersand, U00B6, U2021 ] };
+    key <AE08> { type = "FOUR_LEVEL", [ 8, asterisk, U2022, U00B0 ] };
+    key <AE09> { type = "FOUR_LEVEL", [ 9, parenleft, U00AA, U00B7 ] };
+    key <AE10> { type = "FOUR_LEVEL", [ 0, parenright, U00BA, U201A ] };
+    key <AE11> { type = "FOUR_LEVEL", [ minus, underscore, U2013, U2014 ] };
+    key <AE12> { type = "FOUR_LEVEL", [ equal, plus, U2260, U00B1 ] };
+    key <AD01> { type = "FOUR_LEVEL_ALPHABETIC", [ q, Q, U0153, U0152 ] };
+    key <AD02> { type = "FOUR_LEVEL_ALPHABETIC", [ w, W, dead_abovedot, U0307 ] };
+    key <AD03> { type = "FOUR_LEVEL_ALPHABETIC", [ e, E, dead_acute, U0301 ] };
+    key <AD04> { type = "FOUR_LEVEL_ALPHABETIC", [ r, R, U00AE, U2030 ] };
+    key <AD05> { type = "FOUR_LEVEL_ALPHABETIC", [ t, T, U00FE, U00DE ] };
+    key <AD06> { type = "FOUR_LEVEL_ALPHABETIC", [ y, Y, U00A5, dead_doublegrave ] };
+    key <AD07> { type = "FOUR_LEVEL_ALPHABETIC", [ u, U, dead_diaeresis, U0308 ] };
+    key <AD08> { type = "FOUR_LEVEL_ALPHABETIC", [ i, I, dead_horn, U031B ] };
+    key <AD09> { type = "FOUR_LEVEL_ALPHABETIC", [ o, O, U00F8, U00D8 ] };
+    key <AD10> { type = "FOUR_LEVEL_ALPHABETIC", [ p, P, dead_belowcomma, U0326 ] };
+    key <AD11> { type = "FOUR_LEVEL", [ bracketleft, braceleft, U201C, U201D ] };
+    key <AD12> { type = "FOUR_LEVEL", [ bracketright, braceright, U2018, U2019 ] };
+    key <BKSL> { type = "FOUR_LEVEL", [ backslash, bar, U00AB, U00BB ] };
+    key <AC01> { type = "FOUR_LEVEL_ALPHABETIC", [ a, A, dead_macron, U0304 ] };
+    key <AC02> { type = "FOUR_LEVEL_ALPHABETIC", [ s, S, U00DF, dead_invertedbreve ] };
+    key <AC03> { type = "FOUR_LEVEL_ALPHABETIC", [ d, D, U00F0, U00D0 ] };
+    key <AC04> { type = "FOUR_LEVEL_ALPHABETIC", [ f, F, U0192, dead_belowtilde ] };
+    key <AC05> { type = "FOUR_LEVEL_ALPHABETIC", [ g, G, U00A9, dead_belowcircumflex ] };
+    key <AC06> { type = "FOUR_LEVEL_ALPHABETIC", [ h, H, dead_belowmacron, U0331 ] };
+    key <AC07> { type = "FOUR_LEVEL_ALPHABETIC", [ j, J, dead_doubleacute, U030B ] };
+    key <AC08> { type = "FOUR_LEVEL_ALPHABETIC", [ k, K, dead_abovering, U030A ] };
+    key <AC09> { type = "FOUR_LEVEL_ALPHABETIC", [ l, L, dead_stroke, U0335 ] };
+    key <AC10> { type = "FOUR_LEVEL", [ semicolon, colon, U2026, dead_semivoiced_sound ] };
+    key <AC11> { type = "FOUR_LEVEL", [ apostrophe, quotedbl, U00E6, U00C6 ] };
+    key <AB01> { type = "FOUR_LEVEL_ALPHABETIC", [ z, Z, dead_hook, U0309 ] };
+    key <AB02> { type = "FOUR_LEVEL_ALPHABETIC", [ x, X, dead_belowdot, U0323 ] };
+    key <AB03> { type = "FOUR_LEVEL_ALPHABETIC", [ c, C, dead_cedilla, U0327 ] };
+    key <AB04> { type = "FOUR_LEVEL_ALPHABETIC", [ v, V, dead_caron, U030C ] };
+    key <AB05> { type = "FOUR_LEVEL_ALPHABETIC", [ b, B, dead_breve, U0306 ] };
+    key <AB06> { type = "FOUR_LEVEL_ALPHABETIC", [ n, N, dead_tilde, U0303 ] };
+    key <AB07> { type = "FOUR_LEVEL_ALPHABETIC", [ m, M, dead_ogonek, U0328 ] };
+    key <AB08> { type = "FOUR_LEVEL", [ comma, less, U2264, U201E ] };
+    key <AB09> { type = "FOUR_LEVEL", [ period, greater, U2265, dead_voiced_sound ] };
+    key <AB10> { type = "FOUR_LEVEL", [ slash, question, U00F7, U00BF ] };
+    key <LSGT> { type = "FOUR_LEVEL", [ U00A7, U00B1, U00A7, U00B1 ] };
+
+    // Treating the right Alt key as Option; substituting «level3(lalt_switch)» or
+    // «level3(alt_switch)» selects the left key or both keys instead
+    include "level3(ralt_switch)"
+};

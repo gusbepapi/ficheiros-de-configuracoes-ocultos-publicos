@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# 🇬🇧 Fixed overlay config for Wofi launcher
+# 🇵🇹 Configuração fixa para o iniciador de Wofi
+# 🇪🇸 Configuración fija para el lanzador de Wofi
+
+allow_markup=true
+no_actions=true
+hide_scroll=true
+hide_search=true
+print_line_num=true
+lines=12
+term=termite
+width=300

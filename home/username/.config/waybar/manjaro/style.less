@@ -1,0 +1,262 @@
+/* =============================================================================
+ *
+ * 🇬🇧 Waybar configuration
+ * 🇵🇹 Configuração do Waybar
+ * 🇪🇸 Configuración de Waybar
+ *
+ * 🇬🇧 Configuration reference: 
+ * 🇵🇹 Referência de configuração:
+ * 🇪🇸 Referencia de configuración:
+ * https://github.com/Alexays/Waybar/wiki/Configuration
+ *
+ * =========================================================================== */
+
+/* 🇬🇧 import CSS definitions for current theme */
+/* 🇵🇹 importar as definições de CSS para o tema actual */
+/* 🇪🇸 importar definiciones de CSS para el tema actual */
+
+@import url("theme.css");
+
+// * 🇬🇧 Keyframes
+// * 🇵🇹 Keyframes
+// * 🇪🇸 Keyframes
+
+@keyframes blink-warning {
+    70% {
+        color: @text_color;
+    }
+
+    to {
+        color: @text_color;
+        background-color: @warning_color;
+    }
+}
+
+@keyframes blink-critical {
+    70% {
+        color: @text_color;
+    }
+
+    to {
+        color: @text_color;
+        background-color: @error_color;
+    }
+}
+
+// * 🇬🇧 Base styles
+// * 🇵🇹 Estilos da base
+// * 🇪🇸 Estilos de la base
+
+/* 🇬🇧 Resetting all styles */
+/* 🇵🇹 Resetar todos os estilos */
+/* 🇪🇸 Reiniciar todos los estilos */
+*:not(#custom-wkblayout) {
+    border: none;
+    border-radius: 0;
+    font-family: "Google Sans", "RobotoMono Nerd Font", "Roboto Mono", sans-serif;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* 🇬🇧 The whole bar */
+/* 🇵🇹 A barra inteira */
+/* 🇪🇸 La barra entera */
+#waybar {
+    background: @background_color;
+    color: @text_color;
+    font-size: 14px;
+}
+
+/* 🇬🇧 Each module */
+/* 🇵🇹 Cada módulo */
+/* 🇪🇸 Cada módulo */
+#custom-pacman,
+#custom-menu,
+#custom-help,
+
+#custom-arch-updates,
+#custom-insync,
+#custom-scratchpad-indicator,
+#custom-weather,
+#custom-wkblayout,
+
+#bluetooth,
+#battery,
+#clock,
+#cpu,
+#memory,
+#mode,
+#network,
+#pulseaudio,
+#temperature,
+#idle_inhibitor,
+#backlight,
+#tray {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+// 🇬* 🇬🇧 Module styles
+// 🇬* 🇵🇹 Estilos dos módulos
+// 🇬* 🇪🇸 Estilos de los módulos
+
+#battery {
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#battery.critical {
+    color: @error_color;
+}
+
+#battery.critical.discharging {
+    animation-name: blink-critical;
+    animation-duration: 2s;
+}
+
+#battery.warning {
+    color: @warning_color;
+}
+
+#battery.warning.discharging {
+    animation-name: blink-warning;
+    animation-duration: 3s;
+}
+
+#clock {
+    font-weight: bold;
+    background-color: @accent_color;
+}
+
+#cpu {
+    /* 🇬🇧 No styles */
+    /* 🇵🇹 Sem estilos */
+    /* 🇪🇸 Sin estilos */
+    content: unset;
+}
+
+#cpu.warning {
+    color: @warning_color;
+}
+
+#cpu.critical {
+    color: @error_color;
+}
+
+#custom-help {
+    padding-bottom: 2px;
+}
+
+#custom-insync b {
+    color: blue;
+    font-style: normal;
+    margin-right: 10px;
+}
+
+#custom-pacman {
+    color: @warning_color;
+}
+
+#custom-menu {
+    background-color: @accent_color;
+}
+
+#custom-wkblayout {
+    font-family: "Twitter Colour Emoji";
+    margin-top: 6px;
+}
+
+#memory {
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+#memory.warning {
+    color: @warning_color;
+}
+
+#memory.critical {
+    color: @error_color;
+    animation-name: blink-critical;
+    animation-duration: 2s;
+}
+
+#mode {
+    background: @background_color;
+}
+
+#network {
+    /* 🇬🇧 No styles */
+    /* 🇵🇹 Sem estilos */
+    /* 🇪🇸 Sin estilos */
+    content: unset;
+}
+
+#network.disconnected {
+    color: @warning_color;
+}
+
+#pulseaudio {
+    /* 🇬🇧 No styles */
+    /* 🇵🇹 Sem estilos */
+    /* 🇪🇸 Sin estilos */
+    content: unset;
+}
+
+#pulseaudio.muted {
+    /* 🇬🇧 No styles */
+    /* 🇵🇹 Sem estilos */
+    /* 🇪🇸 Sin estilos */
+    color: @warning_color;
+}
+
+#temperature {
+    /* 🇬🇧 No styles */
+    /* 🇵🇹 Sem estilos */
+    /* 🇪🇸 Sin estilos */
+    content: unset;
+}
+
+#temperature.critical {
+    color: @error_color;
+}
+
+#tray {
+    /* 🇬🇧 No styles */
+    /* 🇵🇹 Sem estilos */
+    /* 🇪🇸 Sin estilos */
+    content: unset;
+}
+
+#window {
+    color: @accent_color;
+    font-weight: bold;
+    margin-right: 25px;
+}
+
+#workspaces button {
+    border-top: 2px solid transparent;
+    /* 🇬🇧 To compensate for the top border and still have vertical centring */
+    /* 🇵🇹 Para compensar a borda superior e ainda ter o centro vertical */
+    /* 🇪🇸 Para compensar el borde superior e aún tener el centro vertical */
+    color: @accent_color;
+    font-weight: bold;
+    padding-bottom: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#workspaces button.focused {
+    background-color: @accent_color;
+    border-color: @accent_color;
+    color: @text_color;
+    font-weight: bold;
+}
+
+#workspaces button.urgent {
+    border-color: @error_color;
+    color: @error_color;
+}

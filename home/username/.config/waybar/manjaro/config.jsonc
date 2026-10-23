@@ -1,0 +1,283 @@
+{
+  "layer": "top",
+  "height": 30,
+  "modules-left": 
+  [
+    "custom/menu",
+    "sway/workspaces",
+    "sway/mode"
+  ],
+  "modules-center": 
+  [
+    "custom/window"
+    // "sway/window"
+  ],
+  "modules-right": 
+  [
+    "custom/wkblayout",
+    "network",
+    "cpu",
+    "memory",
+    "battery",
+    "temperature",
+    "backlight",
+    // "bluetooth",
+    // "idle_inhibitor",
+    "pulseaudio",
+    "custom/pacman",
+    "custom/insync",
+    "tray",
+    "custom/weather",
+    "custom/scratchpad-indicator",
+    "custom/help",
+    "clock"
+  ],
+  "battery": 
+  {
+    "interval": 30,
+    "states": 
+    {
+      "warning": 30,
+      "critical": 15
+    },
+    "format-charging": "󰂄{capacity}%",
+    "format": "{icon}{capacity}%",
+    "format-icons": 
+    [
+      "󰂃",
+      "󰁺",
+      "󰁻",
+      "󰁽",
+      "󰂀",
+      "󰁹"
+    ],
+    "tooltip": false,
+    "bat": "BAT0"
+  },
+  "clock": 
+  {
+    "interval": 60,
+    "format": "{:%d de %B de %Y às %H:%M}",
+    "tooltip": true,
+    "tooltip-format": "<big>{:%B %Y}</big>\n<tt>{calendar}</tt>",
+    "on-click": "swaymsg exec \\$calendar"
+  },
+  "cpu": 
+  {
+    "interval": 5,
+    "format": "󰘚{usage}%",
+    "states": 
+    {
+      "warning": 70,
+      "critical": 90
+    },
+    "on-click": "swaymsg exec \\$term_float_landscape htop"
+  },
+  "memory": 
+  {
+    "interval": 5,
+    "format": "󰍛{}%",
+    "states": 
+    {
+      "warning": 70,
+      "critical": 90
+    },
+    "on-click": "swaymsg exec \\$term_float_landscape htop"
+  },
+  "network": 
+  {
+    "interval": 5,
+    "format-wifi": "󰖩 {essid} ({signalStrength}%)",
+    "format-ethernet": "󰈀 {ifname}",
+    "format-disconnected": "󱘖",
+    "tooltip-format": "{ifname}: {ipaddr}",
+    "on-click": "swaymsg exec \\$term_float_landscape nmtui"
+  },
+  "sway/mode": 
+  {
+    "format": "<span style=\"italic\">{}</span>",
+    "tooltip": false
+  },
+  "sway/window": 
+  {
+    "format": "{}",
+    "max-length": 120
+  },
+  "sway/workspaces": 
+  {
+    "all-outputs": false,
+    "disable-scroll": true,
+    "format": "{icon}",
+    "format-icons": 
+    {
+      // Desktop e VSCode
+      "1": "",
+      // Firefox
+      "2": "",
+      // Navegação anónima
+      "3": "",
+      // Microsoft Edge
+      "4": "",
+      // Google Chrome
+      "5": "",
+      // Figma
+      "6": "",
+      // GNOME Boxes, VirtualBox e Virt-Manager
+      "7": "",
+      // TeamViewer
+      "8": "刺",
+      // Discord Canary
+      "9": "ﭮ",
+      "urgent": "",
+      "focused": "",
+      "default": ""
+    }
+  },
+  "backlight": 
+  {
+    "format": "{icon} {percent}%",
+    "format-icons": 
+    [
+      "󰃞",
+      "󰃟",
+      "󰃠"
+    ],
+    "on-scroll-down": "light -A 1",
+    "on-scroll-up": "light -U 1"
+  },
+  "idle_inhibitor": 
+  {
+    "format": "{icon}",
+    "format-icons": 
+    {
+      "activated": "󰒳",
+      "deactivated": "󰒲"
+    }
+  },
+  "pulseaudio": 
+  {
+    "format": "{icon}{volume}%  󰍬{format_source}",
+    "format-bluetooth": "{icon}󰂰 {volume}%  󰍬{format_source}",
+    "format-muted": "󰖁",
+    "format-icons": 
+    {
+      "headphones": "󰋋",
+      "handsfree": "󱋿",
+      "headset": "󰋎",
+      "phone": "󰏲",
+      "portable": "󰄝",
+      "car": "󰄋",
+      "default": 
+      [
+        "󰕿",
+        "󰖀",
+        "󰕾"
+      ]
+    },
+    "on-click": "swaymsg exec \\$pulseaudio"
+  },
+  "temperature": 
+  {
+    "critical-threshold": 90,
+    "interval": 5,
+    "format": "{icon}{temperatureC}°C",
+    "format-icons": 
+    [
+      "󱃃",
+      "󰔏",
+      "󰔐"
+    ],
+    "tooltip": true,
+    "on-click": "swaymsg exec \"\\$term_float_landscape 'watch sensors'\""
+  },
+  "tray": 
+  {
+    "icon-size": 21,
+    "spacing": 5
+  },
+  "custom/arch-updates": 
+  {
+    "format": " {}",
+    "interval": 900,
+    "exec": "pamac checkupdates | wc -l",
+    "exec-if": "[ $(checkupdates | wc -l) -gt 0 ]",
+    // "exec": "checkupdates | wc -l",
+    // "exec-if": "exit 0",
+    // "signal": 8,
+    // "on-click": "pamac-manager",
+    "on-click": "alacritty --class floating -e yay --devel -Syu",
+    "on-click-right": "checkupdates | wc -l",
+    "tooltip": false
+  },
+  "custom/menu": 
+  {
+    "format": "󱘊",
+    "on-click": "swaymsg exec \\$menu",
+    "tooltip": false
+  },
+  "custom/help": 
+  {
+    "format": "󰑪",
+    "on-click": "swaymsg exec \\$help",
+    "tooltip": "Display help page"
+  },
+  "custom/insync": 
+  {
+    "tooltip": false,
+		"format": "<b> </b> {} Insync",
+		"interval": 1,
+    "on-click": "sh -c \"insync show\"",
+    "on-click-right": "sh -c \"insync hide\""
+	},
+  "custom/pacman": 
+  {
+    "format": "󰀼 {}",
+    "interval": 900,
+    "exec": "pamac checkupdates | wc -l",
+    "exec-if": "[ $(checkupdates | wc -l) -gt 0 ]",
+    "on-click": "pamac-manager --updates"
+  },
+  "custom/scratchpad-indicator": 
+  {
+    "format": "{}  ",
+    "interval": 3,
+    "return-type": "json",
+    "exec": "swaymsg -t get_tree | jq --unbuffered --compact-output '(select(.name == \"root\") | .nodes[] | select(.name == \"__i3\") | .nodes[] | select(.name == \"__i3_scratch\") | .focus) as $scratch_ids | [.. | (.nodes? + .floating_nodes?) // empty | .[] | select(.id|IN($scratch_ids[]))] as $scratch_nodes | { text: \"\\($scratch_nodes|length)\", tooltip: $scratch_nodes|map(.name)|join(\"\\n\") }'",
+    "on-click": "swaymsg 'scratchpad show'",
+    "on-click-right": "swaymsg 'move scratchpad'",
+    "tooltip": "Scratchpads"
+  },
+  "custom/weather": 
+  {
+    "format":"{}",
+    "interval": "1800",
+    "exec": "~/.local/bin/meteo.py"
+  },
+  "custom/window":
+  {
+    "format": "<b>{}</b>",
+		"interval": 1,
+		"exec": "~/.config/sway/scripts/wm_class.zsh"
+  },
+  "custom/wkblayout": 
+  {
+		"format": "{}",
+		"interval": 1,
+		"signal": 1,
+		"exec": "~/.config/sway/scripts/wkblayout.zsh",
+    "tooltip": false
+	},
+  "bluetooth": 
+  {
+    "format": "{icon}",
+    "interval": 30,
+    "format-icons": 
+    {
+      "enabled": "󰂯",
+      "disabled": "󰂲"
+    },
+    "on-click": "blueberry",
+    "tooltip-format": "{status}"
+  },
+  "position": "top"
+}
