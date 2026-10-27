@@ -89,13 +89,13 @@ done
 check 'the numeric prefixes run from 00 without gaps' "${sequence}"
 
 # 3. Checking the order of the preferences
-in_order sans-serif "Ǣċesuperāluese Moderne LGBT" "Adwaita Sans" "DejaVu Sans" "Liberation Sans"
+in_order sans-serif "Google Sans" "Inter" "Rounded Mplus 1c" "DejaVu Sans" "Liberation Sans"
 check 'sans-serif: the preferred sans font comes first, then the fallbacks in order' "$?"
 
-in_order serif "Ǣċesuperāluese Antiqua LGBT" "DejaVu Serif" "Liberation Serif"
+in_order serif "Charis SIL" "Kurinto Seri" "DejaVu Serif" "Liberation Serif"
 check 'serif: the preferred serif font comes first, then the fallbacks in order' "$?"
 
-in_order monospace "Adwaita Mono" "DejaVu Sans Mono" "Liberation Mono"
+in_order monospace "Adwaita Mono" "M PLUS 1 Code" "Maple Mono NF CN" "Symbols Nerd Font Mono" "Unifont" "DejaVu Sans Mono" "Liberation Mono"
 check 'monospace: the preferred monospace font comes first, then the fallbacks in order' "$?"
 
 in_order emoji "OpenMoji Color" "Twitter Color Emoji"
@@ -114,10 +114,10 @@ done
 
 # 4. Checking the browser and interface names
 first="$(fc-pattern -c -f '%{family}\n' ':family=system-ui' 2>/dev/null | tr ',' '\n' | head -n1)"
-[ "${first}" = "Adwaita Sans" ]
+[ "${first}" = "Google Sans" ]
 check 'system-ui: the interface font comes first' "$?"
 
-in_order Arial "Ǣċesuperāluese Moderne LGBT" "Adwaita Sans" "DejaVu Sans" "Liberation Sans"
+in_order Arial "Google Sans" "Inter" "Rounded Mplus 1c" "DejaVu Sans" "Liberation Sans"
 check 'Arial: the name is mapped to the sans preferences, before any other font' "$?"
 
 # 5. Checking that the pre-installed fonts are hidden, apart from the allowed fallbacks

@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Name=Praktika
+Exec=waydroid app launch ai.praktika.android
+Icon=/home/gusbepapi/.local/share/waydroid/data/icons/ai.praktika.android.png
+Categories=X-WayDroid-App;
+X-Purism-FormFactor=Workstation;Mobile;
+Actions=app-settings;
+
+[Desktop Action app-settings]
+Name=App Settings
+Exec=waydroid app intent android.settings.APPLICATION_DETAILS_SETTINGS package:ai.praktika.android
+Icon=/home/gusbepapi/.local/share/waydroid/data/icons/com.android.settings.png

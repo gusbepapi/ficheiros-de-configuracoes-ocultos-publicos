@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE khotnewstuff3>
+<hotnewstuffregistry>
+ <stuff category="114">
+  <name>Nordic KDE</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>eliverlara</author>
+  <homepage>https://store.kde.org/p/1326274</homepage>
+  <licence></licence>
+  <version></version>
+  <rating>72</rating>
+  <downloads>208127</downloads>
+  <installedfile>/home/gusbepapi/.local/share/aurorae/themes/Nordic/*</installedfile>
+  <id>1326274</id>
+  <releasedate>2020-07-01</releasedate>
+  <summary>Nordic is a dark theme created using the awesome &lt;a href="https://github.com/arcticicestudio/nord" target="_blank" rel="nofollow">Nord&lt;/a> color palette.&lt;br />
+&lt;br />
+&lt;br />
+Suggested settings: &lt;br />
+&lt;br />
+&lt;a href="https://www.pling.com/p/1326896/" target="_blank" rel="nofollow"> Nordic Plasma theme &lt;/a>&lt;br />
+&lt;br />
+&lt;a href="https://store.kde.org/p/1326272/" target="_blank" rel="nofollow">Nordic Kvantum theme&lt;/a>&lt;br />
+&lt;br />
+&lt;a href="https://store.kde.org/p/1326271/" target="_blank" rel="nofollow">Nordic color scheme&lt;/a>&lt;br />
+&lt;br />
+&lt;a href="https://www.gnome-look.org/dl?file_id=1567965545&amp;amp;file_type=application/x-xz&amp;amp;file_name=Nordic-Folders.tar.xz&amp;amp;file_size=24000&amp;amp;project_id=1267246" target="_blank" rel="nofollow"> Folders &lt;/a>&lt;br />
+&lt;br />
+Wallpaper in screenshot &lt;a href="https://i.imgur.com/SBKjnxm.jpg" target="_blank" rel="nofollow"> here &lt;/a></summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/36/61/48/1326274/2159613d6404b04b0ebb587b1c3734aeb2fb1.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/36/61/48/1326274/2159613d6404b04b0ebb587b1c3734aeb2fb1.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE1OTM2MzI3NjEiLCJvIjoiMSIsInMiOiI2NDVlNWMyYjRmMjg4NGM2NTE0MTNkODdiMGY3YjFkZWE4YzdmMTcwY2U3ZmQ5NTRhNWQ3ZWM4OTQ3NDFiOWRkNzkwMzNiZjlkYTNlY2E4ZWI1OWViYzI4OWY0ZGY1MDk2ZDNiNzFlNjA4ZjQwOGE1YmUzMTY4Njk2NjQzZWJlZSIsInQiOjE2NzE4NDc1NTYsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMjExLjEwNS4xOTMifQ.3ky-n55dCzXSQykUK5ftT9wyNNCV3zf7M84AMnal_IU/Nordic.tar.xz</payload>
+  <tags>gplv3,linux,kde,unix,theme,plasma</tags>
+  <status>installed</status>
+ </stuff>
+ <stuff category="114">
+  <name>Gently-Dark-Color-Aurorae</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>l4k1</author>
+  <homepage>https://store.kde.org/p/1934127</homepage>
+  <licence></licence>
+  <version></version>
+  <rating>50</rating>
+  <downloads>3683</downloads>
+  <installedfile>/home/gusbepapi/.local/share/aurorae/themes/Gently-Dark-Color-Aurorae/*</installedfile>
+  <id>1934127</id>
+  <releasedate>2022-11-07</releasedate>
+  <summary>Dark Round  Window Decoration (Aurorae Theme), Follows Color Scheme (Window Background)&lt;br />
+-----------------------&lt;br />
+&lt;br />
+-Plasma Theme &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Color-Plasma&lt;/strong> &lt;/span>, which you can download: &lt;a href="https://www.pling.com/p/1934172/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+(Follows Color Scheme, Round, Transparent and Blur,  Enabled Blurred Widgets and Adaptive Transparency)</summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/49/90/47/1934127/screenshot-20221106-085933.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/49/90/47/1934127/screenshot-20221106-085933.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2Njc4MjEyODUiLCJvIjoiMSIsInMiOiJjODFkMTk2YzRlMTM5NzFiYTVkYWM0ZWYxZmE4YTZkN2RlOTBkNjA1MzgwNjA0Nzc1YjRmZWM3NDFmNThhNWVjNTAwZjY1NDJkODA1YzM5NDAxMWZhYzRiODg4NzQzYTQyYmYxYzFhN2Q5ODkzNjY0ODE2ZWQ2YmVkYjlmYjVjMCIsInQiOjE2NzA4MTIyNzEsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMTU3LjExMC43OSJ9.TwBg563Fgn0xnMK1RQr6iBl3CBBh_WWpmBLNYoUGdXQ/Gently-Dark-Color-Aurorae.tar.gz</payload>
+  <tags>kde,gplv3,linux,original-product,unix,plasma,theme</tags>
+  <status>installed</status>
+ </stuff>
+ <stuff category="114">
+  <name>Endless Aurorae Theme</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>yeyushengfan258</author>
+  <homepage>https://store.kde.org/p/1921138</homepage>
+  <licence></licence>
+  <version></version>
+  <rating>50</rating>
+  <downloads>7923</downloads>
+  <installedfile>/home/gusbepapi/.local/share/aurorae/themes/Endless/*</installedfile>
+  <id>1921138</id>
+  <releasedate>2022-10-15</releasedate>
+  <summary>Endless kde is a light clean theme for KDE Plasma desktop.&lt;br />
+&lt;br />
+In this repository you'll find:&lt;br />
+&lt;br />
+    Aurorae Themes&lt;br />
+    Kvantum Themes&lt;br />
+    Plasma Color Schemes&lt;br />
+    Plasma Desktop Themes&lt;br />
+    Plasma Look-and-Feel Settings&lt;br />
+    &lt;br />
+&lt;br />
+&lt;strong>Plasmoids for KDE&lt;/strong>&lt;br />
+------------------------------&lt;br />
+&lt;br />
+&lt;strong>Endless Global Theme &lt;/strong>:&lt;a href="https://www.pling.com/p/1921151/" target="_blank" rel="nofollow">https://www.pling.com/p/1921151/&lt;/a>&lt;br />
+&lt;br />
+&lt;strong>Endless Plasma Theme  &lt;/strong>:&lt;a href="https://www.pling.com/p/1921149/" target="_blank" rel="nofollow">https://www.pling.com/p/1921149/&lt;/a>&lt;br />
+&lt;br />
+&lt;strong>Endless Sddm Theme &lt;/strong>:&lt;a href="https://www.pling.com/p/1921146/" target="_blank" rel="nofollow">https://www.pling.com/p/1921146/&lt;/a>&lt;br />
+&lt;br />
+&lt;strong>Endless Color Theme &lt;/strong>:&lt;a href="https://www.pling.com/p/1921141/" target="_blank" rel="nofollow">https://www.pling.com/p/1921141/&lt;/a>&lt;br />
+&lt;br />
+&lt;strong>Endless Kvantum &lt;/strong>:&lt;a href="https://www.pling.com/p/1921145/" target="_blank" rel="nofollow">https://www.pling.com/p/1921145/&lt;/a>&lt;br />
+&lt;br />
+&lt;strong>Endless Wallpaper &lt;/strong>:&lt;a href="https://www.pling.com/p/1921134/" target="_blank" rel="nofollow">https://www.pling.com/p/1921134/&lt;/a>&lt;br />
+&lt;br />
+------------------------------&lt;br />
+&lt;br />
+&lt;strong>Win11 icon theme &lt;/strong>:&lt;a href="https://www.pling.com/p/1546069/" target="_blank" rel="nofollow">https://www.pling.com/p/1546069/&lt;/a></summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/54/79/90/1921138/screenshot-20221016-003811.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/54/79/90/1921138/screenshot-20221016-003811.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2NjU4NTU4MjIiLCJvIjoiMSIsInMiOiI3NWI0MWEyMDRmZjFiYzE2MWZkNTNiZDI5N2ZjYTI3NmVhZDBiOWVjYzYxZjE2NDhmZWM2YWI5NWM1ZTI5YTBmZThiYTkyNGVhNzA3MGM2NjA0ZjY0ZmJmMzgzYThjNGMyZjQ0NWI4YzEzNjc1NmRiMjI2YTcyNmUxZTgzY2ExYSIsInQiOjE2NzA4MTIyODksInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMTU3LjExMC43OSJ9.SQreP3daA6xaCY-Nnkl2oZz6xpFOVdTVGd_W1d1p2RY/Endless.zip</payload>
+  <tags>kde,gplv3,linux,plasma,unix,theme,original-product</tags>
+  <status>installed</status>
+ </stuff>
+ <stuff category="114">
+  <name>Happy-Holidays-Color-Light-Aurorae</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>l4k1</author>
+  <homepage>https://store.kde.org/p/1948314</homepage>
+  <licence></licence>
+  <version></version>
+  <rating>50</rating>
+  <downloads>722</downloads>
+  <installedfile>/home/gusbepapi/.local/share/aurorae/themes/Happy-Holidays-Color-Light-Aurorae/*</installedfile>
+  <id>1948314</id>
+  <releasedate>2022-12-02</releasedate>
+  <summary>Light Round  Window Decoration (Aurorae Theme), Follows Color Scheme (Window Background)&lt;br />
+-----------------------&lt;br />
+&lt;br />
+-Plasma Theme &lt;span style="color: #5e81ac;"> &lt;strong>Happy Holidays-Color Plasma&lt;/strong> &lt;/span>, which you can download: &lt;a href="https://www.pling.com/p/1948316/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+(Follows Color Scheme, Round, Transparent and Blur,  Enabled Blurred Widgets and Adaptive Transparency)l]</summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/49/90/47/1948314/screenshot-20221201-112502.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/49/90/47/1948314/screenshot-20221201-112502.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2Njk5ODcxMjciLCJvIjoiMSIsInMiOiI2ODNiMTI5OGM5NjBjOWRhZGZkMmIxNWQ5Nzg0NzY5ZGVhYWE1ODljNGFlYmY3YzZiMWZjMThkZDUzNGVlOGEwNmQ2NWQ0ZTc4MzZjNzVhMWNkZjJkNzdhYmEzODQ1MGE1Y2UwODEzM2RhM2FjYjAwMDhkMzM4NGM2MDc0MGE5NCIsInQiOjE2NzA4MTIwOTgsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMTU3LjExMC43OSJ9.zLdmRA5RSu5-wBfPO9KKvnm_aAbeTbOJfCdQkwphiX0/Happy-Holidays-Color-Light-Aurorae.tar.gz</payload>
+  <tags>unix,theme,plasma,original-product,gplv3,linux,kde</tags>
+  <status>installed</status>
+ </stuff>
+ <stuff category="114">
+  <name>Happy-Holidays-Color-Dark-Aurorae</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>l4k1</author>
+  <homepage>https://store.kde.org/p/1948315</homepage>
+  <licence></licence>
+  <version></version>
+  <rating>50</rating>
+  <downloads>754</downloads>
+  <installedfile>/home/gusbepapi/.local/share/aurorae/themes/Happy-Holidays-Color-Dark-Aurorae/*</installedfile>
+  <id>1948315</id>
+  <releasedate>2022-12-02</releasedate>
+  <summary>Dark Round  Window Decoration (Aurorae Theme), Follows Color Scheme (Window Background)&lt;br />
+-----------------------&lt;br />
+&lt;br />
+* Plasma Theme &lt;span style="color: #5e81ac;"> &lt;strong>Happy Holidays-Color Plasma&lt;/strong> &lt;/span>, which you can download: &lt;a href="https://www.pling.com/p/1948316/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+(Follows Color Scheme, Round, Transparent and Blur,  Enabled Blurred Widgets and Adaptive Transparency)</summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/49/90/47/1948315/screenshot-20221201-112300.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/49/90/47/1948315/screenshot-20221201-112300.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2Njk5ODkyNDUiLCJvIjoiMSIsInMiOiJjODJkOWQxYmQwODlmZDUyOWRjNDIxYzMzZmVhMGI5Y2UwNWNmYTNkOTk5ZTg2ZDU2NjdkMGM5NTA5NDBmMzZlNGYzYmNkODlkMDRjMGIyZTE5ZWI4YjJhNTBhMWNjMDJmNDhkMzEwNjQ4OWQ1MTIyZDUwZmQwMzI3ODU4M2EyZSIsInQiOjE2NzA4MTIwOTIsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMTU3LjExMC43OSJ9.XAcKSLSP_-on1D8-TYGOxikt4Q3DhmWrjmKFbogA2Nw/Happy-Holidays-Color-Dark-Aurorae.zip</payload>
+  <tags>kde,linux,gplv3,plasma,unix,theme</tags>
+  <status>installed</status>
+ </stuff>
+ <stuff category="114">
+  <name>Gently-Light-Color-Aurorae</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>l4k1</author>
+  <homepage>https://store.kde.org/p/1934122</homepage>
+  <licence></licence>
+  <version></version>
+  <rating>50</rating>
+  <downloads>3885</downloads>
+  <installedfile>/home/gusbepapi/.local/share/aurorae/themes/Gently-Light-Color-Aurorae/*</installedfile>
+  <id>1934122</id>
+  <releasedate>2022-11-07</releasedate>
+  <summary>Light Round  Window Decoration (Aurorae Theme), Follows Color Scheme (Window Background)&lt;br />
+-----------------------&lt;br />
+&lt;br />
+-Plasma Theme &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Color-Plasma&lt;/strong> &lt;/span>, which you can download: &lt;a href="https://www.pling.com/p/1934172/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+(Follows Color Scheme, Round, Transparent and Blur,  Enabled Blurred Widgets and Adaptive Transparency)</summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/49/90/47/1934122/screenshot-20221106-123501.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/49/90/47/1934122/screenshot-20221106-123501.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2Njc4MjA4MTkiLCJvIjoiMSIsInMiOiI5MjY5OThkMDYzZWJkMGMzZjIwNjhkY2U2NDM1NjA3NWRjY2Y4MjRmOTNhYzAyNGExMGVmNDcyMTI0OWVjNWI4YzY5ZDNiMzIxZmMwMjNlMmI4OTJjYzE0MmExN2U2ZmRhMzMzZjBiYjBlYWY1ZjA0NDc4NjQ2NTg1MGI0ZDg4YiIsInQiOjE2NzA4MTIyNzYsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMTU3LjExMC43OSJ9.40gQYF_RBYA4opmEUOR8i1MIsxdSDc4Qi9WdtZBYCwQ/Gently-Light-Color-Aurorae.tar.gz</payload>
+  <tags>unix,plasma,theme,original-product,linux,kde,gplv3</tags>
+  <status>installed</status>
+ </stuff>
+ <stuff category="114">
+  <name>Gently-Blur-Dark-Color-Aurorae</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>l4k1</author>
+  <homepage>https://store.kde.org/p/1934123</homepage>
+  <licence></licence>
+  <version></version>
+  <rating>50</rating>
+  <downloads>3769</downloads>
+  <installedfile>/home/gusbepapi/.local/share/aurorae/themes/Gently-Blur-Dark-Color-Aurorae/*</installedfile>
+  <id>1934123</id>
+  <releasedate>2022-11-07</releasedate>
+  <summary>BLUR Dark Round Window Decoration (Aurorae Theme), Follows Color Scheme (Window Background)&lt;br />
+&lt;br />
+-Plasma Theme &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Color-Plasma&lt;/strong> &lt;/span>, which you can download: &lt;a href="https://www.pling.com/p/1934172/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+(Follows Color Scheme, Round, Transparent and Blur,  Enabled Blurred Widgets and Adaptive Transparency)&lt;br />
+&lt;br />
+-Dark Kvantum Theme &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Color-Kvantum&lt;/strong> &lt;/span>: &lt;a href="https://www.pling.com/p/1934164/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a></summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/49/90/47/1934123/screenshot-20221106-124823.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/49/90/47/1934123/screenshot-20221106-124823.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2Njc4MjE2MjUiLCJvIjoiMSIsInMiOiI0MTlkMzlhMGM0NjAyZDExZjhhN2NkZDZlMzMyYjc5ZjRlZmRhY2ExY2M3YzY2NDM5ZmY3YmMwM2Q5OGNmZTYxZjZhOTYwZDJlNTY0YmEzZGY0MTQ1NWVkNTExMThiZTI3ODY5OTNiOTdiNGY5YmZmZTM5ZDQ2MzI0YjJmNGFhZSIsInQiOjE2NzA4MTIyODEsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMTU3LjExMC43OSJ9.89cj2YFbL4e3KjF_Kqdsd3Z4JCD99LBmtCMdp9ydDrA/Gently-Blur-Dark-Color-Aurorae.tar.gz</payload>
+  <tags>gplv3,linux,kde,theme,plasma,unix,original-product</tags>
+  <status>installed</status>
+ </stuff>
+</hotnewstuffregistry>

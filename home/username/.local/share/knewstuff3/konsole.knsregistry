@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE khotnewstuff3>
+<hotnewstuffregistry>
+ <stuff category="462">
+  <name>Shadows-Konsole</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>l4k1</author>
+  <homepage>https://store.kde.org/p/1717274</homepage>
+  <licence></licence>
+  <version>1.0</version>
+  <rating>50</rating>
+  <downloads>3755</downloads>
+  <installedfile>/home/gusbepapi/.local/share/konsole/Shadows-Konsole.colorscheme</installedfile>
+  <id>1717274</id>
+  <releasedate>2022-02-22</releasedate>
+  <summary>Dark Konsole Theme, customized for the Dark Plasma Theme&lt;span style="color: #56638b;"> &lt;strong>Shadows-Plasma&lt;/strong> &lt;/span>, which you can download: &lt;a href="https://www.pling.com/p/1717310/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a></summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/49/90/47/1717274/logo-1.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/49/90/47/1717274/logo-1.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2NDU1Mjc5NjQiLCJvIjoiMSIsInMiOiI1ZTczNzE3NTgyMTYwMjA3MmU2OTA5ZjU3MjE0OTgyMmU4ZTBiMjY2ZDMwNGYzYTZhMDZhZjIxNDUwZTc5MWQyMzM1MjI3OTNiZmUyYWNiMDE5YWE5NDgyZTlkZDExNzA4YTU5ZmE4MjI1YmM2NWMxYTFiNGI1MmNhYTljY2NlYSIsInQiOjE2NzA4MTE2MTQsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMTU3LjExMC43OSJ9.qh7VxdLrmDReKo0qhLb3TJGobVzxcOiI2QkN60unIC0/Shadows-Konsole.colorscheme</payload>
+  <tags>addon,gplv3,original-product</tags>
+  <status>installed</status>
+ </stuff>
+</hotnewstuffregistry>

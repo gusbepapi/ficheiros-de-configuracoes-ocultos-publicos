@@ -1,0 +1,12 @@
+[Desktop Entry]
+Categories = OperatingSystem; OS; System; VirtualMachine;
+Comment = Run and open the virtual machine of macOS Catalina with QEMU
+Exec=bash -c 'cd "/media/Gustavo/Virtual Machines/macOS Catalina/" && pkexec "$PWD/ips.sh" && ./boot-macOS-Catalina.sh wmctrl -lx catalina gusbepapi-amd Catalina'
+GenericName = Virtual Machine
+Icon = qemu
+Name = macOS Catalina
+StartupNotify = false
+StartupWMClass = catalina
+Terminal = false
+Type = Application
+Version = 1.1

@@ -1,0 +1,6 @@
+{
+  "android-sdk": "/home/gusbepapi/.android/SDK",
+  "enable-linux-desktop": true,
+  "enable-macos-desktop": true,
+  "enable-windows-desktop": true
+}

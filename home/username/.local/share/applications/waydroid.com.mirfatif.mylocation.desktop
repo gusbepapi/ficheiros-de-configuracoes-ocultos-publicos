@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Name=My Location
+Exec=waydroid app launch com.mirfatif.mylocation
+Icon=/home/gusbepapi/.local/share/waydroid/data/icons/com.mirfatif.mylocation.png
+Categories=X-WayDroid-App;
+X-Purism-FormFactor=Workstation;Mobile;
+Actions=app-settings;
+
+[Desktop Action app-settings]
+Name=App Settings
+Exec=waydroid app intent android.settings.APPLICATION_DETAILS_SETTINGS package:com.mirfatif.mylocation
+Icon=/home/gusbepapi/.local/share/waydroid/data/icons/com.android.settings.png

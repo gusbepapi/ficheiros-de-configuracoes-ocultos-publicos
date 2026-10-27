@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE khotnewstuff3>
+<hotnewstuffregistry>
+ <stuff category="104">
+  <name>Zafiro-Nord-Dark</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>zayronXIO</author>
+  <homepage>https://store.kde.org/p/1930230</homepage>
+  <licence></licence>
+  <version>1.0</version>
+  <rating>50</rating>
+  <downloads>1873</downloads>
+  <installedfile>/home/gusbepapi/.local/share/plasma/desktoptheme/Zafiro-Nord-Dark</installedfile>
+  <id>1930230</id>
+  <releasedate>2022-10-30</releasedate>
+  <summary>plasma theme based in Nordic-darker by </summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/24/01/13/1930230/screenshot-20221030-134900.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/24/01/13/1930230/screenshot-20221030-134900.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2NjgzNjM5NzMiLCJvIjoiMSIsInMiOiIwMGI4ZjcyNzljMzk5ZjYzMmZkOGU5OTBjYmFkMmQ3YzcxMTI4MTVjYzllMDBmYTFkODRjNDNlODEwNGVmNDhiMDM5YzMwYTA0NjE0N2NiMzRmOTljODVmZjZkNzU2MWJjNWVmZTMwZmQyNjkyNmQ3NjQ1MTE3NDJhMDNhYTgxNyIsInQiOjE2NzE4NDc1NDgsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMjExLjEwNS4xOTMifQ.lunFtkoHeekIJBDxmtm2IVAq6RJhwgxekwQSLKRfUOI/Zafiro-Nord-Dark.tar.xz</payload>
+  <tags>agplv3,theme,plasma,unix,kde,linux</tags>
+  <status>installed</status>
+ </stuff>
+ <stuff category="104">
+  <name>Happy-Holidays-Color-Plasma</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>l4k1</author>
+  <homepage>https://store.kde.org/p/1948316</homepage>
+  <licence></licence>
+  <version></version>
+  <rating>50</rating>
+  <downloads>291</downloads>
+  <installedfile>/home/gusbepapi/.local/share/plasma/desktoptheme/Happy-Holidays-Color-Plasma</installedfile>
+  <id>1948316</id>
+  <releasedate>2022-12-09</releasedate>
+  <summary>Round Plasma Theme, Follows Color Scheme, Transparent and Blur. Enabled Blurred Widgets and  Adaptive Transparency&lt;br />
+___________________&lt;br />
+&lt;br />
+-Icons &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Color-Dark-Icons&lt;/strong> &lt;/span>: &lt;a href="https://www.pling.com/p/1934150/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+-Icons &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Colot-Light-Icons&lt;/strong> &lt;/span>: &lt;a href="https://www.pling.com/p/1934145/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+Follows Color  Scheme (Upper part of the Folder)&lt;br />
+___________________ &lt;br />
+&lt;br />
+-Round Global Theme (Look-and-Feel) &lt;span style="color: #5e81ac;"> &lt;strong>Happy-Holidays-Color-Global&lt;/strong> &lt;/span>: &lt;a href="https://www.pling.com/p/1948318/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+-Dark Kvantum Theme &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Color-Kvantum&lt;/strong> &lt;/span>: &lt;a href="https://www.pling.com/p/1934164/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+-Dark Plasma Color Scheme &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Dark-Colorschemes&lt;/strong> &lt;/span>: &lt;a href="https://www.pling.com/p/1934138/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+-Light Plasma Color Scheme &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Light-Colorschemes&lt;/strong> &lt;/span>: &lt;a href="https://www.pling.com/p/1934133/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+____________________________&lt;br />
+&lt;br />
+Dark Round  Window Decorations (Aurorae Themes), Follows Color Scheme (Window Background):&lt;br />
+&lt;br />
+ - &lt;span style="color: #5e81ac;"> &lt;strong>Happy Holidays-Color-Dark Aurorae&lt;/strong> &lt;/span>: &lt;a href="https://www.pling.com/p/1948315/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+ - &lt;span style="color: #5e81ac;"> &lt;strong>Happy Holidays-Color-Light Aurorae&lt;/strong> &lt;/span>: &lt;a href="https://www.pling.com/p/1948314/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+-  &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Blur-Dark-Color-Aurorae&lt;/strong> &lt;/span>: &lt;a href="https://www.pling.com/p/1934123/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+_________________________&lt;br />
+&lt;br />
+-SDDM LoginTheme &lt;span style="color: #5e81ac;"> &lt;strong>Happy Holidays-SDDM&lt;/strong> &lt;/span>: &lt;a href="https://www.pling.com/p/1948312/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+-Plasma Splashscreen &lt;span style="color: #5e81ac;"> &lt;strong>Happy Holidays-Splash&lt;/strong> &lt;/span>: &lt;a href="https://www.pling.com/p/1948310/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+-Dark Konsole Color Scheme &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Color Konsole&lt;/strong> &lt;/span>: &lt;a href="https://www.pling.com/p/1934113/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+-Dark GTK Theme &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Color-GTK&lt;/strong> &lt;/span>: &lt;a href="https://www.pling.com/p/1934110/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+_____________________&lt;br />
+&lt;br />
+-Wallpaper &lt;span style="color: #5e81ac;"> &lt;strong>Happy Holidays Dark Wallpaper&lt;/strong> &lt;/span> : &lt;a href="https://www.pling.com/p/1948308/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+-Wallpaper &lt;span style="color: #5e81ac;"> &lt;strong>Happy Holidays Light Wallpaper&lt;/strong> &lt;/span> : &lt;a href="https://www.pling.com/p/1948309/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a></summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/49/90/47/1948316/screenshot-20221201-111843.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/49/90/47/1948316/screenshot-20221201-111843.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2NzA1OTE3OTgiLCJvIjoiMSIsInMiOiI4YTlkMTYwNDIyNGZlNWYzMDM5OTdkZjhhODM4ODg1YmM5Y2E0MDhlMzJlOTU0YThmNWZjOGIxN2M2ZjEwOGRiMzg3ZGUxNTZkOWFiOGFmNTU2ZjRkZTJmOGZmNWNhNDdiNGRkM2E2N2VjOTVmMjMzYmFiOGIxOTdhYTAwOTM4MyIsInQiOjE2NzA4MTIwNjEsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMTU3LjExMC43OSJ9.OjEaoAFqNqnssjIPcZ9_dhvPBkiLcElW7aCw7WJ1_4E/Happy-Holidays-Color-Plasma.tar.gz</payload>
+  <tags>theme,plasma,unix,gplv3,linux,efi,kde</tags>
+  <status>installed</status>
+ </stuff>
+ <stuff category="104">
+  <name>Gently-Color-Plasma</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>l4k1</author>
+  <homepage>https://store.kde.org/p/1934172</homepage>
+  <licence></licence>
+  <version></version>
+  <rating>58</rating>
+  <downloads>961</downloads>
+  <installedfile>/home/gusbepapi/.local/share/plasma/desktoptheme/Gently-Color-Plasma</installedfile>
+  <id>1934172</id>
+  <releasedate>2022-12-05</releasedate>
+  <summary>Round Plasma Theme, Follows Color Scheme, Transparent and Blur. Enabled Blurred Widgets and  Adaptive Transparency&lt;br />
+___________________&lt;br />
+&lt;br />
+-Icons &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Color-Dark-Icons&lt;/strong> &lt;/span>: &lt;a href="https://www.pling.com/p/1934150/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+-Icons &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Color-Light-Icons&lt;/strong> &lt;/span>: &lt;a href="https://www.pling.com/p/1934145/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+Follows Color  Scheme (Upper part of the Folder)&lt;br />
+___________________ &lt;br />
+&lt;br />
+-Round Global Theme (Look-and-Feel) &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Color-Global&lt;/strong> &lt;/span>: &lt;a href="https://www.pling.com/p/1934188/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+-Dark Kvantum Theme &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Color-Kvantum&lt;/strong> &lt;/span>: &lt;a href="https://www.pling.com/p/1934164/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+-Dark Plasma Color Scheme &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Color-Dark&lt;/strong> &lt;/span>: &lt;a href="https://www.pling.com/p/1934138/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+-Light Plasma Color Scheme &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Color-Light&lt;/strong> &lt;/span>: &lt;a href="https://www.pling.com/p/1934133/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+____________________________&lt;br />
+&lt;br />
+Dark Round  Window Decorations (Aurorae Themes), Follows Color Scheme (Window Background):&lt;br />
+&lt;br />
+ - &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Dark-Color-Aurorae&lt;/strong> &lt;/span>: &lt;a href="https://www.pling.com/p/1934127/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+ - &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Light-Color-Aurorae&lt;/strong> &lt;/span>: &lt;a href="https://www.pling.com/p/1934122/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+-  &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Blur-Dark-Color-Aurorae&lt;/strong> &lt;/span>: &lt;a href="https://www.pling.com/p/1934123/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+_________________________&lt;br />
+&lt;br />
+-SDDM LoginTheme &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Color-SDDM&lt;/strong> &lt;/span>: &lt;a href="https://www.pling.com/p/1934120/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+-Plasma Splashscreen &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Color-Splash&lt;/strong> &lt;/span>: &lt;a href="https://www.pling.com/p/1934117/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+-Dark Konsole Color Scheme &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Color-Konsole&lt;/strong> &lt;/span>: &lt;a href="https://www.pling.com/p/1934113/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+-Dark GTK Theme &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Color-GTK&lt;/strong> &lt;/span>: &lt;a href="https://www.pling.com/p/1934110/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+_____________________&lt;br />
+&lt;br />
+-Wallpaper &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Color-Wallpapers&lt;/strong> &lt;/span> : &lt;a href="https://www.pling.com/p/1934109/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a></summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/49/90/47/1934172/screenshot-20221106-0856175.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/49/90/47/1934172/screenshot-20221106-0856175.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2NzAyNTQ0NTIiLCJvIjoiMSIsInMiOiJkZjI0MGIyYjcwYjU4YWIyYTM5M2JmNWM5NzkzODk2MTdkNGU3ODAzNjZmN2JkYTM3ODdmM2U0NzVlZDU3MGJjY2MwZTM2NjQyNWJkZTQ1OTA4YTY4NjA5OGE4ODNhNTEyMDMyMTJlNDVkYWIxNTRkMDAzOTY4ZTljMzY2YjM0MSIsInQiOjE2NzA4MTIyNTUsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMTU3LjExMC43OSJ9.5zXe62Ro8H-hFcgJKDOWhU3J6zUZrfZaRfy3C1j9or8/Gently-Color-Plasma.zip</payload>
+  <tags>original-product,kde,gplv3,linux,theme,unix,plasma</tags>
+  <status>installed</status>
+ </stuff>
+ <stuff category="104">
+  <name>Endless Plasma Theme</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>yeyushengfan258</author>
+  <homepage>https://store.kde.org/p/1921149</homepage>
+  <licence></licence>
+  <version></version>
+  <rating>50</rating>
+  <downloads>913</downloads>
+  <installedfile>/home/gusbepapi/.local/share/plasma/desktoptheme/Endless</installedfile>
+  <id>1921149</id>
+  <releasedate>2022-12-08</releasedate>
+  <summary>Endless kde is a light clean theme for KDE Plasma desktop.&lt;br />
+&lt;br />
+In this repository you'll find:&lt;br />
+&lt;br />
+    Aurorae Themes&lt;br />
+    Kvantum Themes&lt;br />
+    Plasma Color Schemes&lt;br />
+    Plasma Desktop Themes&lt;br />
+    Plasma Look-and-Feel Settings&lt;br />
+    &lt;br />
+&lt;br />
+&lt;strong>Plasmoids for KDE&lt;/strong>&lt;br />
+------------------------------&lt;br />
+&lt;br />
+&lt;strong>Endless Global Theme &lt;/strong>:&lt;a href="https://www.pling.com/p/1921151/" target="_blank" rel="nofollow">https://www.pling.com/p/1921151/&lt;/a>&lt;br />
+&lt;br />
+&lt;strong>Endless Sddm Theme &lt;/strong>:&lt;a href="https://www.pling.com/p/1921146/" target="_blank" rel="nofollow">https://www.pling.com/p/1921146/&lt;/a>&lt;br />
+&lt;br />
+&lt;strong>Endless Color Theme &lt;/strong>:&lt;a href="https://www.pling.com/p/1921141/" target="_blank" rel="nofollow">https://www.pling.com/p/1921141/&lt;/a>&lt;br />
+&lt;br />
+&lt;strong>Endless Aurorae Theme &lt;/strong>:&lt;a href="https://www.pling.com/p/1921138/" target="_blank" rel="nofollow">https://www.pling.com/p/1921138/&lt;/a>&lt;br />
+&lt;br />
+&lt;strong>Endless Kvantum &lt;/strong>:&lt;a href="https://www.pling.com/p/1921145/" target="_blank" rel="nofollow">https://www.pling.com/p/1921145/&lt;/a>&lt;br />
+&lt;br />
+&lt;strong>Endless Wallpaper &lt;/strong>:&lt;a href="https://www.pling.com/p/1921134/" target="_blank" rel="nofollow">https://www.pling.com/p/1921134/&lt;/a>&lt;br />
+&lt;br />
+------------------------------&lt;br />
+&lt;br />
+&lt;strong>Win11 icon theme &lt;/strong>:&lt;a href="https://www.pling.com/p/1546069/" target="_blank" rel="nofollow">https://www.pling.com/p/1546069/&lt;/a></summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/54/79/90/1921149/screenshot-20221015-235426.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/54/79/90/1921149/screenshot-20221015-235426.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2NzA0NzQzNzUiLCJvIjoiMSIsInMiOiI2N2Q2NjIxNDY5N2E4NjY2OGQ1YjBkMDdkNWQzY2JmN2JhZjQ2OGJlZjQ2YTIyYmU1OTIxNGM2YzBlYzg0MTM3MWQ1ODhmZTM4ODFkYTljN2Q5OGY0M2I3NDQ1NTA3NDQyYWEwNDA0NjgzZjJhNjQ1OGE0ZTE2Y2M4MzhhZDczNSIsInQiOjE2NzA4MTIyNzYsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMTU3LjExMC43OSJ9.PY18z0ZnSmlUKLkp9uNgyTnfqN_9MdANdy-8zVf68FM/Endless.zip</payload>
+  <tags>plasma,unix,theme,original-product,linux,kde,gplv3</tags>
+  <status>installed</status>
+ </stuff>
+</hotnewstuffregistry>

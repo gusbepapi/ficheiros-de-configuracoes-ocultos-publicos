@@ -1,0 +1,11 @@
+(?<![0-9])[0-9]{3}\.?[0-9]{3}\.?[0-9]{3}-?[0-9]{2}(?![0-9])
+(?<![[:alnum:]])[A-Z0-9]{2}\.?[A-Z0-9]{3}\.?[A-Z0-9]{3}/?[0-9]{4}-?[0-9]{2}(?![[:alnum:]])
+(?i)\bGustavo(?:\s+Benedetto|\s+Benedito)?\b
+(?<![0-9])[0-9]{5}-?[0-9]{3}(?![0-9])
+(?i)\b(?:Rua|R\.|Avenida|Av\.|Travessa|Tv\.|Alameda|Al\.|Praça|Praca|Rodovia|Estrada|Largo|Viela|Beco|Passagem|Quadra|Lote|Logradouro)\s+[\p{L}0-9][^\r\n,;]{2,100}
+(?i)\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b
+(?<![0-9])(?:\+?55[\s.-]?)?(?:\(?[1-9][0-9]\)?[\s.-]?)?(?:9[0-9]{4}|[2-9][0-9]{3})[\s.-]?[0-9]{4}(?![0-9])
+(?i)\b(?:api[_-]?key|client[_-]?secret|access[_-]?token|refresh[_-]?token|auth[_-]?token|bearer|password|passwd|pwd|secret|private[_-]?key|ssh[_-]?key|credential|authorization)\b
+-----BEGIN (?:[A-Z0-9 ]+ )?PRIVATE KEY-----
+-----BEGIN (?:CERTIFICATE|X509 CERTIFICATE|PKCS7)-----
+(?i)https?://[^\s/:@]+:[^\s/@]+@

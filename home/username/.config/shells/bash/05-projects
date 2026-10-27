@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+##================##
+## Projects and virtual machines
+##================##
+
+# Aliases for the Euromoov WordPress project, prior to the Hugo migration
+alias euromoov-up='docker compose -f "$HOME/Projects/Wordpress/euromoov/docker-compose.yml" up -d'
+alias euromoov-stop='docker compose -f "$HOME/Projects/Wordpress/euromoov/docker-compose.yml" stop'
+alias euromoov-logs='docker compose -f "$HOME/Projects/Wordpress/euromoov/docker-compose.yml" logs -f'
+
+# Aliases for the OS virtual machines
+alias vm-macos-up='docker compose -f "$HOME/Virtual Machines/macOS/macOS Sonoma – dockurr.yml" up -d'
+alias vm-macos-stop='docker compose -f "$HOME/Virtual Machines/macOS/macOS Sonoma – dockurr.yml" stop'

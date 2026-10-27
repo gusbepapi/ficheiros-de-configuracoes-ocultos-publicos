@@ -1,0 +1,363 @@
+[
+  {
+    "type": "Title",
+    "result": {
+      "userName": "gusbepapi",
+      "hostName": "piltover",
+      "homeDir": "/home/gusbepapi/",
+      "exePath": "/usr/bin/fastfetch",
+      "userShell": "/bin/bash"
+    }
+  },
+  {
+    "type": "Separator",
+    "error": "Unsupported for JSON format"
+  },
+  {
+    "type": "OS",
+    "result": {
+      "buildID": "",
+      "codename": "trixie",
+      "id": "debian",
+      "idLike": "",
+      "name": "Debian GNU/Linux",
+      "prettyName": "Debian GNU/Linux 13 (trixie)",
+      "variant": "",
+      "variantID": "",
+      "version": "13.5",
+      "versionID": "13.5"
+    }
+  },
+  {
+    "type": "Host",
+    "result": {
+      "family": "",
+      "name": "X370GT7",
+      "version": "",
+      "sku": "",
+      "vendor": "BIOSTAR Group",
+      "serial": "",
+      "uuid": ""
+    }
+  },
+  {
+    "type": "Kernel",
+    "result": {
+      "architecture": "x86_64",
+      "name": "Linux",
+      "release": "6.12.94+deb13-amd64",
+      "version": "#1 SMP PREEMPT_DYNAMIC Debian 6.12.94-1 (2026-06-20)",
+      "displayVersion": "",
+      "pageSize": 4096
+    }
+  },
+  {
+    "type": "Uptime",
+    "result": {
+      "uptime": 44854020,
+      "bootTime": "2026-06-26T16:20:52.926-0300"
+    }
+  },
+  {
+    "type": "Packages",
+    "result": {
+      "all": 1912,
+      "amSystem": 0,
+      "amUser": 0,
+      "apk": 0,
+      "brew": 0,
+      "brewCask": 0,
+      "choco": 0,
+      "dpkg": 1911,
+      "emerge": 0,
+      "eopkg": 0,
+      "flatpakSystem": 0,
+      "flatpakUser": 0,
+      "guixSystem": 0,
+      "guixUser": 0,
+      "guixHome": 0,
+      "hpkgSystem": 0,
+      "hpkgUser": 0,
+      "linglong": 0,
+      "mport": 0,
+      "nixDefault": 0,
+      "nixSystem": 0,
+      "nixUser": 0,
+      "opkg": 0,
+      "pacman": 0,
+      "pacstall": 1,
+      "paludis": 0,
+      "pisi": 0,
+      "pkg": 0,
+      "pkgtool": 0,
+      "pkgsrc": 0,
+      "qi": 0,
+      "macports": 0,
+      "rpm": 0,
+      "scoop": 0,
+      "snap": 0,
+      "sorcery": 0,
+      "winget": 0,
+      "xbps": 0,
+      "pacmanBranch": ""
+    }
+  },
+  {
+    "type": "Shell",
+    "result": {
+      "exe": "/usr/bin/bash",
+      "exeName": "bash",
+      "exePath": "/usr/bin/bash",
+      "pid": 38473,
+      "ppid": 14916,
+      "processName": "bash",
+      "prettyName": "bash",
+      "version": "5.2.37",
+      "tty": 0
+    }
+  },
+  {
+    "type": "Display",
+    "result": [
+      {
+        "id": 858607684,
+        "name": "VG27AQL1A",
+        "primary": false,
+        "output": {
+          "width": 2560,
+          "height": 1440,
+          "refreshRate": 59.951
+        },
+        "scaled": {
+          "width": 2560,
+          "height": 1440
+        },
+        "preferred": {
+          "width": 2560,
+          "height": 1440,
+          "refreshRate": 59.951
+        },
+        "physical": {
+          "width": 600,
+          "height": 340
+        },
+        "rotation": 0,
+        "bitDepth": 0,
+        "hdrStatus": "Unsupported",
+        "type": "External",
+        "manufactureDate": {
+          "year": 2021,
+          "week": 26
+        },
+        "serial": 16843009,
+        "platformApi": "wayland-zwlr"
+      }
+    ]
+  },
+  {
+    "type": "DE",
+    "error": "No DE found"
+  },
+  {
+    "type": "WM",
+    "result": {
+      "processName": "Hyprland",
+      "prettyName": "Hyprland",
+      "protocolName": "Wayland",
+      "pluginName": "",
+      "version": "0.55.2"
+    }
+  },
+  {
+    "type": "WMTheme",
+    "error": "Unknown WM: Hyprland"
+  },
+  {
+    "type": "Theme",
+    "result": {
+      "theme1": "Breeze [Qt]",
+      "theme2": "Kanagawa-BL-LB-Dark [GTK2/3/4]"
+    }
+  },
+  {
+    "type": "Icons",
+    "result": {
+      "icons1": "Palette-Adwaita-Dark [Qt]",
+      "icons2": "Palette-Dark [GTK2/3/4]"
+    }
+  },
+  {
+    "type": "Font",
+    "result": {
+      "display": "Sans Serif (9pt) [Qt], Cantarell (11pt) [GTK2/3], Adwaita Sans (10pt) [GTK4]",
+      "fonts": [
+        "Sans Serif (9pt)",
+        "Cantarell (11pt)",
+        "Cantarell (11pt)",
+        "Adwaita Sans (10pt)"
+      ]
+    }
+  },
+  {
+    "type": "Cursor",
+    "result": {
+      "theme": "Qogir-Dark",
+      "size": "24"
+    }
+  },
+  {
+    "type": "Terminal",
+    "result": {
+      "processName": "codium-insiders",
+      "exe": "/proc/self/exe",
+      "exeName": "exe",
+      "exePath": "/home/gusbepapi/Applications/Sources/VSCodium Insiders/codium-insiders",
+      "pid": 14916,
+      "ppid": 2140,
+      "prettyName": "codium-insiders",
+      "version": "",
+      "tty": ""
+    }
+  },
+  {
+    "type": "TerminalFont",
+    "error": "Unknown terminal: codium-insiders"
+  },
+  {
+    "type": "CPU",
+    "result": {
+      "cpu": "AMD Ryzen 7 2700X",
+      "vendor": "AuthenticAMD",
+      "packages": 1,
+      "cores": {
+        "physical": 8,
+        "logical": 16,
+        "online": 16
+      },
+      "frequency": {
+        "base": 1930,
+        "max": 3700
+      },
+      "coreTypes": [],
+      "temperature": null
+    }
+  },
+  {
+    "type": "GPU",
+    "result": [
+      {
+        "index": null,
+        "coreCount": null,
+        "coreUsage": null,
+        "memory": {
+          "dedicated": {
+            "total": null,
+            "used": null
+          },
+          "shared": {
+            "total": null,
+            "used": null
+          },
+          "type": null
+        },
+        "driver": "amdgpu",
+        "name": "AMD Radeon RX 5700 XT",
+        "temperature": null,
+        "type": "Discrete",
+        "vendor": "AMD",
+        "platformApi": "DRM (card0)",
+        "frequency": 0,
+        "deviceId": 11000
+      }
+    ]
+  },
+  {
+    "type": "Memory",
+    "result": {
+      "total": 16717119488,
+      "used": 5315067904
+    }
+  },
+  {
+    "type": "Swap",
+    "result": {
+      "total": 12851146752,
+      "used": 0
+    }
+  },
+  {
+    "type": "Disk",
+    "result": [
+      {
+        "bytes": {
+          "available": 183956463616,
+          "free": 195780861952,
+          "total": 231308644352,
+          "used": 35527782400
+        },
+        "files": {
+          "total": 14417920,
+          "used": 760047
+        },
+        "filesystem": "ext4",
+        "mountpoint": "/",
+        "mountFrom": "/dev/sdc2",
+        "name": "",
+        "volumeType": [
+          "Regular"
+        ],
+        "createTime": "2026-06-11T02:37:33.000-0300"
+      },
+      {
+        "bytes": {
+          "available": 901185536,
+          "free": 901185536,
+          "total": 1004630016,
+          "used": 103444480
+        },
+        "files": {
+          "total": null,
+          "used": null
+        },
+        "filesystem": "vfat",
+        "mountpoint": "/boot/efi",
+        "mountFrom": "/dev/sdc1",
+        "name": "",
+        "volumeType": [
+          "Hidden"
+        ],
+        "createTime": null
+      }
+    ]
+  },
+  {
+    "type": "LocalIp",
+    "result": [
+      {
+        "name": "enp5s0",
+        "defaultRoute": true,
+        "ipv4": "192.168.10.20/24"
+      }
+    ]
+  },
+  {
+    "type": "Battery",
+    "result": []
+  },
+  {
+    "type": "PowerAdapter",
+    "result": []
+  },
+  {
+    "type": "Locale",
+    "result": "en_GB.UTF-8"
+  },
+  {
+    "type": "Break",
+    "error": "Unsupported for JSON format"
+  },
+  {
+    "type": "Colors",
+    "error": "Unsupported for JSON format"
+  }
+]

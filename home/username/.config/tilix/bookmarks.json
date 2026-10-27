@@ -1,0 +1,22 @@
+{
+    "list": 
+    [
+        {
+            "name": "Suru++",
+            "path": "\/home\/gusbepapi\/GitHub\/suru-plus\/Suru++\/apps\/16",
+            "type": "PATH"
+        },
+        {
+            "name": "Ícones",
+            "path": "\/home\/gusbepapi\/Images\/Icons",
+            "type": "PATH"
+        },
+        {
+            "name": "Yaru++",
+            "path": "\/home\/gusbepapi\/GitHub\/yaru-plus",
+            "type": "PATH"
+        }
+    ],
+    "name": "Root",
+    "type": "FOLDER"
+}

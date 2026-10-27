@@ -1,0 +1,70 @@
+#!/bin/sh
+#
+# This code is released in public domain by Antonin Dach <antonin.dach@protonmail.com>
+# 
+# Inspired by i3-sensible-terminal
+#
+# Basic idea:
+#  1.) default-terminal file contains user's prefered terminal
+#  2.) If no default exists -> dynamic menu choice (set DYNAMIC_MENU env variable) 
+#  3.) default terminal can be changed by invoking this script with first argument "set" 
+#  4.) to get the default terminal use argument "get"
+#
+
+# Edited for Wayland: the default menu is `wmenu` (override it with `DYNAMIC_MENU`), `which` became `command -v`, and the typos in the terminal list were fixed
+
+# If user has not set XDG complient cache home, then use common ~/.cache
+CACHE_HOME=${XDG_CACHE_HOME:-$HOME/.cache}
+DEFAULT_TERMINAL=$CACHE_HOME/default-terminal
+MENU=${DYNAMIC_MENU:-wmenu}
+
+OPEN_DO_SELECT=1
+
+loop_over_avail() 
+{
+	for terminal in kitty Eterm alacritty aterm gnome-terminal guake hyper konsole lilyterm lxterminal mate-terminal qterminal roxterm rxvt st terminator terminix terminology termit termite tilda tilix urxvt uxterm x-terminal-emulator xfce4-terminal xterm; do
+	    if command -v "$terminal" > /dev/null 2>&1; then
+	        echo "$terminal"
+	    fi
+	done
+}
+
+run_default_term() 
+{
+	terminal=$(command -v "$(cat "$DEFAULT_TERMINAL")")
+        exec "$terminal" "$@"
+}
+
+if [ "$1" = "get" ]; then cat "$DEFAULT_TERMINAL" && exit; fi
+if [ "$1" = "set" ]; then rm "$DEFAULT_TERMINAL"; fi
+if [ "$1" = "open" ]; then 
+	if [ $# -eq 1 ]; then
+		shift
+		OPEN_DO_SELECT=0			
+	else
+		terminal=$(command -v "$2")
+		shift
+		shift
+		exec "$terminal" "$@"
+		exit
+	fi
+fi
+
+if [ ! $OPEN_DO_SELECT -eq 0 ] && [ -f "$DEFAULT_TERMINAL" ]; then 
+ 	run_default_term
+fi
+
+CHOSEN_TERM=$(loop_over_avail | $MENU)
+
+if [ $OPEN_DO_SELECT -eq 0 ]; then 
+	exec "$CHOSEN_TERM" "$@"
+else
+	# Loop over known terminals and chceck if they are in the $PATH
+	echo "$CHOSEN_TERM" > "$DEFAULT_TERMINAL"
+
+	notify-send "sensible-terminal set $CHOSEN_TERM as your default"
+ 	run_default_term
+fi
+
+
+

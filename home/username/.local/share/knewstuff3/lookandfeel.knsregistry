@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE khotnewstuff3>
+<hotnewstuffregistry>
+ <stuff category="121">
+  <name>Gently-Color-Global</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>l4k1</author>
+  <homepage>https://store.kde.org/p/1934188</homepage>
+  <licence></licence>
+  <version></version>
+  <rating>61</rating>
+  <downloads>544</downloads>
+  <installedfile>/home/gusbepapi/.local/share/plasma/look-and-feel/Gently-Color-Global</installedfile>
+  <id>1934188</id>
+  <releasedate>2022-12-19</releasedate>
+  <summary>Round Global Theme, Follows Color Scheme, Transparent and Blur&lt;br />
+___________________&lt;br />
+&lt;br />
+-Icons &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Color-Dark-Icons&lt;/strong> &lt;/span>: &lt;a href="https://www.pling.com/p/1934150/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here...</summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/49/90/47/1934188/screenshot-20221106-090555.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/49/90/47/1934188/screenshot-20221106-090555.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2NzE0NjUwMDciLCJvIjoiMSIsInMiOiI2YjRjY2RjYmEzMjY2OTgyYmNiOThlMDA4MDEzOGFlOTIxZmZlOWU4OGU1OWI4MmFhZjEzMjM3OTM1NGNiMjc3Y2Y4OTg4ODZmYWFlOTJlZGE1YzZmMTY0NzVlZDkwNTQwZTY0NzVjYTM2N2FhZWJhYjVkMmU1MzRhYjkyNmJiMSIsInQiOjE2NzE4NDc4MTgsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMjExLjEwNS4xOTMifQ._vB2_oHnzu2mf8oxGnIdrVujUk-6rI1DWftpgRH17jQ/Gently-Color-Global.tar.gz</payload>
+  <tags>linux,look-and-feel,kde,gplv3,unix,theme,plasma,original-product</tags>
+  <status>installed</status>
+ </stuff>
+</hotnewstuffregistry>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE khotnewstuff3>
+<hotnewstuffregistry>
+ <stuff category="132">
+  <name>Gently-Color-Dark-Icons</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>l4k1</author>
+  <homepage>https://store.kde.org/p/1934150</homepage>
+  <licence></licence>
+  <version></version>
+  <rating>65</rating>
+  <downloads>1335</downloads>
+  <installedfile>/home/gusbepapi/.local/share/icons/Gently-Color-Dark-Icons/*</installedfile>
+  <id>1934150</id>
+  <releasedate>2022-12-05</releasedate>
+  <summary>Icons for Dark Plasma Themes, Follows Color  Scheme (Upper part of the Folder)&lt;br />
+&lt;br />
+-Icons for Light Plasma Themes &lt;span style="color: #55759c;"> &lt;strong>Gently-Color-Light Icons&lt;/strong> &lt;/span> , which you can download: &lt;a href="https://www.pling.com/p/1934145/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+Follows Color  Scheme (Upper part of the Folder)&lt;br />
+&lt;br />
+Based on  Default &lt;span style="color: #55759c;"> &lt;strong>Breeze&lt;/strong> &lt;/span> Icons&lt;br />
+----------------------&lt;br />
+&lt;br />
+-Plasma Theme, Follows Color Scheme  &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Color-Plasma&lt;/strong> &lt;/span>: &lt;a href="https://www.pling.com/p/1934172/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a></summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/49/90/47/1934150/screenshot-20221106-085933.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/49/90/47/1934150/screenshot-20221106-085933.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2NzAyNTM5ODQiLCJvIjoiMSIsInMiOiJiYWNiNmIyZDgwNDE2NGQzNmVkNjJhNzcwNDIxNDMyNzJkMzIzMTgxOWI5YjRkMGM3NGE2ODRhZWI1ZjcxYjQ0MGMyMGRiZGU0M2Q3ZjY5NDBkODg2YmFhMDZmOWQxOGNhNzgyNDg5Y2NjMjlmNWYzNWY0ZTBmMDg5MmI4ZGU3MiIsInQiOjE2NzA4MTIwNzgsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMTU3LjExMC43OSJ9.hGzdP3jg28Q1tEHl3XqwVdU9W7O5HMgMvM9E6SVu5T0/Gently-Color-Dark-Icons.tar.gz</payload>
+  <tags>efi,icon-theme,linux,gplv3,unix</tags>
+  <status>installed</status>
+ </stuff>
+ <stuff category="132">
+  <name>Win11 icon theme</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>yeyushengfan258</author>
+  <homepage>https://store.kde.org/p/1546069</homepage>
+  <licence></licence>
+  <version></version>
+  <rating>81</rating>
+  <downloads>5339</downloads>
+  <installedfile>/home/gusbepapi/.local/share/icons/Win11-black-dark/*</installedfile>
+  <installedfile>/home/gusbepapi/.local/share/icons/Win11-black/*</installedfile>
+  <id>1546069</id>
+  <releasedate>2022-12-04</releasedate>
+  <summary>&lt;strong>Win11 Icon Theme&lt;/strong>&lt;br />
+A colorful Design icon theme for linux desktops&lt;br />
+------------------------------&lt;br />
+You can use this theme on all popular desktops&lt;br />
+------------------------------&lt;br />
+&lt;strong>Win10OS Global Theme&lt;/strong>:&lt;a href="https://www.pling.com/p/1383080/" target="_blank" rel="nofollow">https://www.pling.com/p/1383080/&lt;/a>&lt;br />
+&lt;br />
+&lt;strong>We10XOS Global Theme&lt;/strong>:&lt;a href="https://www.pling.com/p/1368860/" target="_blank" rel="nofollow">https://www.pling.com/p/1368860/&lt;/a>&lt;br />
+&lt;br />
+&lt;strong>Win11OS Global Theme&lt;/strong>:&lt;a href="https://www.pling.com/p/1554642/" target="_blank" rel="nofollow">https://www.pling.com/p/1554642/&lt;/a>&lt;br />
+------------------------------&lt;br />
+Thank you all for love, the other icons I will follow the same style to design.</summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/54/79/90/1546069/b8ef289e45341248e86469decd4d02ea2665408e934b2cad295e072d02d209dd2ebd.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/54/79/90/1546069/b8ef289e45341248e86469decd4d02ea2665408e934b2cad295e072d02d209dd2ebd.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2NzAxODk1MjciLCJvIjoiMSIsInMiOiIzOGRkMzNiMGQ4MWRhYTAzMTU1MDY4NGZlOWY2NGMxOGU3Y2Q0MTI5YWI5ODA5MjRhOWVmOWI4MWYzMTA0ZTVhNGU5NmYxNDUyZWY5MjhiNjNjODhmZWQ1OGViZmNiMTBiNDJiYWQ1YzE4YTY2Mjk4NTBlODQ1OWM4MGVlMDJjMyIsInQiOjE2NzA4MTIyOTUsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMTU3LjExMC43OSJ9.fMBaWsUiurVsz3VEICZ3AxEtxM2xAM0dH3kT6dVGT7Q/Win11-black.tar.xz</payload>
+  <tags>unix,gplv3,linux,icon-theme,original-product</tags>
+  <status>installed</status>
+ </stuff>
+ <stuff category="132">
+  <name>Gently-Color-Light-Icons</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>l4k1</author>
+  <homepage>https://store.kde.org/p/1934145</homepage>
+  <licence></licence>
+  <version></version>
+  <rating>58</rating>
+  <downloads>1214</downloads>
+  <installedfile>/home/gusbepapi/.local/share/icons/Gently-Color-Light-Icons/*</installedfile>
+  <id>1934145</id>
+  <releasedate>2022-12-05</releasedate>
+  <summary>Icons for Light Plasma Themes, Follows Color  Scheme (Upper part of the Folder)&lt;br />
+&lt;br />
+-Icons for Dark Plasma Themes &lt;span style="color: #55759c;"> &lt;strong>Gently-Color-Dark Icons&lt;/strong> &lt;/span> , which you can download: &lt;a href="https://www.pling.com/p/1934150/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+Follows Color  Scheme (Upper part of the Folder)&lt;br />
+&lt;br />
+Based on  Default &lt;span style="color: #55759c;"> &lt;strong>Breeze&lt;/strong> &lt;/span> Icons&lt;br />
+----------------------&lt;br />
+&lt;br />
+-Plasma Theme, Follows Color Scheme  &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Color-Plasma&lt;/strong> &lt;/span>: &lt;a href="https://www.pling.com/p/1934172/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a></summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/49/90/47/1934145/screenshot-20221106-092232.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/49/90/47/1934145/screenshot-20221106-092232.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2NzAyNTQzMTkiLCJvIjoiMSIsInMiOiIzNTRjMTYyYjk4YmIwYzQyNzA3MGQ3MmFhOTU4M2IyYmExZGY3YWFhYTgxMGVhNDc5ZTE0NmQzMzY0YzhjNWI0OWFkZmQ5NzYyY2FhMzVhZThjZWI1NzgyYzMwZjlkMjMzNDIwYjBhZGM5NmFmNDE4OTI5YjBlNzFmYWJmYWVjMSIsInQiOjE2NzA4MTIwODUsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMTU3LjExMC43OSJ9.w6Gp2pwbvx2B4tB4Un4L0VFcxTu6CE6PeX-yNXE_kz4/Gently-Color-Light-Icons.tar.gz</payload>
+  <tags>unix,icon-theme,gplv3,linux,efi</tags>
+  <status>installed</status>
+ </stuff>
+ <stuff category="132">
+  <name>Zafiro Nord Dark</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>zayronXIO</author>
+  <homepage>https://store.kde.org/p/1891042</homepage>
+  <licence></licence>
+  <version>0.9.8.3</version>
+  <rating>76</rating>
+  <downloads>1225</downloads>
+  <installedfile>/home/gusbepapi/.local/share/icons/Zafiro-Nord-Black/*</installedfile>
+  <id>1891042</id>
+  <releasedate>2022-12-16</releasedate>
+  <summary>zafiro nord is a fork of the icon pack zafiro, The color palette of most of the icons, now i use a nordic color palette, has been modified as well as new "folders" icons have been added. the new design of the folder is now most consistent whit this new icon pack.&lt;br />
+&lt;br />
+&lt;br />
+&lt;br />
+</summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/24/01/13/1891042/bitmap.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/24/01/13/1891042/bitmap.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2NzEyMjc3NjciLCJvIjoiMSIsInMiOiJhMDJjNjNhNzkzMGFlMDE3YTcyODY5ZTk3ODViNjhhZWZhMjVmYTQ2ZWJlOTIxZTI4MTUxM2UxZjgzZmUxOGM4N2I0ODVjMDNiNGNhODBkMDJhOTk0MDU5ZTM2ZTllNjUzMTI5NjkzN2NhZWNjMjdlM2NkOWY3MjJhYjNjYzE1MCIsInQiOjE2NzE4NDc1OTksInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMjExLjEwNS4xOTMifQ.5EwZ7rURuUL7GKRqQh8NJp0Ckb9NJw2qFihv1IrUmRA/Zafiro-Nord-Black.tar.xz</payload>
+  <tags>efi,linux,icon-theme,unix,agplv3</tags>
+  <status>installed</status>
+ </stuff>
+ <stuff category="132">
+  <name>Zafiro Nord Dark Blue</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>zayronXIO</author>
+  <homepage>https://store.kde.org/p/1937741</homepage>
+  <licence></licence>
+  <version>0.9.8.3-1</version>
+  <rating>69</rating>
+  <downloads>1034</downloads>
+  <installedfile>/home/gusbepapi/.local/share/icons/Zafiro-Nord-Black-Blue/*</installedfile>
+  <id>1937741</id>
+  <releasedate>2022-12-16</releasedate>
+  <summary>zafiro nord is a fork of the icon pack zafiro, The color palette of most of the icons, now i use a nordic color palette, has been modified as well as new "folders" icons have been added. the new design of the folder is now most consistent whit this new icon pack.</summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/24/01/13/1937741/bitmap.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/24/01/13/1937741/bitmap.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2NzEyMjg2MzUiLCJvIjoiMSIsInMiOiJkZGIwYzY2NGQ0MGFhODFiMjcxOTNmZGU5MmRlMjA2YTQ0N2MwNDI0ZDZjZDAyODU5NGFjYWY0OGI2MzRjZGI0MGJjN2FlYWNiNDY4NWNjOWNhODZiNzk3MWQ2OTMwYjEzYmNiY2VhM2ViYjZjMzQ0ODI3YTA3YWI1NGE0N2NkZiIsInQiOjE2NzE4NDc2MDYsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMjExLjEwNS4xOTMifQ.IaFBGQm7DOj7gKP60PgHMWxwLqY2Odut909x2sEo7DU/Zafiro-Nord-Black-Blue.tar.xz</payload>
+  <tags>unix,agplv3,efi,icon-theme,linux</tags>
+  <status>installed</status>
+ </stuff>
+</hotnewstuffregistry>

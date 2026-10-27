@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE khotnewstuff3>
+<hotnewstuffregistry>
+ <stuff category="299">
+  <name>Gently-Color-Wallpapers</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>l4k1</author>
+  <homepage>https://store.kde.org/p/1934109</homepage>
+  <licence></licence>
+  <version></version>
+  <rating>50</rating>
+  <downloads>3024</downloads>
+  <installedfile>/home/gusbepapi/.local/share/wallpapers/Gently-Color-Darker-Wallpaper-With-KDE-Plasma-Logo.png</installedfile>
+  <id>1934109</id>
+  <releasedate>2022-11-07</releasedate>
+  <summary>Gently-Color-Wallpapers  (With KDE Plasma Logo and Without  Logo)&lt;br />
+&lt;br />
+-Plasma Theme &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Color-Plasma&lt;/strong> &lt;/span>, which you can download: &lt;a href="https://www.pling.com/p/1934172/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+(Follows Color Scheme, Round,  Transparent and Blur,  Enabled Blurred Widgets and Adaptive Transparency)</summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/49/90/47/1934109/gently-color-darker-wallpaper-with-kde-plasma-logo.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/49/90/47/1934109/gently-color-darker-wallpaper-with-kde-plasma-logo.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2Njc4MjAzMjAiLCJvIjoiMSIsInMiOiI2NmI3YTlkNGViNGZhN2Y3MzY0M2NhMjA3YTI2Y2E1ZTA3MTAzM2M3ZmY4NThjNmJhMTlmNzFiMTE1MDQ4OWFjYzkwZTcxZGI5ZjUxMTE1YzI5N2E0MjE3YjExNTRkMDdjYmY3NDk2NjA5ZjEzNDVjYWNhZjA5YmQ3MzgyNGNlZSIsInQiOjE2NzA4MTIyODUsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMTU3LjExMC43OSJ9.-nTOBPbnHEylOcmXfimNykOLWor1y9YN1xIyNl4wUyc/Gently-Color-Darker-Wallpaper-With-KDE-Plasma-Logo.png</payload>
+  <tags>kde,gplv3,wallpaper,plasma,artwork</tags>
+  <status>installed</status>
+ </stuff>
+ <stuff category="58">
+  <name>Happy Holidays Light Wallpaper</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>l4k1</author>
+  <homepage>https://store.kde.org/p/1948309</homepage>
+  <licence></licence>
+  <version></version>
+  <rating>50</rating>
+  <downloads>621</downloads>
+  <installedfile>/home/gusbepapi/.local/share/wallpapers/Happy-Holidays-Light-Wallpaper.png</installedfile>
+  <id>1948309</id>
+  <releasedate>2022-12-02</releasedate>
+  <summary>Happy Holidays Light Wallpaper&lt;br />
+&lt;br />
+* Plasma Theme &lt;span style="color: #5e81ac;"> &lt;strong>Happy Holidays-Color Plasma&lt;/strong> &lt;/span>, which you can download: &lt;a href="https://www.pling.com/p/1948316/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+(Follows Color Scheme, Round,  Transparent and Blur,  Enabled Blurred Widgets and Adaptive Transparency)</summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/49/90/47/1948309/happy-holidays-light-wallpaper.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/49/90/47/1948309/happy-holidays-light-wallpaper.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2Njk5Nzc1MDciLCJvIjoiMSIsInMiOiIxMjg4OTgzNmVmOTk4MjAyZDI1NDVmZmI4OGRlNjZhZjVkZjljMzNjMzc2MDllNWRiYzE3NDhmODY0MDcwNjVmOWRmNDBmOWZmYzIwNzM3ZWZjZjk3ZDE3MGEzMmUxNzEyY2QxOWViMDg5M2EyZGFhYjIzYmY2YWZmZTlmZWViOCIsInQiOjE2NzA4MTIxMDksInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMTU3LjExMC43OSJ9.pGoBZFSRMWbgVtp13rd-QIP3VpqkJdW5Z780WBf_olM/Happy-Holidays-Light-Wallpaper.png</payload>
+  <tags>gplv3,artwork,wallpaper,wallpaper-other</tags>
+  <status>installed</status>
+ </stuff>
+ <stuff category="299">
+  <name>Endless  Wallpaper</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>yeyushengfan258</author>
+  <homepage>https://store.kde.org/p/1921134</homepage>
+  <licence></licence>
+  <version></version>
+  <rating>50</rating>
+  <downloads>7015</downloads>
+  <installedfile>/home/gusbepapi/.local/share/wallpapers/Endless/*</installedfile>
+  <id>1921134</id>
+  <releasedate>2022-10-15</releasedate>
+  <summary>Endless kde is a light clean theme for KDE Plasma desktop.&lt;br />
+&lt;br />
+In this repository you'll find:&lt;br />
+&lt;br />
+    Aurorae Themes&lt;br />
+    Kvantum Themes&lt;br />
+    Plasma Color Schemes&lt;br />
+    Plasma Desktop Themes&lt;br />
+    Plasma Look-and-Feel Settings&lt;br />
+    &lt;br />
+&lt;br />
+&lt;strong>Plasmoids for KDE&lt;/strong>&lt;br />
+------------------------------&lt;br />
+&lt;br />
+&lt;strong>Endless Global Theme &lt;/strong>:&lt;a href="https://www.pling.com/p/1921151/" target="_blank" rel="nofollow">https://www.pling.com/p/1921151/&lt;/a>&lt;br />
+&lt;br />
+&lt;strong>Endless Plasma Theme  &lt;/strong>:&lt;a href="https://www.pling.com/p/1921149/" target="_blank" rel="nofollow">https://www.pling.com/p/1921149/&lt;/a>&lt;br />
+&lt;br />
+&lt;strong>Endless Sddm Theme &lt;/strong>:&lt;a href="https://www.pling.com/p/1921146/" target="_blank" rel="nofollow">https://www.pling.com/p/1921146/&lt;/a>&lt;br />
+&lt;br />
+&lt;strong>Endless Color Theme &lt;/strong>:&lt;a href="https://www.pling.com/p/1921141/" target="_blank" rel="nofollow">https://www.pling.com/p/1921141/&lt;/a>&lt;br />
+&lt;br />
+&lt;strong>Endless Aurorae Theme &lt;/strong>:&lt;a href="https://www.pling.com/p/1921138/" target="_blank" rel="nofollow">https://www.pling.com/p/1921138/&lt;/a>&lt;br />
+&lt;br />
+&lt;strong>Endless Kvantum &lt;/strong>:&lt;a href="https://www.pling.com/p/1921145/" target="_blank" rel="nofollow">https://www.pling.com/p/1921145/&lt;/a>&lt;br />
+&lt;br />
+------------------------------&lt;br />
+&lt;br />
+&lt;strong>Win11 icon theme &lt;/strong>:&lt;a href="https://www.pling.com/p/1546069/" target="_blank" rel="nofollow">https://www.pling.com/p/1546069/&lt;/a></summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/54/79/90/1921134/480.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/54/79/90/1921134/480.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2NjU4NTM3MzAiLCJvIjoiMSIsInMiOiJhMWZjYjA5MDUwY2I2ZTg4YjMxODY2OTg4MzFjMGQ3ZDg0NGJmYzM0NjI0ZDA2MTZjZmM1ZWIyYmNhODg2YWNhNTllMmFmNzM5YzcxNGZlNjAwNTc4YTg2ZThiMjBhMjY0ZjFiNzFhOGI2Y2U0YmUxMmM5NTMwOTVlYjlmZGY4NyIsInQiOjE2NzA4MTIzMDIsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMTU3LjExMC43OSJ9.hF6UCtBJk0f2d2x_vhq9bt9be6Ldlh6DHU78_BZWa_4/Endless.zip</payload>
+  <tags>plasma,artwork,wallpaper,original-product,gplv3,kde</tags>
+  <status>installed</status>
+ </stuff>
+ <stuff category="299">
+  <name>The Icy Peaks at Night</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>zayronXIO</author>
+  <homepage>https://store.kde.org/p/1891586</homepage>
+  <licence></licence>
+  <version>1.0.1</version>
+  <rating>50</rating>
+  <downloads>331</downloads>
+  <installedfile>/home/gusbepapi/.local/share/wallpapers/The-Icy-Peaks-at-Night/*</installedfile>
+  <id>1891586</id>
+  <releasedate>2022-12-22</releasedate>
+  <summary>A minimalistic, moody wallpaper made with the beautiful Nord color scheme.&lt;br />
+&lt;br />
+merit to the creator original &lt;a href="https://www.deviantart.com/jayylmao15" target="_blank" rel="nofollow">jayylmao15&lt;/a></summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/24/01/13/1891586/preview1.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/24/01/13/1891586/preview1.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2NzE2NjkwODIiLCJvIjoiMSIsInMiOiJkODc0MDRiOTk3ZjRmZjVlODE4OTNhMmZjNzJjYmUwNWY2ODRiMmEzMzgzNWM3MzMxOTRmYWQ5ZWRlMjg3MGI4YjNiZDUyZGMyYWYxNjY1ZDRkMGU0MjE5ZmZmYjFiYzRlMWU2YWU4NDM3MGFmODAxZjVmMWI1M2EyM2VkYzA1YiIsInQiOjE2NzE4NDc1ODgsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMjExLjEwNS4xOTMifQ.myYjElgcBrMBONB9mNJLIcUtBRZWGluGqfWnko2DUkE/The-Icy-Peaks-at-Night.tar.xz</payload>
+  <tags>plasma,kde,wallpaper,artwork,cc-by-sa</tags>
+  <status>installed</status>
+ </stuff>
+ <stuff category="58">
+  <name>Happy Holidays Dark Wallpaper</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>l4k1</author>
+  <homepage>https://store.kde.org/p/1948308</homepage>
+  <licence></licence>
+  <version></version>
+  <rating>50</rating>
+  <downloads>620</downloads>
+  <installedfile>/home/gusbepapi/.local/share/wallpapers/Happy-Holidays-Dark-Wallpaper.png</installedfile>
+  <id>1948308</id>
+  <releasedate>2022-12-02</releasedate>
+  <summary>Happy Holidays Dark Wallpaper&lt;br />
+&lt;br />
+-Plasma Theme &lt;span style="color: #5e81ac;"> &lt;strong>Happy Holidays-Color Plasma&lt;/strong> &lt;/span>, which you can download: &lt;a href="https://www.pling.com/p/1948316/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+(Follows Color Scheme, Round,  Transparent and Blur,  Enabled Blurred Widgets and Adaptive Transparency)</summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/49/90/47/1948308/happy-holidays-dark-wallpaper.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/49/90/47/1948308/happy-holidays-dark-wallpaper.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2Njk5NzcwNTUiLCJvIjoiMSIsInMiOiI2OTAxZjViMzM1ZjNjNDUwY2VjNTFkYjdlM2M5N2VjNmE2MzYyNDJkZTBkOGMzYWU4NTFlNjQ4NjU2ZDc4MDBhMWE2ZjRjMzUxMjI2ZTQ2YzhhZmVjYzFlYTQzOWFkMmZmNTNlZmE1OGNlMzI4ZTQ1ZDI3MzYwMjUyOGJmNmNlZSIsInQiOjE2NzA4MTIxMDMsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMTU3LjExMC43OSJ9.ShxlwNRK3M6YJZqRdtxqQ5OgGe2SWqN0pI4mmJi_be4/Happy-Holidays-Dark-Wallpaper.png</payload>
+  <tags>wallpaper-other,wallpaper,artwork,gplv3</tags>
+  <status>installed</status>
+ </stuff>
+</hotnewstuffregistry>

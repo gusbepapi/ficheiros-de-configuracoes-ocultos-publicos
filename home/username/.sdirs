@@ -1,0 +1,7 @@
+export DIR_arte_tron_legado="/run/media/gusbepapi/Backup/Imagens/Enciclopédia TRON/TRON – A Arte de TRON Legado"
+export DIR_code_aur="$HOME/AUR/code-insiders"
+export DIR_dotfiles="$HOME/GitLab/meus-dotfiles"
+export DIR_lixeira="$HOME/.local/share/Trash/files"
+export DIR_pastas_pessoais="$HOME/GitLab/pastas-pessoais"
+export DIR_yaru_beta="$HOME/GitHub/yaru-plus-beta"
+export DIR_yaru_gus="$HOME/GitHub/yaru-plus-gusbepapi"

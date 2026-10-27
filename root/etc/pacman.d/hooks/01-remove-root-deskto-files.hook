@@ -1,0 +1,12 @@
+[Trigger]
+Operation = Upgrade
+Operation = Install
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+Description = Running personal cleanup script after pacman transaction
+When = PostTransaction
+Exec = /home/gusbepapi/.local/bin/personal-executables/removing-and-dedepulicating-root-desktop-files
+Depends = desktop-file-utils

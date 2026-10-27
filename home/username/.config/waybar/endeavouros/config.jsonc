@@ -1,0 +1,171 @@
+// vim: ft=json
+{
+  "layer": "top",
+  "test": "asd",
+  "height": 25,
+  "modules-left": ["sway/workspaces", "sway/mode"],
+  "modules-center": ["custom/window"],
+  "modules-right": 
+  [
+    "custom/wkblayout",
+    "idle_inhibitor",
+    "pulseaudio",
+    "custom/yay",
+    "memory",
+    "cpu",
+    "temperature",
+    "battery",
+    "custom/weather",
+    "network",
+    "clock",
+    "tray"
+  ],
+  // 🇬🇧 left
+  // 🇵🇹 esquerda
+  // 🇪🇸 izquierda
+  "sway/workspaces": 
+  {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "format": "{icon}",
+    "format-icons": 
+    {
+      "1": "",
+      "2": "龜 ",
+      "3": "",
+      "4": "",
+      "5": "﬏",
+      "urgent": "",
+      "focused": "",
+      "default": ""
+    }
+  },
+  "sway/mode": 
+  {
+    "format": "<span style=\"italic\">{}</span>"
+  },
+  // 🇬🇧 center
+  // 🇵🇹 centro
+  // 🇪🇸 centro
+  // sway/window
+  "custom/window":
+  {
+    "format": "<b></b>{}",
+		"interval": 1,
+		"exec": "/home/gusbepapi/.local/bin/wm_class_sway"
+  },
+  // 🇬🇧 right
+  // 🇵🇹 direita
+  // 🇪🇸 derecha
+  "custom/wkblayout": 
+  {
+		"format": "<b>  </b>{}",
+		"interval": 30,
+		"signal": 1,
+		"exec": "/home/gusbepapi/.local/bin/wkblayout"
+	},
+  "idle_inhibitor": 
+  {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": 
+    {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+  "pulseaudio": 
+  {
+    "tooltip": false,
+    "format": "{volume}% {icon}",
+    "format-bluetooth": "{volume}% ",
+    "format-muted": "",
+    "format-icons": 
+    {
+      "headphones": "",
+      "handsfree": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", ""]
+    },
+    "on-click": "pamixer --toggle-mute && ( pamixer --get-mute && echo 0 > $SWAYSOCK.wob ) || pamixer --get-volume > $SWAYSOCK.wob",
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "pamixer -ui 1 && pamixer --get-volume > $SWAYSOCK.wob",
+    "on-scroll-down": "pamixer -ud 1 && pamixer --get-volume > $SWAYSOCK.wob"
+  },
+  "custom/yay": 
+  {
+    "tooltip": false,
+    "format": "{} ",
+    "exec": "yay -Qu | wc -l",
+    "interval": 300,
+    "on-click": "kitty --title \"Actualizções\" sh -c \"sudo pacman -Syu\""
+  },
+  "memory": 
+  {
+    "tooltip": true,
+    "format": "{}% "
+  },
+  "cpu": 
+  {
+    "tooltip": true,
+    "format": "{usage}% "
+  },
+  "temperature": 
+  {
+    "format": "{temperatureC}°C "
+  },
+  "battery": 
+  {
+    "tooltip": true,
+    "tooltip-format": "{time}",
+    "states": 
+    {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{capacity}% {icon}",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "battery#bat2": 
+  {
+    "bat": "BAT2"
+  },
+  "custom/weather": 
+  {
+		"format": "{}",
+		"interval": 18000,
+		"exec": "/home/gusbepapi/.local/bin/weather",
+		"exec-if": "ping openweathermap.org -c1",
+		"tooltip": "false"
+	},
+  "network": 
+  {
+    "format": "{ifname}",
+    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-ethernet": "{ipaddr} ",
+    "format-disconnected": "Desconectado ",
+    "tooltip-format": "{ifname}",
+    "tooltip-format-wifi": "{ifname} {frequency}MHz ",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "Desconectado"
+  },
+  "clock": 
+  {
+    "tooltip": true,
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format": "{:%d de %B de %Y às %H:%M}"
+  },
+  "backlight": 
+  {
+    "format": "{percent}% {icon}",
+    "format-icons": ["", ""]
+  },
+  "tray": 
+  {
+    "icon-size": 20,
+    "spacing": 10
+  }
+}

@@ -1,0 +1,64 @@
+# Contact: piotr4@gmail.com
+# Version 1.0
+
+[Desktop Entry]
+Actions = extractIcons; rawExtractIcons; rawExtractIcon
+MimeType = application/x-ms-dos-executable; 
+ServiceTypes = KonqPopupMenu/Plugin
+Type = Service
+X-KDE-Priority = TopLevel
+X-KDE-StartupNotify = false
+X-KDE-Submenu = Icons
+
+[Desktop Action extractIcons]
+Exec = bash -c 'type wrestool;  if [ $? -eq 0 ];  then wrestool --type = group_icon -o . -x "%u";  else kdialog --title "Package Missing" --error "Please install icoutils from your package manager.";  fi; ';   
+Icon = dialog-icon-preview
+Name = Extract group icons here
+Name[ca] = Extreu les icones del grup aquí
+Name[de] = Gruppenicons hier extrahieren
+Name[es] = Extraer iconos de grupo aquí
+Name[fr] = Extraire les icônes du groupe ici
+Name[it] = Estrai icone di gruppo qui
+Name[ja] = グループアイコンをここに抽出
+Name[ka] = აქ გამოიყენეთ ჯგუფის ხატულები
+Name[nl] = Groepsiconen hier uitpakken
+Name[pt] = Extrair ícones do grupo aqui
+Name[ro] = Extrageți aici pictogramele grupului
+Name[uk] = Витягнути ікони групи тут
+
+# [Desktop Action extractIcon]
+# Name = Extract icons here
+# Icon = dialog-icon-preview
+# Exec = bash -c 'type wrestool;  if [ $? -eq 0 ];  then wrestool --type = icon -o . -x "%u";  else kdialog --title "Package Missing" --error "Please install icoutils from your package manager.";  fi; ';   
+
+[Desktop Action rawExtractIcons]
+Exec = bash -c 'type wrestool;  if [ $? -eq 0 ];  then wrestool --type = group_icon -o . -x "%u" --raw;  else kdialog --title "Package Missing" --error "Please install icoutils from your package manager.";  fi; ';   
+Icon = dialog-icon-preview
+Name = Extract group raw icons here
+Name[ca] = Extreu les icones no processades del grup aquí
+Name[de] = Gruppenicons hier extrahieren
+Name[es] = Extraer iconos de grupo aquí
+Name[fr] = Extraire les icônes du groupe ici
+Name[it] = Estrai le icone raw del gruppo qui
+Name[ja] = グループアイコンをここに抽出
+Name[ka] = აქ გამოიყენეთ ჯგუფის ხატულები
+Name[nl] = Groepsiconen hier uitpakken
+Name[pt] = Extrair aqui os ícones raw do grupo
+Name[ro] = Extrageți aici pictogramele grupului
+Name[uk] = Витягнути ікони групи тут
+
+[Desktop Action rawExtractIcon]
+Exec = bash -c 'type wrestool;  if [ $? -eq 0 ];  then wrestool --type = icon -o . -x "%u" --raw;  else kdialog --title "Package Missing" --error "Please install icoutils from your package manager.";  fi; ';   
+Icon = dialog-icon-preview
+Name = Extract raw icons here
+Name[ca] = Extreu les icones no processades aquí
+Name[de] = Icons hier extrahieren
+Name[es] = Extraer iconos aquí
+Name[fr] = Extraire les icônes ici
+Name[it] = Estrai qui le icone non elaborate
+Name[ja] = アイコンをここに抽出
+Name[ka] = აქ გამოიყენეთ ხატულები
+Name[nl] = Iconen hier uitpakken
+Name[pt] = Extrair ícones crus aqui
+Name[ro] = Extrageți aici pictogramele
+Name[uk] = Витягнути ікони тут

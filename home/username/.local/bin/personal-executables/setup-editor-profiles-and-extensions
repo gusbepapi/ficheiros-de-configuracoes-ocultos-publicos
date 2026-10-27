@@ -1,0 +1,1213 @@
+#!/usr/bin/env bash
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Unified editor profile generation and extension installation
+#
+# Generating the user profiles for VSCode and every supported fork, then installing the extensions exclusively through VSCode or VSCodium
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Defining the array of the supported editor environments for the profile generation
+declare -a EDITORS=(
+  "Code"
+  "Code - Insiders"
+  "VSCodium"
+  "VSCodium - Insiders"
+  "Cursor"
+  "Antigravity"
+)
+
+# Defining the directory holding the local VSIX packages
+VSIX_DIR="$HOME/Downloads/Extensions/VSCode and its forks"
+
+# Declaring the executable holders that the detection routine will populate
+CODE_BIN=""
+CODIUM_BIN=""
+
+# Declaring the array that the collection routine will populate with VSIX packages
+declare -a VSIX_FILES=()
+
+# Determining the configuration base directory for the host operating system
+case "$(uname -s)" in
+  Darwin)
+    # Resolving the path for macOS
+    CONFIG_BASE="$HOME/Library/Application Support"
+    echo "Detecting macOS; resolving the configuration base to «$CONFIG_BASE»"
+    ;;
+  MINGW* | MSYS* | CYGWIN*)
+    # Resolving the path for Windows under Git Bash, MSYS, or Cygwin
+    WINDOWS_APPDATA="${APPDATA:-$HOME/AppData/Roaming}"
+    if command -v cygpath > /dev/null 2>&1
+    then
+      # Translating the Windows path into the Unix form for the shell utilities
+      CONFIG_BASE="$(cygpath -u "$WINDOWS_APPDATA")"
+    else
+      CONFIG_BASE="$WINDOWS_APPDATA"
+    fi
+    echo "Detecting Windows; resolving the configuration base to «$CONFIG_BASE»"
+    ;;
+  Linux)
+    # Resolving the path for Linux, including the Windows Subsystem for Linux
+    CONFIG_BASE="$HOME/.config"
+    if grep -qiE '(microsoft|wsl)' /proc/version 2> /dev/null
+    then
+      echo "Detecting the Windows Subsystem for Linux; resolving the configuration base to «$CONFIG_BASE»"
+    else
+      echo "Detecting Linux; resolving the configuration base to «$CONFIG_BASE»"
+    fi
+    ;;
+  *)
+    # Resolving the path for any unrecognised operating system
+    CONFIG_BASE="$HOME/.config"
+    echo "The operating system was not recognised; resolving the configuration base to «$CONFIG_BASE»"
+    ;;
+esac
+
+# Global and universal extensions for all user profiles
+
+## Analyse which one of the extensions is better and works:
+# https://marketplace.visualstudio.com/items?itemName=danielgjackson.auto-dark-mode-windows
+# https://marketplace.visualstudio.com/items?itemName=fooxly.themeswitch
+
+## Discontinue the use of exodiusstudios.comment-anchors. Instead, use https://github.com/netizen-ais/vscode-comment-anchors
+
+extensions=(
+  "aaron-bond.better-comments"
+  "ahgood.movetab"
+  "ameliance-skymusic.ameliance-copy-file-names"
+  "ban.spellright"
+  "be5invis.vscode-custom-css"
+  "BenRogersWPG.websearchengine"
+  "bibhasdn.unique-lines"
+  "brunnerh.file-properties-viewer"
+  "christian-kohler.path-intellisense"
+  "ctcuff.font-preview"
+  "dalysoftware.unicodepalette"
+  "drinfinite.batch-rename"
+  "earshinov.simple-alignment"
+  "edwinkofler.vscode-assorted-languages"
+  "emilast.logfilehighlighter"
+  "evan-buss.font-switcher"
+  "fabiospampinato.vscode-highlight"
+  "fooxly.themeswitch"
+  "guillaumedoutriaux.name-that-color"
+  "gusbepapi.vscode-markdown-paste-for-wayland"
+  "hall.draw"
+  "hjdarnel.vscode-change-case"
+  "IBM.output-colorizer"
+  "jmredfern.sort-delimited-list"
+  "krembolabs.comment-styler"
+  "lavich.gedcom-vscode"
+  "ltex-plus.vscode-ltex-plus"
+  "maciejdems.add-to-gitignore"
+  "mathematic.vscode-pdf"
+  "maxie-homrich.git-change-lists"
+  "mechatroner.rainbow-csv"
+  "mihelcic.colored-regions"
+  "mikestead.dotenv"
+  "mrorz.language-gettext"
+  "ms-vscode-remote.remote-wsl-recommender"
+  "ms-vscode-remote.remote-wsl"
+  "ms-vscode.atom-keybindings"
+  "nortakales.vs-qalc"
+  "oderwat.indent-rainbow"
+  "oleg-shilo.favorites"
+  "outofsync42.select-compare-tabs"
+  "pinage404.better-readability-extension-pack"
+  "plibither8.remove-comments"
+  "ryu1kn.partial-diff"
+  "seatonjiang.gitmoji-vscode"
+  "sirtori.indenticator"
+  "sgryjp.vscode-stable-sort"
+  "snuffy2.shortcut-menu-bar-plus"
+  "solomonkinard.compare-text"
+  "solomonkinard.diff-ui"
+  "soyreneon.themeeditor"
+  "subframe7536.custom-ui-style"
+  "telesoho.vscode-markdown-paste-image"
+  "theaflowers.qalc-2021.8.30"
+  "thisisiriya.dictionaryautocomplete"
+  "Tyriar.luna-paint"
+  "WakaTime.vscode-wakatime"
+  "xiangdong-zeng.vscode-glyphs"
+  "xshrim.txt-syntax"
+  "xyz.local-history"
+  "yxw007.vscode-translate-next"
+  "yzhang.dictionary-completion"
+)
+
+extensions_languages=(
+  "Katuak.vscode-language-pack-ca"
+  "ms-ceintl.vscode-language-pack-de"
+  "ms-ceintl.vscode-language-pack-es"
+  "ms-ceintl.vscode-language-pack-fr"
+  "ms-ceintl.vscode-language-pack-it"
+  "ms-ceintl.vscode-language-pack-pt-br"
+  "MrKAKTUZ.vscode-language-pack-uk"
+)
+
+colour_themes=(
+  "cklimas.prismatic"
+  "qufiwefefwoyn.kanagawa"
+  "zhangcy.claude-themes-by-zhangcy"
+)
+
+icons_themes=(
+  "PKief.material-icon-theme"
+)
+
+product_icons_themes=(
+  "pkief.material-product-icons"
+)
+
+# Unused extensions unless you need
+# ahgood.sort-in-context-menu
+# alexandrepoirier.twig-to-jsx
+# amoxuk.markdown-base64-replace-by-id
+# anthonyjgatlin.vscode-cypher-query-language-tools
+# apin.flutter-internationalize
+# arthurwang.vsc-prolog
+# axelrindle.duplicate-file
+# bierner.color-info
+# blzjns.vscode-raml
+# bradlc.vscode-tailwindcss
+# brapifra.phpserver
+# bradzacher.vscode-copy-filename
+# broadcommfd.cobol-language-support
+# carbonid1.emmet-jss
+# circlecodesolution.ccs-flutter-color
+# dart-code.dart-code
+# dart-code.flutter
+# dbankier.vscode-instant-markdown
+# deepkolos.change-color
+# denco.confluence-markup
+# devwright.vscode-terminal-capture
+# digitalbrainstem.javascript-ejs-support
+# diniremix.vscode-coffeescript-snippets
+# dkundel.vscode-new-file
+# docsmsft.docs-markdown
+# docsmsft.docs-preview
+# docsmsft.docs-yaml
+# doggy8088.quicktype-refresh
+# drewbarrett.vscode-coffeescript-preview
+# dsznajder.es7-react-js-snippets
+# espresso3389.insert-file
+# esskar.vscode-flutter-i18n-json
+# evgeniypeshkov.syntax-highlighter
+# executablebookproject.myst-highlight
+# formulahendry.code-runner
+# fosshaas.fontsize-shortcuts
+# fwcd.kotlin
+# github.vscode-github-actions
+# githubocto.spectrum
+# gitlab.gitlab-workflow
+# gobookdev.gobook
+# goessner.mdmath
+# golang.go
+# grapecity.gc-excelviewer
+# grigoryvp.language-xi
+# hasanakg.firebase-snippets
+# haskell.haskell
+# helloimra.jess
+# henriiik.vscode-sort
+# huang-an-sheng.youtube-embed-snippets
+# hyeon.c-math-viewer
+# iakimov.check-npm-updates
+# idleberg.badges
+# idleberg.emoji-code
+# interaapps.pastefy
+# iocave.customize-ui
+# iocave.monkey-patch
+# ionide.ionide-fsharp
+# jacob-ebey.dotenv-sanitize
+# jakewilson.vscode-picture
+# jakob101.relativepath
+# janisdd.vscode-edit-csv
+# jannchie.vscode-better-color-picker
+# jasew.mediawiki
+# javierartero.equality
+# jbockle.jbockle-format-files
+# jeppeandersen.raml
+# jeremyrajan.vscode-lebab
+# jeremyrajan.webpack
+# jingkaizhao.vscode-redux-devtools
+# jojoco.markdownfromcsv
+# jsaulou.theme-by-language
+# jsayol.firebase-explorer
+# justusadam.language-haskell
+# kasik96.swift
+# kosz78.nim
+# liamhammett.inline-parameters
+# matthewthorning.align-vertically
+# mathiasfrohlich.kotlin
+# mathpix.vscode-mathpix-markdown
+# mblode.twig-language-
+# mgmcdermott.vscode-language-babel
+# miguelrubiojimenez.raml-easy
+# monade.vscode-custom-code-decorator
+# mrmlnc.vscode-duplicate
+# ms-vscode.anycode-c-sharp
+# ms-vscode.anycode-cpp
+# ms-vscode.anycode-go
+# ms-vscode.anycode-java
+# ms-vscode.anycode-kotlin
+# ms-vscode.anycode-php
+# ms-vscode.anycode-python
+# ms-vscode.anycode-rust
+# ms-vscode.anycode-typescript
+# ms-vscode.cpptools
+# ms-vscode.powershell
+# ms-vscode.references-view
+# msjsdiag.vscode-react-native
+# nash.awesome-flutter-snippets
+# nativescript.nativescript
+# naumovs.color-highlight
+# neuron.neuron-ipe
+# nickytonline.vscode-gatsby-snippets
+# njpwerner.autodocstring
+# ohansemmanuel.css-grid-snippets
+# oouo-diogo-perdigao.docthis
+# oracle.oracledevtools
+# phplasma.csv-to-table
+# pivotal.vscode-boot-dev-pack
+# pivotal.vscode-spring-boot
+# planbcoding.vscode-react-refactor
+# pnp.polacode
+# prb28.amiga-assembly
+# randomfractalsinc.geo-data-viewer
+# randomfractalsinc.vscode-chartjs
+# rbbit.typescript-hero
+# rctay.karma-problem-matcher
+# rebornix.prolog
+# redhat.java
+# riazxrazor.html-to-jsx
+# rickvansloten.bbcode
+# rid9.datetime
+# rowewilsonfrederiskholme.wikitext
+# rsolano.pandoc-markdown
+# rubbersheep.gi
+# rust-lang.rust
+# saurabh.terminal-manager
+# serpen.vbsvscode
+# shd101wyy.markdown-preview-enhanced
+# silvenon.mdx
+# sissel.json-script-tag
+# sissel.markdown-script-tag
+# sissel.scss-style-tag
+# sissel.shopify-liquid
+# skyran.js-jsx-snippets
+# slevesque.vscode-zipexplorer
+# softwaredotcom.swdc-vscode
+# sonarsource.sonarlint-vscode
+# stylelint.vscode-stylelint
+# syler.sass-indented
+# sysoev.language-stylus
+# t-nano.markdown-to-confluence-vscode
+# tabnine.tabnine-vscode
+# theliraan.simpleaccents
+# toba.vsfire
+# tomaciazek.ansible
+# uctakeoff.vscode-counter
+# vayan.haml
+# vsciot-vscode.vscode-arduino
+# vscjava.vscode-java-debug
+# vscjava.vscode-java-dependency
+# vscjava.vscode-java-test
+# vscjava.vscode-maven
+# vscjava.vscode-spring-boot-dashboard
+# vscjava.vscode-spring-initializr
+# wayou.vscode-todo-highlight
+# whatwedo.twig
+# wholroyd.jinja
+# wopian.agc-assembly
+# xabikos.javascriptsnippets
+# xabikos.reactsnippets
+# xadillax.viml
+# xiangdong-zeng.fontforge-vscode
+# xyc.vscode-mdx-preview
+# ysemeniuk.emmet-live
+# yutengjing.vscode-colorize-plus
+
+# Ununsed themes that shall be downloaded via VSIX for the reserved folder for the future tests
+# bcomnes.tron-legacy
+# dhedgecock.radical-vscode
+# endormi.2077-theme
+# josef.rouge-theme
+# max-ss.cyberpunk
+# sabeshbharathi.steampunk
+# Siris01.ayu-green
+# teabyii.ayu
+# yile-ou.paddy-color-theme
+
+# Extensions have been removed from the VS marketplace:
+# joaompinto.vscode-graphviz
+# jpoissonnier.vscode-styled-components
+# singularitti.vscode-julia-formatter
+
+# Defining the profile-specific extensions
+extensions_profile_linux=(
+  "actboy168.lua-debug"
+  "betwo.vscode-linux-binary-preview"
+  "bmalehorn.shell-syntax"
+  "bmalehorn.vscode-fish"
+  "coolbear.systemd-unit-file"
+  "dawidd6.debian-vscode"
+  "dnicolson.binary-plist"
+  "duniul.dircolors"
+  "eiminsasete.apacheconf-snippets"
+  "foxundermoon.shell-format"
+  "hangxingliu.vscode-systemd-support"
+  "hilleer.yaml-plus-json"
+  "iliazeus.vscode-ansi"
+  "jamief.vscode-ssh-config-enhanced"
+  "jnoortheen.xonsh"
+  "jock.svg"
+  "lzp.svg-preview-in-code"
+  "mrmlnc.vscode-apache"
+  "mousavian.ssh-config-syntax-highlighter"
+  "ms-vscode.PowerShell"
+  "pascalreitermann93.vscode-yaml-sort"
+  "PrateekMahendrakar.prettyxml"
+  "qwtel.sqlite-viewer"
+  "redhat.vscode-xml"
+  "redhat.vscode-yaml"
+  "repreng.csv"
+  "ryu1kn.edit-with-shell"
+  "tamasfe.even-better-toml"
+  "TheNuProjectContributors.vscode-nushell-lang"
+  "tobias-faller.vt100-syntax-highlighting"
+  "tommasov.hosts"
+)
+
+extensions_profile_macos=(
+  "actboy168.lua-debug"
+  "betwo.vscode-linux-binary-preview"
+  "bmalehorn.shell-syntax"
+  "bmalehorn.vscode-fish"
+  "dnicolson.binary-plist"
+  "duniul.dircolors"
+  "eiminsasete.apacheconf-snippets"
+  "foxundermoon.shell-format"
+  "hilleer.yaml-plus-json"
+  "iliazeus.vscode-ansi"
+  "jamief.vscode-ssh-config-enhanced"
+  "jnoortheen.xonsh"
+  "jock.svg"
+  "lzp.svg-preview-in-code"
+  "mrmlnc.vscode-apache"
+  "mousavian.ssh-config-syntax-highlighter"
+  "ms-vscode.PowerShell"
+  "pascalreitermann93.vscode-yaml-sort"
+  "PrateekMahendrakar.prettyxml"
+  "qwtel.sqlite-viewer"
+  "redhat.vscode-xml"
+  "redhat.vscode-yaml"
+  "repreng.csv"
+  "ryu1kn.edit-with-shell"
+  "tamasfe.even-better-toml"
+  "TheNuProjectContributors.vscode-nushell-lang"
+  "tobias-faller.vt100-syntax-highlighting"
+  "tommasov.hosts"
+)
+
+extensions_profile_windows=(
+  "bmalehorn.shell-syntax"
+  "bmalehorn.vscode-fish"
+  "dnicolson.binary-plist"
+  "eiminsasete.apacheconf-snippets"
+  "foxundermoon.shell-format"
+  "hilleer.yaml-plus-json"
+  "jamief.vscode-ssh-config-enhanced"
+  "jnoortheen.xonsh"
+  "jock.svg"
+  "lzp.svg-preview-in-code"
+  "mrmlnc.vscode-apache"
+  "mousavian.ssh-config-syntax-highlighter"
+  "ms-vscode.PowerShell"
+  "pascalreitermann93.vscode-yaml-sort"
+  "PrateekMahendrakar.prettyxml"
+  "qwtel.sqlite-viewer"
+  "redhat.vscode-xml"
+  "redhat.vscode-yaml"
+  "repreng.csv"
+  "ryu1kn.edit-with-shell"
+  "tamasfe.even-better-toml"
+  "TheNuProjectContributors.vscode-nushell-lang"
+  "tobias-faller.vt100-syntax-highlighting"
+  "tommasov.hosts"
+)
+
+extensions_profile_angular=(
+  "angular.ng-template"
+  "anteprimorac.html-end-tag-labels"
+  "christopherstyles.html-entities"
+  "chrmarti.regex"
+  "cmstead.js-codeformer"
+  "cyrilletuzi.angular-schematics"
+  "ecmel.vscode-html-css"
+  "editorconfig.editorconfig"
+  "eiminsasete.apacheconf-snippets"
+  "evondev.generate-css-class"
+  "formulahendry.docker-explorer"
+  "glenn2223.live-sass"
+  "grantbartlett.scss-allman-formatter"
+  "hilleer.yaml-plus-json"
+  "hilleer.yaml-plus-json"
+  "jasonmejane.base64viewer"
+  "jeff-hykin.better-dockerfile-syntax"
+  "jock.svg"
+  "katjanakosic.vscode-json5"
+  "kisstkondoros.vscode-gutter-preview"
+  "krizzdewizz.refactorix"
+  "lzp.svg-preview-in-code"
+  "mrmlnc.vscode-attrs-sorter"
+  "ms-azuretools.vscode-containers"
+  "ms-vscode.js-debug"
+  "nadim-vscode.html-meta-tags-hero"
+  "pascalreitermann93.vscode-yaml-sort"
+  "phoenisx.cssvar"
+  "pranaygp.vscode-css-peek"
+  "PrateekMahendrakar.prettyxml"
+  "redhat.vscode-xml"
+  "redhat.vscode-yaml"
+  "repreng.csv"
+  "richie5um2.vscode-sort-json"
+  "solnurkarim.html-to-css-autocompletion"
+  "steoates.autoimport"
+  "stringham.move-ts"
+  "vincaslt.highlight-matching-tag"
+)
+
+# Developing or opening C, and C++ files with or withou CMake or Make
+extension_profile_clang=(
+  "llvm-vs-code-extensions.vscode-clangd"
+)
+
+# Developing and testing the Markdown for Codebraid, Pandoc, and Quarto
+extensions_profile_cpq=(
+  "actboy168.lua-debug"
+  "anteprimorac.html-end-tag-labels"
+  "asciidoctor.asciidoctor-vscode"
+  "bierner.markdown-checkbox"
+  "bierner.markdown-footnotes"
+  "bierner.markdown-image-size"
+  "bierner.markdown-mermaid"
+  "bivipi.markdown-folio"
+  "bpruitt-goddard.mermaid-markdown-syntax-highlighting"
+  "catonif.markdown-collapsible"
+  "charliermarsh.ruff"
+  "christopherstyles.html-entities"
+  "chrmarti.regex"
+  "devhawk.markdown-sup"
+  "ecmel.vscode-html-css"
+  "editorconfig.editorconfig"
+  "evondev.generate-css-class"
+  "fcrespo82.markdown-table-formatter"
+  "formulahendry.docker-explorer"
+  "garlicbreadcleric.pandoc-markdown-syntax"
+  "geeklearningio.graphviz-markdown-preview"
+  "glenn2223.live-sass"
+  "gpoore.codebraid-preview"
+  "grantbartlett.scss-allman-formatter"
+  "hilleer.yaml-plus-json"
+  "houkanshan.vscode-markdown-footnote"
+  "idleberg.textile"
+  "jasonmejane.base64viewer"
+  "jebbs.markdown-extended"
+  "jeff-hykin.better-dockerfile-syntax"
+  "jjaakko.markdown-kbd"
+  "jock.svg"
+  "johnnymorganz.stylua"
+  "julialang.language-julia"
+  "katjanakosic.vscode-json5"
+  "kevinrose.vsc-python-indent"
+  "kisstkondoros.vscode-gutter-preview"
+  "lzp.svg-preview-in-code"
+  "mikhail-arkhipov.r"
+  "mrmlnc.vscode-attrs-sorter"
+  "ms-azuretools.vscode-containers"
+  "ms-python.black-formatter"
+  "ms-python.debugpy"
+  "ms-python.python"
+  "ms-python.vscode-pylance"
+  "ms-python.vscode-python-envs"
+  "ms-toolsai.jupyter-renderers"
+  "ms-toolsai.jupyter"
+  "ms-toolsai.vscode-jupyter-cell-tags"
+  "ms-toolsai.vscode-jupyter-powertoys"
+  "ms-vscode.js-debug"
+  "ms-vscode.live-server"
+  "myml.vscode-markdown-plantuml-preview"
+  "nadim-vscode.html-meta-tags-hero"
+  "nur-srijan.markdown-rich-preview"
+  "pascalreitermann93.vscode-yaml-sort"
+  "phoenisx.cssvar"
+  "PKief.markdown-checkbox"
+  "pranaygp.vscode-css-peek"
+  "PrateekMahendrakar.prettyxml"
+  "quarto.quarto"
+  "redhat.vscode-xml"
+  "redhat.vscode-yaml"
+  "REditorSupport.r"
+  "renathossain.markdown-runner"
+  "repreng.csv"
+  "richie5um2.vscode-sort-json"
+  "RoweWilsonFrederiskHolme.wikitext"
+  "searking.preview-vscode"
+  "shd101wyy.markdown-preview-enhanced"
+  "skn0tt.markdown-link-expander"
+  "solnurkarim.html-to-css-autocompletion"
+  "sumneko.lua"
+  "tamasfe.even-better-toml"
+  "tianyishi.rmarkdown"
+  "vincaslt.highlight-matching-tag"
+  "xpol.extra-markdown-plugins"
+  "yzhang.markdown-all-in-one"
+)
+
+# Data science extensions
+extensions_profile_data_science=(
+  "charliermarsh.ruff"
+  "formulahendry.docker-explorer"
+  "jeff-hykin.better-dockerfile-syntax"
+  "kevinrose.vsc-python-indent"
+  "mikhail-arkhipov.r"
+  "ms-azuretools.vscode-containers"
+  "ms-python.black-formatter"
+  "ms-python.debugpy"
+  "ms-python.python"
+  "ms-python.vscode-pylance"
+  "ms-python.vscode-python-envs"
+  "ms-toolsai.jupyter-renderers"
+  "ms-toolsai.jupyter"
+  "ms-toolsai.vscode-jupyter-cell-tags"
+  "ms-toolsai.vscode-jupyter-powertoys"
+  "randomfractalsinc.vscode-data-preview"
+  "repreng.csv"
+)
+
+# Developing the Django-based or Flask-based website
+extensions_profile_django_and_flask=(
+
+  "agus.django-register-tags"
+  "anteprimorac.html-end-tag-labels"
+  "batisteo.vscode-django"
+  "charliermarsh.ruff"
+  "chrmarti.regex"
+  "ecmel.vscode-html-css"
+  "editorconfig.editorconfig"
+  "eiminsasete.apacheconf-snippets"
+  "evondev.generate-css-class"
+  "formulahendry.docker-explorer"
+  "grantbartlett.scss-allman-formatter"
+  "guthesoftware.sqlinform"
+  "jasonmejane.base64viewer"
+  "jeff-hykin.better-dockerfile-syntax"
+  "jock.svg"
+  "kevinrose.vsc-python-indent"
+  "kisstkondoros.vscode-gutter-preview"
+  "lzp.svg-preview-in-code"
+  "mrmlnc.vscode-apache"
+  "mrmlnc.vscode-attrs-sorter"
+  "ms-azuretools.vscode-containers"
+  "nadim-vscode.html-meta-tags-hero"
+  "nate-scarlet.base64-image-preview"
+  "pascalreitermann93.vscode-yaml-sort"
+  "phoenisx.cssvar"
+  "PrateekMahendrakar.prettyxml"
+  "qwtel.sqlite-viewer"
+  "redhat.vscode-xml"
+  "redhat.vscode-yaml"
+  "repreng.csv"
+  "richie5um2.vscode-sort-json"
+  "solnurkarim.html-to-css-autocompletion"
+  "vincaslt.highlight-matching-tag"
+)
+
+## Developing the Docker Compose and Dockerfile files
+extensions_profile_docker=(
+  "formulahendry.docker-explorer"
+  "foxundermoon.shell-format"
+  "jeff-hykin.better-dockerfile-syntax"
+  "ms-azuretools.vscode-containers"
+  "pascalreitermann93.vscode-yaml-sort"
+  "redhat.vscode-yaml"
+)
+
+# Developing basic .NET and C# files
+extensions_profile_dotnet_and_csharp=(
+  "aliasadidev.nugetpackagemanagergui"
+  "formulahendry.docker-explorer"
+  "jeff-hykin.better-dockerfile-syntax"
+  "ms-azuretools.vscode-containers"
+  "ms-dotnettools.csdevkit"
+  "ms-dotnettools.csharp"
+  "ms-dotnettools.vscode-dotnet-runtime"
+  "pascalreitermann93.vscode-yaml-sort"
+  "PrateekMahendrakar.prettyxml"
+  "redhat.vscode-xml"
+  "redhat.vscode-yaml"
+  "richie5um2.vscode-sort-json"
+)
+
+# Developing the HTML-based website or app written in C#
+extensions_profile_dotnet_and_csharp_web=(
+  "anteprimorac.html-end-tag-labels"
+  "aliasadidev.nugetpackagemanagergui"
+  "christopherstyles.html-entities"
+  "chrmarti.regex"
+  "ecmel.vscode-html-css"
+  "eiminsasete.apacheconf-snippets"
+  "evondev.generate-css-class"
+  "formulahendry.docker-explorer"
+  "glenn2223.live-sass"
+  "grantbartlett.scss-allman-formatter"
+  "guthesoftware.sqlinform"
+  "jasonmejane.base64viewer"
+  "jeff-hykin.better-dockerfile-syntax"
+  "jock.svg"
+  "kisstkondoros.vscode-gutter-preview"
+  "lzp.svg-preview-in-code"
+  "mrmlnc.vscode-apache"
+  "mrmlnc.vscode-attrs-sorter"
+  "ms-azuretools.vscode-containers"
+  "ms-dotnettools.csdevkit"
+  "ms-dotnettools.csharp"
+  "ms-dotnettools.dotnet-maui"
+  "ms-dotnettools.vscode-dotnet-runtime"
+  "nadim-vscode.html-meta-tags-hero"
+  "nate-scarlet.base64-image-preview"
+  "pascalreitermann93.vscode-yaml-sort"
+  "phoenisx.cssvar"
+  "pranaygp.vscode-css-peek"
+  "PrateekMahendrakar.prettyxml"
+  "redhat.vscode-xml"
+  "redhat.vscode-yaml"
+  "richie5um2.vscode-sort-json"
+  "solnurkarim.html-to-css-autocompletion"
+  "vincaslt.highlight-matching-tag"
+)
+
+# Developing the Go-based apps, executables, and libraries
+extensions_profile_go=(
+  "golang.go"
+)
+
+# Developing the Hugo-based website
+extensions_profile_hugo=(
+  "anteprimorac.html-end-tag-labels"
+  "bpruitt-goddard.mermaid-markdown-syntax-highlighting"
+  "budparr.language-hugo-vscode"
+  "christopherstyles.html-entities"
+  "ecmel.vscode-html-css"
+  "evondev.generate-css-class"
+  "fcrespo82.markdown-table-formatter"
+  "formulahendry.docker-explorer"
+  "glenn2223.live-sass"
+  "grantbartlett.scss-allman-formatter"
+  "jasonmejane.base64viewer"
+  "jeff-hykin.better-dockerfile-syntax"
+  "jjaakko.markdown-kbd"
+  "jock.svg"
+  "kaellarkin.hugo-shortcode-syntax"
+  "kisstkondoros.vscode-gutter-preview"
+  "lzp.svg-preview-in-code"
+  "mrmlnc.vscode-apache"
+  "mrmlnc.vscode-attrs-sorter"
+  "ms-azuretools.vscode-containers"
+  "searking.preview-vscode"
+  "nate-scarlet.base64-image-preview"
+  "pascalreitermann93.vscode-yaml-sort"
+  "phoenisx.cssvar"
+  "PKief.markdown-checkbox"
+  "redhat.vscode-yaml"
+  "skn0tt.markdown-link-expander"
+  "tamasfe.even-better-toml"
+  "vincaslt.highlight-matching-tag"
+  "yzhang.markdown-all-in-one"
+)
+
+# Developing the Jekyll-based website
+extensions_profile_jekyll=(
+  "anteprimorac.html-end-tag-labels"
+  "bpruitt-goddard.mermaid-markdown-syntax-highlighting"
+  "christopherstyles.html-entities"
+  "ecmel.vscode-html-css"
+  "evondev.generate-css-class"
+  "fcrespo82.markdown-table-formatter"
+  "formulahendry.docker-explorer"
+  "ginfuru.ginfuru-vscode-jekyll-syntax"
+  "glenn2223.live-sass"
+  "grantbartlett.scss-allman-formatter"
+  "jasonmejane.base64viewer"
+  "jeff-hykin.better-dockerfile-syntax"
+  "jjaakko.markdown-kbd"
+  "jock.svg"
+  "kisstkondoros.vscode-gutter-preview"
+  "lzp.svg-preview-in-code"
+  "mrmlnc.vscode-apache"
+  "mrmlnc.vscode-attrs-sorter"
+  "ms-azuretools.vscode-containers"
+  "nate-scarlet.base64-image-preview"
+  "pascalreitermann93.vscode-yaml-sort"
+  "phoenisx.cssvar"
+  "rebornix.ruby"
+  "redhat.vscode-yaml"
+  "searking.preview-vscode"
+  "skn0tt.markdown-link-expander"
+  "vincaslt.highlight-matching-tag"
+  "wingrunr21.vscode-ruby"
+  "yzhang.markdown-all-in-one"
+)
+
+# Developing the LaTeX-based documents
+extensions_profile_latex=(
+  "formulahendry.docker-explorer"
+  "james-yu.latex-workshop"
+  "jeff-hykin.better-dockerfile-syntax"
+  "lenagain.latexindent"
+  "ms-azuretools.vscode-containers"
+  "tecosaur.latex-utilities"
+)
+
+# Developing the basic Lua files
+extension_profile_lua=(
+  "actboy168.lua-debug"
+  "johnnymorganz.stylua"
+  "repreng.csv"
+  "sumneko.lua"
+)
+
+# Developing the basic and pure Markdown files with CSS or SCSS, and with Markdown extensions and features
+extension_profile_markdown_mastery=(
+  "bierner.markdown-checkbox"
+  "bierner.markdown-footnotes"
+  "bierner.markdown-image-size"
+  "bierner.markdown-mermaid"
+  "bivipi.markdown-folio"
+  "bpruitt-goddard.mermaid-markdown-syntax-highlighting"
+  "catonif.markdown-collapsible"
+  "christopherstyles.html-entities"
+  "devhawk.markdown-sup"
+  "ecmel.vscode-html-css"
+  "evondev.generate-css-class"
+  "fcrespo82.markdown-table-formatter"
+  "garlicbreadcleric.pandoc-markdown-syntax"
+  "geeklearningio.graphviz-markdown-preview"
+  "glenn2223.live-sass"
+  "grantbartlett.scss-allman-formatter"
+  "guillaumedoutriaux.name-that-color"
+  "houkanshan.vscode-markdown-footnote"
+  "jasonmejane.base64viewer"
+  "jebbs.markdown-extended"
+  "jjaakko.markdown-kbd"
+  "jock.svg"
+  "kisstkondoros.vscode-gutter-preview"
+  "lzp.svg-preview-in-code"
+  "mrmlnc.vscode-attrs-sorter"
+  "myml.vscode-markdown-plantuml-preview"
+  "nate-scarlet.base64-image-preview"
+  "nur-srijan.markdown-rich-preview"
+  "pascalreitermann93.vscode-yaml-sort"
+  "phoenisx.cssvar"
+  "PKief.markdown-checkbox"
+  "redhat.vscode-xml"
+  "redhat.vscode-yaml"
+  "renathossain.markdown-runner"
+  "richie5um2.vscode-sort-json"
+  "searking.preview-vscode"
+  "shd101wyy.markdown-preview-enhanced"
+  "skn0tt.markdown-link-expander"
+  "vincaslt.highlight-matching-tag"
+  "xpol.extra-markdown-plugins"
+  "yzhang.markdown-all-in-one"
+)
+
+# Developing the advanced PHP-based website, documents, or slide presentation
+extensions_profile_php_mastery=(
+  "anteprimorac.html-end-tag-labels"
+  "brapifra.phpserver"
+  "DEVSENSE.composer-php-vscode"
+  "DEVSENSE.phptools-vscode"
+  "DEVSENSE.profiler-php-vscode"
+  "ecmel.vscode-html-css"
+  "evondev.generate-css-class"
+  "grantbartlett.scss-allman-formatter"
+  "guthesoftware.sqlinform"
+  "jasonmejane.base64viewer"
+  "jock.svg"
+  "junstyle.php-cs-fixer"
+  "kisstkondoros.vscode-gutter-preview"
+  "lzp.svg-preview-in-code"
+  "mrmlnc.vscode-attrs-sorter"
+  "repreng.csv"
+  "yandeu.five-server"
+)
+
+# Developing the advanced Laravel-based website, documents, or slide presentation
+extensions_profile_php_laravel=(
+  "anteprimorac.html-end-tag-labels"
+  "amiralizadeh9480.laravel-extra-intellisense"
+  "brapifra.phpserver"
+  "DEVSENSE.composer-php-vscode"
+  "DEVSENSE.phptools-vscode"
+  "DEVSENSE.profiler-php-vscode"
+  "ecmel.vscode-html-css"
+  "evondev.generate-css-class"
+  "grantbartlett.scss-allman-formatter"
+  "guthesoftware.sqlinform"
+  "jasonmejane.base64viewer"
+  "jock.svg"
+  "junstyle.php-cs-fixer"
+  "kisstkondoros.vscode-gutter-preview"
+  "laravel.vscode-laravel"
+  "lzp.svg-preview-in-code"
+  "mrmlnc.vscode-attrs-sorter"
+  "onecentlin.laravel-blade"
+  "prisma.prisma"
+  "prisma.vscode-graphql"
+  "repreng.csv"
+  "ryannaddy.laravel-artisan"
+  "shufo.vscode-blade-formatter"
+)
+
+# Developing the advanced Wordpress-based website, documents, or slide presentation
+extensions_profile_php_wordpress=(
+  "anteprimorac.html-end-tag-labels"
+  "brapifra.phpserver"
+  "DEVSENSE.composer-php-vscode"
+  "DEVSENSE.phptools-vscode"
+  "DEVSENSE.profiler-php-vscode"
+  "ecmel.vscode-html-css"
+  "evondev.generate-css-class"
+  "grantbartlett.scss-allman-formatter"
+  "guthesoftware.sqlinform"
+  "jasonmejane.base64viewer"
+  "jock.svg"
+  "johnbillion.vscode-wordpress-hooks"
+  "junstyle.php-cs-fixer"
+  "kisstkondoros.vscode-gutter-preview"
+  "lzp.svg-preview-in-code"
+  "mrmlnc.vscode-attrs-sorter"
+)
+
+# Developing, opening and viewing Rust and Scheme files with the apropriate syntax highlight
+extension_profile_rust=(
+  "rgherdt.scheme-lsp"
+  "rust-lang.rust-analyzer"
+  "slbtty.lisp-syntax"
+)
+
+# Developing the Typst documents
+extensions_profile_typst=(
+  "calebfiggers.typst-companion"
+  "myriad-dreamin.tinymist"
+  "nvarner.typst-lsp"
+  "repreng.csv"
+  "surv.typst-math"
+)
+
+# Developing the Vue.js-based files
+extension_profile_vue=(
+  "vue.volar"
+)
+
+# Developing the pure CSS, HTML and SCSS
+extensions_profile_web_essentials=(
+  "anteprimorac.html-end-tag-labels"
+  "ecmel.vscode-html-css"
+  "evondev.generate-css-class"
+  "glenn2223.live-sass"
+  "grantbartlett.scss-allman-formatter"
+  "guillaumedoutriaux.name-that-color"
+  "jasonmejane.base64viewer"
+  "jock.svg"
+  "kisstkondoros.vscode-gutter-preview"
+  "lzp.svg-preview-in-code"
+  "mrmlnc.vscode-attrs-sorter"
+  "ms-vscode.live-server"
+  "nadim-vscode.html-meta-tags-hero"
+  "nate-scarlet.base64-image-preview"
+  "pascalreitermann93.vscode-yaml-sort"
+  "phoenisx.cssvar"
+  "pranaygp.vscode-css-peek"
+  "redhat.vscode-xml"
+  "redhat.vscode-yaml"
+  "richie5um2.vscode-sort-json"
+  "solnurkarim.html-to-css-autocompletion"
+  "vincaslt.highlight-matching-tag"
+)
+
+# Defining the profile registry mapping every display name to its extension array
+# The format of each entry is «Display name=array variable», parsed with the
+# parameter expansions «${pair%%=*}» for the name and «${pair#*=}» for the array
+declare -a PROFILE_REGISTRY=(
+  "Linux=extensions_profile_linux"
+  "macOS=extensions_profile_macos"
+  "Windows=extensions_profile_windows"
+  "Angular=extensions_profile_angular"
+  "C and C++=extension_profile_clang"
+  "Codebraid, Pandoc and Quarto=extensions_profile_cpq"
+  "Data Science=extensions_profile_data_science"
+  "Django and Flask=extensions_profile_django_and_flask"
+  "Docker=extensions_profile_docker"
+  ".NET and C# Essentials=extensions_profile_dotnet_and_csharp"
+  ".NET and C# Web=extensions_profile_dotnet_and_csharp_web"
+  "Go=extensions_profile_go"
+  "Hugo=extensions_profile_hugo"
+  "Jekyll=extensions_profile_jekyll"
+  "LaTeX=extensions_profile_latex"
+  "Lua=extension_profile_lua"
+  "Markdown Mastery=extension_profile_markdown_mastery"
+  "PHP Mastery=extensions_profile_php_mastery"
+  "PHP Laravel=extensions_profile_php_laravel"
+  "PHP WordPress=extensions_profile_php_wordpress"
+  "Rust and Scheme=extension_profile_rust"
+  "Typst=extensions_profile_typst"
+  "Vue.js=extension_profile_vue"
+  "Web Essentials=extensions_profile_web_essentials"
+)
+
+# Defining the global arrays that shall be installed into every profile
+declare -a GLOBAL_ARRAYS=(
+  "extensions"
+  "extensions_languages"
+  "colour_themes"
+  "icons_themes"
+  "product_icons_themes"
+)
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Defining the helper functions
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Verifying the presence of the jq dependency that the profile generation requires
+require_jq ()
+{
+  if ! command -v jq > /dev/null 2>&1
+  then
+    echo "The «jq» utility is required for the profile generation but was not found"
+    echo "Installing «jq» through the system package manager is necessary before proceeding"
+    exit 1
+  fi
+}
+
+# Detecting the availability of the editor executables for the extension installation
+detect_executables ()
+{
+  # Verifying the availability of the VSCode executable for the Marketplace
+  if command -v code > /dev/null 2>&1
+  then
+    CODE_BIN="code"
+    echo "Detecting the «code» executable for the Visual Studio Marketplace installations"
+  else
+    echo "The «code» executable is unavailable; the Marketplace installations will be skipped"
+  fi
+
+  # Verifying the availability of the VSCodium executable for the Open VSX registry
+  if command -v codium > /dev/null 2>&1
+  then
+    CODIUM_BIN="codium"
+    echo "Detecting the «codium» executable for the Open VSX registry installations"
+  else
+    echo "The «codium» executable is unavailable; the Open VSX installations will be skipped"
+  fi
+}
+
+# Generating the random string of eight alphanumeric characters
+generate_8alphanumeric ()
+{
+  # Extracting the random sequence from the system
+  LC_ALL=C tr -dc 'a-z0-9' < /dev/urandom | head -c 8
+}
+
+# Generating a single profile within a single editor
+generate_profile ()
+{
+  local editor="$1"
+  local profile_name="$2"
+  local config_dir="$CONFIG_BASE/$editor/User/globalStorage"
+  local storage_json="$config_dir/storage.json"
+
+  # Initialising the directory and the empty JSON structure when the storage file is absent
+  if [[ ! -f "$storage_json" ]]
+  then
+    mkdir -p "$config_dir"
+    echo '{"userDataProfiles": []}' > "$storage_json"
+  fi
+
+  # Skipping the generation when a profile bearing the same name already exists
+  if jq -e --arg name "$profile_name" 'any(.userDataProfiles[]?; .name == $name)' "$storage_json" > /dev/null 2>&1
+  then
+    echo "The profile «$profile_name» already exists in «$editor»; skipping the generation"
+    return 0
+  fi
+
+  # Generating the random location string of eight alphanumeric characters
+  local location
+  location=$(generate_8alphanumeric)
+
+  # Appending the new profile into the JSON array
+  jq --arg loc "$location" --arg name "$profile_name" \
+    '.userDataProfiles += [{"location": $loc, "name": $name, "useDefaultFlags": {"snippets": true, "tasks": true, "keybindings": true}}]' \
+    "$storage_json" > "$storage_json.tmp" && mv "$storage_json.tmp" "$storage_json"
+
+  echo "Generating the profile «$profile_name» in «$editor» with the location «$location»"
+}
+
+# Collecting every VSIX package residing within the reserved directory
+collect_vsix ()
+{
+  # Verifying the existence of the VSIX directory
+  if [[ ! -d "$VSIX_DIR" ]]
+  then
+    echo "The VSIX directory «$VSIX_DIR» does not exist; no local packages will be installed"
+    return 0
+  fi
+
+  # Iterating over the directory and retaining only the genuine files
+  local vsix
+
+  for vsix in "$VSIX_DIR"/*.vsix
+  do
+    if [[ -e "$vsix" ]]
+    then
+      VSIX_FILES+=("$vsix")
+    fi
+  done
+
+  if [[ "${#VSIX_FILES[@]}" -eq 0 ]]
+  then
+    echo "No VSIX packages were found within «$VSIX_DIR»"
+  else
+    echo "Collecting ${#VSIX_FILES[@]} VSIX package(s) from «$VSIX_DIR»"
+  fi
+}
+
+# Installing every collected VSIX package into the given profile through VSCodium
+install_vsix_into_profile ()
+{
+  local profile="$1"
+  local -a profile_flag=()
+
+  # Building the profile flag only when a named profile is supplied
+  if [[ -n "$profile" ]]
+  then
+    profile_flag=(--profile "$profile")
+  fi
+
+  # Installing every collected VSIX package exclusively from the VSCodium executable
+  local vsix
+  for vsix in "${VSIX_FILES[@]}"
+  do
+    "$CODIUM_BIN" --install-extension "$vsix" "${profile_flag[@]}"
+    echo "Installing the local package «$(basename "$vsix")» into the profile «${profile:-Default}»"
+  done
+}
+
+# Installing a single extension, attempting the Marketplace before the Open VSX registry
+install_one_extension ()
+{
+  local extension="$1"
+  local profile="$2"
+  local -a profile_flag=()
+
+  # Building the profile flag only when a named profile is supplied
+  if [[ -n "$profile" ]]
+  then
+    profile_flag=(--profile "$profile")
+  fi
+
+  # Attempting the installation from the Visual Studio Marketplace through VSCode
+  if [[ -n "$CODE_BIN" ]]
+  then
+    if "$CODE_BIN" --install-extension "$extension" "${profile_flag[@]}"
+    then
+      echo "Installing the extension «$extension» into the profile «${profile:-Default}» from the Marketplace"
+      return 0
+    fi
+  fi
+
+  # Falling back to the Open VSX registry through VSCodium
+  if [[ -n "$CODIUM_BIN" ]]
+  then
+    if "$CODIUM_BIN" --install-extension "$extension" "${profile_flag[@]}"
+    then
+      echo "Installing the extension «$extension» into the profile «${profile:-Default}» from the Open VSX registry"
+      return 0
+    fi
+  fi
+
+  echo "The extension «$extension» could not be located for the profile «${profile:-Default}»"
+  return 1
+}
+
+# Installing every member of the named array into the given profile
+install_array_into_profile ()
+{
+  local -n items_ref="$1"
+  local profile="$2"
+
+  local item
+  for item in "${items_ref[@]}"
+  do
+    install_one_extension "$item" "$profile"
+  done
+}
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Executing the unified workflow
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Verifying the presence of the jq dependency
+require_jq
+
+# Detecting the editor executables
+detect_executables
+
+# Generating every profile within every supported editor before any installation
+echo "Generating the profiles for every editor and its forks"
+for editor in "${EDITORS[@]}"
+do
+  for pair in "${PROFILE_REGISTRY[@]}"
+  do
+    generate_profile "$editor" "${pair%%=*}"
+  done
+done
+
+# Collecting the local VSIX packages
+collect_vsix
+
+# Installing the local VSIX packages into the default profile and every named profile
+if [[ -n "$CODIUM_BIN" && "${#VSIX_FILES[@]}" -gt 0 ]]
+then
+  echo "Installing the local VSIX packages from VSCodium"
+  install_vsix_into_profile ""
+  for pair in "${PROFILE_REGISTRY[@]}"
+  do
+    install_vsix_into_profile "${pair%%=*}"
+  done
+elif [[ -z "$CODIUM_BIN" && "${#VSIX_FILES[@]}" -gt 0 ]]
+then
+  echo "The «codium» executable is unavailable; skipping the local VSIX installation"
+fi
+
+# Installing the global arrays into the default profile and every named profile
+echo "Installing the global extensions into every profile"
+for array_name in "${GLOBAL_ARRAYS[@]}"
+do
+  install_array_into_profile "$array_name" ""
+  for pair in "${PROFILE_REGISTRY[@]}"
+  do
+    install_array_into_profile "$array_name" "${pair%%=*}"
+  done
+done
+
+# Installing each profile-specific array into its corresponding profile
+echo "Installing the profile-specific extensions"
+for pair in "${PROFILE_REGISTRY[@]}"
+do
+  install_array_into_profile "${pair#*=}" "${pair%%=*}"
+done
+
+# Announcing the successful completion of the operation
+echo "The unified profile generation and extension installation has completed"

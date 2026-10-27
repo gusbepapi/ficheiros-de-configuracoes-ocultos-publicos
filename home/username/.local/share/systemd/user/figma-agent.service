@@ -1,0 +1,10 @@
+[Unit]
+Description=Figma Agent for Linux Service
+Requires=figma-agent.socket
+
+[Service]
+Type=exec
+ExecStart="/home/gusbepapi/.local/share/figma-agent/figma-agent"
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,15 @@
+interm=dolphin
+.md:code-insiders
+.pdf:$BROWSER
+.html:$BROWSER
+image:feh
+video:mpv
+audio:mpv
+text:nvim
+?'^http:\/\/':$BROWSER
+?'^https:\/\/':$BROWSER
+?'^www.':$BROWSER
+?'^tg:\/\/':/bin/xdg-open
+?'^magnet:':ara
+directory:ranger
+default:echo "$@" >> /home/gusbepapi/bb

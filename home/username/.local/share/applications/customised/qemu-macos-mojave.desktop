@@ -1,0 +1,12 @@
+[Desktop Entry]
+Categories = OperatingSystem; OS; System; VirtualMachine;
+Comment = Run and open the virtual machine of macOS Mojave with QEMU
+Exec=bash -c 'cd "/media/Gustavo/Virtual Machines/macOS Mojave/" && ./basic.sh wmctrl -lx mojave gusbepapi-amd Mojave'
+GenericName = Virtual Machine
+Icon = qemu
+Name = macOS Mojave
+StartupNotify = false
+StartupWMClass = mojave
+Terminal = false
+Type = Application
+Version = 1.1

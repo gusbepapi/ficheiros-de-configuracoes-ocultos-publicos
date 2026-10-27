@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE khotnewstuff3>
+<hotnewstuffregistry>
+ <stuff category="107">
+  <name>Afterglow cursors</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>yeyushengfan258</author>
+  <homepage>https://store.kde.org/p/1628952</homepage>
+  <licence></licence>
+  <version></version>
+  <rating>58</rating>
+  <downloads>31429</downloads>
+  <installedfile>/home/gusbepapi/.icons/Afterglow-cursors/*</installedfile>
+  <id>1628952</id>
+  <releasedate>2021-10-28</releasedate>
+  <summary>Afterglow cursors for linux desktops</summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/54/79/90/1628952/0960c9d3496088dc570f2b95f8d6986ea74e9a0921b90700855e8ec707a2d471451a.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/54/79/90/1628952/0960c9d3496088dc570f2b95f8d6986ea74e9a0921b90700855e8ec707a2d471451a.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2MzU0NDU2NzMiLCJvIjoiMSIsInMiOiIyYzBlYTI3ZDE2NWQwZjQyZTM2NWNjMzRiZDg3YmJhN2FlODJkN2Y1N2ZmZjRkODEyYWIyYjBlNDQyYjc3MjBmY2Q3NzY4NjQzMDRhMWNmNGQ4NTZhMDllZGZhMjYwZmJlZDhlZjY5OThlODNjZDc0YTYxNjMwM2YyZjQ0MmI3MiIsInQiOjE2NzA4MTIzNjgsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMTU3LjExMC43OSJ9.owL6InJU1z0TJFQjk3aqFGhTsso2r4hXNXg9s8DrqB0/Afterglow-cursors.zip</payload>
+  <tags>unix,linux,cursor,gplv3,original-product</tags>
+  <status>installed</status>
+ </stuff>
+ <stuff category="107">
+  <name>Nordic cursors</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>eliverlara</author>
+  <homepage>https://store.kde.org/p/1662218</homepage>
+  <licence></licence>
+  <version></version>
+  <rating>73</rating>
+  <downloads>98524</downloads>
+  <installedfile>/home/gusbepapi/.icons/Nordic-cursors/*</installedfile>
+  <id>1662218</id>
+  <releasedate>2021-12-09</releasedate>
+  <summary>Cursors theme created using the awesome &lt;a href="https://github.com/arcticicestudio/nord" target="_blank" rel="nofollow">Nord&lt;/a> color palette.&lt;br />
+</summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/36/61/48/1662218/1ff6e2cb74570d61fdcc5739faab69fbe5cd5f982adc440e5e6ff91d8ffe967666df1.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/36/61/48/1662218/1ff6e2cb74570d61fdcc5739faab69fbe5cd5f982adc440e5e6ff91d8ffe967666df1.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2MzkwODYwOTUiLCJvIjoiMSIsInMiOiI4YzEwYmJjYTgwNjE4NDY3M2QwYWYyMTdjOTEzNDJlMzhjMTc2MTg0YzYyNDExNjM3Y2ExY2Q3OWI4OGZjM2JkNmNmYzk4ZDRhZWI0ODE1NzZmZWVkYTAxYjA3OTIzZDM3YWY5Y2VlNGVlN2ZlYmFmYmJjNjIzYzFmMjNkNmI5NyIsInQiOjE2NzE4NDc1ODIsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMjExLjEwNS4xOTMifQ.n-B9u15oTYaokzSOf7Fhy-oNSC-I12oJUY8vFbHcSHY/Nordic-cursors.tar.xz</payload>
+  <tags>cursor,linux,gplv3,unix</tags>
+  <status>installed</status>
+ </stuff>
+</hotnewstuffregistry>

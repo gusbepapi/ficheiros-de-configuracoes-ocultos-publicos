@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE khotnewstuff3>
+<hotnewstuffregistry>
+ <stuff category="135">
+  <name>Archite genome</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>tony007</author>
+  <homepage>https://store.kde.org/p/1947142</homepage>
+  <licence></licence>
+  <version></version>
+  <rating>58</rating>
+  <downloads>291</downloads>
+  <installedfile>/home/gusbepapi/.themes/neron_cyan/*</installedfile>
+  <id>1947142</id>
+  <releasedate>2022-11-30</releasedate>
+  <summary>Balck and yellow edition </summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/68/84/67/1947142/a0775799b8afcf9bb333450dbbc1b21050abef382b1022f3bf1aaa32a6d41b3aeb06-copy-1366x786.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/68/84/67/1947142/a0775799b8afcf9bb333450dbbc1b21050abef382b1022f3bf1aaa32a6d41b3aeb06-copy-1366x786.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2Njk4MDY0MTAiLCJvIjoiMSIsInMiOiJmNGVlODJiZmQ4OGEzYjQzYzhlY2MxYTEwMGM1ZGY1ZDk5ZTUyNzI0M2JkNWI5NzYwOTIwMmU1NzE5N2YyZWQ4ZWFhZjQ3NGRmNjQ5NDcxNjE3MmRhMTczYzkwMmU2N2Q4OGNkOGJkMmM3YjUwZWRjOGFmMmQ2NTJmZDE4MjkwNyIsInQiOjE2NzA4MTI0MjgsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMTU3LjExMC43OSJ9.sZh9mBlfw9PuV7YZDhXdQ0XI-Yxv2FMJeEonLTqcLyE/Archit-cyan.tar.xz</payload>
+  <tags>gtk4-0,gtk4-2,gtk4-4,gtk4-6,gnome-40,xfce-414,xfce-416,gnome-41,linux,gnome,apache-license,original-product,unix,theme</tags>
+  <status>installed</status>
+ </stuff>
+ <stuff category="135">
+  <name>Gently-Color-GTK</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>l4k1</author>
+  <homepage>https://store.kde.org/p/1934110</homepage>
+  <licence></licence>
+  <version></version>
+  <rating>50</rating>
+  <downloads>167</downloads>
+  <installedfile>/home/gusbepapi/.themes/Gently-Color-GTK/*</installedfile>
+  <id>1934110</id>
+  <releasedate>2022-12-05</releasedate>
+  <summary>Dark GTK Theme&lt;br />
+&lt;br />
+The theme was tested on KDE Plasma, for GTK applications in Plasma.&lt;br />
+------------------------------------------------------------------------------&lt;br />
+&lt;br />
+-Plasma Theme &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Color-Plasma&lt;/strong> &lt;/span>, which you...</summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/49/90/47/1934110/screenshot-20221106-120303.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/49/90/47/1934110/screenshot-20221106-120303.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2NzAyMzQzMDIiLCJvIjoiMSIsInMiOiIyZDAyODFiMGUxMzlhMmQyMjk2Y2Q4MDdiMTVkZWUyZjI1NjdhYmI4NWQ2NjgzM2ZhM2ViOTI2MTgzOTM4NGM4NTVlOGU3ZDc4ZTQ2YTY3YzBkYmZlNzJmNmNhYjVjOTM2YmQ2MTMzMWFmNzdiMjk4MGRmN2Y1MzI2NGJkZjU3MyIsInQiOjE2NzA4MTI0NTMsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMTU3LjExMC43OSJ9.7lpve9UiixNyiNrZ_E7VKzGoM71GIGBnExhjXm-lPKY/Gently-Color-GTK.tar.gz</payload>
+  <tags>gplv3,gnome,linux,efi,unix,theme</tags>
+  <status>installed</status>
+ </stuff>
+</hotnewstuffregistry>

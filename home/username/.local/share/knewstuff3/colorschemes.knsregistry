@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE khotnewstuff3>
+<hotnewstuffregistry>
+ <stuff category="112">
+  <name>Gently-Dark-Colorschemes</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>l4k1</author>
+  <homepage>https://store.kde.org/p/1934138</homepage>
+  <licence></licence>
+  <version></version>
+  <rating>50</rating>
+  <downloads>4271</downloads>
+  <installedfile>/home/gusbepapi/.local/share/color-schemes/GentlyColorDarkCyan.colors</installedfile>
+  <id>1934138</id>
+  <releasedate>2022-11-07</releasedate>
+  <summary>Dark Colorschemes ( Cyan, Grayish, Green, LimeGreen, Darker-Cyan, Magenta, Soft-Blue, Red, Soft-Orange, Strong-Blue)&lt;br />
+&lt;br />
+Light Colorschemes For Light Plasma Themes &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Color-Light&lt;/strong> &lt;/span>: &lt;a href="https://www.pling.com/p/1934133/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+--------------------&lt;br />
+&lt;br />
+-Plasma Theme &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Color-Plasma&lt;/strong> &lt;/span>, which you can download: &lt;a href="https://www.pling.com/p/1934172/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+(Follows Color Scheme, Round, Transparent and Blur,  Enabled Blurred Widgets and Adaptive Transparency)&lt;br />
+</summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/49/90/47/1934138/screenshot-20221106-085933.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/49/90/47/1934138/screenshot-20221106-085933.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2Njc4MjE5NTUiLCJvIjoiMSIsInMiOiJiMjM3NzBjOGI2YjdjZmVkYzI1NDExMDViNjY1ODY5MDlmYTRiMDkwNTg5NjA5NWEyZmRiMjUxZjdhY2VhZTA2MWNhZDU0OGQzMGYxOWM1ZmFlZWU1YmZjMjllYzVmNWJmN2M2ZjcxOWJkODNhMTZiMzI1OWE3ODVhM2ZkODUxMiIsInQiOjE2NzA4MTIwNTEsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMTU3LjExMC43OSJ9.IHRQQliSfpr0ye8vHHCFUqLU-xiMI3ZcPASn6HGgWJU/GentlyColorDarkCyan.colors</payload>
+  <tags>original-product,colorscheme,gplv3,linux,kde,unix,plasma,theme</tags>
+  <status>installed</status>
+ </stuff>
+ <stuff category="112">
+  <name>Endless Color Theme</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>yeyushengfan258</author>
+  <homepage>https://store.kde.org/p/1921141</homepage>
+  <licence></licence>
+  <version></version>
+  <rating>50</rating>
+  <downloads>7398</downloads>
+  <installedfile>/home/gusbepapi/.local/share/color-schemes/Endless.colors</installedfile>
+  <id>1921141</id>
+  <releasedate>2022-10-15</releasedate>
+  <summary>Endless kde is a light clean theme for KDE Plasma desktop.&lt;br />
+&lt;br />
+In this repository you'll find:&lt;br />
+&lt;br />
+    Aurorae Themes&lt;br />
+    Kvantum Themes&lt;br />
+    Plasma Color Schemes&lt;br />
+    Plasma Desktop Themes&lt;br />
+    Plasma Look-and-Feel Settings&lt;br />
+    &lt;br />
+&lt;br />
+&lt;strong>Plasmoids for KDE&lt;/strong>&lt;br />
+------------------------------&lt;br />
+&lt;br />
+&lt;strong>Endless Global Theme &lt;/strong>:&lt;a href="https://www.pling.com/p/1921151/" target="_blank" rel="nofollow">https://www.pling.com/p/1921151/&lt;/a>&lt;br />
+&lt;br />
+&lt;strong>Endless Plasma Theme  &lt;/strong>:&lt;a href="https://www.pling.com/p/1921149/" target="_blank" rel="nofollow">https://www.pling.com/p/1921149/&lt;/a>&lt;br />
+&lt;br />
+&lt;strong>Endless Sddm Theme &lt;/strong>:&lt;a href="https://www.pling.com/p/1921146/" target="_blank" rel="nofollow">https://www.pling.com/p/1921146/&lt;/a>&lt;br />
+&lt;br />
+&lt;strong>Endless Aurorae Theme &lt;/strong>:&lt;a href="https://www.pling.com/p/1921138/" target="_blank" rel="nofollow">https://www.pling.com/p/1921138/&lt;/a>&lt;br />
+&lt;br />
+&lt;strong>Endless Kvantum &lt;/strong>:&lt;a href="https://www.pling.com/p/1921145/" target="_blank" rel="nofollow">https://www.pling.com/p/1921145/&lt;/a>&lt;br />
+&lt;br />
+&lt;strong>Endless Wallpaper &lt;/strong>:&lt;a href="https://www.pling.com/p/1921134/" target="_blank" rel="nofollow">https://www.pling.com/p/1921134/&lt;/a>&lt;br />
+&lt;br />
+------------------------------&lt;br />
+&lt;br />
+&lt;strong>Win11 icon theme &lt;/strong>:&lt;a href="https://www.pling.com/p/1546069/" target="_blank" rel="nofollow">https://www.pling.com/p/1546069/&lt;/a></summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/54/79/90/1921141/screenshot-20221016-004043.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/54/79/90/1921141/screenshot-20221016-004043.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2NjU4NTY1NDgiLCJvIjoiMSIsInMiOiI3MjUxYTQ1ZGQ5YzU3NjE3YmNiODAzODE3NDA0ZGQxYTE4ZjY5ZjA0ZGI4YjdmMzg2ZTkwM2RmOTdkYjNkMGUyOTZiMzU2NTkzYmU1OTVhYjlmZDhkZDM1OTI3MjY2MDU4YWFlMDkxODU4M2Q4ODYzMzM2MzY5MTIwZDcwZmUwNSIsInQiOjE2NzA4MTIyNzEsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMTU3LjExMC43OSJ9.tcMcX_uF3D-XNYNMe4CEFUk5II_GGDnrl5UxW8wmpUk/Endless.zip</payload>
+  <tags>original-product,linux,colorscheme,gplv3,kde,theme,plasma,unix</tags>
+  <status>installed</status>
+ </stuff>
+ <stuff category="112">
+  <name>Gently-Light-Colorschemes</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>l4k1</author>
+  <homepage>https://store.kde.org/p/1934133</homepage>
+  <licence></licence>
+  <version></version>
+  <rating>50</rating>
+  <downloads>3908</downloads>
+  <installedfile>/home/gusbepapi/.local/share/color-schemes/GentlyColorLightBlue.colors</installedfile>
+  <id>1934133</id>
+  <releasedate>2022-11-07</releasedate>
+  <summary> Light Colorscheme (Blue, Cyan, Green, Moderate Blue, Red, Soft-Orange)&lt;br />
+&lt;br />
+ -Dark Colorsheme  For Dark  Plasma Themes &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Color-Dark&lt;/strong> &lt;/span>: &lt;a href="https://www.pling.com/p/1934138/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+ _________________________&lt;br />
+&lt;br />
+-Plasma Theme &lt;span style="color: #5e81ac;"> &lt;strong>Gently-Color-Plasma&lt;/strong> &lt;/span>, which you can download: &lt;a href="https://www.pling.com/p/1934172/" target="_blank" rel="nofollow">&lt;span style="color: red;"> Here &lt;/span>&lt;/a>&lt;br />
+&lt;br />
+Follows Color Scheme, Round, Transparent and Blur,  Enabled Blurred Widgets and Adaptive Transparency</summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/49/90/47/1934133/screenshot-20221106-092232.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/49/90/47/1934133/screenshot-20221106-092232.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2Njc4MjE0MTkiLCJvIjoiMSIsInMiOiJjZjY4MDU5YzUxNzUyOGJjNjdlZmRkNjM2MThlNTUwMzJmNjM0YTRkYThjNjU4MTM0MGU3ODA4ZDRhZDgwYTE1NmZjNGIyMTFkMTA2OGMxZGZhYzE0OTNkN2NhZTllYzY5NTI3N2RhNjljMzA4NTYwYmY5YzAyNGJlZTIwMTI5ZSIsInQiOjE2NzA4MTIwNTYsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMTU3LjExMC43OSJ9.Yb2rCQE7lcvNukrAFpBhiOup9-5JIKYMnDVGPvkNjBU/GentlyColorLightBlue.colors</payload>
+  <tags>colorscheme,linux,kde,gplv3,theme,plasma,unix,original-product</tags>
+  <status>installed</status>
+ </stuff>
+</hotnewstuffregistry>
