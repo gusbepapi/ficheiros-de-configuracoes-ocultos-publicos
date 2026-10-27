@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE khotnewstuff3>
+<hotnewstuffregistry>
+ <stuff category="102">
+  <name>7zip Service</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>frank98rh</author>
+  <homepage>https://store.kde.org/p/1697311</homepage>
+  <licence></licence>
+  <version>1.0</version>
+  <rating>50</rating>
+  <downloads>4839</downloads>
+  <installedfile>/home/gusbepapi/.local/share/servicemenu-download/7zip Service.tar.gz</installedfile>
+  <id>1697311</id>
+  <releasedate>2022-02-03</releasedate>
+  <summary>Menu de servicio de 7zip&lt;br />
+Basado en 7z Archive Compress Decompress Menu - Quick Simple Install&lt;br />
+Del autor INKITA&lt;br />
+Trabajo original: https://www.pling.com/p/1290368/&lt;br />
+Fuente: https://github.com/Intika-KDE-Plasmoids/plasma-service-dolphin-compress-extract-7z</summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/64/61/72/1697311/log.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/64/61/72/1697311/log.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2NDM5MDY2NTUiLCJvIjoiMSIsInMiOiI3OGFmYmVkOTZhNjFmNWYwYmNjMzBlODNiMTMxMGMwOTM2YzMwZDRiZjc3NGQyYmY5MDA4ZmM3OGQ0MTVkNjhlZTI0OTg1NTczZjEwYzA0MTFmYjIwN2MyODFhYWE1YmMzMDg3ZTJmMmE2MGUwNmFlZWUyMzI3NDA3ODI4MTRlNCIsInQiOjE2NjY2OTE5NDksInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMTU3LjExMC43OSJ9.RGUA1XvE2Mqtj8WcOYbLLNc7UIWrnrOX1eMA6oAf3Fs/7zip Service.tar.gz</payload>
+  <tags>efi,gplv3,addon</tags>
+  <status>installed</status>
+ </stuff>
+ <stuff category="102">
+  <name>Append images - save as</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>jwty</author>
+  <homepage>https://store.kde.org/p/1686268</homepage>
+  <licence></licence>
+  <version>1.0</version>
+  <rating>50</rating>
+  <downloads>386</downloads>
+  <installedfile>/home/gusbepapi/.local/share/servicemenu-download/appendImagesMenu.desktop</installedfile>
+  <id>1686268</id>
+  <releasedate>2022-01-20</releasedate>
+  <summary>Dolphin service menu to append selected images top to bottom or left to right, with file save dialog. Requires ImageMagick's convert utility and KDialog.&lt;br />
+&lt;br />
+Submenu with options for appending images vertically (top to bottom) or horizontally (left to right). After selecting orientation...</summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/64/46/13/1686268/appendmenu.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/64/46/13/1686268/appendmenu.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2NDI2OTY1NDEiLCJvIjoiMSIsInMiOiJjMzVmYTg0YzE3MmNlNDc5M2M4YTc4NjI5Yjk5MzJkYTk5NTk1N2QxYTRmMDA1MTIwYTBkZjE1Y2FjZmI2YTBjYjk5OGZmMDUyYTc5NzAwMTFhZTA3YWU5YmM4MGZkOTExNGQ0YWU4NDA0ZjcwZjBiYmRkZDg3YzZhY2FkNTgwNyIsInQiOjE2NjY2OTE5NzYsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMTU3LjExMC43OSJ9.Vx6Z2iVp-cX1U4FMdZ__rJTmIkQSdIAlmCGmx57SlG0/appendImagesMenu.desktop</payload>
+  <tags>dolphin,dolphin-service-menu,imagemagick,images,gplv3,service-menu,original-product,addon</tags>
+  <status>installed</status>
+ </stuff>
+ <stuff category="102">
+  <name>Append images - quick</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>jwty</author>
+  <homepage>https://store.kde.org/p/1686267</homepage>
+  <licence></licence>
+  <version>1.0</version>
+  <rating>50</rating>
+  <downloads>292</downloads>
+  <installedfile>/home/gusbepapi/.local/share/servicemenu-download/appendImagesQuick.desktop</installedfile>
+  <id>1686267</id>
+  <releasedate>2022-01-20</releasedate>
+  <summary>Dolphin service menu to quickly append selected images top to bottom. Requires ImageMagick's convert utility.&lt;br />
+&lt;br />
+This menu option will try to append selected images vertically (top to bottom) and save resulting image in working directory with filename `appended-$UNIXTIME.jpg`, where...</summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/64/46/13/1686267/appendquick.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/64/46/13/1686267/appendquick.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2NDI2OTY3MjUiLCJvIjoiMSIsInMiOiI5MTZhZWZjOWRiMzZkZDQ4YmZiODM4MDFmZGI3MGJmYTg3YzJlNjQ1MzI4NzJkZDBjNDQ0MDYxODg1Yjk1NmJmOGYzNTk1MWM5MTkyMTgyOGMyYWY4N2Q1NmFmMTg3ZWQyNTBhYTU1NTU1Y2I4NGE4NTgwOTc3ZTk5ZWE4ZGY1YiIsInQiOjE2NjY2OTE5ODYsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMTU3LjExMC43OSJ9.x4opf9w2JOaqYoVA3cBQO1KTTOOPNetMqT311hFJTyE/appendImagesQuick.desktop</payload>
+  <tags>original-product,service-menu,addon,imagemagick,images,gplv3,dolphin,dolphin-service-menu</tags>
+  <status>installed</status>
+ </stuff>
+ <stuff category="102">
+  <name>Terminal Panel [F4] [D-Bus]</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>c-hartmann</author>
+  <homepage>https://store.kde.org/p/1738869</homepage>
+  <licence></licence>
+  <version>0.9.0</version>
+  <rating>58</rating>
+  <downloads>662</downloads>
+  <installedfile>/home/gusbepapi/.local/share/servicemenu-download/terminal-panel-f4-dbus.desktop</installedfile>
+  <id>1738869</id>
+  <releasedate>2022-03-17</releasedate>
+  <summary>A KDE 5 dolphin context menu extension, that let's you open the Terminal panel as with F4 (if bound to) via D-BUS from within the context menu for folders. If alread open, the Terminal pane will be closed.</summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/65/05/11/1738869/terminal-panel-f4-dbus-logo.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/65/05/11/1738869/terminal-panel-f4-dbus-logo.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2NDc1MzMwNTQiLCJvIjoiMSIsInMiOiJiMTY0MmFhYzVkOGJhMDc2MzVhNGEzNmMyY2E4YzgyMGQ0YjUzM2U5YWNiNzkyY2U0MWUzNTYyMzk3NzNhN2ZhMzNjYTMwZWRhMzBjMmZkMGU0YzM1ZWU2ZWE4MTM3NGE4ZDc2YzYwZjgyZDhlNGI3MzZlYWRhOWM5MmU1YzFlZSIsInQiOjE2NjY2OTE5MDQsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMTU3LjExMC43OSJ9.q1_Sw8cMJYqLva0NxsMjcG2qyDMNP_Ni4BxmkYnJ3Z4/terminal-panel-f4-dbus.desktop</payload>
+  <tags>addon,gplv3,original-product</tags>
+  <status>installed</status>
+ </stuff>
+ <stuff category="102">
+  <name>Read-It</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>c-hartmann</author>
+  <homepage>https://store.kde.org/p/1800609</homepage>
+  <licence></licence>
+  <version>0.1.1</version>
+  <rating>50</rating>
+  <downloads>511</downloads>
+  <installedfile>/home/gusbepapi/.local/share/servicemenu-download/read-it-tesseract.desktop</installedfile>
+  <id>1800609</id>
+  <releasedate>2022-05-20</releasedate>
+  <summary>Extracts text from an image with a single right click in KDE Dolphin via tesseract (OCR). Very basic and rough approach!&lt;br />
+more infos: https://github.com/c-hartmann/read-it</summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/65/05/11/1800609/read-it-logo.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/65/05/11/1800609/read-it-logo.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2NTMwNTY1MDciLCJvIjoiMSIsInMiOiI2M2JkMzAwMWFjYjMyZjhmZTMxNjk1NmJmN2Q2MzM1ZmU4NDlkZDg0MmJiZmZhYWRiYjQ0YzY1ODVjOGU1MDVjZDUzMjc4N2M0MmVjMjY1NWYzZTZmNmMwZWI1NGQ3NTA0NjUzZWIwNDMxZGFkY2QwY2FhMzljZmZmYjNiOGE3NiIsInQiOjE2NjY2OTE4NjIsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMTU3LjExMC43OSJ9.zMnjAmHZ2K8RKsRumSJZV0uiNee-WGuSFHfbiC9WPS4/read-it-tesseract.desktop</payload>
+  <tags>gplv3,dolphin,addon,original-product</tags>
+  <status>installed</status>
+ </stuff>
+ <stuff category="102">
+  <name>Soft-Link</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>blisshome</author>
+  <homepage>https://store.kde.org/p/1910588</homepage>
+  <licence></licence>
+  <version>1.0</version>
+  <rating>50</rating>
+  <downloads>167</downloads>
+  <installedfile>/home/gusbepapi/.local/share/servicemenu-download/softlink.desktop</installedfile>
+  <id>1910588</id>
+  <releasedate>2022-09-25</releasedate>
+  <summary>Context menu item for Dolphin file manager that creates a soft link (symlink) to a single selected file or directoryy and puts it in the containing directory. The link name has "_lnk" appended to the target's basename before the extension (if any). "_lnk" is added to the link name because the...</summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/68/06/59/1910588/soft-link.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/68/06/59/1910588/soft-link.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2NjQxMjQwOTAiLCJvIjoiMSIsInMiOiJiYTdmNGM5NmY2ZTc5NTZiMTEyOTUyOGYzZDE2OTBkMmYxYjg4OGU2YmZhNGU3ZGM3MThkMTgyNDYwODg0ZGNhODY0MmNkZjQwYTIzNGQxNjA2NWUyZWQ1ZDViMDU1ZDdlOWRlYWU3MjQ1YzZkYzIzNDZiZGFiZDEwMjAyMWIzMCIsInQiOjE2NjY2OTE3OTcsInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMTU3LjExMC43OSJ9.U02f4vOqiM5WGaW82L7zv-rXO8RQGngNX_xDsbc7o70/softlink.desktop</payload>
+  <tags>symlink,original-product,addon,mit-license,dolphin</tags>
+  <status>installed</status>
+ </stuff>
+ <stuff category="102">
+  <name>Compare using Meld</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>ashark</author>
+  <homepage>https://store.kde.org/p/1541201</homepage>
+  <licence></licence>
+  <version>1.0</version>
+  <rating>68</rating>
+  <downloads>1567</downloads>
+  <installedfile>/home/gusbepapi/.local/share/servicemenu-download/compare-using-meld-20210620011130.desktop</installedfile>
+  <id>1541201</id>
+  <releasedate>2021-06-29</releasedate>
+  <summary>As Kompare is not fully capable compared to Meld, this menu item allows you to use Meld when needed.&lt;br />
+Supports launching meld as root.</summary>
+  <changelog></changelog>
+  <preview>https://images.pling.com/cache/100x100-0/img/00/00/61/82/55/1541201/06bb395f74b28f1d11d580d955594a72d1886e9f975d5821342c95236540fd010859.png</preview>
+  <previewBig>https://images.pling.com/cache/770x540-0/img/00/00/61/82/55/1541201/06bb395f74b28f1d11d580d955594a72d1886e9f975d5821342c95236540fd010859.png</previewBig>
+  <payload>https://files03.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE2MjQxNTE5ODAiLCJvIjoiMSIsInMiOiIwMWQ4YzczYTE0NTk5NjBjY2NiNzEwYmE1NjdlYjdhNGRlM2FhNzQ0MTNhNjE4ZDM1ZDhkNWU0Zjc4ODZkZGQ4MzhjY2YxMjY2YjI1MmNmZjI5YjI2ZDNjMDBiYzI4OTMyZmM2MzNlOTlkMDQwN2FlZWYxNzBjN2IwYzI3N2Q1YSIsInQiOjE2NjY2OTIwMDksInN0ZnAiOm51bGwsInN0aXAiOiIxNzkuMTU3LjExMC43OSJ9.qb44EXn-FxRSA24H9ucGqUs7EWfiJ1QSiTKYeivowvQ/compare-using-meld-20210620011130.desktop</payload>
+  <tags>compare,diff,gplv3,meld,kompare,addon,original-product</tags>
+  <status>installed</status>
+ </stuff>
+</hotnewstuffregistry>
