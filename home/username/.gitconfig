@@ -1,0 +1,39 @@
+# Providing a placeholder for the private `.gitconfig`, with fictional names, addresses and paths
+# The private repository holds the real file with the same destination, and it overrides this one
+# This pair is a test and a study for the `gdrotz` template that lets a private source override a public source
+[credential "https://gitlab.com"]
+	helper = 
+	helper = !/usr/bin/glab auth git-credential
+[user]
+	username-01 = ada-example-old
+	username-02 = ada-example
+	name = Ada Example
+	email-02 = ada.example@example.invalid
+	email-03 = 10000000-ada-example@users.noreply.gitlab.com
+	email-04 = 100000000+ada-example@users.noreply.github.com
+	signingkey = /home/example/.ssh/example-signing.pub
+	email = 100000000+ada-example@users.noreply.github.com
+[core]
+	editor = nano
+	excludesFile = /home/example/.gitignore-global
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[credential]
+	helper = store
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[init]
+	defaultBranch = main
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+[gpg "ssh"]
+	allowedSignersFile = /home/example/.ssh/allowed_signers
