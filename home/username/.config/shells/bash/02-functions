@@ -297,3 +297,61 @@ function yt-dlp-pro()
 
   "${cmd[@]}" 0>&-
 }
+
+# Resizing the windows of an application on Hyprland, replacing the X11 `xdotool` window functions; untested on a live session
+# Usage: resize_window CLASS WIDTH HEIGHT
+function resize_window()
+{
+  if [ "$#" -ne 3 ];
+  then
+    printf 'Usage: resize_window CLASS WIDTH HEIGHT\n' >&2
+    return 2
+  fi
+
+  hyprctl dispatch resizewindowpixel "exact $2 $3,class:^($1)\$"
+}
+
+function code_wm()
+{
+  resize_window code 1440 1100
+}
+
+function codium_wm()
+{
+  resize_window codium 1440 1100
+}
+
+function dolphin_wm_0680()
+{
+  resize_window dolphin 1440 680
+}
+
+function dolphin_wm_1100()
+{
+  resize_window dolphin 1440 1100
+}
+
+function edge_wm()
+{
+  resize_window microsoft-edge 1440 1100
+}
+
+function firefox_wm()
+{
+  resize_window firefox 1440 1100
+}
+
+function gterm_wm()
+{
+  resize_window org.gnome.Terminal 1100 760
+}
+
+function gganti_wm_1100()
+{
+  resize_window Antigravity 1100 760
+}
+
+function gganti_wm_1440()
+{
+  resize_window Antigravity 1440 680
+}

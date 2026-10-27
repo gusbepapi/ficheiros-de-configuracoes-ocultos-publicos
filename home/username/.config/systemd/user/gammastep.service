@@ -12,5 +12,4 @@ Type=simple
 ExecStart=/usr/bin/env gammastep
 Restart=on-failure
 
-[Install]
-WantedBy=graphical-session.target
+# Alternative to wlsunset.service, which is the default; to use it, run «systemctl --user disable wlsunset.service» and then add an [Install] section here

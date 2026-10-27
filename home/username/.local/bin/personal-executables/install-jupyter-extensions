@@ -7,7 +7,7 @@
 #
 # The `labextension install` commands belong to JupyterLab 2 and earlier; the script detects the version and skips them on JupyterLab 3 and later, where extensions are pip packages
 # The script keeps going after a failed command, and it lists the failed commands at the end
-# The script is untested, because Jupyter is not installed here
+# Tested with JupyterLab 4.6.5 and Notebook 7.6.3 (30 October 2026); the environment variable `PIP` selects another `pip`
 # Requires: jupyter, and sudo for the MIME type line
 
 set -u
@@ -45,42 +45,58 @@ fi
 
 # Detecting the major version of JupyterLab, because `labextension install` of the original only suits version 2 and earlier
 lab_major=0
-if [ "${dry_run}" -eq 0 ];
+if command -v jupyter >/dev/null 2>&1;
 then
-  lab_major="$(jupyter lab --version 2>/dev/null | cut -d. -f1)"
+  lab_major="$(jupyter lab --version 2>/dev/null | head -n 1 | cut -d. -f1)"
   lab_major="${lab_major:-0}"
 fi
 
-# Installing the JupyterLab extensions
-if [ "${lab_major}" -ge 3 ];
+if [ "${lab_major}" -ge 4 ];
 then
-  printf 'JupyterLab %s was detected; skipping «labextension install», because the extensions are pip packages there\n' "${lab_major}" >&2
+  # JupyterLab 4: only the packages that keep JupyterLab 4 and Notebook 7 are installed; `jupyterlab-drawio` and `hide_code` pin JupyterLab 3 and Notebook 6, so pip would downgrade both
+  printf 'JupyterLab %s was detected; installing the compatible extensions as pip packages\n' "${lab_major}" >&2
+  run "${PIP:-pip}" install jupyterlab-latex jupyterlab-katex
+  printf 'Skipping «jupyterlab-drawio» and «hide_code» (they require JupyterLab 3 and Notebook 6) and the themes «neon» and «city-lights» (no pip package); install the themes from the Extension Manager\n' >&2
+elif [ "${lab_major}" -ge 3 ];
+then
+  # JupyterLab 3: the extensions are pip packages, installed in the environment that runs Jupyter
+  printf 'JupyterLab %s was detected; installing the extensions as pip packages\n' "${lab_major}" >&2
+  run "${PIP:-pip}" install jupyterlab-drawio jupyterlab-latex jupyterlab-katex hide_code
+  printf 'No pip package exists for the themes «neon» and «city-lights»; install them from the Extension Manager of JupyterLab\n' >&2
 else
-for extension in @jupyterlab-drawio @jupyterlab_latex @jupyterlab/katex-extension @yeebc/jupyterlab_neon_theme @yudai-nkt/jupyterlab_city-lights-theme;
-do
-  run jupyter labextension install "${extension}"
-done
+  for extension in @jupyterlab-drawio @jupyterlab_latex @jupyterlab/katex-extension @yeebc/jupyterlab_neon_theme @yudai-nkt/jupyterlab_city-lights-theme;
+  do
+    run jupyter labextension install "${extension}"
+  done
 fi
 
 # Enabling the server extensions
-for extension in jupyterlab-drawio jupyterlab_latex hide_code;
-do
-  run jupyter serverextension enable --sys-prefix "${extension}"
-done
+if [ "${lab_major}" -lt 3 ];
+then
+  for extension in jupyterlab-drawio jupyterlab_latex hide_code;
+  do
+    run jupyter serverextension enable --sys-prefix "${extension}"
+  done
+fi
 
-# Installing the classic notebook extensions
-run jupyter contrib nbextension install --sys-prefix
-run jupyter nbextension install jupyter_nbextensions_configurator --py --sys-prefix
-run jupyter nbextension install latex_envs --py --sys-prefix
+# Installing the classic notebook extensions, only where the classic `nbextension` command exists (Notebook 6 or `nbclassic`)
+if [ "${dry_run}" -eq 1 ] || jupyter nbextension --help >/dev/null 2>&1;
+then
+  run jupyter contrib nbextension install --sys-prefix
+  run jupyter nbextension install jupyter_nbextensions_configurator --py --sys-prefix
+  run jupyter nbextension install latex_envs --py --sys-prefix
 
-for extension in codefolding/main nbTranslate/main python-markdown/main toc2/main toggle_all_line_numbers/main;
-do
-  run jupyter nbextension enable "${extension}" --sys-prefix
-done
+  for extension in codefolding/main nbTranslate/main python-markdown/main toc2/main toggle_all_line_numbers/main;
+  do
+    run jupyter nbextension enable "${extension}" --sys-prefix
+  done
 
-run jupyter nbextension enable jupyter_nbextensions_configurator --py --sys-prefix
-run jupyter nbextension enable latex_envs --py --sys-prefix
-run jupyter nbextensions_configurator enable --sys-prefix
+  run jupyter nbextension enable jupyter_nbextensions_configurator --py --sys-prefix
+  run jupyter nbextension enable latex_envs --py --sys-prefix
+  run jupyter nbextensions_configurator enable --sys-prefix
+else
+  printf 'The classic «nbextension» command is not available (Notebook 7 or later); skipping the classic extensions\n' >&2
+fi
 
 # Registering the WebAssembly MIME type once, because the original appended the line on every run
 if ! grep -qs '^application/wasm[[:space:]]' /etc/mime.types;
