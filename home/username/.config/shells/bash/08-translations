@@ -1,0 +1,123 @@
+#!/usr/bin/env sh
+
+# 🇬🇧 Translations
+# 🇫🇷 Traductions
+# 🇮🇹 Traduzioni
+# 🇪🇸 Traducciones
+# 🇵🇹 Traduções
+# 🇩🇪 Übersetzen
+# 🇳🇱 Vertalingen
+# 🏴󠁥󠁳󠁣󠁴󠁿 Traduccions
+# 🇷🇴 Traduceri
+# 🇬🇷 Μεταφράσεις
+# 🇬🇪 თარგმანები
+# 🇺🇦 Переклади
+
+# Get the LANG environment variable
+lang_code="${LANG}"
+
+case "$lang_code" in
+  ca*) 
+    cannot_extract_error="no es pot extreure mitjançant la funció ex()"
+    invalid_format_error="no és un fitxer vàlid"
+    ethernet_up_label="Excel·lent"
+    ethernet_lower_up_label="Regular"
+    ethernet_down_label="Dolent"
+    ;;
+  de*) 
+    cannot_extract_error="kann nicht über die Funktion ex() extrahiert werden"
+    invalid_format_error="ist keine gültige Datei"
+    ethernet_up_label="Großartig"
+    ethernet_lower_up_label="Regelmäßig"
+    ethernet_down_label="Schlecht"
+    ;;
+  el*) 
+    cannot_extract_error="δεν μπορεί να εξαχθεί μέσω της συνάρτησης ex()"
+    invalid_format_error="δεν είναι έγκυρο αρχείο"
+    ethernet_up_label="Υπέροχο"
+    ethernet_lower_up_label="Κανονικό"
+    ethernet_down_label="Κακό"
+    ;;
+  es*) 
+    cannot_extract_error="no se puede extraer el archivo via la función ex()"
+    invalid_format_error="no es un formato válido"
+    ethernet_up_label="Excelente"
+    ethernet_lower_up_label="Bueno"
+    ethernet_down_label="Malo"
+    ;;
+  fr*) 
+    cannot_extract_error="ne peut pas être extrait via la fonction ex()"
+    invalid_format_error="n’est pas un fichier valide"
+    ethernet_up_label="Super"
+    ethernet_lower_up_label="Régulier"
+    ethernet_down_label="Mauvais"
+    ;;
+  it*) 
+    cannot_extract_error="non può essere estratto tramite la funzione ex()"
+    invalid_format_error="non è un file valido"
+    ethernet_up_label="Ottimo"
+    ethernet_lower_up_label="Regolare"
+    ethernet_down_label="Cattivo"
+    ;;
+  ka*) 
+    cannot_extract_error="არ შეიძლება ამოღება ფუნქციის ex() საშუალებით"
+    invalid_format_error="არ არის ვალიდური ფაილი"
+    ethernet_up_label="შესანიშნავი"
+    ethernet_lower_up_label="რეგულარული"
+    ethernet_down_label="ცუდი"
+    ;;
+  nl*) 
+    cannot_extract_error="kan niet worden geëxtraheerd via de functie ex()"
+    invalid_format_error="is geen geldig bestand"
+    ethernet_up_label="Geweldig"
+    ethernet_lower_up_label="Regulier"
+    ethernet_down_label="Slecht"
+    ;;
+  pt_BR*) 
+    cannot_extract_error="não pode ser extraído via a função ex()"
+    invalid_format_error="não é um arquivo válido"
+    ethernet_up_label="Ótimo"
+    ethernet_lower_up_label="Regular"
+    ethernet_down_label="Ruim"
+    ;;
+  pt*) 
+    cannot_extract_error="não pode ser extraído via a função ex()"
+    invalid_format_error="não é um ficheiro válido"
+    ethernet_up_label="Ótimo"
+    ethernet_lower_up_label="Regular"
+    ethernet_down_label="Mau"
+    ;;
+  ro*) 
+    cannot_extract_error="nu poate fi extras prin funcția ex()"
+    invalid_format_error="nu este un fișier valid"
+    ethernet_up_label="Excelent"
+    ethernet_lower_up_label="Regulat"
+    ethernet_down_label="Rău"
+    ;;
+  uk*) 
+    cannot_extract_error="не може бути витягнуто за допомогою функції ex()"
+    invalid_format_error="не є дійсним файлом"
+    ethernet_up_label="Чудово"
+    ethernet_lower_up_label="Звичайно"
+    ethernet_down_label="Погано"
+    ;;
+  *) 
+    # 🇬🇧 Assuming default English
+    # 🇫🇷 Supposons l’anglais par défaut
+    # 🇪🇸 Suponiendo inglés por defecto
+    # 🇮🇹 Assumendo l’inglese predefinito
+    # 🇵🇹 A assumir ou supôr o inglês padrão
+    # 🇩🇪 Standard-Englisch annehmen
+    # 🇳🇱 Standaard Engels aannemen
+    # 🏴󠁥󠁳󠁣󠁴󠁿 Suposant anglès per defecte
+    # 🇷🇴 Presupunând engleza implicit
+    # 🇬🇷 Υποθέτοντας την προεπιλεγμένη αγγλική
+    # 🇬🇪 ინგლისური როგორც დეფოლტი
+    # 🇺🇦 Припускаючи англійську за замовчуванням
+    cannot_extract_error="cannot be extracted via the ex() function"
+    invalid_format_error="is not a valid file"
+    ethernet_up_label="Great"
+    ethernet_lower_up_label="Regular"
+    ethernet_down_label="Bad"
+    ;;
+esac

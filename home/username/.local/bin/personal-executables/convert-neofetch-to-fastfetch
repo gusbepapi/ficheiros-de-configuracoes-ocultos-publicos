@@ -1,0 +1,141 @@
+#!/usr/bin/env python3
+# Converting a neofetch configuration file into a fastfetch configuration file
+#
+# Usage:
+#   convert-neofetch-to-fastfetch CONFIG [--colours FILE] > config.jsonc
+#
+# The `--colours` file is a shell file that defines `hex_<name>='#rrggbb'` variables, such as `~/.config/shells/bash/07-colours`
+# The converter reads `print_info`, `colors`, `ascii_colors`, `gap` and `image_backend`; any other option is ignored and reported on the standard error
+# Lines with `prin` that use `${variable}` become `command` modules, which read the variable from the environment, so the variable must be exported
+
+import argparse
+import json
+import os
+import re
+import sys
+
+MODULES = {
+  'title': 'title', 'underline': 'separator', 'distro': 'os', 'model': 'host', 'host': 'host', 'kernel': 'kernel',
+  'uptime': 'uptime', 'packages': 'packages', 'shell': 'shell', 'resolution': 'display', 'de': 'de', 'wm': 'wm',
+  'wm_theme': 'wmtheme', 'theme': 'theme', 'icons': 'icons', 'font': 'font', 'term': 'terminal', 'term_font': 'terminalfont',
+  'cpu': 'cpu', 'gpu': 'gpu', 'memory': 'memory', 'disk': 'disk', 'battery': 'battery', 'local_ip': 'localip',
+  'public_ip': 'publicip', 'users': 'users', 'locale': 'locale', 'song': 'media', 'cpu_usage': 'cpuusage', 'cols': 'colors',
+}
+
+
+def hex_table(path):
+  # Reading the `hex_<name>='#rrggbb'` variables of a shell file
+  table = {}
+  if path and os.path.exists(path):
+    with open(path, encoding='utf-8') as f:
+      for m in re.finditer(r"^hex_([A-Za-z0-9_]+)=['\"]?#([0-9a-fA-F]{6})", f.read(), re.M):
+        table[m.group(1)] = m.group(2)
+  return table
+
+
+def sgr(hexcode):
+  # Turning `rrggbb` into the true-colour SGR parameters
+  return '38;2;%d;%d;%d' % tuple(int(hexcode[i:i + 2], 16) for i in (0, 2, 4))
+
+
+def resolve(token, table):
+  # Resolving `$(neo_name)`, `$(fc_name)`, a number or `distro` to SGR parameters, or None
+  m = re.match(r'\$\((?:neo|fc)_([A-Za-z0-9_]+)\)$', token)
+  if m and m.group(1) in table:
+    return sgr(table[m.group(1)])
+  if token.isdigit():
+    return '38;5;%d' % int(token)
+  return None
+
+
+def array(text, name):
+  m = re.search(r'^\s*' + name + r'=\((.*?)\)\s*$', text, re.M)
+  return re.findall(r'"[^"]*"|\$\([^)]*\)|\S+', m.group(1)) if m else []
+
+
+def pieces(argument, table):
+  # Splitting a `prin` argument into coloured pieces: `$(fc_x 'text')` or plain text
+  out = []
+  position = 0
+  for m in re.finditer(r"\$\(fc_([A-Za-z0-9_]+) +(?:'([^']*)'|\"([^\"]*)\"|([^)]*))\)", argument):
+    if m.start() > position:
+      out.append((None, argument[position:m.start()]))
+    colour = sgr(table[m.group(1)]) if m.group(1) in table else None
+    out.append((colour, m.group(2) or m.group(3) or m.group(4) or ''))
+    position = m.end()
+  if position < len(argument):
+    out.append((None, argument[position:]))
+  return out
+
+
+def shell_quote(text):
+  return "'" + text.replace("'", "'\\''") + "'"
+
+
+def convert(path, colours):
+  with open(path, encoding='utf-8') as f:
+    text = f.read()
+  table = hex_table(colours)
+  body = re.search(r'print_info\(\)\s*\{(.*?)^\}', text, re.S | re.M)
+  modules = []
+  for line in (body.group(1) if body else '').splitlines():
+    line = line.strip()
+    m = re.match(r'info\s+(?:"([^"]*)"\s+)?(\w+)\s*$', line)
+    if m:
+      label, key = m.groups()
+      if key not in MODULES:
+        sys.stderr.write('skipped unknown info «%s» in %s\n' % (key, path))
+        continue
+      module = {'type': MODULES[key]}
+      if label and module['type'] not in ('title', 'separator', 'colors'):
+        module['key'] = label
+      modules.append(module)
+      continue
+    m = re.match(r'prin\s+(?:"([^"]*)"|(\S.*))$', line)
+    if m:
+      argument = m.group(1) if m.group(1) is not None else m.group(2)
+      shell = ''
+      for colour, chunk in pieces(argument, table):
+        start = "\\033[%sm" % colour if colour else ''
+        end = '\\033[0m' if colour else ''
+        shell += "printf '%s%%s%s' \"%s\"; " % (start, end, chunk.replace('"', '\\"').replace('`', '\\`'))
+      if any('$' in chunk for _, chunk in pieces(argument, table)):
+        modules.append({'type': 'command', 'key': ' ', 'text': shell.strip()})
+      else:
+        plain = ''.join(('{#%s}%s{#}' % (c, t)) if c else t for c, t in pieces(argument, table))
+        modules.append({'type': 'custom', 'format': plain})
+      continue
+    if line and not line.startswith('#') and not line.startswith('}'):
+      sys.stderr.write('ignored «%s» in %s\n' % (line[:60], path))
+  colors = array(text, 'colors')
+  display = {'separator': ': '}
+  if len(colors) >= 6:
+    for name, index in (('title', 0), ('keys', 3), ('separator', 4), ('output', 5)):
+      value = resolve(colors[index].strip('"'), table)
+      if value:
+        display.setdefault('color', {})[name] = value
+  gap = re.search(r'^gap=(\d+)', text, re.M)
+  logo = {'type': 'auto'}
+  if gap:
+    logo['padding'] = {'right': int(gap.group(1))}
+  backend = re.search(r'^image_backend="(\w+)"', text, re.M)
+  ascii_colours = array(text, 'ascii_colors')
+  if ascii_colours and ascii_colours != ['distro']:
+    logo['color'] = {str(i + 1): resolve(c, table) for i, c in enumerate(ascii_colours) if resolve(c, table)}
+  config = {'$schema': 'https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json', 'logo': logo, 'display': display, 'modules': modules}
+  head = '// Converted from %s by convert-neofetch-to-fastfetch\n' % os.path.basename(path)
+  if backend and backend.group(1) != 'ascii':
+    head += '// The original used the image backend «%s»; pass an image with `fastfetch --logo FILE`\n' % backend.group(1)
+  return head + json.dumps(config, indent=2, ensure_ascii=False) + '\n'
+
+
+def main():
+  parser = argparse.ArgumentParser(description='Converting a neofetch configuration into a fastfetch configuration')
+  parser.add_argument('config')
+  parser.add_argument('--colours', default=os.path.expanduser('~/.config/shells/bash/07-colours'))
+  args = parser.parse_args()
+  sys.stdout.write(convert(args.config, args.colours))
+
+
+if __name__ == '__main__':
+  main()

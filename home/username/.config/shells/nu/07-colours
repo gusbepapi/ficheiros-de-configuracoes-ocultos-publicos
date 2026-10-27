@@ -1,0 +1,1219 @@
+#!/usr/bin/env nu
+
+## 🇬🇧 Restore
+## 🇫🇷 Restaurer
+## 🇪🇸 Restaurar
+## 🇮🇹 Ripristinare
+## 🇵🇹 Restaurar
+## 🇩🇪 Wiederherstellen
+## 🇳🇱 Herstellen
+## 🏴󠁥󠁳󠁣󠁴󠁿 Restaurar
+## 🇷🇴 Restaurare
+## 🇬🇷 Αποκατάσταση
+## 🇬🇪 აღდგენა
+## 🇺🇦 Відновити
+const nc = "\e[0m"
+
+## 🇬🇧 Text foreground colour
+## 🇫🇷 Couleur de premier plan du texte
+## 🇪🇸 Color de primer plano del texto
+## 🇮🇹 Colore del testo in primo piano
+## 🇵🇹 Cor da frente do texto
+## 🇩🇪 Vordergrundfarbe des Textes
+## 🇳🇱 Voorgrondkleur van de tekst
+## 🏴󠁥󠁳󠁣󠁴󠁿 Color de primer pla del text
+## 🇷🇴 Culoarea de prim-plan a textului
+## 🇬🇷 Χρώμα προεξοχής κειμένου
+## 🇬🇪 ტექსტის წინა ფერის
+## 🇺🇦 Колір переднього плану тексту
+const frg = "38;2"
+
+## 🇬🇧 Text background colour
+## 🇫🇷 Couleur d’arrière-plan du texte
+## 🇪🇸 Color de fondo del texto
+## 🇮🇹 Colore di sfondo del testo
+## 🇵🇹 Cor de fundo do texto
+## 🇩🇪 Hintergrundfarbe des Textes
+## 🇳🇱 Achtergrondkleur van de tekst
+## 🏴󠁥󠁳󠁣󠁴󠁿 Color de fons del text
+## 🇷🇴 Culoarea de fundal a textului
+## 🇬🇷 Χρώμα φόντου κειμένου
+## 🇬🇪 ტექსტის ფონური ფერის
+## 🇺🇦 Колір фону тексту
+const bg = "48;2"
+
+## 🇬🇧 Italic
+## 🇫🇷 Italique
+## 🇪🇸 Cursiva
+## 🇮🇹 Corsivo
+## 🇵🇹 Itálico
+## 🇩🇪 Kursiv
+## 🇳🇱 Cursief
+## 🏴󠁥󠁳󠁣󠁴󠁿 Itàlic
+## 🇷🇴 Italic
+## 🇬🇷 Ιταλικά
+## 🇬🇪 კურსივი
+## 🇺🇦 Курсив
+const i = "3"
+
+## 🇬🇧 Bold
+## 🇫🇷 Gras
+## 🇪🇸 Negrita
+## 🇮🇹 Grassetto
+## 🇵🇹 Negrito
+## 🇩🇪 Fett
+## 🇳🇱 Vetgedrukt
+## 🏴󠁥󠁳󠁣󠁴󠁿 Negreta
+## 🇷🇴 Gras
+## 🇬🇷 Έντονα
+## 🇬🇪 მუქი
+## 🇺🇦 Жирний
+const n = "1"
+
+## 🇬🇧 Others
+## 🇫🇷 Autres
+## 🇪🇸 Otros
+## 🇮🇹 Altri
+## 🇵🇹 Outros
+## 🇩🇪 Andere
+## 🇳🇱 Anderen
+## 🏴󠁥󠁳󠁣󠁴󠁿 Altres
+## 🇷🇴 Altele
+## 🇬🇷 Άλλοι
+## 🇬🇪 სხვა
+## 🇺🇦 Інші
+const m = "m"
+
+# 🇬🇧 Colours
+# 🇫🇷 Couleurs
+# 🇪🇸 Colores
+# 🇮🇹 Colori
+# 🇵🇹 Cores
+# 🇩🇪 Farben
+# 🇳🇱 Kleuren
+# 🏴󠁥󠁳󠁣󠁴󠁿 Colors
+# 🇷🇴 Culori
+# 🇬🇷 Χρώματα
+# 🇬🇪 ფერები
+# 🇺🇦 Кольори
+
+## ITAÚ
+### 🇬🇧 The Itaú, Iti, Íon and Personnalité colours were derived from Itaú applications and websites
+### 🇫🇷 Les couleurs Itaú, Iti, Íon et Personnalité ont été dérivées des applications et sites web d’Itaú
+### 🇪🇸 Los colores Itaú, Iti, Íon y Personnalité se derivaron de las aplicaciones y sitios web de Itaú
+### 🇮🇹 I colori Itaú, Iti, Íon e Personnalité sono stati derivati dalle applicazioni e dai siti web di Itaú
+### 🇵🇹 As cores de Itaú, Iti, Íon e Personnalité foram derivadas das aplicações e sites da Itaú
+### 🇩🇪 Die Farben Itaú, Iti, Íon und Personnalité stammen von den Itaú-Anwendungen und -Websites
+### 🇳🇱 De kleuren Itaú, Iti, Íon en Personnalité zijn afgeleid van de Itaú-toepassingen en -websites
+### 🏴󠁥󠁳󠁣󠁴󠁿 Els colors Itaú, Iti, Íon i Personnalité es van derivar de les aplicacions i llocs web d’Itaú
+### 🇷🇴 Culorile Itaú, Iti, Íon și Personnalité au fost derivate din aplicațiile și site-urile web Itaú
+### 🇬🇷 Τα χρώματα Itaú, Iti, Íon και Personnalité προήλθαν από τις εφαρμογές και τους ιστότοπους του Itaú
+### 🇬🇪 Itaú, Iti, Íon და Personnalité ფერები წარმოიშვა Itaú-ის აპლიკაციებიდან და ვებსაიტებიდან
+### 🇺🇦 Кольори Itaú, Iti, Íon та Personnalité були отримані з додатків та веб-сайтів Itaú
+
+## LEAGUE OF LEGENDS
+### 🇬🇧 Derived from the Runeterra regions page on the League of Legends website:
+### 🇫🇷 Dérivé de la page des régions de Runeterra sur le site de League of Legends :
+### 🇪🇸 Derivado de la página de regiones de Runeterra en el sitio web de League of Legends:
+### 🇮🇹 Derivato dalla pagina delle regioni di Runeterra sul sito di League of Legends:
+### 🇵🇹 Derivado da página de regiões de Runeterra no site League of Legends:
+### 🇩🇪 Abgeleitet von der Seite der Runeterra-Regionen auf der Website von League of Legends:
+### 🇳🇱 Afgeleid van de pagina over de Runeterra-regio's op de League of Legends-website:
+### 🏴󠁥󠁳󠁣󠁴󠁿 Derivat de la pàgina de regions de Runeterra al lloc web de League of Legends:
+### 🇷🇴 Derivat de pagina regiunilor Runeterra de pe site-ul League of Legends:
+### 🇬🇷 Παράγωγο από τη σελίδα περιοχών του Ρουντέρα στον ιστότοπο του League of Legends:
+### 🇬🇪 მიღებულია რუნეტერა რეგიონების გვერდიდან League of Legends ვებსაიტზე:
+### 🇺🇦 Походить зі сторінки регіонів Рунтерри на сайті League of Legends:
+###
+### 🇬🇧 References
+### 🇫🇷 Références
+### 🇪🇸 Referencias
+### 🇮🇹 Riferimenti
+### 🇵🇹 Referências
+### 🇩🇪 Referenzen
+### 🇳🇱 Verwijzingen
+### 🏴󠁥󠁳󠁣󠁴󠁿 Referències
+### 🇷🇴 Referințe
+### 🇬🇷 Αναφορές
+### 🇬🇪 მითითებები
+### 🇺🇦 Посилання
+### https://universe.leagueoflegends.com/pt_BR/
+### https://na.leagueoflegends.com/en/featured/piltover
+
+## 🇬🇧 Observe that the hexadecimal codes for colours are compatible only with ZSH. For Bash, we provided a function that converts it to the ANSI RGB code because our goal is to unify Bash and ZSH
+## 🇵🇹 Observa que os códigos hexadecimais para as cores são compatíveis apenas com ZSH. Para Bash, fornecemos uma função que os converte para os códigos ANSI RGB porque o nosso objectivo é unificar Bash e ZSH
+## 🇪🇸 Tenga en cuenta que los códigos hexadecimales para los colores son compatibles solo con ZSH. Para Bash, proporcionamos una función que los convierte a los códigos ANSI RGB porque nuestro objetivo es unificar Bash y ZSH.
+
+### 🇬🇧 Defining a function to convert hexadecimal code format to RGB ANSI format
+### 🇫🇷 Définir une fonction pour convertir le format de code hexadécimal en format RGB ANSI
+### 🇪🇸 Definiendo una función para convertir el formato de código hexadecimal a formato RGB ANSI
+### 🇮🇹 Definire una funzione per convertire il formato del codice esadecimale in formato RGB ANSI
+### 🇵🇹 A definir uma função para converter o formato de código hexadecimal para o formato RGB ANSI
+### 🇩🇪 Eine Funktion definieren, um das hexadezimale Codeformat in das RGB ANSI-Format zu konvertieren
+### 🇳🇱 Een functie definiëren om het hexadecimale codeformaat naar het RGB ANSI-formaat te converteren
+###  Definint una funció per convertir el format de codi hexadecimal al format RGB ANSI
+### 🇷🇴 Definirea unei funcții pentru a converti formatul codului hexazecimal în format RGB ANSI
+### 🇬🇷 Ορισμός μιας συνάρτησης για τη μετατροπή της μορφής κωδικού δεκαεξαδικού σε μορφή RGB ANSI
+### 🇬🇪 ფუნქციის განსაზღვრა, რომ გარდაქმნას ექვსკუთხა კოდის ფორმატი RGB ANSI ფორმატში
+### 🇺🇦 Визначення функції для перетворення формату шістнадцяткового коду в формат RGB ANSI
+def hex_to_rgb [hex] { 
+  # 🇬🇧 Removing the hash character from the beginning of the hexadecimal code
+  # 🇫🇷 Suppression du caractère dièse au début du code hexadécimal
+  # 🇪🇸 Eliminación del carácter de hash al principio del código hexadecimal
+  # 🇮🇹 Rimozione del carattere hash all’inizio del codice esadecimale
+  # 🇵🇹 Remoção do caractere hash do início do código hexadecimal
+  # 🇩🇪 Entfernen des Hash-Zeichens am Anfang des hexadezimalen Codes
+  # 🇳🇱 Het verwijderen van het hash-teken aan het begin van de hexadecimale code
+  # 🏴󠁥󠁳󠁣󠁴󠁿 Eliminació del caràcter de hash al principi del codi hexadecimal
+  # 🇷🇴 Eliminarea caracterului hash de la începutul codului hexazecimal
+  # 🇬🇷 Αφαίρεση του χαρακτήρα hash στην αρχή του δεκαεξαδικού κώδικα
+  # 🇬🇪 ჰეშის სიმბოლოს წაშლა ექვსკუთხა კოდის დასაწყისში
+  # 🇺🇦 Видалення символу хешу на початку шістнадцяткового коду
+  let hex = if $hex starts-with "#" { $hex | str substring 1.. } else { $hex }
+
+  # 🇬🇧 Extracting the red, green, and blue components from the hexadecimal code
+  # 🇫🇷 Extraction des composants rouge, vert et bleu du code hexadécimal
+  # 🇪🇸 Extracción los componentes rojo, verde y azul del código hexadecimal
+  # 🇮🇹 Estrazione dei componenti rosso, verde e blu dal codice esadecimale
+  # 🇵🇹 Extração dos componentes vermelho, verde e azul do código hexadecimal
+  # 🇩🇪 Extrahieren der roten, grünen und blauen Komponenten aus dem hexadezimalen Code
+  # 🇳🇱 Het extraheren van de rode, groene en blauwe componenten uit de hexadecimale code
+  # 🏴󠁥󠁳󠁣󠁴󠁿 Extracció dels components vermell, verd i blau del codi hexadecimal
+  # 🇷🇴 Extracția componentelor roșu, verde și albastru din codul hexazecimal
+  # 🇬🇷 Εξαγωγή των κόκκινων, πράσινων και μπλε συστατικών από τον δεκαεξαδικό κώδικα
+  # 🇬🇪 წითელი, მწვანე და ლურჯი კომპონენტების გამოყოფა ექვსკუთხა კოდიდან
+  # 🇺🇦 Витягування червоного, зеленого та синього компонентів з шістнадцяткового коду
+  let r = $hex | str substring 0..1
+  let g = $hex | str substring 2..3
+  let b = $hex | str substring 4..5
+
+  # 🇬🇧 Converting the hexadecimal values to the decimal values
+  # 🇫🇷 Conversion des valeurs hexadécimales en valeurs décimales
+  # 🇪🇸 Conversión de los valores hexadecimales a los valores decimales
+  # 🇮🇹 Conversione dei valori esadecimali in valori decimali
+  # 🇵🇹 Conversão dos valores hexadecimais para os valores decimais
+  # 🇩🇪 Umwandlung der hexadezimalen Werte in die dezimalen Werte
+  # 🇳🇱 Het converteren van de hexadecimale waarden naar de decimale waarden
+  # 🏴󠁥󠁳󠁣󠁴󠁿 Conversió dels valors hexadecimals als valors decimals
+  # 🇷🇴 Conversia valorilor hexazecimale în valorile zecimale
+  # 🇬🇷 Μετατροπή των δεκαεξαδικών τιμών σε δεκαδικές τιμές
+  # 🇬🇪 ექვსკუთხა მნიშვნელობების გარდაქმნა ათობით მნიშვნელობებად
+  # 🇺🇦 Перетворення шістнадцяткових значень у десяткові значення
+  let r = $r | into int -r 16
+  let g = $g | into int -r 16
+  let b = $b | into int -r 16
+
+  # 🇬🇧 Printing the ANSI RGB code
+  # 🇫🇷 Impression du code RGB ANSI
+  # 🇪🇸 Imprimir el código RGB ANSI
+  # 🇮🇹 Stampa del codice RGB ANSI
+  # 🇵🇹 Impressão do código RGB ANSI
+  # 🇩🇪 Drucken des ANSI RGB-Codes
+  # 🇳🇱 Het afdrukken van de ANSI RGB-code
+  # 🏴󠁥󠁳󠁣󠁴󠁿 Impressió del codi RGB ANSI
+  # 🇷🇴 Tipărirea codului RGB ANSI
+  # 🇬🇷 Εκτύπωση του κωδικού RGB ANSI
+  # 🇬🇪 ANSI RGB კოდის დაბეჭდვა
+  # 🇺🇦 Друк коду ANSI RGB
+  $"($r);($g);($b)"
+}
+
+### Itaú Empresas
+const hex_itau_empresas_00 = "#D6D0CC"
+const hex_itau_empresas_01 = '#89837F'
+const hex_itau_empresas_02 = '#EC7000'
+const hex_itau_empresas_03 = '#e7eb19'
+const hex_itau_empresas_04 = '#003767'
+
+### Itaú Íon
+const hex_itau_ion_00 = '#a7ce2e'
+const hex_itau_ion_01 = '#c3cec4'
+const hex_itau_ion_02 = '#a4b4a6'
+const hex_itau_ion_03 = '#133134'
+const hex_itau_ion_04 = '#21656c'
+const hex_itau_ion_05 = '#687678'
+const hex_itau_ion_06 = '#091b1e'
+const hex_itau_ion_07 = '#a02bff'
+
+### Itaú Iti
+const hex_itau_iti_00 = '#6f1dff'
+const hex_itau_iti_01 = '#cfbbf2'
+const hex_itau_iti_02 = '#e60073'
+const hex_itau_iti_03 = '#facfe1'
+const hex_itau_iti_04 = '#fe3386'
+
+### Itaú Personnalité
+const hex_itau_personnalite_00 = '#773d38'
+const hex_itau_personnalite_01 = '#a35d54'
+const hex_itau_personnalite_02 = '#f2cfbc'
+const hex_itau_personnalite_03 = '#ffe6d5'
+const hex_itau_personnalite_04 = '#ddae60'
+const hex_itau_personnalite_05 = '#906d20'
+const hex_itau_personnalite_06 = '#10546a'
+const hex_itau_personnalite_07 = '#0a3147'
+const hex_itau_personnalite_08 = '#192d64'
+const hex_itau_personnalite_09 = '#0d1733'
+
+### LGBQTIA+
+const hex_lgbt_red = '#e50000'
+const hex_lgbt_orange = '#61360d'
+const hex_lgbt_yellow = '#ff8d00'
+const hex_lgbt_green = '#ffee00'
+const hex_lgbt_blue = '#008121'
+const hex_lgbt_purple = '#6fd5e7'
+const hex_lgbt_pink = '#004cff'
+const hex_lgbt_sky = '#760188'
+const hex_lgbt_brown = '#ffb0c8'
+
+### Noxus
+const hex_noxus_00 = '#211b1b'
+const hex_noxus_01 = '#3b2720'
+const hex_noxus_02 = '#704b38'
+const hex_noxus_03 = '#887062'
+const hex_noxus_04 = '#56412c'
+const hex_noxus_05 = '#797267'
+const hex_noxus_06 = '#c5bca9'
+const hex_noxus_07 = '#d0ba7c'
+const hex_noxus_08 = '#929f81'
+const hex_noxus_09 = '#464f3c'
+const hex_noxus_10 = '#202422'
+const hex_noxus_11 = '#a79fa2'
+
+### Piltover
+const hex_piltover_00 = '#a47462'
+const hex_piltover_01 = '#42331c'
+const hex_piltover_02 = '#56411f'
+const hex_piltover_03 = '#46433e'
+const hex_piltover_04 = '#faf7f1'
+const hex_piltover_05 = '#cdbe91'
+const hex_piltover_06 = '#39362c'
+const hex_piltover_07 = '#8b7c48'
+const hex_piltover_08 = '#d3c88d'
+const hex_piltover_09 = '#556b66'
+const hex_piltover_10 = '#0fa2a6'
+const hex_piltover_11 = '#1f292a'
+const hex_piltover_12 = '#202833'
+
+### Shurima
+const hex_shurima_00 = '#75615a'
+const hex_shurima_01 = '#402c22'
+const hex_shurima_02 = '#a77554'
+const hex_shurima_03 = '#ddcbaf'
+const hex_shurima_04 = '#85714f'
+const hex_shurima_05 = '#b49256'
+const hex_shurima_06 = '#d8ae5c'
+const hex_shurima_07 = '#eddd97'
+const hex_shurima_08 = '#7a786c'
+const hex_shurima_09 = '#8ba98f'
+const hex_shurima_10 = '#cfe1eb'
+const hex_shurima_11 = '#4c3f46'
+
+### Targon
+const hex_targon_00 = '#6d5245'
+const hex_targon_01 = '#c2b2a8'
+const hex_targon_02 = '#c78646'
+const hex_targon_03 = '#8a7960'
+const hex_targon_04 = '#444e45'
+const hex_targon_05 = '#518557'
+const hex_targon_06 = '#7b8f8c'
+const hex_targon_07 = '#455362'
+const hex_targon_08 = '#e5e4e9'
+const hex_targon_09 = '#9587ad'
+const hex_targon_10 = '#744e98'
+const hex_targon_11 = '#2a1e33'
+
+### Zaun
+const hex_zaun_00 = '#9e9b50'
+const hex_zaun_01 = '#6e765f'
+const hex_zaun_02 = '#deffab'
+const hex_zaun_03 = '#59a424'
+
+### 🇬🇧 Defining a function to print the text in italics
+### 🇫🇷 Définir une fonction pour imprimer le texte en italique
+### 🇪🇸 Definiendo una función para imprimir el texto en cursiva
+### 🇮🇹 Definire una funzione per stampare il testo in corsivo
+### 🇵🇹 Definir uma função para imprimir o texto em itálico
+### 🇩🇪 Eine Funktion definieren, um den Text kursiv zu drucken
+### 🇳🇱 Een functie definiëren om de tekst cursief af te drukken
+### 🏴󠁥󠁳󠁣󠁴󠁿 Definint una funció per imprimir el text en cursiva
+### 🇷🇴 Definirea unei funcții pentru a imprima textul în italic
+### 🇬🇷 Ορισμός μιας συνάρτησης για να εκτυπώσει το κείμενο σε πλάγια γραφή
+### 🇬🇪 ფუნქციის განსაზღვრა, რომ ტექსტი დაბეჭდოს კურსივით
+### 🇺🇦 Визначення функції для друку тексту курсивом
+def italico [text] {$"\e[($i)($m)($text)($nc)"}
+
+### 🇬🇧 Defining a function to print the text in bold
+### 🇫🇷 Définir une fonction pour imprimer le texte en gras
+### 🇪🇸 Definiendo una función para imprimir el texto en negrita
+### 🇮🇹 Definire una funzione per stampare il testo in grassetto
+### 🇵🇹 Definir uma função para imprimir o texto em negrito
+### 🇩🇪 Eine Funktion definieren, um den Text fett zu drucken
+### 🇳🇱 Een functie definiëren om de tekst vetgedrukt af te drukken
+### 🏴󠁥󠁳󠁣󠁴󠁿 Definint una funció per imprimir el text en negreta
+### 🇷🇴 Definirea unei funcții pentru a imprima textul cu litere îngroșate
+### 🇬🇷 Ορισμός μιας συνάρτησης για να εκτυπώσει το κείμενο με έντονα γράμματα
+### 🇬🇪 ფუნქციის განსაზღვრა ტექსტის გასახდელად
+### 🇺🇦 Визначення функції для друку тексту жирним шрифтом
+def negrito [text] {$"\e[($n)($m)($text)($nc)"}
+
+### 🇬🇧 Defining the functions to print a message, using these hexadecimal codes variables
+### 🇫🇷 Définir les fonctions pour imprimer un message, en utilisant ces variables de codes hexadécimaux
+### 🇪🇸 Definir las funciones para imprimir un mensaje, utilizando estas variables de códigos hexadecimales
+### 🇮🇹 Definire le funzioni per stampare un messaggio, utilizzando queste variabili di codici esadecimali
+### 🇵🇹 Definir as funções para imprimir uma mensagem, usando estas variáveis de códigos hexadecimais
+### 🇩🇪 Eine Funktion definieren, um eine Nachricht zu drucken, indem diese Variablen für hexadezimale Codes verwendet werden
+### 🇳🇱 Functies definiëren om een bericht af te drukken, met behulp van deze variabelen voor hexadecimale codes
+### 🏴󠁥󠁳󠁣󠁴󠁿 Definint les funcions per imprimir un missatge, utilitzant aquestes variables de codis hexadecimals
+### 🇷🇴 Definirea funcțiilor pentru a imprima un mesaj, folosind aceste variabile de coduri hexazecimale
+### 🇬🇷 Ορισμός των συναρτήσεων για να εκτυπώσει ένα μήνυμα, χρησιμοποιώντας αυτές τις μεταβλητές κωδικών δεκαεξαδικών
+### 🇬🇪 ფუნქციების განსაზღვრა შეტყობინების გასახდელად, ამ ექვსკუთხედი კოდების ცვლადების გამოყენებით
+### 🇺🇦 Визначення функцій для друку повідомлення, використовуючи ці змінні шістнадцяткових кодів
+
+#### 🇬🇧 Globally compatible
+#### 🇫🇷 Globalement compatible
+#### 🇪🇸 Globalmente compatible
+#### 🇮🇹 Globalmente compatibile
+#### 🇵🇹 Globalmente compatível
+#### 🇩🇪 Global kompatibel
+#### 🇳🇱 Globaal compatibel
+#### 🏴󠁥󠁳󠁣󠁴󠁿 Globalment compatible
+#### 🇷🇴 Compatibil global
+#### 🇬🇷 Παγκοσμίως συμβατό
+#### 🇬🇪 გლობალურად თავსებადია
+#### 🇺🇦 Глобально сумісний
+def itau_empresas_00 [text] {let rgb = hex_to_rgb $hex_itau_empresas_00; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def itau_empresas_01 [text] {let rgb = hex_to_rgb $hex_itau_empresas_01; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def itau_empresas_02 [text] {let rgb = hex_to_rgb $hex_itau_empresas_02; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def itau_empresas_03 [text] {let rgb = hex_to_rgb $hex_itau_empresas_03; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def itau_empresas_04 [text] {let rgb = hex_to_rgb $hex_itau_empresas_04; $"\e[($frg);($rgb)($m)($text)($nc)"}
+
+def itau_ion_00 [text] {let rgb = hex_to_rgb $hex_itau_ion_00; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def itau_ion_01 [text] {let rgb = hex_to_rgb $hex_itau_ion_01; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def itau_ion_02 [text] {let rgb = hex_to_rgb $hex_itau_ion_02; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def itau_ion_03 [text] {let rgb = hex_to_rgb $hex_itau_ion_03; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def itau_ion_04 [text] {let rgb = hex_to_rgb $hex_itau_ion_04; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def itau_ion_05 [text] {let rgb = hex_to_rgb $hex_itau_ion_05; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def itau_ion_06 [text] {let rgb = hex_to_rgb $hex_itau_ion_06; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def itau_ion_07 [text] {let rgb = hex_to_rgb $hex_itau_ion_07; $"\e[($frg);($rgb)($m)($text)($nc)"}
+
+def itau_iti_00 [text] {let rgb = hex_to_rgb $hex_itau_iti_00; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def itau_iti_01 [text] {let rgb = hex_to_rgb $hex_itau_iti_01; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def itau_iti_02 [text] {let rgb = hex_to_rgb $hex_itau_iti_02; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def itau_iti_03 [text] {let rgb = hex_to_rgb $hex_itau_iti_03; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def itau_iti_04 [text] {let rgb = hex_to_rgb $hex_itau_iti_04; $"\e[($frg);($rgb)($m)($text)($nc)"}
+
+def itau_personnalite_00 [text] {let rgb = hex_to_rgb $hex_itau_personnalite_00; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def itau_personnalite_01 [text] {let rgb = hex_to_rgb $hex_itau_personnalite_01; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def itau_personnalite_02 [text] {let rgb = hex_to_rgb $hex_itau_personnalite_02; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def itau_personnalite_03 [text] {let rgb = hex_to_rgb $hex_itau_personnalite_03; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def itau_personnalite_04 [text] {let rgb = hex_to_rgb $hex_itau_personnalite_04; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def itau_personnalite_05 [text] {let rgb = hex_to_rgb $hex_itau_personnalite_05; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def itau_personnalite_06 [text] {let rgb = hex_to_rgb $hex_itau_personnalite_06; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def itau_personnalite_07 [text] {let rgb = hex_to_rgb $hex_itau_personnalite_07; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def itau_personnalite_08 [text] {let rgb = hex_to_rgb $hex_itau_personnalite_08; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def itau_personnalite_09 [text] {let rgb = hex_to_rgb $hex_itau_personnalite_09; $"\e[($frg);($rgb)($m)($text)($nc)"}
+
+def lgbt_red    [text] {let rgb = hex_to_rgb $hex_lgbt_red;    $"\e[($frg);($rgb)($m)($text)($nc)"}
+def lgbt_brown  [text] {let rgb = hex_to_rgb $hex_lgbt_brown;  $"\e[($frg);($rgb)($m)($text)($nc)"}
+def lgbt_orange [text] {let rgb = hex_to_rgb $hex_lgbt_orange; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def lgbt_yellow [text] {let rgb = hex_to_rgb $hex_lgbt_yellow; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def lgbt_green  [text] {let rgb = hex_to_rgb $hex_lgbt_green;  $"\e[($frg);($rgb)($m)($text)($nc)"}
+def lgbt_sky    [text] {let rgb = hex_to_rgb $hex_lgbt_sky;    $"\e[($frg);($rgb)($m)($text)($nc)"}
+def lgbt_blue   [text] {let rgb = hex_to_rgb $hex_lgbt_blue;   $"\e[($frg);($rgb)($m)($text)($nc)"}
+def lgbt_purple [text] {let rgb = hex_to_rgb $hex_lgbt_purple; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def lgbt_pink   [text] {let rgb = hex_to_rgb $hex_lgbt_pink;   $"\e[($frg);($rgb)($m)($text)($nc)"}
+
+def noxus_00 [text] {let rgb = hex_to_rgb $hex_noxus_00; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def noxus_01 [text] {let rgb = hex_to_rgb $hex_noxus_01; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def noxus_02 [text] {let rgb = hex_to_rgb $hex_noxus_02; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def noxus_03 [text] {let rgb = hex_to_rgb $hex_noxus_03; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def noxus_04 [text] {let rgb = hex_to_rgb $hex_noxus_04; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def noxus_05 [text] {let rgb = hex_to_rgb $hex_noxus_05; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def noxus_06 [text] {let rgb = hex_to_rgb $hex_noxus_06; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def noxus_07 [text] {let rgb = hex_to_rgb $hex_noxus_07; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def noxus_08 [text] {let rgb = hex_to_rgb $hex_noxus_08; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def noxus_09 [text] {let rgb = hex_to_rgb $hex_noxus_09; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def noxus_10 [text] {let rgb = hex_to_rgb $hex_noxus_10; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def noxus_11 [text] {let rgb = hex_to_rgb $hex_noxus_11; $"\e[($frg);($rgb)($m)($text)($nc)"}
+
+def piltover_00 [text] {let rgb = hex_to_rgb $hex_piltover_00; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def piltover_01 [text] {let rgb = hex_to_rgb $hex_piltover_01; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def piltover_02 [text] {let rgb = hex_to_rgb $hex_piltover_02; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def piltover_03 [text] {let rgb = hex_to_rgb $hex_piltover_03; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def piltover_04 [text] {let rgb = hex_to_rgb $hex_piltover_04; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def piltover_05 [text] {let rgb = hex_to_rgb $hex_piltover_05; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def piltover_06 [text] {let rgb = hex_to_rgb $hex_piltover_06; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def piltover_07 [text] {let rgb = hex_to_rgb $hex_piltover_07; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def piltover_08 [text] {let rgb = hex_to_rgb $hex_piltover_08; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def piltover_09 [text] {let rgb = hex_to_rgb $hex_piltover_09; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def piltover_10 [text] {let rgb = hex_to_rgb $hex_piltover_10; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def piltover_11 [text] {let rgb = hex_to_rgb $hex_piltover_11; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def piltover_12 [text] {let rgb = hex_to_rgb $hex_piltover_12; $"\e[($frg);($rgb)($m)($text)($nc)"}
+
+def shurima_00 [text] {let rgb = hex_to_rgb $hex_shurima_00; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def shurima_01 [text] {let rgb = hex_to_rgb $hex_shurima_01; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def shurima_02 [text] {let rgb = hex_to_rgb $hex_shurima_02; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def shurima_03 [text] {let rgb = hex_to_rgb $hex_shurima_03; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def shurima_04 [text] {let rgb = hex_to_rgb $hex_shurima_04; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def shurima_05 [text] {let rgb = hex_to_rgb $hex_shurima_05; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def shurima_06 [text] {let rgb = hex_to_rgb $hex_shurima_06; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def shurima_07 [text] {let rgb = hex_to_rgb $hex_shurima_07; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def shurima_08 [text] {let rgb = hex_to_rgb $hex_shurima_08; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def shurima_09 [text] {let rgb = hex_to_rgb $hex_shurima_09; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def shurima_10 [text] {let rgb = hex_to_rgb $hex_shurima_10; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def shurima_11 [text] {let rgb = hex_to_rgb $hex_shurima_11; $"\e[($frg);($rgb)($m)($text)($nc)"}
+
+def targon_00 [text] {let rgb = hex_to_rgb $hex_targon_00; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def targon_01 [text] {let rgb = hex_to_rgb $hex_targon_01; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def targon_02 [text] {let rgb = hex_to_rgb $hex_targon_02; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def targon_03 [text] {let rgb = hex_to_rgb $hex_targon_03; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def targon_04 [text] {let rgb = hex_to_rgb $hex_targon_04; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def targon_05 [text] {let rgb = hex_to_rgb $hex_targon_05; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def targon_06 [text] {let rgb = hex_to_rgb $hex_targon_06; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def targon_07 [text] {let rgb = hex_to_rgb $hex_targon_07; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def targon_08 [text] {let rgb = hex_to_rgb $hex_targon_08; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def targon_09 [text] {let rgb = hex_to_rgb $hex_targon_09; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def targon_10 [text] {let rgb = hex_to_rgb $hex_targon_10; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def targon_11 [text] {let rgb = hex_to_rgb $hex_targon_11; $"\e[($frg);($rgb)($m)($text)($nc)"}
+
+def zaun_00 [text] {let rgb = hex_to_rgb $hex_zaun_00; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def zaun_01 [text] {let rgb = hex_to_rgb $hex_zaun_01; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def zaun_02 [text] {let rgb = hex_to_rgb $hex_zaun_02; $"\e[($frg);($rgb)($m)($text)($nc)"}
+def zaun_03 [text] {let rgb = hex_to_rgb $hex_zaun_03; $"\e[($frg);($rgb)($m)($text)($nc)"}
+
+#### 🇬🇧 Dark mode
+#### 🇫🇷 Mode sombre
+#### 🇪🇸 Modo oscuro
+#### 🇮🇹 Modalità scura
+#### 🇵🇹 Modo escuro
+#### 🇩🇪 Dunkler Modus
+#### 🇳🇱 Donkere modus
+#### 🏴󠁥󠁳󠁣󠁴󠁿 Mode fosc
+#### 🇷🇴 Mod închis
+#### 🇬🇷 Σκοτεινός τρόπος
+#### 🇬🇪 მუქი რეჟიმი
+#### 🇺🇦 Темний режим
+
+##### 🇬🇧 For code and samp
+##### 🇫🇷 Pour les codes internes
+##### 🇪🇸 Para los códigos internos
+##### 🇮🇹 Per i codici interni
+##### 🇵🇹 Para os códigos internos
+##### 🇩🇪 Für die internen Codes
+##### 🇳🇱 Voor de interne codes
+##### 🏴󠁥󠁳󠁣󠁴󠁿 Per als codis interns
+##### 🇷🇴 Pentru codurile interne
+##### 🇬🇷 Για τους εσωτερικούς κωδικούς
+##### 🇬🇪 შიდა კოდებისთვის
+##### 🇺🇦 Для внутрішніх кодів
+def dark_code_itau_empresas_00 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_empresas_00
+  let bg_colour = hex_to_rgb $hex_itau_empresas_04
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_itau_empresas_01 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_empresas_03
+  let bg_colour = hex_to_rgb $hex_itau_empresas_04
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_itau_ion_00 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_ion_00
+  let bg_colour = hex_to_rgb $hex_itau_ion_03
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_itau_ion_01 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_ion_01
+  let bg_colour = hex_to_rgb $hex_itau_ion_03
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_itau_ion_02 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_ion_02
+  let bg_colour = hex_to_rgb $hex_itau_ion_03
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_itau_ion_03 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_ion_00
+  let bg_colour = hex_to_rgb $hex_itau_ion_04
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_itau_ion_04 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_ion_01
+  let bg_colour = hex_to_rgb $hex_itau_ion_04
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_itau_ion_05 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_ion_02
+  let bg_colour = hex_to_rgb $hex_itau_ion_04
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_itau_ion_06 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_ion_00
+  let bg_colour = hex_to_rgb $hex_itau_ion_06
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_itau_ion_07 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_ion_01
+  let bg_colour = hex_to_rgb $hex_itau_ion_06
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_itau_ion_08 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_ion_02
+  let bg_colour = hex_to_rgb $hex_itau_ion_06
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_itau_iti_00 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_iti_00
+  let bg_colour = hex_to_rgb $hex_itau_iti_01
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_itau_iti_01 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_ion_03
+  let bg_colour = hex_to_rgb $hex_itau_ion_01
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_itau_iti_02 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_iti_02
+  let bg_colour = hex_to_rgb $hex_itau_iti_01
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_itau_iti_03 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_iti_02
+  let bg_colour = hex_to_rgb $hex_itau_iti_03
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_itau_iti_04 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_iti_04
+  let bg_colour = hex_to_rgb $hex_itau_iti_01
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_itau_iti_05 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_iti_04
+  let bg_colour = hex_to_rgb $hex_itau_iti_03
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_itau_personnalite_00 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_personnalite_00
+  let bg_colour = hex_to_rgb $hex_itau_personnalite_02
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_itau_personnalite_01 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_personnalite_00
+  let bg_colour = hex_to_rgb $hex_itau_personnalite_03
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_itau_personnalite_02 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_personnalite_00
+  let bg_colour = hex_to_rgb $hex_itau_personnalite_04
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_itau_personnalite_03 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_personnalite_01
+  let bg_colour = hex_to_rgb $hex_itau_personnalite_02
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_itau_personnalite_04 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_personnalite_05
+  let bg_colour = hex_to_rgb $hex_itau_personnalite_02
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_itau_personnalite_05 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_personnalite_06
+  let bg_colour = hex_to_rgb $hex_itau_personnalite_02
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_itau_personnalite_06 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_personnalite_06
+  let bg_colour = hex_to_rgb $hex_itau_personnalite_03
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_itau_personnalite_07 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_personnalite_06
+  let bg_colour = hex_to_rgb $hex_itau_personnalite_04
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_itau_personnalite_08 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_personnalite_07
+  let bg_colour = hex_to_rgb $hex_itau_personnalite_02
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_itau_personnalite_09 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_personnalite_07
+  let bg_colour = hex_to_rgb $hex_itau_personnalite_03
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_itau_personnalite_10 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_personnalite_07
+  let bg_colour = hex_to_rgb $hex_itau_personnalite_04
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_itau_personnalite_11 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_personnalite_08
+  let bg_colour = hex_to_rgb $hex_itau_personnalite_02
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_itau_personnalite_12 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_personnalite_08
+  let bg_colour = hex_to_rgb $hex_itau_personnalite_03
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_itau_personnalite_13 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_personnalite_08
+  let bg_colour = hex_to_rgb $hex_itau_personnalite_04
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_itau_personnalite_14 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_personnalite_09
+  let bg_colour = hex_to_rgb $hex_itau_personnalite_02
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_itau_personnalite_15 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_personnalite_09
+  let bg_colour = hex_to_rgb $hex_itau_personnalite_03
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_itau_personnalite_16 [text] {
+  let fg_colour = hex_to_rgb $hex_itau_personnalite_09
+  let bg_colour = hex_to_rgb $hex_itau_personnalite_04
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_noxus_00 [text] {
+  let bg_colour = hex_to_rgb $hex_noxus_00
+  let fg_colour = hex_to_rgb $hex_noxus_02
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_noxus_01 [text] {
+  let bg_colour = hex_to_rgb $hex_noxus_00
+  let fg_colour = hex_to_rgb $hex_noxus_03
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_noxus_02 [text] {
+  let bg_colour = hex_to_rgb $hex_noxus_00
+  let fg_colour = hex_to_rgb $hex_noxus_05
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_noxus_03 [text] {
+  let bg_colour = hex_to_rgb $hex_noxus_00
+  let fg_colour = hex_to_rgb $hex_noxus_06
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_noxus_04 [text] {
+  let bg_colour = hex_to_rgb $hex_noxus_00
+  let fg_colour = hex_to_rgb $hex_noxus_07
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_noxus_05 [text] {
+  let bg_colour = hex_to_rgb $hex_noxus_00
+  let fg_colour = hex_to_rgb $hex_noxus_08
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_noxus_06 [text] {
+  let bg_colour = hex_to_rgb $hex_noxus_00
+  let fg_colour = hex_to_rgb $hex_noxus_11
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_noxus_07 [text] {
+  let bg_colour = hex_to_rgb $hex_noxus_01
+  let fg_colour = hex_to_rgb $hex_noxus_02
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_noxus_08 [text] {
+  let bg_colour = hex_to_rgb $hex_noxus_01
+  let fg_colour = hex_to_rgb $hex_noxus_03
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_noxus_09 [text] {
+  let bg_colour = hex_to_rgb $hex_noxus_01
+  let fg_colour = hex_to_rgb $hex_noxus_05
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_noxus_10 [text] {
+  let bg_colour = hex_to_rgb $hex_noxus_01
+  let fg_colour = hex_to_rgb $hex_noxus_06
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_noxus_11 [text] {
+  let bg_colour = hex_to_rgb $hex_noxus_01
+  let fg_colour = hex_to_rgb $hex_noxus_07
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_noxus_12 [text] {
+  let bg_colour = hex_to_rgb $hex_noxus_01
+  let fg_colour = hex_to_rgb $hex_noxus_08
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_noxus_13 [text] {
+  let bg_colour = hex_to_rgb $hex_noxus_01
+  let fg_colour = hex_to_rgb $hex_noxus_11
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_noxus_14 [text] {
+  let bg_colour = hex_to_rgb $hex_noxus_04
+  let fg_colour = hex_to_rgb $hex_noxus_07
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_noxus_15 [text] {
+  let bg_colour = hex_to_rgb $hex_noxus_04
+  let fg_colour = hex_to_rgb $hex_noxus_08
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_noxus_16 [text] {
+  let bg_colour = hex_to_rgb $hex_noxus_04
+  let fg_colour = hex_to_rgb $hex_noxus_11
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_noxus_17 [text] {
+  let bg_colour = hex_to_rgb $hex_noxus_09
+  let fg_colour = hex_to_rgb $hex_noxus_06
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_noxus_18 [text] {
+  let bg_colour = hex_to_rgb $hex_noxus_09
+  let fg_colour = hex_to_rgb $hex_noxus_07
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_noxus_19 [text] {
+  let bg_colour = hex_to_rgb $hex_noxus_09
+  let fg_colour = hex_to_rgb $hex_noxus_08
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_noxus_20 [text] {
+  let bg_colour = hex_to_rgb $hex_noxus_09
+  let fg_colour = hex_to_rgb $hex_noxus_11
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_noxus_21 [text] {
+  let bg_colour = hex_to_rgb $hex_noxus_10
+  let fg_colour = hex_to_rgb $hex_noxus_02
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_noxus_22 [text] {
+  let bg_colour = hex_to_rgb $hex_noxus_10
+  let fg_colour = hex_to_rgb $hex_noxus_03
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_noxus_23 [text] {
+  let bg_colour = hex_to_rgb $hex_noxus_10
+  let fg_colour = hex_to_rgb $hex_noxus_05
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_noxus_24 [text] {
+  let bg_colour = hex_to_rgb $hex_noxus_10
+  let fg_colour = hex_to_rgb $hex_noxus_06
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_noxus_25 [text] {
+  let bg_colour = hex_to_rgb $hex_noxus_10
+  let fg_colour = hex_to_rgb $hex_noxus_07
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_noxus_26 [text] {
+  let bg_colour = hex_to_rgb $hex_noxus_10
+  let fg_colour = hex_to_rgb $hex_noxus_08
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_noxus_27 [text] {
+  let bg_colour = hex_to_rgb $hex_noxus_10
+  let fg_colour = hex_to_rgb $hex_noxus_11
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_piltover_00 [text] {
+  let bg_colour = hex_to_rgb $hex_piltover_01
+  let fg_colour = hex_to_rgb $hex_piltover_00
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_piltover_01 [text] {
+  let bg_colour = hex_to_rgb $hex_piltover_01
+  let fg_colour = hex_to_rgb $hex_piltover_04
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_piltover_02 [text] {
+  let bg_colour = hex_to_rgb $hex_piltover_01
+  let fg_colour = hex_to_rgb $hex_piltover_05
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_piltover_03 [text] {
+  let bg_colour = hex_to_rgb $hex_piltover_01
+  let fg_colour = hex_to_rgb $hex_piltover_08
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_piltover_04 [text] {
+  let bg_colour = hex_to_rgb $hex_piltover_02
+  let fg_colour = hex_to_rgb $hex_piltover_00
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_piltover_05 [text] {
+  let bg_colour = hex_to_rgb $hex_piltover_02
+  let fg_colour = hex_to_rgb $hex_piltover_04
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_piltover_06 [text] {
+  let bg_colour = hex_to_rgb $hex_piltover_02
+  let fg_colour = hex_to_rgb $hex_piltover_05
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_piltover_07 [text] {
+  let bg_colour = hex_to_rgb $hex_piltover_02
+  let fg_colour = hex_to_rgb $hex_piltover_08
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_piltover_08 [text] {
+  let bg_colour = hex_to_rgb $hex_piltover_03
+  let fg_colour = hex_to_rgb $hex_piltover_00
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_piltover_09 [text] {
+  let bg_colour = hex_to_rgb $hex_piltover_03
+  let fg_colour = hex_to_rgb $hex_piltover_04
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_piltover_10 [text] {
+  let bg_colour = hex_to_rgb $hex_piltover_03
+  let fg_colour = hex_to_rgb $hex_piltover_05
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_piltover_11 [text] {
+  let bg_colour = hex_to_rgb $hex_piltover_03
+  let fg_colour = hex_to_rgb $hex_piltover_08
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_piltover_12 [text] {
+  let bg_colour = hex_to_rgb $hex_piltover_06
+  let fg_colour = hex_to_rgb $hex_piltover_00
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_piltover_13 [text] {
+  let bg_colour = hex_to_rgb $hex_piltover_06
+  let fg_colour = hex_to_rgb $hex_piltover_04
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_piltover_14 [text] {
+  let bg_colour = hex_to_rgb $hex_piltover_06
+  let fg_colour = hex_to_rgb $hex_piltover_05
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_piltover_15 [text] {
+  let bg_colour = hex_to_rgb $hex_piltover_06
+  let fg_colour = hex_to_rgb $hex_piltover_08
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_piltover_16 [text] {
+  let bg_colour = hex_to_rgb $hex_piltover_11
+  let fg_colour = hex_to_rgb $hex_piltover_00
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_piltover_17 [text] {
+  let bg_colour = hex_to_rgb $hex_piltover_11
+  let fg_colour = hex_to_rgb $hex_piltover_04
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_piltover_18 [text] {
+  let bg_colour = hex_to_rgb $hex_piltover_11
+  let fg_colour = hex_to_rgb $hex_piltover_05
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_piltover_19 [text] {
+  let bg_colour = hex_to_rgb $hex_piltover_11
+  let fg_colour = hex_to_rgb $hex_piltover_08
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_shurima_00 [text] {
+  let bg_colour = hex_to_rgb $hex_shurima_01
+  let fg_colour = hex_to_rgb $hex_shurima_00
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_shurima_01 [text] {
+  let bg_colour = hex_to_rgb $hex_shurima_01
+  let fg_colour = hex_to_rgb $hex_shurima_02
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_shurima_02 [text] {
+  let bg_colour = hex_to_rgb $hex_shurima_01
+  let fg_colour = hex_to_rgb $hex_shurima_03
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_shurima_03 [text] {
+  let bg_colour = hex_to_rgb $hex_shurima_01
+  let fg_colour = hex_to_rgb $hex_shurima_06
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_shurima_04 [text] {
+  let bg_colour = hex_to_rgb $hex_shurima_01
+  let fg_colour = hex_to_rgb $hex_shurima_07
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_shurima_05 [text] {
+  let bg_colour = hex_to_rgb $hex_shurima_01
+  let fg_colour = hex_to_rgb $hex_shurima_09
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_shurima_06 [text] {
+  let bg_colour = hex_to_rgb $hex_shurima_01
+  let fg_colour = hex_to_rgb $hex_shurima_10
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_shurima_07 [text] {
+  let bg_colour = hex_to_rgb $hex_shurima_11
+  let fg_colour = hex_to_rgb $hex_shurima_00
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_shurima_08 [text] {
+  let bg_colour = hex_to_rgb $hex_shurima_11
+  let fg_colour = hex_to_rgb $hex_shurima_03
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_shurima_09 [text] {
+  let bg_colour = hex_to_rgb $hex_shurima_11
+  let fg_colour = hex_to_rgb $hex_shurima_06
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_shurima_10 [text] {
+  let bg_colour = hex_to_rgb $hex_shurima_11
+  let fg_colour = hex_to_rgb $hex_shurima_07
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_shurima_11 [text] {
+  let bg_colour = hex_to_rgb $hex_shurima_11
+  let fg_colour = hex_to_rgb $hex_shurima_09
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_shurima_12 [text] {
+  let bg_colour = hex_to_rgb $hex_shurima_11
+  let fg_colour = hex_to_rgb $hex_shurima_10
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_targon_00 [text] {
+  let bg_colour = hex_to_rgb $hex_targon_00
+  let fg_colour = hex_to_rgb $hex_targon_01
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_targon_01 [text] {
+  let bg_colour = hex_to_rgb $hex_targon_00
+  let fg_colour = hex_to_rgb $hex_targon_02
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_targon_02 [text] {
+  let bg_colour = hex_to_rgb $hex_targon_00
+  let fg_colour = hex_to_rgb $hex_targon_08
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_targon_03 [text] {
+  let bg_colour = hex_to_rgb $hex_targon_00
+  let fg_colour = hex_to_rgb $hex_targon_09
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_targon_04 [text] {
+  let bg_colour = hex_to_rgb $hex_targon_04
+  let fg_colour = hex_to_rgb $hex_targon_01
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_targon_05 [text] {
+  let bg_colour = hex_to_rgb $hex_targon_04
+  let fg_colour = hex_to_rgb $hex_targon_02
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_targon_06 [text] {
+  let bg_colour = hex_to_rgb $hex_targon_04
+  let fg_colour = hex_to_rgb $hex_targon_08
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_targon_07 [text] {
+  let bg_colour = hex_to_rgb $hex_targon_04
+  let fg_colour = hex_to_rgb $hex_targon_09
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_targon_08 [text] {
+  let bg_colour = hex_to_rgb $hex_targon_07
+  let fg_colour = hex_to_rgb $hex_targon_01
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_targon_09 [text] {
+  let bg_colour = hex_to_rgb $hex_targon_07
+  let fg_colour = hex_to_rgb $hex_targon_02
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_targon_10 [text] {
+  let bg_colour = hex_to_rgb $hex_targon_07
+  let fg_colour = hex_to_rgb $hex_targon_08
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_targon_11 [text] {
+  let bg_colour = hex_to_rgb $hex_targon_07
+  let fg_colour = hex_to_rgb $hex_targon_09
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_targon_12 [text] {
+  let bg_colour = hex_to_rgb $hex_targon_10
+  let fg_colour = hex_to_rgb $hex_targon_01
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_targon_13 [text] {
+  let bg_colour = hex_to_rgb $hex_targon_10
+  let fg_colour = hex_to_rgb $hex_targon_02
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_targon_14 [text] {
+  let bg_colour = hex_to_rgb $hex_targon_10
+  let fg_colour = hex_to_rgb $hex_targon_08
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_targon_15 [text] {
+  let bg_colour = hex_to_rgb $hex_targon_10
+  let fg_colour = hex_to_rgb $hex_targon_09
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_targon_16 [text] {
+  let bg_colour = hex_to_rgb $hex_targon_11
+  let fg_colour = hex_to_rgb $hex_targon_01
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_targon_17 [text] {
+  let bg_colour = hex_to_rgb $hex_targon_11
+  let fg_colour = hex_to_rgb $hex_targon_02
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_targon_18 [text] {
+  let bg_colour = hex_to_rgb $hex_targon_11
+  let fg_colour = hex_to_rgb $hex_targon_08
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_targon_19 [text] {
+  let bg_colour = hex_to_rgb $hex_targon_11
+  let fg_colour = hex_to_rgb $hex_targon_09
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+def dark_code_zaun_01 [text] {
+  let bg_colour = hex_to_rgb $hex_zaun_01
+  let fg_colour = hex_to_rgb $hex_zaun_02
+  $"\e[($bg);($bg_colour);($frg);($fg_colour)($m)($text)($nc)"
+}
+
+# let colour = hex_to_rgb $hex_itau_empresas_00
+# print $colour
+
+# print $"(italico '🇬🇧 Hello world!')"
+# print $"(negrito '🇬🇧 Hello world!')"
+# print $"(itau_empresas_00 '🇬🇧 Hello world!')"
+# print $"(itau_empresas_01 '🇬🇧 Hello world!')"
+# print $"(itau_empresas_02 '🇬🇧 Hello world!')"
+# print $"(itau_empresas_03 '🇬🇧 Hello world!')"
+# print $"(itau_empresas_04 '🇬🇧 Hello world!')"
+# print $"(dark_code_itau_empresas_00 '🇬🇧 Hello world!')"
+# print $"(dark_code_itau_empresas_01 '🇬🇧 Hello world!')"
+# print $"(negrito (itau_empresas_02 '🇬🇧 Hello world!'))"
+# print $"(italico (itau_empresas_03 '🇬🇧 Hello world!'))"
+# print $"(negrito (italico (itau_empresas_01 '🇬🇧 Hello world!')))"

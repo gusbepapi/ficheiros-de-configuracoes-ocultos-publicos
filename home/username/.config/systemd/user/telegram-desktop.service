@@ -1,0 +1,12 @@
+[Unit]
+Description=Telegram Desktop client
+PartOf=graphical-session.target
+After=graphical-session.target
+ConditionEnvironment=WAYLAND_DISPLAY
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/env telegram-desktop -startintray
+
+[Install]
+WantedBy=graphical-session.target

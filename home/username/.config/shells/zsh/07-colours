@@ -1,0 +1,5 @@
+#
+# Sourcing the Bash version, which is also valid in zsh
+#
+
+source "$HOME/.config/shells/bash/07-colours"

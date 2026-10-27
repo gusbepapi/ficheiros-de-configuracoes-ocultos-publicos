@@ -1,0 +1,16 @@
+[Unit]
+Description=Colour temperature adjustment with wlsunset
+Documentation=man:wlsunset(1)
+PartOf=graphical-session.target
+After=graphical-session.target
+ConditionEnvironment=WAYLAND_DISPLAY
+# Enable only one of gammastep.service and wlsunset.service
+Conflicts=gammastep.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/env wlsunset -l 60.19 -L 24.94 -t 4500 -T 6500
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target

@@ -1,0 +1,161 @@
+#!/usr/bin/env nu
+
+# 🇬🇧 Translations
+# 🇫🇷 Traductions
+# 🇮🇹 Traduzioni
+# 🇪🇸 Traducciones
+# 🇵🇹 Traduções
+# 🇩🇪 Übersetzen
+# 🇳🇱 Vertalingen
+# 🏴󠁥󠁳󠁣󠁴󠁿 Traduccions
+# 🇷🇴 Traduceri
+# 🇬🇷 Μεταφράσεις
+# 🇬🇪 თარგმანები
+# 🇺🇦 Переклади
+
+# 🇬🇧 Getting the first two characters of the `LANG` variable
+# 🇫🇷 Récupération des deux premiers caractères de la variable `LANG`
+# 🇪🇸 Obteniendo los dos primeros caracteres de la variable `LANG`
+# 🇮🇹 Ottenere i primi due caratteri della variabile `LANG`
+# 🇵🇹 A obter os primeiros dois caracteres da variável `LANG`
+# 🇩🇪 Die ersten beiden Zeichen der `LANG`-Variablen abrufen
+# 🇳🇱 De eerste twee tekens van de `LANG`-variabele ophalen
+# 🏴󠁥󠁳󠁣󠁴󠁿 Obtenint els dos primers caràcters de la variable `LANG`
+# 🇷🇴 Obținerea primelor două caractere ale variabilei `LANG`
+# 🇬🇷 Λαμβάνοντας τους πρώτους δύο χαρακτήρες της μεταβλητής `LANG`
+# 🇬🇪 `LANG` ცვლადის პირველი ორი სიმბოლოს მიღება
+# 🇺🇦 Отримання перших двох символів змінної `LANG`
+let translations = {
+  "ca": 
+  {
+    "cannot_extract_error": "no es pot extreure mitjançant la funció ex()",
+    "invalid_format_error": "no és un fitxer vàlid",
+    "ethernet_up_label": "Excel·lent",
+    "ethernet_lower_up_label": "Regular",
+    "ethernet_down_label": "Dolent",
+  },
+  "de": 
+  {
+    "cannot_extract_error": "kann nicht über die Funktion ex() extrahiert werden",
+    "invalid_format_error": "ist keine gültige Datei",
+    "ethernet_up_label": "Großartig",
+    "ethernet_lower_up_label": "Regelmäßig",
+    "ethernet_down_label": "Schlecht",
+  },
+  "el": 
+  {
+    "cannot_extract_error": "δεν μπορεί να εξαχθεί μέσω της συνάρτησης ex()",
+    "invalid_format_error": "δεν είναι έγκυρο αρχείο",
+    "ethernet_up_label": "Υπέροχο",
+    "ethernet_lower_up_label": "Κανονικό",
+  },
+  "es": 
+  {
+    "cannot_extract_error": "no se puede extraer el archivo via la función ex()",
+    "invalid_format_error": "no es un formato válido",
+    "ethernet_up_label": "Excelente",
+    "ethernet_lower_up_label": "Bueno",
+    "ethernet_down_label": "Malo",
+  },
+  "fr": 
+  {
+    "cannot_extract_error": "ne peut pas être extrait via la fonction ex()",
+    "invalid_format_error": "n’est pas un fichier valide",
+    "ethernet_up_label": "Super",
+    "ethernet_lower_up_label": "Régulier",
+    "ethernet_down_label": "Mauvais",
+  },
+  "it":
+  {
+    "cannot_extract_error": "non può essere estratto tramite la funzione ex()",
+    "invalid_format_error": "non è un file valido",
+    "ethernet_up_label": "Ottimo",
+    "ethernet_lower_up_label": "Regolare",
+    "ethernet_down_label": "Cattivo",
+  },
+  "ka":
+  {
+    "cannot_extract_error": "არ შეიძლება ამოღება ფუნქციის ex() საშუალებით",
+    "invalid_format_error": "არ არის ვალიდური ფაილი",
+    "ethernet_up_label": "შესანიშნავი",
+    "ethernet_lower_up_label": "რეგულარული",
+    "ethernet_down_label": "ცუდი",
+  },
+  "nl":
+  {
+    "cannot_extract_error": "kan niet worden geëxtraheerd via de functie ex()",
+    "invalid_format_error": "is geen geldig bestand",
+    "ethernet_up_label": "Geweldig",
+    "ethernet_lower_up_label": "Regulier",
+    "ethernet_down_label": "Slecht",
+  },
+  "pt":
+  {
+    "cannot_extract_error": "não pode ser extraído via a função ex()",
+    "invalid_format_error": "não é um ficheiro válido",
+    "ethernet_up_label": "Ótimo",
+    "ethernet_lower_up_label": "Regular",
+    "ethernet_down_label": "Mau",
+  },
+  "pt_BR":
+  {
+    "cannot_extract_error": "não pode ser extraído via a função ex()",
+    "invalid_format_error": "não é um arquivo válido",
+    "ethernet_up_label": "Ótimo",
+    "ethernet_lower_up_label": "Regular",
+    "ethernet_down_label": "Ruim",
+  },
+  # 🇬🇧 Assuming default English
+  # 🇫🇷 Supposons l’anglais par défaut
+  # 🇪🇸 Suponiendo inglés por defecto
+  # 🇮🇹 Assumendo l’inglese predefinito
+  # 🇵🇹 A assumir ou supôr o inglês padrão
+  # 🇩🇪 Standard-Englisch annehmen
+  # 🇳🇱 Standaard Engels aannemen
+  # 🏴󠁥󠁳󠁣󠁴󠁿 Suposant anglès per defecte
+  # 🇷🇴 Presupunând engleza implicit
+  # 🇬🇷 Υποθέτοντας την προεπιλεγμένη αγγλική
+  # 🇬🇪 ინგლისური როგორც დეფოლტი
+  # 🇺🇦 Припускаючи англійську за замовчуванням
+  _: 
+  {
+    "cannot_extract_error": "cannot be extracted via the ex() function",
+    "invalid_format_error": "is not a valid file",
+    "ethernet_up_label": "Great",
+    "ethernet_lower_up_label": "Regular",
+    "ethernet_down_label": "Bad",
+  }
+}
+
+# let lang = if ($env.LANG =~ 'ca') { "ca" 
+#   } else if ($env.LANG =~ 'de') { "de" 
+#   } else if ($env.LANG =~ 'el') { "el" 
+#   } else if ($env.LANG =~ 'es') { "es" 
+#   } else if ($env.LANG =~ 'fr') { "fr" 
+#   } else if ($env.LANG =~ 'it') { "it" 
+#   } else if ($env.LANG =~ 'ka') { "ka" 
+#   } else if ($env.LANG =~ 'nl') { "nl" 
+#   } else if ($env.LANG =~ 'pt_BR') { "pt_BR" 
+#   } else if ($env.LANG =~ 'pt') { "pt" 
+#   } else { "_" }
+
+let lang = match $env.LANG {
+  $it if $it =~ '^ca' => "ca"
+  $it if $it =~ '^de' => "de"
+  $it if $it =~ '^el' => "el"
+  $it if $it =~ '^es' => "es"
+  $it if $it =~ '^fr' => "fr"
+  $it if $it =~ '^it' => "it"
+  $it if $it =~ '^ka' => "ka"
+  $it if $it =~ '^nl' => "nl"
+  $it if $it =~ '^pt_BR' => "pt_BR"
+  $it if $it =~ '^pt' => "pt"
+  $it if $it =~ '_' => "_"
+}
+
+# Now you can access the variables from the translations object
+let cannot_extract_error = $translations | get $lang | get cannot_extract_error
+let invalid_format_error = $translations | get $lang | get invalid_format_error
+let ethernet_up_label = $translations | get $lang | get ethernet_up_label
+let ethernet_lower_up_label = $translations | get $lang | get ethernet_lower_up_label
+let ethernet_down_label = $translations | get $lang | get ethernet_down_label

@@ -1,0 +1,11 @@
+[Unit]
+Description=Secret storage of the GNOME keyring
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/env gnome-keyring-daemon --start --foreground --components=secrets
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target

@@ -1,9 +1,0 @@
-#!/usr/bin/env xdg-open
-[Desktop Entry]
-Version=1.0
-Terminal=false
-Type=Application
-Name=Sticky Notes
-Exec=/opt/google/chrome-unstable/google-chrome-unstable --profile-directory=Default --app-id=nbjdhgkkhefpifbifjiflpaajchdkhpg
-Icon=chrome-nbjdhgkkhefpifbifjiflpaajchdkhpg-Default
-StartupWMClass=crx_nbjdhgkkhefpifbifjiflpaajchdkhpg

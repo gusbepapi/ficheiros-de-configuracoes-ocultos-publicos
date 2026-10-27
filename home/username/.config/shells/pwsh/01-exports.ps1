@@ -146,6 +146,34 @@ function Import-EnvFile
   }
 }
 
+# Setting the favourite terminal editor, using the first one that is installed
+foreach ($editor in 'msedit', 'micro', 'nano')
+{
+  if (Get-Command $editor -ErrorAction SilentlyContinue)
+  {
+    $env:EDITOR = $editor
+    break
+  }
+}
+
+# Setting the browsers
+$env:BROWSER = 'firefox-nightly'
+$env:CHROME_BIN = 'google-chrome-unstable'
+$env:EDGE_BIN = 'microsoft-edge-dev'
+$env:FIREFOX_BIN = 'firefox-nightly'
+$env:FIREFOX_NIGHTLY_BIN = 'firefox-nightly'
+
+# Enabling the Rust backtraces
+$env:RUST_BACKTRACE = '1'
+
+# Adding PNPM to the path
+$pnpmHome = Join-Path $HOME '.local/share/pnpm'
+if (Test-Path $pnpmHome)
+{
+  $env:PNPM_HOME = $pnpmHome
+  $env:PATH = "${pnpmHome}:$env:PATH"
+}
+
 # Loading the public, private and secret environment variables
 Import-EnvFile (Join-Path $HOME '.env')
 Import-EnvFile (Join-Path $HOME '.env.private')

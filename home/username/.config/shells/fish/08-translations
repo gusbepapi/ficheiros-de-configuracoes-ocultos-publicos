@@ -1,0 +1,121 @@
+#!/usr/bin/env fish
+
+# 🇬🇧 Translations
+# 🇫🇷 Traductions
+# 🇮🇹 Traduzioni
+# 🇪🇸 Traducciones
+# 🇵🇹 Traduções
+# 🇩🇪 Übersetzen
+# 🇳🇱 Vertalingen
+# 🏴󠁥󠁳󠁣󠁴󠁿 Traduccions
+# 🇷🇴 Traduceri
+# 🇬🇷 Μεταφράσεις
+# 🇬🇪 თარგმანები
+# 🇺🇦 Переклади
+
+# 🇬🇧 Getting the first two characters of the `LANG` variable
+# 🇫🇷 Récupération des deux premiers caractères de la variable `LANG`
+# 🇪🇸 Obteniendo los dos primeros caracteres de la variable `LANG`
+# 🇮🇹 Ottenere i primi due caratteri della variabile `LANG`
+# 🇵🇹 A obter os primeiros dois caracteres da variável `LANG`
+# 🇩🇪 Die ersten beiden Zeichen der `LANG`-Variablen abrufen
+# 🇳🇱 De eerste twee tekens van de `LANG`-variabele ophalen
+# 🏴󠁥󠁳󠁣󠁴󠁿 Obtenint els dos primers caràcters de la variable `LANG`
+# 🇷🇴 Obținerea primelor două caractere ale variabilei `LANG`
+# 🇬🇷 Λαμβάνοντας τους πρώτους δύο χαρακτήρες της μεταβλητής `LANG`
+# 🇬🇪 `LANG` ცვლადის პირველი ორი სიმბოლოს მიღება
+# 🇺🇦 Отримання перших двох символів змінної `LANG`
+set curlang (string split -m 1 "_" $LANG)[1]
+
+switch $curlang
+  case "ca"
+    set cannot_extract_error "no es pot extreure mitjançant la funció ex()"
+    set invalid_format_error "no és un fitxer vàlid"
+    set ethernet_up_label "Excel·lent"
+    set ethernet_lower_up_label "Regular"
+    set ethernet_down_label "Dolent"
+  case "de"
+    set cannot_extract_error "kann nicht über die Funktion ex() extrahiert werden"
+    set invalid_format_error "ist keine gültige Datei"
+    set ethernet_up_label "Großartig"
+    set ethernet_lower_up_label "Regelmäßig"
+    set ethernet_down_label "Schlecht"
+  case "el"
+    set cannot_extract_error "δεν μπορεί να εξαχθεί μέσω της συνάρτησης ex()"
+    set invalid_format_error "δεν είναι έγκυρο αρχείο"
+    set ethernet_up_label "Υπέροχο"
+    set ethernet_lower_up_label "Κανονικό"
+    set ethernet_down_label "Κακό"
+  case "es"
+    set cannot_extract_error "no se puede extraer el archivo via la función ex()"
+    set invalid_format_error "no es un formato válido"
+    set ethernet_up_label "Excelente"
+    set ethernet_lower_up_label "Bueno"
+    set ethernet_down_label "Malo"
+  case "fr"
+    set cannot_extract_error "ne peut pas être extrait via la fonction ex()"
+    set invalid_format_error "n’est pas un fichier valide"
+    set ethernet_up_label "Super"
+    set ethernet_lower_up_label "Régulier"
+    set ethernet_down_label "Mauvais"
+  case "it"
+    set cannot_extract_error "non può essere estratto tramite la funzione ex()"
+    set invalid_format_error "non è un file valido"
+    set ethernet_up_label "Ottimo"
+    set ethernet_lower_up_label "Regolare"
+    set ethernet_down_label "Cattivo"
+  case "ka"
+    set cannot_extract_error "არ შეიძლება ამოღება ფუნქციის ex() საშუალებით"
+    set invalid_format_error "არ არის ვალიდური ფაილი"
+    set ethernet_up_label "შესანიშნავი"
+    set ethernet_lower_up_label "რეგულარული"
+    set ethernet_down_label "ცუდი"
+  case "nl"
+    set cannot_extract_error "kan niet worden geëxtraheerd via de functie ex()"
+    set invalid_format_error "is geen geldig bestand"
+    set ethernet_up_label "Geweldig"
+    set ethernet_lower_up_label "Regulier"
+    set ethernet_down_label "Slecht"
+  case "pt"
+    set cannot_extract_error "não pode ser extraído via a função ex()"
+    set invalid_format_error "não é um ficheiro válido"
+    set ethernet_up_label "Ótimo"
+    set ethernet_lower_up_label "Regular"
+    set ethernet_down_label "Mau"
+  case "pt_BR"
+    set cannot_extract_error "não pode ser extraído via a função ex()"
+    set invalid_format_error "não é um arquivo válido"
+    set ethernet_up_label "Ótimo"
+    set ethernet_lower_up_label "Regular"
+    set ethernet_down_label "Ruim"
+  case "ro"
+    set cannot_extract_error "nu poate fi extras prin funcția ex()"
+    set invalid_format_error "nu este un fișier valid"
+    set ethernet_up_label "Excelent"
+    set ethernet_lower_up_label "Regulat"
+    set ethernet_down_label "Rău"
+  case "uk"
+    setcannot_extract_error "не може бути витягнуто за допомогою функції ex()"
+    setinvalid_format_error "не є дійсним файлом"
+    setethernet_up_label "Чудово"
+    setethernet_lower_up_label "Звичайно"
+    setethernet_down_label "Погано"
+  case "*"
+    # 🇬🇧 Assuming default English
+    # 🇫🇷 Supposons l’anglais par défaut
+    # 🇪🇸 Suponiendo inglés por defecto
+    # 🇮🇹 Assumendo l’inglese predefinito
+    # 🇵🇹 A assumir ou supôr o inglês padrão
+    # 🇩🇪 Standard-Englisch annehmen
+    # 🇳🇱 Standaard Engels aannemen
+    # 🏴󠁥󠁳󠁣󠁴󠁿 Suposant anglès per defecte
+    # 🇷🇴 Presupunând engleza implicit
+    # 🇬🇷 Υποθέτοντας την προεπιλεγμένη αγγλική
+    # 🇬🇪 ინგლისური როგორც დეფოლტი
+    # 🇺🇦 Припускаючи англійську за замовчуванням
+    set cannot_extract_error "cannot be extracted via the ex() function"
+    set invalid_format_error "is not a valid file"
+    set ethernet_up_label "Great"
+    set ethernet_lower_up_label "Regular"
+    set ethernet_down_label "Bad"
+end

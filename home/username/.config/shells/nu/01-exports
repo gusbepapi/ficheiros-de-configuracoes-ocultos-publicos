@@ -105,6 +105,31 @@ def --env load-env-file [file: path] {
   $pairs | reduce --fold {} {|row, acc| $acc | insert $row.key $row.value } | load-env
 }
 
+# Setting the favourite terminal editor, using the first one that is installed
+for editor in [msedit micro nano] {
+  if (which $editor | is-not-empty) {
+    $env.EDITOR = $editor
+    break
+  }
+}
+
+# Setting the browsers
+$env.BROWSER = "firefox-nightly"
+$env.CHROME_BIN = "google-chrome-unstable"
+$env.EDGE_BIN = "microsoft-edge-dev"
+$env.FIREFOX_BIN = "firefox-nightly"
+$env.FIREFOX_NIGHTLY_BIN = "firefox-nightly"
+
+# Enabling the Rust backtraces
+$env.RUST_BACKTRACE = "1"
+
+# Adding PNPM to the path
+let pnpm_home = ($env.HOME | path join ".local" "share" "pnpm")
+if ($pnpm_home | path exists) {
+  $env.PNPM_HOME = $pnpm_home
+  $env.PATH = ($env.PATH | prepend $pnpm_home)
+}
+
 # Loading the public, private and secret environment variables
 load-env-file ($env.HOME | path join ".env")
 load-env-file ($env.HOME | path join ".env.private")

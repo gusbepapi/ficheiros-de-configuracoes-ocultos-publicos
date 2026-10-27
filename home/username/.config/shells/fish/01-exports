@@ -107,6 +107,35 @@ function _load_env_file
   end
 end
 
+# Setting the favourite terminal editor, using the first one that is installed
+for editor in msedit micro nano
+  if type -q $editor
+    set -gx EDITOR $editor
+    break
+  end
+end
+
+# Setting the browsers
+set -gx BROWSER firefox-nightly
+set -gx CHROME_BIN google-chrome-unstable
+set -gx EDGE_BIN microsoft-edge-dev
+set -gx FIREFOX_BIN firefox-nightly
+set -gx FIREFOX_NIGHTLY_BIN firefox-nightly
+
+# Enabling the Rust backtraces
+set -gx RUST_BACKTRACE 1
+
+# Adding PNPM to the path
+if test -d $HOME/.local/share/pnpm
+  set -gx PNPM_HOME $HOME/.local/share/pnpm
+  fish_add_path --path $PNPM_HOME
+end
+
+# Initialising rbenv when it is installed
+if test -x $HOME/.rbenv/bin/rbenv
+  $HOME/.rbenv/bin/rbenv init - fish | source
+end
+
 # Loading the public, private and secret environment variables
 _load_env_file $HOME/.env
 _load_env_file $HOME/.env.private

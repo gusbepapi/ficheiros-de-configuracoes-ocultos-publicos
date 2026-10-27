@@ -1,0 +1,136 @@
+#!/usr/bin/env bash
+
+# Testing the modular fontconfig files of `~/.config/fontconfig`, and reporting each check as a pass or a fail
+#
+# Usage
+#   test-the-fontconfig [directory]
+#
+# The `directory` argument is the fontconfig directory to test; the default is `~/.config/fontconfig`
+# The script copies the directory to a temporary `XDG_CONFIG_HOME`, so the real configuration is never changed
+# Requires: fontconfig (`fc-pattern`, `fc-list`) and xmllint
+
+set -u
+
+source_directory="${1:-${HOME}/.config/fontconfig}"
+passed=0
+failed=0
+
+# Reporting a check
+check()
+{
+  local description="$1"
+  local result="$2"
+
+  if [ "${result}" -eq 0 ];
+  then
+    printf 'pass  %s\n' "${description}"
+    passed=$((passed + 1))
+  else
+    printf 'FAIL  %s\n' "${description}"
+    failed=$((failed + 1))
+  fi
+}
+
+# Printing the family list of a generic name after the configuration, one family per line
+families_of()
+{
+  fc-pattern -c -f '%{family}\n' "$1" 2>/dev/null | tr ',' '\n'
+}
+
+# Checking that the listed families appear in the given order, without requiring them to be adjacent
+in_order()
+{
+  local generic="$1"
+  shift
+  local listing
+  listing="$(families_of "${generic}")"
+  local previous=0
+  local family
+  local position
+
+  for family in "$@";
+  do
+    position="$(printf '%s\n' "${listing}" | grep -n -x -F -m1 -- "${family}" | cut -d: -f1)"
+    if [ -z "${position}" ] || [ "${position}" -le "${previous}" ];
+    then
+      return 1
+    fi
+    previous="${position}"
+  done
+  return 0
+}
+
+temporary="$(mktemp -d)"
+trap 'rm -rf "${temporary}"' EXIT
+mkdir -p "${temporary}/fontconfig"
+cp -a "${source_directory}/." "${temporary}/fontconfig/"
+export XDG_CONFIG_HOME="${temporary}"
+
+# 1. Validating the files
+well_formed=0
+for file in "${temporary}"/fontconfig/fonts.conf "${temporary}"/fontconfig/conf.d/*.conf;
+do
+  xmllint --noout "${file}" 2>/dev/null || well_formed=1
+done
+check 'every file is well-formed XML' "${well_formed}"
+
+# 2. Checking the numeric prefixes, which must run from 00 without gaps
+expected=0
+sequence=0
+for file in "${temporary}"/fontconfig/conf.d/*.conf;
+do
+  prefix="$(basename "${file}" | cut -c1-2)"
+  if [ "${prefix}" != "$(printf '%02d' "${expected}")" ];
+  then
+    sequence=1
+  fi
+  expected=$((expected + 1))
+done
+check 'the numeric prefixes run from 00 without gaps' "${sequence}"
+
+# 3. Checking the order of the preferences
+in_order sans-serif "Ǣċesuperāluese Moderne LGBT" "Adwaita Sans" "DejaVu Sans" "Liberation Sans"
+check 'sans-serif: the preferred sans font comes first, then the fallbacks in order' "$?"
+
+in_order serif "Ǣċesuperāluese Antiqua LGBT" "DejaVu Serif" "Liberation Serif"
+check 'serif: the preferred serif font comes first, then the fallbacks in order' "$?"
+
+in_order monospace "Adwaita Mono" "DejaVu Sans Mono" "Liberation Mono"
+check 'monospace: the preferred monospace font comes first, then the fallbacks in order' "$?"
+
+in_order emoji "OpenMoji Color" "Twitter Color Emoji"
+check 'emoji: the preferred emoji font comes first, then the other emoji fonts' "$?"
+
+for generic in sans-serif serif monospace;
+do
+  case "${generic}" in
+    sans-serif) last="Liberation Sans" ;;
+    serif) last="Liberation Serif" ;;
+    *) last="Liberation Mono" ;;
+  esac
+  in_order "${generic}" "${last}" "OpenMoji Color"
+  check "${generic}: the emoji fonts come after the text fonts, so letters and digits are never drawn by an emoji font" "$?"
+done
+
+# 4. Checking the browser and interface names
+first="$(fc-pattern -c -f '%{family}\n' ':family=system-ui' 2>/dev/null | tr ',' '\n' | head -n1)"
+[ "${first}" = "Adwaita Sans" ]
+check 'system-ui: the interface font comes first' "$?"
+
+in_order Arial "Ǣċesuperāluese Moderne LGBT" "Adwaita Sans" "DejaVu Sans" "Liberation Sans"
+check 'Arial: the name is mapped to the sans preferences, before any other font' "$?"
+
+# 5. Checking that the pre-installed fonts are hidden, apart from the allowed fallbacks
+hidden=0
+if fc-list : family file | grep -i -E '/noto|^Noto|: Noto' >/dev/null 2>&1;
+then
+  hidden=1
+fi
+check 'the Noto fonts do not appear in the font list' "${hidden}"
+
+leaks="$(fc-list : family file | grep -E '^/usr/(local/)?share/fonts/' | grep -c -v -E 'Adwaita|DejaVu|Liberation')"
+[ "${leaks}" -eq 0 ]
+check 'no pre-installed font outside the allow-list appears in the font list' "$?"
+
+printf '\n%d passed, %d failed\n' "${passed}" "${failed}"
+[ "${failed}" -eq 0 ]

@@ -1,0 +1,13 @@
+[Unit]
+Description=KDE Connect tray indicator
+PartOf=graphical-session.target
+After=graphical-session.target
+ConditionEnvironment=WAYLAND_DISPLAY
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/env kdeconnect-indicator
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target

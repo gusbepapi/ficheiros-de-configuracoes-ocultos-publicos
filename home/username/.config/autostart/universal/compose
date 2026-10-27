@@ -1,4 +1,0 @@
-#!/bin/bash
-
-sleep 5
-/usr/bin/xmodmap -e "keycode 118=Multi_key"

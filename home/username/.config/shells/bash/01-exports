@@ -124,3 +124,42 @@ if [ -f "$HOME/.env.secrets" ];
 then
   source "$HOME/.env.secrets"
 fi
+
+# Setting the favourite terminal editor, using the first one that is installed
+for editor in msedit micro nano;
+do
+  if command -v "${editor}" >/dev/null 2>&1;
+  then
+    export EDITOR="${editor}"
+    break
+  fi
+done
+unset editor
+
+# Setting the browsers
+export BROWSER="firefox-nightly"
+export CHROME_BIN="google-chrome-unstable"
+export EDGE_BIN="microsoft-edge-dev"
+export FIREFOX_BIN="firefox-nightly"
+export FIREFOX_NIGHTLY_BIN="firefox-nightly"
+
+# Enabling the Rust backtraces
+export RUST_BACKTRACE=1
+
+# Adding PNPM to the path
+if [ -d "$HOME/.local/share/pnpm" ];
+then
+  export PNPM_HOME="$HOME/.local/share/pnpm"
+  export PATH="$PNPM_HOME:$PATH"
+fi
+
+# Initialising rbenv when it is installed
+if [ -x "$HOME/.rbenv/bin/rbenv" ];
+then
+  if [ -n "$ZSH_VERSION" ];
+  then
+    eval "$("$HOME/.rbenv/bin/rbenv" init - zsh)"
+  else
+    eval "$("$HOME/.rbenv/bin/rbenv" init - bash)"
+  fi
+fi

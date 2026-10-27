@@ -1,0 +1,6 @@
+[Unit]
+Description=Removing the files older than a week from the trash can
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/env trash-empty 7

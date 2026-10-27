@@ -1,0 +1,17 @@
+[Desktop Entry]
+Type=Service
+Actions=copy-path
+MimeType=all/allfiles;inode/directory;
+X-KDE-ServiceTypes=KonqPopupMenu/Plugin
+X-KDE-Priority=TopLevel
+
+[Desktop Action copy-path]
+Name=Copy path
+Name[pt_PT]=Copiar o caminho
+Name[pt_BR]=Copiar o caminho
+Name[es]=Copiar la ruta
+Name[fr]=Copier le chemin
+Name[it]=Copia il percorso
+Name[de]=Pfad kopieren
+Icon=edit-copy
+Exec=sh -c 'printf "%s" "$(printf "%s\n" "$@")" | wl-copy' sh %F
