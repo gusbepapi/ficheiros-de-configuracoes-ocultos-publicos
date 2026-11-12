@@ -1,0 +1,13 @@
+# Disabling the `PS2K` wake source, which raises a false wake request when no PS/2 keyboard is attached
+# A write to `/proc/acpi/wakeup` toggles the source, so the guard writes only while the source is enabled
+# Enabling it: `sudo systemctl enable disable-ps2k-wakeup.service`
+
+[Unit]
+Description=Disabling the false PS2K wake source
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c 'grep -q "^PS2K.*enabled" /proc/acpi/wakeup && echo PS2K > /proc/acpi/wakeup || true'
+
+[Install]
+WantedBy=multi-user.target

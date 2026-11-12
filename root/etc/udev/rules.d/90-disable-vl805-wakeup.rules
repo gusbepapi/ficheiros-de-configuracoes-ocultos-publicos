@@ -1,0 +1,4 @@
+# 🇬🇧 Disabling the wake permission of the VIA VL805/806 USB controller, which raises false wake requests and wakes the machine at once after a suspend
+# 🇵🇹 Desactivar a permissão de despertar do controlador USB VIA VL805/806, que emite falsos pedidos de despertar e acorda a máquina logo após a suspensão
+# 🇪🇸 Desactivar el permiso de despertar del controlador USB VIA VL805/806, que emite falsas solicitudes de despertar y despierta la máquina justo después de la suspensión
+ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x1106", ATTR{device}=="0x3483", ATTR{power/wakeup}="disabled"

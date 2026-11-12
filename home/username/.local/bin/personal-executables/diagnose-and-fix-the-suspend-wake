@@ -1,0 +1,165 @@
+#!/usr/bin/env bash
+#
+# diagnose-and-fix-the-suspend-wake
+#
+# Keeping the commands that found and fixed a machine that woke at once after
+# `systemctl suspend`: the fans and the lights came back within seconds, while
+# the screen stayed dark
+#
+# What the diagnosis found on the desktop with the Biostar X370GT7 board
+#   The kernel suspended and resumed correctly (S3, `deep`); a hardware wake
+#   line fired the instant the machine slept. Two sources raised false wake
+#   requests: the VIA VL805/806 USB controller [1106:3483] and `PS2K`. Neither
+#   the desktop (Hyprland or Plasma) nor `amdgpu` was at fault
+#
+# The permanent fix is two system files, kept in this repository
+#   /etc/udev/rules.d/90-disable-vl805-wakeup.rules
+#   /etc/systemd/system/disable-ps2k-wakeup.service
+#
+# Usage
+#   diagnose-and-fix-the-suspend-wake status       shows the suspend mode, the wake sources and the board
+#   diagnose-and-fix-the-suspend-wake log          shows the suspend and resume messages of this boot
+#   diagnose-and-fix-the-suspend-wake before       records the ACPI event counters before a suspend
+#   diagnose-and-fix-the-suspend-wake after        records them again and shows what changed
+#   diagnose-and-fix-the-suspend-wake silence      disables every wake source until the next reboot
+#   diagnose-and-fix-the-suspend-wake install DIR  installs the two system files from DIR (the `root` folder of the repository)
+#   diagnose-and-fix-the-suspend-wake verify       checks both settings after a reboot
+#
+# How to read `after`
+#   A `gpeXX` counter that rose by one names the hardware line that woke the
+#   machine; `grep -H enabled` then lists the devices still allowed to wake it.
+#   No counter changing means that the firmware leaves S3 by itself
+#
+# Saving this file as ~/.local/bin/personal-executables/diagnose-and-fix-the-suspend-wake
+# and running `chmod +x` on it is all that the installation requires
+
+set -euo pipefail
+
+state="${XDG_STATE_HOME:-$HOME/.local/state}/suspend-wake"
+
+show_status()
+{
+  # Checking the running kernel and the available suspend modes
+  uname -r
+  cat /sys/power/mem_sleep
+
+  # Listing the ACPI wake sources
+  cat /proc/acpi/wakeup
+
+  # Listing every device that is still allowed to wake the machine
+  grep -H enabled /sys/bus/usb/devices/*/power/wakeup /sys/bus/pci/devices/*/power/wakeup || true
+
+  # Identifying the motherboard and dating its firmware
+  sudo dmidecode -s baseboard-product-name
+  sudo dmidecode -s bios-release-date
+
+  # Showing which disc and transport hold the root file system
+  lsblk -o NAME,TRAN,SIZE,MOUNTPOINTS
+}
+
+show_log()
+{
+  # Reading the suspend and resume messages of the current boot
+  sudo journalctl -b 0 -k --no-pager | grep -iE "PM: |wakeup|amdgpu.*(suspend|resume|fail|error)" | grep -v nosave | tail -n 40
+
+  # Reading the interrupt that caused the wake, when the kernel recorded one
+  cat /sys/power/pm_wakeup_irq || true
+}
+
+record_before()
+{
+  # Recording the ACPI event counters before suspending
+  mkdir -p "$state"
+  grep -H . /sys/firmware/acpi/interrupts/* > "$state/gpe-before.txt"
+  echo "Recorded; now run: systemctl suspend"
+}
+
+record_after()
+{
+  # Recording the counters again and showing only what changed
+  grep -H . /sys/firmware/acpi/interrupts/* > "$state/gpe-after.txt"
+  diff "$state/gpe-before.txt" "$state/gpe-after.txt" || true
+
+  # Listing every device that is still allowed to wake the machine
+  grep -H enabled /sys/bus/usb/devices/*/power/wakeup /sys/bus/pci/devices/*/power/wakeup || true
+}
+
+silence_all()
+{
+  # Disabling every enabled ACPI wake source; a write toggles a source, so only the enabled ones are written
+  local device
+  for device in $(awk '$3 == "*enabled" { print $1 }' /proc/acpi/wakeup)
+  do
+    echo "$device" | sudo tee /proc/acpi/wakeup > /dev/null
+  done
+
+  # Disabling the wake permission of every PCI and USB device that still has it; these files take an explicit value
+  local file
+  for file in /sys/bus/pci/devices/*/power/wakeup /sys/bus/usb/devices/*/power/wakeup
+  do
+    if [ "$(cat "$file" 2> /dev/null)" = "enabled" ]
+    then
+      echo disabled | sudo tee "$file" > /dev/null
+    fi
+  done
+
+  cat /proc/acpi/wakeup
+  echo "Only the power button wakes the machine until the next reboot"
+}
+
+install_files()
+{
+  local source="${1:?give the root folder of the repository}"
+  local rule="etc/udev/rules.d/90-disable-vl805-wakeup.rules"
+  local unit="etc/systemd/system/disable-ps2k-wakeup.service"
+  local file
+
+  # Refusing to install on a machine without the controller, because the rule would do nothing there
+  if ! lspci -nn | grep -q "\[1106:3483\]"
+  then
+    echo "The VIA VL805/806 controller [1106:3483] is not present; nothing was installed" >&2
+    exit 1
+  fi
+
+  for file in "$rule" "$unit"
+  do
+    # Never replacing a system file that differs without showing the difference first
+    if [ -e "/$file" ] && ! cmp -s "$source/$file" "/$file"
+    then
+      echo "/$file exists and differs; compare it by hand:" >&2
+      diff "$source/$file" "/$file" >&2 || true
+      exit 1
+    fi
+    sudo install -D -m 0644 "$source/$file" "/$file"
+  done
+
+  sudo systemctl daemon-reload
+  sudo systemctl enable disable-ps2k-wakeup.service
+  echo "Installed; restart the machine, then run: $(basename "$0") verify"
+}
+
+verify_fix()
+{
+  # Verifying both settings after the reboot; the controller is matched by its identifiers, not by its bus address
+  local device
+  for device in /sys/bus/pci/devices/*
+  do
+    if [ "$(cat "$device/vendor")" = "0x1106" ] && [ "$(cat "$device/device")" = "0x3483" ]
+    then
+      echo "$(basename "$device"): $(cat "$device/power/wakeup")"
+    fi
+  done
+  grep PS2K /proc/acpi/wakeup
+  echo "Both must read disabled; then run: systemctl suspend"
+}
+
+case "${1:-}" in
+  status)  show_status ;;
+  log)     show_log ;;
+  before)  record_before ;;
+  after)   record_after ;;
+  silence) silence_all ;;
+  install) install_files "${2:-}" ;;
+  verify)  verify_fix ;;
+  *)       sed -n '3,36p' "$0" | sed 's/^# \{0,1\}//' ; exit 1 ;;
+esac
